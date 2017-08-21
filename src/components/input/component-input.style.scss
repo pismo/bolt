@@ -1,0 +1,76 @@
+
+.inputGroup {
+	margin-bottom: 30px;
+	position: relative;
+	input, select {
+		display: block;
+		width: 100%;
+		border: 0;
+		background-color: rgba(236, 238, 242, 0.5);
+		padding: 0 10px;
+		height: 36px;
+		font-size: 16px;
+		line-height: 1.38;
+		transition: background-color .4s ease;
+		color: #8692a6;
+		&:focus {
+			background-color: #fff;
+			& + span {
+				width: 100%;
+			}
+		}
+	}
+	label {
+		font-size: 12px;
+		color: #8692a6;
+		padding-left: 10px;
+	}
+	.input-bottom {
+		background: #b9b9b9;
+		width: 0;
+		transition: width .3s ease;
+		height: 2px;
+		position: absolute;
+		bottom: 0;
+		margin: auto;
+		left: 0;
+		right: 0;
+	}
+	.input-message {
+		position: absolute;
+		bottom: -17px;
+		font-size: 12px;
+		padding-left: 10px;
+		i {
+			font-size: 14px;
+		}
+	}
+	&-w-icon {
+		input {
+			padding-left: 34px;
+		}
+	}
+	.input-holder {
+		display: flex;
+		align-items: center;
+		i {
+			position: absolute;
+			left: 10px;
+			font-size: 22px;
+			color: #c1c7d4;
+		}
+	}
+	input:disabled {
+		border-bottom: 2px dashed #dadada;
+		pointer-events: none;
+	}
+
+	&-error {
+		.input-bottom {
+			background: #fd3e57;
+		}
+		.error-message {
+			color: #fd3e57;
+		}
+	}
+}

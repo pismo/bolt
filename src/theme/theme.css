@@ -1,0 +1,47 @@
+@import 'theme/variables.css';
+@import 'theme/reactMaterialSelect.css';
+
+:global {
+  .app {
+    height: 100%;
+  }
+}
+
+html,
+body,
+.wrap {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  color: #2c3644;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ccc;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+  }
