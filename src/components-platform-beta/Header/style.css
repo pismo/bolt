@@ -1,0 +1,18 @@
+@import './../../theme/variables.css';
+
+.header {
+  background-color: red;
+  margin-bottom: -60px;
+}
+
+.paneTitle {
+  margin: 0;
+  border: none;
+}
+
+.panePretext {
+  color: var(--grayscale-400);
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+}

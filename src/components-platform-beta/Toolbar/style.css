@@ -1,0 +1,59 @@
+@import 'theme/variables.css';
+
+.logo {
+  width: 25px;
+  height: 25px;
+}
+
+:root {
+  --color: {
+    color: #e1e5ed;
+  }
+
+  --inline-block: {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.toolbar {
+  @apply --color;
+  background-color: var(--grayscale-500);
+  padding: 15px 10px;
+  box-shadow: 0px 4px 0px rgba(0,0,0,.1);
+
+  .toolbarTitle {
+    font-size: 1.6em;
+    font-weight: normal;
+  }
+
+  .toolbarTitle, .toolbarMenu {
+    @apply --inline-block;
+  }
+
+  .toolbarMenu {
+    @apply --color;
+    margin-right: 25px;
+    width: 36px;
+    height: 31px;
+    position: relative;
+    padding: 3px;
+
+    &:active {
+      background: initial;
+    }
+
+    &:after {
+      display: block;
+      content: "";
+      height: 1px;
+      width: 28px;
+      border-bottom: 1px solid #79869c;
+      transform: rotate(90deg);
+      position: absolute;
+      top: 14px;
+      right: -24px;
+    }
+  }
+}
+

@@ -1,0 +1,26 @@
+@import 'theme/variables.css';
+
+.trending {
+  color: var(--grayscale-300);
+  font-size: 18px;
+  
+  .icon {
+    font-size: 20px;
+    color: var(--grayscale-400);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  &.up {
+    &, .icon {
+      color: var(--primary-color);
+    }
+  }
+
+  &.down {
+    &, .icon {
+      color: var(--alert-color);
+    }
+  }
+}

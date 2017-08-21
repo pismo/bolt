@@ -1,0 +1,8 @@
+@import 'theme/variables.css';
+
+.divider {
+  height: 2px;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--grayscale-300);
+}

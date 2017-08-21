@@ -1,0 +1,29 @@
+
+.pagination {
+  padding: 10px;
+  border-top: solid 1px #eceef2;
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  a {
+      display: inline-block;
+      border: solid 1px #eceef2;
+      padding: 5px 10px;
+      font-size: 14px;
+  }
+
+  .pages {
+    a {
+      &.selected {
+        background-color: #8692a6;
+        border: solid 1px #8692a6;
+        color: #fff;
+      }
+    }
+  }
+}

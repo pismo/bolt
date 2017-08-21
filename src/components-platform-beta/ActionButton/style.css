@@ -1,0 +1,26 @@
+@import 'theme/variables.css';
+
+.actionButton {
+  min-width: 400px;
+  min-height: 64px;
+  font-size: 16px;
+  line-height: 2.8em;
+  position: relative;
+  border-radius: 0;
+  margin: 0;
+
+  &.cancel {
+    min-width: 200px;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  i {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 12px);
+  }
+}

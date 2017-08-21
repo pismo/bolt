@@ -1,0 +1,128 @@
+@import 'theme/variables.css';
+
+.logo {
+  width: 25px;
+  height: 25px;
+}
+
+.wrapperBox {
+  transition: all .3s;
+  opacity: 0;
+  width: 1px;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.navbar {
+  composes: box from '../Box/style.css';
+  border-radius: 0;
+  margin: 2px;
+  padding: 20px;
+  background-color: #fff;
+  height: 100%;
+  width: 260px;
+  list-style: none;
+  padding: 0;
+
+  .link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    min-height: 42px;
+    text-transform: uppercase;
+    color: #2c3644;
+    padding: 10px 15px;
+    position: relative;
+  }
+}
+
+.item {
+  display: block;
+}
+
+.group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: solid 1px var(--grayscale-300);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.label {
+  margin-left: 20px;
+}
+
+.submenu {
+  overflow: hidden;
+
+  &.submenuOpen {
+    background-color: #fafafa;
+
+    & > .link {
+      background-color: var(--grayscale-200);
+    }
+
+    .submenuList {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+    }
+  }
+}
+
+.submenuList {
+  transition: all .8s;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+
+  .link {
+    color: #8692a6;
+  }
+
+  .label {
+    margin-left: 40px;
+  }
+}
+
+.iconRight {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -12px;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.boxHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.boxHeaderLogo {
+  display: block;
+  padding: 0;
+  text-decoration: none;
+  color: #2c3644;
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+  width: 300px;
+}

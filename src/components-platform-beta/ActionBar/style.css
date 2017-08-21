@@ -1,0 +1,51 @@
+@import 'theme/variables.css';
+
+.actionBar {
+  position: fixed;
+  bottom: 0;
+  min-height: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top: solid 1px var(--grayscale-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  button {
+    margin: 0;
+  }
+}
+
+.list, p {
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    min-width: 180px;
+    border-right: solid 1px var(--grayscale-200);
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--grayscale-300);
+  }
+}
+
+.button {
+  margin: 0;
+}

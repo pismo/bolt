@@ -1,0 +1,66 @@
+@import 'theme/variables.css';
+
+.inputWrapper {
+  position: relative;
+  padding: 5px 0px 2px;
+  width: 100%;
+  margin: 10px 0px;
+  border-bottom: 2px solid var(--grayscale-400);
+
+  .input {
+    outline: none;
+    border: none;
+    display: block;
+    margin-top: 15px;
+    transition: border-bottom-color 0.3s;
+    width: 100%;
+    background-color: #eceef2;
+    padding: 10px 10px 3px 10px;
+
+    &:focus {
+      border-bottom-color: var(--primary-color);
+    }
+
+    &.invalid {
+      border-bottom-color: var(--alert-color);
+    }
+
+    &:focus, &.filled {
+      + .label {
+        top: 0;
+        font-size: 12px;
+        color: var(--grayscale-400);
+      }
+    }
+
+    &[disabled=""] {
+      background: none;
+      color: #999;
+      margin-bottom: -5px;
+    }
+  }
+
+  .label {
+    padding-left: 10px;
+    position: absolute;
+    display: block;
+    margin: 5px 0;
+    color: var(--grayscale-300);
+    top: 22px;
+    transition: top 0.3s, color 0.3s;
+    font-weight: normal;
+  }
+
+  .inputError, .inputHint {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  .inputError {
+    color: var(--alert-color);
+  }
+
+  .inputHint {
+    color: var(--grayscale-300);
+  }
+}

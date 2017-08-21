@@ -1,0 +1,10 @@
+.title {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.6em;
+  font-weight: normal;
+}
+
+.logo_center {
+  text-align: center;
+}

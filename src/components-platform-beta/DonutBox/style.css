@@ -1,0 +1,21 @@
+@import 'theme/variables.css';
+
+.title {
+  composes: title from '../Title/style.css';
+  text-align: center;
+  color: var(--grayscale-400);
+}
+
+.prevTitle {
+  composes: prevTitle from '../Title/style.css';
+  text-align: center;
+
+}
+
+.box {
+  composes: boxDashboard from '../Box/style.css';
+}
+
+.linkBox {
+  display: inline-block;
+}
