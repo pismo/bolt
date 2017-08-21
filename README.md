@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## BOLT Pismo Styleguide
 
-You can use the [editor on GitHub](https://github.com/pismo/bolt/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<p>Styleguide da Pismo para projetos internos</p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<h2>Zepplin</h2>
+https://app.zeplin.io/project/5996f28db6313bf96d8d8c33
 
-### Markdown
+<h2>Download da Aplicação</h2>
+<p>Faça o download do projeto e execute <pre>npm install</pre> ou <pre>yarn install</pre></p>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+<h2>Executando a aplicação</h2>
+<p>Após instalar as dependências, execute <pre>npm start</pre> ou <pre>yarn start</pre> e acesse o endereço http://localhost:8080/</p>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pismo/bolt/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<h2>Estrutura</h2>
+<p>A estrutura está organizada da seguinte forma</p>
+<pre>
+-Public
+-Src
+-app.jsx
+-index.jsx
+----Components
+----Style
+----Theme
+</pre>
