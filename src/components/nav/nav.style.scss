@@ -1,0 +1,13 @@
+aside {
+    background: #333;
+    a {
+        color: #fff;
+        padding: 10px 5px;
+        display: block;
+    }
+    li {
+        &:hover {
+            background: #ea8c47;
+        }
+    }
+}
