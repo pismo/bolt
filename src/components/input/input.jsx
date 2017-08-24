@@ -26,6 +26,7 @@ class Input extends Component {
 
     validation(input) {
         const { minLength, maxLength } = this.state, value = input.length;
+
         if (value <= (minLength - 1)) {
             this.setState({...this.state, errorMessage: `Digite no minimo ${minLength} caracteres`, error: true, validForm: false})
             return

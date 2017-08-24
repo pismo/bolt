@@ -36,4 +36,22 @@ describe('<Input />', () => {
         expect(wrapper.find('.zmdi-city-alt')).toHaveLength(1);
     });
 
+    it('should return false when pass not an email', () => {
+        const wrapper = shallow(component );
+        const bool = wrapper.instance().isAValidEmail('Sérgio');
+        expect(bool).toBeFalsy();
+    });
+
+    it('should return true when pass an email', () => {
+        const wrapper = shallow(component );
+        const bool = wrapper.instance().isAValidEmail('email@teste.com');
+        expect(bool).toBeTruthy();
+    });
+
+    it('should set maxlength state to 1    ', () => {
+        const wrapper = shallow(component );
+        wrapper.setState({ maxLength: 1 });
+        expect(wrapper.state('maxLength')).toEqual(1);
+    });
+
 })

@@ -8,8 +8,9 @@ import {
 import Nav from './components/nav/nav'
 
 import Form from './doc/form/input'
+import Button from './doc/Button/button'
+
 const Home = () => <p>Home</p>
-const Botoes = () => <p>Botões</p>
 const Grid = () => <p>Grid</p>
 const Tabelas = () => <p>Tabelas</p>
 const Lista = () => <p>Lista</p>
@@ -28,7 +29,7 @@ class App extends Component {
                             <div>
                                 <Route exact path="/" component={Home} />
                                 <Route path="/form" component={Form} />
-                                <Route path="/botoes" component={Botoes} />
+                                <Route path="/botoes" component={Button} />
                                 <Route path="/grid" component={Grid} />
                                 <Route path="/tabelas" component={Tabelas} />
                                 <Route path="/lista" component={Lista} />

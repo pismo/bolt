@@ -76,7 +76,6 @@ export default class Form extends Component {
                             onKeyPress={(state, value) => {} }
                             onFocus={(state, value) => {} }  />
                 </form>
-
             </div>
         )
     }

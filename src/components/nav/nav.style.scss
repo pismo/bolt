@@ -10,8 +10,15 @@ aside {
         }
     }
     li {
-        &:hover {
-            background: #ea8c47;
+        a {
+            &:hover {
+                background: #ea8c47;
+            }
+        }
+        & > ul {
+            li a {
+                padding-left: 15px;
+            }
         }
     }
     h1 {
