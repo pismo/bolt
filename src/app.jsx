@@ -1,104 +1,41 @@
 import React, { Component } from 'react';
-import Input from './components/input/input'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+  } from 'react-router-dom'
+
 import Nav from './components/nav/nav'
+
+import Form from './doc/form/input'
+const Home = () => <p>Home</p>
+const Botoes = () => <p>Botões</p>
+const Grid = () => <p>Grid</p>
+const Tabelas = () => <p>Tabelas</p>
+const Lista = () => <p>Lista</p>
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
     }
 
-    handleSubmit(e) {
-    }
-
-    onChange(states, value) {
-        this.setState({...this.state, disable: states})
-    }
-    
     render() {
         return (  
-            <div className="grid full-height">
-                <aside className="w-20">
+            <Router>
+                <div className="grid full-height">
                     <Nav />
-                </aside>
-                <div className="w-80 pa2"> 
-                    <h2 className="doc-title">Form <span>| Input with symbol</span></h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <Input
-                            label="Nome"
-                            placeholder="Nome"
-                            id="Nome"
-                            required
-                            minLength={3}
-                            maxLength={15}
-                            type="text"
-                            hintText="Dica para o input"
-                            successIcon="check"
-                            successText="Texto de sucesso"
-                            disabled={false}
-                            onChange={(state, e) => this.onChange(state, e.target.value)}
-                            onBlur={(e) => {}}
-                            onClick={(e) => {}}
-                            onKeyPress={(e) => {}}
-                            onFocus={(e) => {}}  />
-                
-                            <Input
-                                label="E-mail"
-                                placeholder="E-mail"
-                                icon="email"
-                                id="user_email"
-                                required
-                                minLength={3}
-                                maxLength={15}
-                                type="email"
-                                hintText="Dica para o input"
-                                successText="Texto de sucesso"
-                                disabled={false}
-                                onChange={(e) => {}}
-                                onBlur={(e) => {}}
-                                onClick={(e) => {}}
-                                onKeyPress={(e) => {}}
-                                onFocus={(e) => {}}  />
-
-                            <Input
-                                label="Cidade"
-                                placeholder="Cidade"
-                                icon="city-alt"
-                                id="user_city"
-                                required
-                                minLength={3}
-                                maxLength={5}
-                                type="text"
-                                hintText="Dica para o input"
-                                successText="Texto de sucesso"
-                                disabled={false}
-                                onChange={(e) => {}}
-                                onBlur={(e) => {}}
-                                onClick={(e) => {}}
-                                onKeyPress={(e) => {}}
-                                onFocus={(e) => {}}  />
-
-                            <Input
-                                label="Estado"
-                                placeholder="Estado"
-                                icon="city-alt"
-                                id="user_city"
-                                required
-                                minLength={3}
-                                maxLength={5}
-                                type="text"
-                                hintText="Dica para o input"
-                                successText="Texto de sucesso"
-                                disabled={false}
-                                onChange={(e) => {}}
-                                onBlur={(e) => {}}
-                                onClick={(e) => {}}
-                                onKeyPress={(e) => {}}
-                                onFocus={(e) => {}}  />
-                    </form>
+                    <div className="w-80 pa2"> 
+                            <div>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/form" component={Form} />
+                                <Route path="/botoes" component={Botoes} />
+                                <Route path="/grid" component={Grid} />
+                                <Route path="/tabelas" component={Tabelas} />
+                                <Route path="/lista" component={Lista} />
+                            </div>
+                    </div>
                 </div>
-            </div>
+            </Router>
         )
     }
 }
