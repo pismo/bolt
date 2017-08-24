@@ -19,29 +19,26 @@ export default class Form extends Component {
                         successIcon="check"
                         successText="Texto de sucesso"
                         disabled={false}
-                        onChange={(state, e) => this.onChange(state, e.target.value)}
-                        onBlur={(e) => {}}
-                        onClick={(e) => {}}
-                        onKeyPress={(e) => {}}
-                        onFocus={(e) => {}}  />
+                        onChange={(state, value) => {} }
+                        onBlur={(state, value) => {} }
+                        onClick={(state, value) => {} }
+                        onKeyPress={(state, value) => {} }
+                        onFocus={(state, value) => {} }  />
             
                         <Input
                             label="E-mail"
                             placeholder="E-mail"
                             icon="email"
                             id="user_email"
-                            required
-                            minLength={3}
-                            maxLength={15}
                             type="email"
                             hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
-                            onChange={(e) => {}}
-                            onBlur={(e) => {}}
-                            onClick={(e) => {}}
-                            onKeyPress={(e) => {}}
-                            onFocus={(e) => {}}  />
+                            onChange={(state, value) => {} }
+                            onBlur={(state, value) => {} }
+                            onClick={(state, value) => {} }
+                            onKeyPress={(state, value) => {} }
+                            onFocus={(state, value) => {} }  />
 
                         <Input
                             label="Cidade"
@@ -55,11 +52,11 @@ export default class Form extends Component {
                             hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
-                            onChange={(e) => {}}
-                            onBlur={(e) => {}}
-                            onClick={(e) => {}}
-                            onKeyPress={(e) => {}}
-                            onFocus={(e) => {}}  />
+                            onChange={(state, value) => {} }
+                            onBlur={(state, value) => {} }
+                            onClick={(state, value) => {} }
+                            onKeyPress={(state, value) => {} }
+                            onFocus={(state, value) => {} }  />
 
                         <Input
                             label="Estado"
@@ -73,11 +70,11 @@ export default class Form extends Component {
                             hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
-                            onChange={(e) => {}}
-                            onBlur={(e) => {}}
-                            onClick={(e) => {}}
-                            onKeyPress={(e) => {}}
-                            onFocus={(e) => {}}  />
+                            onChange={(state, value) => {} }
+                            onBlur={(state, value) => {} }
+                            onClick={(state, value) => {} }
+                            onKeyPress={(state, value) => {} }
+                            onFocus={(state, value) => {} }  />
                 </form>
 
             </div>

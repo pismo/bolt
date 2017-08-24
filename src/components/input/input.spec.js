@@ -36,12 +36,4 @@ describe('<Input />', () => {
         expect(wrapper.find('.zmdi-city-alt')).toHaveLength(1);
     });
 
-    // it('shoud call onBlur event' , () => {
-    //     const wrapper = shallow(component );
-    //     const value = '2';
-    //     const handleChange = jest.fn();
-    //     const element = wrapper.find('.input');
-    //     element.simulate('change');
-    //     expect(handleChange).toBeCalledOnce();
-    // })
 })

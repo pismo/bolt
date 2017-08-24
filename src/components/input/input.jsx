@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
-// import style from './component-input.style.scss';
+import style from './component-input.style.scss';
 
 class Input extends Component {
     constructor(props) {
@@ -63,14 +62,8 @@ class Input extends Component {
 
     render() {
         const { label, icon, placeholder, id, type, onChange, onBlur, onClick, onKeyPress, hintText, onFocus, disabled, successText, required, minLength, maxLength } = this.props;
-        const classes = classnames(
-            'inputGroup',
-            {
-                'inputGroup-error': this.state.error,
-                'inputGroup-w-icon': icon
-            }
-          )
-        return (
+        const classes = `inputGroup ${this.state.error ? 'inputGroup-error' : '' }  ${icon ? 'inputGroup-w-icon' : '' }`;
+        return ( 
             <div className={classes}>
             <label htmlFor={id}>{label} { required && <span>*</span>}</label>
                 <div className="input-holder">
@@ -78,23 +71,25 @@ class Input extends Component {
                     <input 
                         onChange={(trigger) => {
                             this.handleChange(trigger.target)
-                            onChange(this.state.validForm, trigger);
+                            onChange(this.state.validForm, trigger)
                         }} 
-                        onClick={(trigger) => onClick(trigger.target)} 
+                        onClick={(trigger) => {
+                            onClick(this.state.validForm, trigger)
+                        }}
                         onBlur={(trigger) => {
                             this.handleBlur(trigger.target)
-                            onBlur(trigger.target)} 
-                        }
-                        onKeyPress={(trigger) => onKeyPress(trigger.target)} 
+                            onBlur(this.state.validForm, trigger)
+                        }}
+                        onKeyPress={(trigger) => 
+                            onKeyPress(this.state.validForm, trigger)} 
                         onFocus={(trigger) => {
                             this.handleFocus(trigger.target)
-                            onFocus(trigger.target)} 
-                        }
+                            onFocus(this.state.validForm, trigger)
+                        }}
                         id={id} 
                         disabled={disabled}
                         name={id} 
-                        type={type} 
-                        className='input'
+                        type={type}
                         placeholder={ placeholder} />
                     <span className="input-bottom"></span>
                 </div>
