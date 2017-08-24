@@ -101,7 +101,6 @@ export default class Form extends Component {
                         description='Categoria'
                         placeholder='Selecione uma categoria'
                         value='value'
-                        mult
                         name='category'
                         disabled='disabled' />
                 </form>

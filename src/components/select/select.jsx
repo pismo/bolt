@@ -40,14 +40,13 @@ export default class Select extends  Component {
 
         return(
             <div className='inputGroup'>
-            {multOptions}
                 <label>{description}</label>
                 <div 
                     onClick={() => this.setState({showMenu: !this.state.showMenu})} 
                     className={`select-form ${this.state.showMenu ? 'active-menu' :  '' }`}>
                     <span>{multOptions.length > 0 ? multOptions : itemSelected ? itemSelected[label] : placeholder} <i className="zmdi zmdi-chevron-down"></i></span>
                         <ul>
-                            {itemSelected || multOptions.length > 0 && <li onClick={() => this.clearSelected()}>{placeholder}</li>}
+                            {itemSelected && <li onClick={() => this.clearSelected()}>{placeholder}</li>}
                             {this.renderList(options, label, value, disabled, mult)}
                         </ul>
                 </div>
