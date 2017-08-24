@@ -104,7 +104,6 @@ export default class Form extends Component {
                         mult
                         name='category'
                         disabled='disabled' />
-                        <button type="submit">Enviar</button>
                 </form>
             </div>
         )
