@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import style from './component-input.style.scss';
+// import style from './component-input.style.scss';
 
 class Input extends Component {
     constructor(props) {
@@ -94,6 +94,7 @@ class Input extends Component {
                         disabled={disabled}
                         name={id} 
                         type={type} 
+                        className='input'
                         placeholder={ placeholder} />
                     <span className="input-bottom"></span>
                 </div>
