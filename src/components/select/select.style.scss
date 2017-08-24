@@ -1,0 +1,55 @@
+.select-form {
+    span, li {
+        display: block;
+        width: 100%;
+        border: 0;
+        background-color: rgba(236, 238, 242, 0.5);
+        padding: 0 10px;
+        height: 36px;
+        font-size: 16px;
+        line-height: 36px;
+        transition: background-color .4s ease;
+        color: #8692a6;
+        cursor: pointer;
+        position: relative;
+        i {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            transform: rotate(0deg);
+            transition: transform .4s ease;
+        }
+    }
+    ul {
+        display: none;
+        background: #fff;
+        li {
+            &:hover {
+                background: #ccc;
+            }
+            &.disabled {
+                pointer-events: none;
+                text-decoration: line-through;
+            }
+            &.selected {
+                color: #ff760f;
+            }
+        }
+    }
+    &.active-menu {
+        height: 280px;
+        overflow-y: scroll;
+        ul {
+            display: block;
+            padding-top: 36px;
+        }
+        i {
+            transform: rotate(180deg);
+        }
+        span {
+            position: absolute;
+            z-index: 9;
+            background: #f2f3f5;
+        }
+    }
+}

@@ -31,9 +31,9 @@
     "react-router-dom": "^4.1.2"
   },
   "jest": {
-      "moduleNameMapper": {
-        "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
-      }
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
