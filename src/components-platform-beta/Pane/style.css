@@ -1,6 +1,0 @@
-@import './../../theme/variables.css';
-
-.pane {
-  padding: 20px 15px 50px;
-  background-color: var(--grayscale-600);
-}

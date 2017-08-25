@@ -1,11 +1,11 @@
+/* global document */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app' 
+import App from './app'
 
-import style from './style/default';
-import grid from './../node_modules/tachyons-sass/tachyons.scss';
+import style from './style/default.scss'
+import StyleGrid from './../node_modules/tachyons-sass/tachyons.scss'
 
 ReactDOM.render(
-    <App />,
-   document.getElementById('root')   
-)
+	<App />,
+	document.getElementById('root'))

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react'
 import {
-    BrowserRouter as Router,
-    Route,
-    Link
-  } from 'react-router-dom'
+	BrowserRouter as Router,
+	Route,
+} from 'react-router-dom'
 
 import Nav from './components/nav/nav'
 
@@ -15,30 +14,22 @@ const Grid = () => <p>Grid</p>
 const Tabelas = () => <p>Tabelas</p>
 const Lista = () => <p>Lista</p>
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
+const App = () => (
+	<Router>
+		<div className="grid full-height overflow-hidden">
+			<Nav />
+			<div className="w-80 pa2 overflow-scroll">
+				<div>
+					<Route exact path="/" component={Home} />
+					<Route path="/form" component={Form} />
+					<Route path="/botoes" component={Button} />
+					<Route path="/grid" component={Grid} />
+					<Route path="/tabelas" component={Tabelas} />
+					<Route path="/lista" component={Lista} />
+				</div>
+			</div>
+		</div>
+	</Router>
+)
 
-    render() {
-        return (  
-            <Router>
-                <div className="grid full-height overflow-hidden">
-                    <Nav />
-                    <div className="w-80 pa2 overflow-scroll"> 
-                            <div>
-                                <Route exact path="/" component={Home} />
-                                <Route path="/form" component={Form} />
-                                <Route path="/botoes" component={Button} />
-                                <Route path="/grid" component={Grid} />
-                                <Route path="/tabelas" component={Tabelas} />
-                                <Route path="/lista" component={Lista} />
-                            </div>
-                    </div>
-                </div>
-            </Router>
-        )
-    }
-}
-
-export default App;
+export default App

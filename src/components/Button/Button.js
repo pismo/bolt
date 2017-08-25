@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import Style from './button.style'
 
-const button = ({text, icon, classes, disabled }) => {
-  return(
-    <a className={`btn 
+const button = ({ text, icon, classes, disabled }) => (
+	<a
+		className={`btn
       ${classes ? 'btn-theme' : ''}
       ${icon && !text ? 'btn-icon' : ''}
-      ${disabled ? 'btn-disabled' : ''}`} href="#">
+      ${disabled ? 'btn-disabled' : ''}`}
+		href="#"
+	>
 
-      {text && <span>{text}</span>}
-      {icon && <i className={`zmdi zmdi-${icon} ${icon && text ? 'pad' : ''}`}></i>}
-    </a>
-  )
-}
+		{text && <span>{text}</span>}
+		{icon && <i className={`zmdi zmdi-${icon} ${icon && text ? 'pad' : ''}`} />}
+	</a>
+)
 
-export default button;
+export default button
