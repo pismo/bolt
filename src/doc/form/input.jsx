@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './../../components/input/input';
 import Select from './../../components/select/select'
+import Checkbox from './../../components/Checkbox/checkbox'
 
 export default class Form extends Component {
     render() {
@@ -90,19 +91,44 @@ export default class Form extends Component {
                             onClick={(state, value) => {} }
                             onKeyPress={(state, value) => {} }
                             onFocus={(state, value) => {} }  />
-                </form>
 
+                        <Input
+                            label="Cartão de crédito"
+                            placeholder="Cartão de crédito"
+                            icon="card"
+                            id="card"
+                            required
+                            exactLength={16}
+                            type="number"
+                            successText="Texto de sucesso"
+                            disabled={false}
+                            onChange={(state, value) => {} }
+                            onBlur={(state, value) => {} }
+                            onClick={(state, value) => {} }
+                            onKeyPress={(state, value) => {} }
+                            onFocus={(state, value) => {} }  />
+                </form>
 
                 <h2 className="doc-title">Form <span>| Dropdown</span></h2>
                 <form>
                     <Select
-                        options={opts}
-                        label='name'
+                        options={opts} //Array
+                        label='name' //Label dentro do array
+                        value='value' //Value dentro do array
                         description='Categoria'
                         placeholder='Selecione uma categoria'
-                        value='value'
-                        name='category'
-                        disabled='disabled' />
+                        handleChange={selected => {}}
+                        disabledItem='disabled' />
+
+                    <Select
+                        options={opts} //Array
+                        label='name' //Label dentro do array
+                        value='value' //Value dentro do array
+                        description='Categoria'
+                        placeholder='Selecione uma categoria'
+                        handleChange={selected => {}}
+                        disabled
+                        disabledItem='disabled' />
                 </form>
             </div>
         )

@@ -1,4 +1,6 @@
 .select-form {
+    z-index: 1;
+    position: relative;
     span, li {
         display: block;
         width: 100%;
@@ -20,6 +22,9 @@
             transition: transform .4s ease;
         }
     }
+    span {
+        border-bottom: 2px solid;
+    }
     ul {
         display: none;
         background: #fff;
@@ -37,11 +42,18 @@
         }
     }
     &.active-menu {
-        height: 280px;
-        overflow-y: scroll;
+        height: 36px;
         ul {
             display: block;
             padding-top: 36px;
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            overflow-y: scroll;
+            &.move-select-to-top {
+                top: -298px;
+                padding-top: 0;
+            }
         }
         i {
             transform: rotate(180deg);
@@ -49,7 +61,15 @@
         span {
             position: absolute;
             z-index: 9;
+            border-bottom: 0;
             background: #f2f3f5;
+        }
+    }
+    &.disabled {
+        pointer-events: none;
+        span {
+            color: #adadad;
+            border-bottom: 2px dashed;
         }
     }
 }

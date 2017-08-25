@@ -1,0 +1,62 @@
+.btn {
+    padding: 8px 8px;
+    margin: 6px 8px;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    span, i {
+        color: #2c3644;;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    &:hover {
+        background: #eceef2;
+        span, i {
+            // border-bottom: 1px solid;
+        }
+    }
+    &:active {
+        background: #d6dae2;
+    }
+    &-disabled {
+        pointer-events: none;
+        span, i {
+            color: #c1c7d4;
+        }
+    }
+    &-icon {
+        padding: 5px;
+        i {
+            font-size: 20px;
+            position: relative;
+            top: 1px;
+        }
+    }
+    &-theme {
+        padding: 8px 8px;
+        background-color: #ff9800; 
+        span, i {
+            color: #fff;
+        }
+        &:hover {
+            background: #dc8300;
+        }
+        &:active {
+            background: #8b560a;
+        }
+    }
+    &-disabled.btn-theme {
+        background:  #e1e5ed;
+        span, i {
+            color: #c1c7d4;
+        }
+    }
+    i {
+        display: inline-block;
+        line-height: 17px;
+        &.pad {
+            padding-left: 8px;
+        }
+    }
+}

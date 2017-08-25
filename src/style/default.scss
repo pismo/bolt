@@ -34,12 +34,6 @@ img {
 }
 
 
-.btn {
-    padding: 4px;
-    display: inline-block;
-    background: #fff;
-}
-
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	color: #c1c7d4;;
   }
@@ -82,12 +76,16 @@ body {
 	}
 }
 
-.r-0 {
-	right: 0;
+.overflow-hidden {
+	overflow: hidden;
 }
 
-.r-10 {
-	right: 10px;
+.overflow-scroll {
+	overflow: scroll;
+}
+
+.r-0 {
+	right: 0;
 }
 
 @import 'colors.scss';

@@ -23,9 +23,9 @@ class App extends Component {
     render() {
         return (  
             <Router>
-                <div className="grid full-height">
+                <div className="grid full-height overflow-hidden">
                     <Nav />
-                    <div className="w-80 pa2"> 
+                    <div className="w-80 pa2 overflow-scroll"> 
                             <div>
                                 <Route exact path="/" component={Home} />
                                 <Route path="/form" component={Form} />

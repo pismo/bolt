@@ -12,57 +12,72 @@ class Input extends Component {
         this.state = {
             minLength: this.props.minLength,
             maxLength: this.props.maxLength,
+            exactLength: this.props.exactLength,
             type: this.props.type,
             error: '',
-            validForm: this.props.required ? false : true,
+            validField: this.props.required ? false : true,
             errorMessage: ''
         }
     }
 
     isAValidEmail(input) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(input); 
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regex.test(input); 
     }
 
     validation(input) {
-        const { minLength, maxLength } = this.state, value = input.length;
+        const { minLength, maxLength, exactLength } = this.state, value = input.length;
 
         if (value <= (minLength - 1)) {
-            this.setState({...this.state, errorMessage: `Digite no minimo ${minLength} caracteres`, error: true, validForm: false})
-            return
+            this. updateErrorField(`Digite no minimo ${minLength} caracteres`, input)
         }
 
         if (value > maxLength) {
-            this.setState({...this.state, errorMessage: `Digite no máximo ${maxLength} caracteres`, error: true, validForm: false})
-            return
-        } 
+            this. updateErrorField(`Digite no máximo ${maxLength} caracteres`, input)
+        }
+
+        if(exactLength) {
+            if(value !== exactLength) {
+                this. updateErrorField(`Digite exatamente ${exactLength} caracteres`, input)
+            } else {
+                this.updateSuccessField(input)
+            }
+        }
 
         if(this.state.type === 'email') {
-             if(!this.isAValidEmail(input)) {
-                 this.setState({...this.state, errorMessage: `Digite um e-mail válido`, error: true, validForm: false})
-                 return
+            if(!this.isAValidEmail(input)) {
+                this. updateErrorField(`Digite um e-mail válido`, input)
+            } else {
+                this.updateSuccessField(input)
             }
         }
 
         if(value >= minLength && value <= maxLength) {
-            this.setState({...this.state, errorMessage: '', error: false, validForm: true})
-            return
+            this.updateSuccessField(input)
         }
     }
 
     handleChange(input) {
-        this.validation(input.value);
+        this.validation(input.value)
     }
 
     handleFocus(input) {
     }
 
     handleBlur(input) {
-        this.validation(input.value);
+        this.validation(input.value)
+    }
+
+    updateErrorField(message, value) {
+        this.setState({...this.state, errorMessage: message, error: true, validField: false, fieldValue: value})
+    }
+
+    updateSuccessField(value) {
+        this.setState({...this.state, errorMessage: '', error: false, validField: true, fieldValue: value})
     }
 
     render() {
-        const { label, icon, placeholder, id, type, onChange, onBlur, onClick, onKeyPress, hintText, onFocus, disabled, successText, required, minLength, maxLength } = this.props;
+        const { label, icon, placeholder, id, type, onChange, onBlur, onClick, onKeyPress, hintText, onFocus, disabled, successText, required, minLength, maxLength, exactLength } = this.props;
         const classes = `inputGroup ${this.state.error ? 'inputGroup-error' : '' }  ${icon ? 'inputGroup-w-icon' : '' }`;
         return ( 
             <div className={classes}>
@@ -71,21 +86,21 @@ class Input extends Component {
                     <i className={`zmdi zmdi-${icon}`}></i>
                     <input 
                         onChange={(trigger) => {
-                            this.handleChange(trigger.target)
-                            onChange(this.state.validForm, trigger)
+                            this.handleChange(trigger.target),
+                            onChange(this.state.validField, trigger)
                         }} 
                         onClick={(trigger) => {
-                            onClick(this.state.validForm, trigger)
+                            onClick(this.state.validField, trigger)
                         }}
                         onBlur={(trigger) => {
                             this.handleBlur(trigger.target)
-                            onBlur(this.state.validForm, trigger)
+                            onBlur(this.state.validField, trigger)
                         }}
                         onKeyPress={(trigger) => 
-                            onKeyPress(this.state.validForm, trigger)} 
+                            onKeyPress(this.state.validField, trigger)} 
                         onFocus={(trigger) => {
                             this.handleFocus(trigger.target)
-                            onFocus(this.state.validForm, trigger)
+                            onFocus(this.state.validField, trigger)
                         }}
                         id={id} 
                         disabled={disabled}
@@ -96,8 +111,12 @@ class Input extends Component {
                 </div>
                
                 { this.state.error && <span className="input-message error-message"><i className="zmdi zmdi-alert-triangle"></i> {this.state.errorMessage}</span> }
+                
                 { this.state.success && <span className="input-message"><i className={`zmdi zmdi-check`}></i> {successText} </span> }
+
                 { hintText && <span className="input-message r-10"><i className={`zmdi zmdi-check`}></i> {hintText}</span> }
+
+                { exactLength && this.state.fieldValue && <span className="input-message r-10">{`${this.state.fieldValue.length}/${exactLength}`}</span> }
             </div>
         )
     }
@@ -109,10 +128,11 @@ Input.defaultProps = {
     hintText: '',
     maxLength: undefined,
     minLength: undefined,
+    exactLength: undefined,
     value: undefined,
     disabled: false,
     currency: false,
-    validForm: true,
+    validField: true,
     placeholder: '',
     onChange: () => undefined,
     onBlur: () => undefined,
