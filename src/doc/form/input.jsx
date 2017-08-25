@@ -31,7 +31,6 @@ export default class Form extends Component {
                         minLength={3}
                         maxLength={15}
                         type="text"
-                        hintText="Dica para o input"
                         successIcon="check"
                         successText="Texto de sucesso"
                         disabled={false}
@@ -47,7 +46,6 @@ export default class Form extends Component {
                             icon="email"
                             id="user_email"
                             type="email"
-                            hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
                             onChange={(state, value) => {} }
@@ -65,7 +63,6 @@ export default class Form extends Component {
                             minLength={3}
                             maxLength={5}
                             type="text"
-                            hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
                             onChange={(state, value) => {} }
@@ -83,7 +80,6 @@ export default class Form extends Component {
                             minLength={3}
                             maxLength={5}
                             type="text"
-                            hintText="Dica para o input"
                             successText="Texto de sucesso"
                             disabled={false}
                             onChange={(state, value) => {} }
