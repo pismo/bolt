@@ -1,3 +1,4 @@
+@import './../global.scss';
 
 .inputGroup {
 	margin-bottom: 30px;
@@ -96,4 +97,18 @@
 	&:nth-child(4) {
 		z-index: 9
 	}
+
+	::-webkit-input-placeholder {
+		color: #c1c7d4;;
+	  }
+	  ::-moz-placeholder {
+		color: #c1c7d4;;
+	  }
+	  :-ms-input-placeholder {
+		color: #c1c7d4;;
+	  }
+	  :-moz-placeholder {
+		color: #c1c7d4;;
+	  }
 }
+
