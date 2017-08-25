@@ -62,8 +62,8 @@ class Input extends Component {
 		this.validation(input.value)
 	}
 
-	handleFocus(input) {
-		this.validation(input.value)
+	handleFocus() {
+
 	}
 
 	handleBlur(input) {

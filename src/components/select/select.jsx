@@ -12,18 +12,21 @@ export default class Select extends  Component {
 	}
 
 	componentDidMount () {
-		document.addEventListener('click', this.handleDocumentClick)
+		document.addEventListener('click', event => {
+			const area = ReactDOM.findDOMNode(this.refs.area)
+			if (!area.contains(event.target) && this.state.showMenu === true) {
+				this.enableSelectOptions()
+			}
+		})
 	}
 
 	componentWillUnmount () {
-		document.removeEventListener('click', this.handleDocumentClick)
-	}
-
-	handleDocumentClick(event) {
-		const area = ReactDOM.findDOMNode(this.refs.area)
-		if (!area.contains(event.target) && this.state.showMenu === true) {
-			this.enableSelectOptions()
-		}
+		document.removeEventListener('click', event => {
+			const area = ReactDOM.findDOMNode(this.refs.area)
+			if (!area.contains(event.target) && this.state.showMenu === true) {
+				this.enableSelectOptions()
+			}
+		})
 	}
 
 	selectOption(item, value) {
