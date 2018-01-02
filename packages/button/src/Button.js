@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { nearWhite, nearBlack } from '@pismo/bolt-colors'
 
 class Button extends Component {
   static propTypes = {
@@ -35,4 +36,10 @@ class Button extends Component {
   }
 }
 
-export default Button
+const StyledButton = styled(Button)`
+  color: ${nearWhite};
+  background-color: ${nearBlack};
+`
+
+export { Button }
+export default StyledButton

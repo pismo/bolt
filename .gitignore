@@ -1,5 +1,12 @@
 .vscode/
+**/**/.vscode/
 .cache/
+**/**/.cache/
 .DS_Store
+**/**/.DS_Store
 node_modules/
-package-lock.json
+**/**/node_modules/
+**/**/package-lock.json
+dist/
+**/**/dist/
+**/**/yarn-error.log

@@ -1,0 +1,16 @@
+{
+  "name": "@pismo/bolt-colors",
+  "version": "1.0.0",
+  "description": "Color palette for Pismo Bolt",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pismo",
+    "styleguide",
+    "colors"
+  ],
+  "author": "Pismo",
+  "license": "ISC"
+}
