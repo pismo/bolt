@@ -1,0 +1,41 @@
+{
+  "name": "@pismo/bolt",
+  "version": "1.0.0",
+  "description": "Pismo styleguide components",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "keywords": [
+    "pismo",
+    "styleguide",
+    "styled",
+    "components",
+    "react"
+  ],
+  "author": "Pismo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pismo/bolt/issues"
+  },
+  "homepage": "https://github.com/pismo/bolt#readme",
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "lerna": "^2.5.1",
+    "react-dom": "^16.2.0"
+  },
+  "dependencies": {
+    "currency.js": "^1.0.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
+  }
+}

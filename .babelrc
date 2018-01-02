@@ -1,0 +1,23 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": "last 2 versions"
+      }
+    }],
+    "react"
+  ],
+  "plugins": [
+    "transform-react-jsx",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "transform-es2015-modules-commonjs"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}
