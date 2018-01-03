@@ -1,6 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { nearWhite, nearBlack } from '@pismo/bolt-colors'
+import styled from 'styled-components'
+import colors from '@pismo/bolt-colors'
+
+const {
+  nearWhite,
+  nearBlack,
+} = colors
+
+const StyledButton = styled.button`
+  color: ${nearWhite};
+  background-color: ${nearBlack};
+  border: 0;
+  border-radius: .2rem;
+  font-size: .875rem;
+  padding: .9rem;
+`
 
 class Button extends Component {
   static propTypes = {
@@ -23,23 +38,17 @@ class Button extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { className, children } = this.props
 
     return (
-      <button
+      <StyledButton
         onClick={this.handleClick}
         ref={this.handleRef}
       >
         {children}
-      </button>
+      </StyledButton>
     )
   }
 }
 
-const StyledButton = styled(Button)`
-  color: ${nearWhite};
-  background-color: ${nearBlack};
-`
-
-export { Button }
-export default StyledButton
+export default Button
