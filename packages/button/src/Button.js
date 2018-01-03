@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 
 import * as sizeStyles from './sizes'
 import * as weightStyles from './weights'
+import * as stateStyles from './states'
 
 const supportedSizes = Object.keys(sizeStyles)
 const supportedWeights = Object.keys(weightStyles)
@@ -12,6 +13,7 @@ const StyledButton = styled.button`
   width: ${props => props.block ? '100%' : 'auto'};
   ${props => sizeStyles[props.size]}
   ${props => weightStyles[props.weight]}
+  ${props => props.disabled ? stateStyles['disabled'] : ''}
 `
 
 class Button extends Component {
