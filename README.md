@@ -6,6 +6,7 @@ Styleguide and React components
 ```sh
 $ yarn global add parcel-bundler
 $ yarn
+$ lerna bootstrap
 $ yarn play
 ```
 
