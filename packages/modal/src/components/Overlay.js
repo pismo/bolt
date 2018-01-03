@@ -14,6 +14,7 @@ const Overlay = styled.div`
   background-color: #202732;
   transition: opacity 100ms ease-in-out;
   opacity: ${props => props.isOpen ? '1' : '0'};
+  pointer-events: ${props => props.isOpen ? 'auto' : 'none'};
 `
 
 export default Overlay

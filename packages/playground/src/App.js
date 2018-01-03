@@ -9,35 +9,29 @@ class App extends Component {
 
   handleClick = event => {
     console.log('Button click', event)
+
+    this.setState({
+      isModalOpen: true,
+    })
   }
 
   handleRef = ref => {
     console.log('the ref is real', ref)
   }
 
-  componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({
-        isModalOpen: true,
-      })
-    }, 1000)
-
-    window.setInterval(() => {
-      this.setState({
-        isModalOpen: !this.state.isModalOpen,
-      })
-    }, 6000)
-  }
-
   render() {
     const { isModalOpen } = this.state
 
     return (
-      <Modal isOpen={isModalOpen}>
+      <div>
         <Button onClick={this.handleClick} innerRef={this.handleRef}>
-          Playground
+          Open modal
         </Button>
-      </Modal>
+
+        <Modal isOpen={isModalOpen}>
+          Modal contents
+        </Modal>
+      </div>
     )
   }
 }
