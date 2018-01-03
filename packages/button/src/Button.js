@@ -11,6 +11,7 @@ const supportedWeights = Object.keys(weightStyles)
 
 const StyledButton = styled.button`
   width: ${props => props.block ? '100%' : 'auto'};
+  box-sizing: border-box;
   ${props => sizeStyles[props.size]}
   ${props => weightStyles[props.weight]}
   ${props => props.disabled ? stateStyles['disabled'] : ''}
