@@ -1,50 +1,40 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import colors from '@pismo/bolt-colors'
+import styled, { css } from 'styled-components'
 
-const {
-  nearWhite,
-  nearBlack,
-} = colors
+import * as sizeStyles from './sizes'
+import * as weightStyles from './weights'
+
+const supportedSizes = Object.keys(sizeStyles)
+const supportedWeights = Object.keys(weightStyles)
 
 const StyledButton = styled.button`
-  color: ${nearWhite};
-  background-color: ${nearBlack};
-  border: 0;
-  border-radius: .2rem;
-  font-size: .875rem;
-  padding: .9rem;
+  width: ${props => props.block ? '100%' : 'auto'};
+  ${props => sizeStyles[props.size]}
+  ${props => weightStyles[props.weight]}
 `
 
 class Button extends Component {
   static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    innerRef: PropTypes.func,
+    size: PropTypes.oneOf(supportedSizes),
+    block: PropTypes.bool,
+    weight: PropTypes.oneOf(supportedWeights),
+    onClick: PropTypes.func,
     children: PropTypes.any,
+    innerRef: PropTypes.func,
   }
 
   static defaultProps = {
-    onClick: Function.prototype,
-    innerRef: Function.prototype,
-  }
-
-  handleClick = event => {
-    return this.props.onClick(event)
-  }
-
-  handleRef = ref => {
-    return this.props.innerRef(ref)
+    size: 'medium',
+    block: false,
+    weight: 'normal',
   }
 
   render() {
-    const { className, children } = this.props
+    const { children, ...otherProps } = this.props
 
     return (
-      <StyledButton
-        onClick={this.handleClick}
-        ref={this.handleRef}
-      >
+      <StyledButton {...otherProps}>
         {children}
       </StyledButton>
     )

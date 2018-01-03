@@ -6,9 +6,13 @@ class App extends Component {
     console.log('Button click', event)
   }
 
+  handleRef = ref => {
+    console.log('the ref is real', ref)
+  }
+
   render() {
     return (
-      <Button onClick={this.handleClick}>
+      <Button onClick={this.handleClick} innerRef={this.handleRef}>
         Playground
       </Button>
     )
