@@ -1,14 +1,9 @@
-.vscode/
 **/**/.vscode/
-.cache/
 **/**/.cache/
-.DS_Store
 **/**/.DS_Store
-node_modules/
 **/**/node_modules/
 **/**/package-lock.json
-dist/
 **/**/dist/
 **/**/yarn-error.log
-lerna-debug.log
 **/**/lerna-debug.log
+*/*/yarn.lock
