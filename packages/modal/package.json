@@ -4,7 +4,8 @@
   "description": "Modal component for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "doc": "react-docgen ./src/Modal.js --out ../../docs/Modal.json --pretty"
   },
   "keywords": [
     "pismo",

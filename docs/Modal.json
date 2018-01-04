@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "displayName": "Modal",
+  "methods": [],
+  "props": {
+    "isOpen": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "children": {
+      "type": {
+        "name": "any"
+      },
+      "required": true,
+      "description": ""
+    }
+  }
+}

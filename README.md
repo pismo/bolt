@@ -4,10 +4,20 @@ Styleguide and React components
 ## Playground (development)
 
 ```sh
-$ yarn global add parcel-bundler
-$ yarn
-$ lerna bootstrap
-$ yarn play
+> yarn global add parcel-bundler
+> yarn
+> lerna bootstrap
+> yarn play
 ```
 
-This should run the package `playground` in the browser for you, with live-reload enabled, which is basically a sandbox for fooling around and to freely test any other package from `packages`.
+## Documentation
+
+We're using [react-docgen](https://github.com/reactjs/react-docgen) to extract all the information from the components source codes, and then generating friendly markdown from it.
+
+To update the docs files simply run:
+
+```sh
+> yarn doc
+```
+
+Check the `/docs` folder for the updated `.json` and `.md` files (soon).

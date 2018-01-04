@@ -1,0 +1,65 @@
+{
+  "description": "",
+  "displayName": "Button",
+  "methods": [],
+  "props": {
+    "size": {
+      "type": {
+        "name": "enum",
+        "computed": true,
+        "value": "supportedSizes"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "'medium'",
+        "computed": false
+      }
+    },
+    "block": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      }
+    },
+    "weight": {
+      "type": {
+        "name": "enum",
+        "computed": true,
+        "value": "supportedWeights"
+      },
+      "required": false,
+      "description": "",
+      "defaultValue": {
+        "value": "'normal'",
+        "computed": false
+      }
+    },
+    "onClick": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": ""
+    },
+    "children": {
+      "type": {
+        "name": "any"
+      },
+      "required": false,
+      "description": ""
+    },
+    "innerRef": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": ""
+    }
+  }
+}

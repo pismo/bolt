@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "play": "lerna run playground"
+    "play": "lerna run playground",
+    "doc": "lerna run doc"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "lerna": "^2.5.1",
+    "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0"
   },
   "dependencies": {

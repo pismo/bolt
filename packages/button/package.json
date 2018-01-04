@@ -4,7 +4,8 @@
   "description": "Button component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "doc": "react-docgen ./src/Button.js --out ../../docs/Button.json --pretty"
   },
   "keywords": [
     "pismo",
