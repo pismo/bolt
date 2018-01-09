@@ -1,0 +1,19 @@
+{
+  "name": "@pismo/eslint-config-bolt",
+  "version": "1.0.0",
+  "description": "Pismo Bolt eslint config",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pismo",
+    "bolt",
+    "react",
+    "eslint",
+    "config",
+    "lint"
+  ],
+  "author": "Pismo",
+  "license": "ISC"
+}

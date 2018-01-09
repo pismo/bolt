@@ -12,5 +12,8 @@
     "colors"
   ],
   "author": "Pismo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@pismo/eslint-config-bolt": "^1.0.0"
+  }
 }

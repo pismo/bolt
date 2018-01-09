@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "@pismo/eslint-config-bolt": "^1.0.0",
     "@pismo/bolt-modal": "^1.0.0",
     "@pismo/bolt-button": "^1.0.0"
   }

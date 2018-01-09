@@ -19,7 +19,8 @@
   "dependencies": {
     "react": "^16.2.0",
     "styled-components": "^2.4.0",
-    "@pismo/bolt-colors": "^1.0.0"
+    "@pismo/bolt-colors": "^1.0.0",
+    "@pismo/eslint-config-bolt": "^1.0.0"
   },
   "devDependencies": {
     "prop-types": "^15.6.0"

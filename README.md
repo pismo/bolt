@@ -55,7 +55,7 @@ Run the sandbox:
 > yarn play
 ```
 
-This should exec the command `npm run playground` of the `playground` package from any cwd.
+This should exec the command `npm run playground` of the `playground` package from the root directory.
 
 ## Documentation
 

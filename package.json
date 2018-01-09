@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "precommit": "lint-staged",
     "test": "npm test",
     "play": "lerna run playground",
     "doc": "lerna run doc"
@@ -35,7 +36,10 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.15.0",
+    "husky": "^0.14.3",
     "lerna": "^2.5.1",
+    "lint-staged": "^6.0.0",
     "react-docgen": "^2.20.0",
     "react-dom": "^16.2.0"
   },
