@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-modal",
-  "version": "0.0.1-1",
+  "version": "0.0.1-2",
   "description": "Modal component for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "author": "Pismo",
   "license": "ISC",
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-1"
+    "@pismo/eslint-config-bolt": "^0.0.1-2"
   },
   "publishConfig": {
     "access": "public"
