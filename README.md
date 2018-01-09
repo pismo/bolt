@@ -80,7 +80,7 @@ Check the `/docs` folder for the updated `.json` and `.md` files (WIP).
 First, make sure you are signed in to npm and is a team member of `@pismo:developers`.
 
 ```sh
-npm login
+> npm login
 ```
 
 Then, simply run:
