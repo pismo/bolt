@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm test",
+    "lint": "node_modules/.bin/eslint --fix",
     "playground": "parcel src/index.html -o"
   },
   "author": "Pismo",

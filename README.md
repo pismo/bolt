@@ -64,7 +64,7 @@ We're using [react-docgen](https://github.com/reactjs/react-docgen) to extract a
 To update the docs files simply run:
 
 ```sh
-> yarn doc
+> yarn doc:all
 ```
 
 Check the `/docs` folder for the updated `.json` and `.md` files (WIP).

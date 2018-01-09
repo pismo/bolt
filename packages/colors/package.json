@@ -4,7 +4,8 @@
   "description": "Color palette for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "lint": "node_modules/.bin/eslint --fix"
   },
   "keywords": [
     "pismo",
