@@ -4,6 +4,7 @@
   "description": "Pismo styleguide components",
   "main": "index.js",
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "test": "npm test",
     "play": "lerna run playground",
     "doc": "lerna run doc"
