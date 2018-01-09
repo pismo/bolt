@@ -27,7 +27,7 @@ module.exports = {
       asyncArrow: 'always'
     }],
     'jsx-quotes': [
-      error,
+      'error',
       'prefer-double'
     ],
     'eol-last': [
