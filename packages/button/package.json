@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "prop-types": "^15.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

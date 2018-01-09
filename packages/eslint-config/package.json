@@ -16,5 +16,8 @@
     "lint"
   ],
   "author": "Pismo",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
 }

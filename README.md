@@ -10,7 +10,13 @@ You should keep in mind that they must be able to be imported both from the sour
 _a component's package.json_:
 ```json
  {
-   "main": "./src/index.js"
+    "main": "./src/index.js",
+    "publishConfig": {
+      "access": "public"
+    },
+    "devDependencies": {
+      "@pismo/eslint-config-bolt": "^X.Y.Z"
+    }
  }
 ```
 
@@ -22,7 +28,6 @@ src/
   - Component.js
   - index.js
 .babelrc
-.eslintrc
 package.json
 README.md
 ```
