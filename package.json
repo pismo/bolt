@@ -4,11 +4,11 @@
   "description": "Pismo styleguide components",
   "main": "index.js",
   "scripts": {
-    "postinstall": "lerna bootstrap",
-    "precommit": "lint-staged",
     "test": "npm test",
+    "doc": "lerna run doc",
     "play": "lerna run playground",
-    "doc": "lerna run doc"
+    "postinstall": "lerna bootstrap",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
