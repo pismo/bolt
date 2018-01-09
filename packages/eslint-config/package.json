@@ -2,10 +2,9 @@
   "name": "@pismo/eslint-config-bolt",
   "version": "0.0.1-2",
   "description": "Pismo Bolt eslint config",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "lint": "node_modules/.bin/eslint --fix"
+    "test": "npm test"
   },
   "keywords": [
     "pismo",
@@ -23,5 +22,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1"
   }
 }
