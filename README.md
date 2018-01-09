@@ -35,9 +35,8 @@ README.md
 So, by the default, we are pointing to our source file but there's also the distribution files installed if needed.
 
 Things that are common between all components packages:
- - .babelrc
- - .eslintrc
- - most scripts of each `package.json` "scripts" declaration (e.g.: `npm run doc` for documentation)
+ - .eslintrc (extends from `@pismo/eslint-config-bolt` package)
+ - most scripts of each `package.json` "scripts" declaration (e.g.: `npm run doc` for documentation, we need this so we can execute a common command of each package from within the root directory using lerna exec/run)
 
 
 ## Playground (development)
@@ -62,6 +61,7 @@ Run the sandbox:
 
 This should exec the command `npm run playground` of the `playground` package from the root directory.
 
+
 ## Documentation
 
 We're using [react-docgen](https://github.com/reactjs/react-docgen) to extract all the information from the components source codes, and then generating friendly markdown from it.
@@ -73,3 +73,20 @@ To update the docs files simply run:
 ```
 
 Check the `/docs` folder for the updated `.json` and `.md` files (WIP).
+
+
+## Distribution
+
+First, make sure you are signed in to npm and is a team member of `@pismo:developers`.
+
+```sh
+npm login
+```
+
+Then, simply run:
+
+```sh
+> lerna publish
+```
+
+Follow the steps, choose the proper version to be published and lerna will publish every package for you.
