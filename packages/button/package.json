@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
-    "doc": "react-docgen ./src/Button.js --out ../../docs/Button.json --pretty"
+    "doc": "react-docgen ./src/Button.js --out .meta.json --pretty"
   },
   "keywords": [
     "pismo",
