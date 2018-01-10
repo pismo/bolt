@@ -1,5 +1,5 @@
 {
-  "description": "",
+  "description": "One button to rule them all.",
   "displayName": "Button",
   "methods": [],
   "props": {
@@ -10,7 +10,7 @@
         "value": "supportedSizes"
       },
       "required": false,
-      "description": "",
+      "description": "'small', 'medium', 'large'",
       "defaultValue": {
         "value": "'medium'",
         "computed": false
@@ -34,25 +34,11 @@
         "value": "supportedWeights"
       },
       "required": false,
-      "description": "",
+      "description": "'normal', 'primary'",
       "defaultValue": {
         "value": "'normal'",
         "computed": false
       }
-    },
-    "onClick": {
-      "type": {
-        "name": "func"
-      },
-      "required": false,
-      "description": ""
-    },
-    "children": {
-      "type": {
-        "name": "any"
-      },
-      "required": false,
-      "description": ""
     },
     "innerRef": {
       "type": {
