@@ -32,7 +32,7 @@ package.json
 README.md
 ```
 
-So, by the default, we are pointing to our source file but there's also the distribution files installed if needed.
+So, by default, we are pointing to our source file but there's also the build file installed if needed.
 
 Things that are common between all components packages:
  - .eslintrc (extends from `@pismo/eslint-config-bolt` package)
@@ -73,6 +73,8 @@ To update the docs files simply run:
 ```
 
 Check the `/docs` folder for the updated `.json` and `.md` files (WIP).
+
+**Keep in mind that this command is automatically executed along with the linting task on every commit so you don't need to constantly worry about keeping the docs up to date as you develop any package.**
 
 
 ## Distribution
