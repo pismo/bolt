@@ -6,7 +6,9 @@
   "scripts": {
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
-    "doc": "react-docgen ./src/Modal.js --out .meta.json --pretty"
+    "docgen": "react-docgen ./src/Modal.js --out .meta.json --pretty",
+    "mdgen": "node ../../docgen-to-md.js",
+    "doc": "yarn docgen && yarn mdgen"
   },
   "keywords": [
     "pismo",

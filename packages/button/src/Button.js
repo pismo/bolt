@@ -17,13 +17,16 @@ const StyledButton = styled.button`
   ${props => props.disabled ? stateStyles['disabled'] : ''}
 `
 
+/**
+ * One button to rule them all.
+ */
 class Button extends Component {
   static propTypes = {
+    /** 'small', 'medium', 'large' */
     size: PropTypes.oneOf(supportedSizes),
     block: PropTypes.bool,
+    /** 'normal', 'primary' */
     weight: PropTypes.oneOf(supportedWeights),
-    onClick: PropTypes.func,
-    children: PropTypes.any,
     innerRef: PropTypes.func,
   }
 
