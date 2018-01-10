@@ -1,6 +1,8 @@
 {
-  "**/**/*.js": [
-    "yarn lint:all && yarn doc:all",
-    "git add"
-  ]
+  "linters": {
+    "**/**/*.js": [
+      "yarn lint:all && yarn doc:all",
+      "git add"
+    ]
+  }
 }

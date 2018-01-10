@@ -34,7 +34,9 @@ You can use [husky](https://github.com/typicode/husky) along with [lint-staged](
 `.lintstagedrc` file:
 ```json
 {
-  "*.js": ["yarn lint", "git add"]
+  "linters": {
+    "*.js": ["yarn lint", "git add"]
+  }
 }
 ```
 
