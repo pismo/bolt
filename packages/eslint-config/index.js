@@ -40,7 +40,14 @@ module.exports = {
     ],
     'max-len': [
       'error',
-      120
+      {
+        'code': 120,
+        'ignoreComments': true,
+        'ignoreTrailingComments': true,
+        'ignoreUrls': true,
+        'ignoreStrings': true,
+        'ignoreTemplateLiterals': true,
+      }
     ],
     'newline-per-chained-call': [1, {
       ignoreChainWithDepth: 2
