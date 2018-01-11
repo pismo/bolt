@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-colors",
-  "version": "0.0.1-5",
+  "version": "0.0.1-6",
   "description": "Color palette for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "Pismo",
   "license": "ISC",
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-5"
+    "@pismo/eslint-config-bolt": "^0.0.1-6"
   },
   "publishConfig": {
     "access": "public"
