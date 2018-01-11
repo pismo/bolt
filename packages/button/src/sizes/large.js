@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 
 const largeSizeStyle = css`
-  font-size: 1.2rem;
+  font-size: 24px;
   padding: 1.2rem;
 `
 

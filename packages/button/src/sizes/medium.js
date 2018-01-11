@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 
 const mediumSizeStyle = css`
-  font-size: 1rem;
+  font-size: 16px;
   padding: .9rem;
 `
 

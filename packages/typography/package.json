@@ -1,0 +1,30 @@
+{
+  "name": "@pismo/bolt-typography",
+  "version": "0.0.1-5",
+  "description": "Typography, fonts and vertical rhythm",
+  "main": "index.scss",
+  "files": [
+    "index.scss"
+  ],
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pismo",
+    "bolt",
+    "styleguide",
+    "typography",
+    "vertical",
+    "rhythm",
+    "font"
+  ],
+  "author": "Pismo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

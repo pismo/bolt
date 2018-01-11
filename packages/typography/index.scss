@@ -1,0 +1,21 @@
+@import 'font-sizes';
+@import 'line-heights';
+@import 'lato';
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+}
+
+.f--headline { font-size: $fHeadline; }
+.f--sub-headline { font-size: $fSubHeadline; }
+.f--title { font-size: $fTitle; }
+h1, .f1 { font-size: $f1; }
+h2, .f2 { font-size: $f2; }
+h3, .f3 { font-size: $f3; }
+h4, .f4 { font-size: $f4; }
+h5, .f5 { font-size: $f5; }
+h6, .f6 { font-size: $f6; }
+small, .f7 { font-size: $f7; }
+.tiny, .f8 { font-size: $f8; }
