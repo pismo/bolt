@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-typography",
-  "version": "0.0.1-6",
+  "version": "0.0.1-7",
   "description": "Typography, fonts and vertical rhythm",
   "main": "index.scss",
   "files": [
