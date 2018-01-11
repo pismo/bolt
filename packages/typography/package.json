@@ -2,7 +2,10 @@
   "name": "@pismo/bolt-typography",
   "version": "0.0.1-5",
   "description": "Typography, fonts and vertical rhythm",
-  "main": "src/index.js",
+  "main": "index.scss",
+  "files": [
+    "index.scss"
+  ],
   "scripts": {
     "test": "npm test"
   },
@@ -23,8 +26,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-5"
   }
 }
