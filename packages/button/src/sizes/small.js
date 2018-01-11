@@ -1,8 +1,7 @@
 import { css } from 'styled-components'
-import { rhythm } from '@pismo/bolt-typography'
 
 const smallSizeStyle = css`
-  font-size: ${rhythm(.8)};
+  font-size: 12px;
   padding: .7rem;
 `
 
