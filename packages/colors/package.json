@@ -2,10 +2,12 @@
   "name": "@pismo/bolt-colors",
   "version": "0.0.1-7",
   "description": "Color palette for Pismo Bolt",
-  "main": "src/index.js",
+  "main": "index.scss",
+  "files": [
+    "index.scss"
+  ],
   "scripts": {
-    "test": "npm test",
-    "lint": "node_modules/.bin/eslint --fix"
+    "test": "npm test"
   },
   "keywords": [
     "pismo",
@@ -14,14 +16,14 @@
   ],
   "author": "Pismo",
   "license": "ISC",
-  "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-7"
-  },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
   }
 }

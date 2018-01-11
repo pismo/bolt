@@ -1,0 +1,35 @@
+/* gray scale */
+$gray: #8692a6;
+$gray-500: #8692a6;
+$gray-900: #151a21;
+$gray-800: #2c3644;
+$gray-700: #4f5a6a;
+$gray-600: #6e7a8c;
+$gray-400: #a2aec2;
+$gray-300: #c1c7d4;
+$gray-200: #d6dae2;
+$gray-100: #eceef2;
+$gray-50: #fafafa;
+
+/* grey aliases */
+$grey: $gray;
+$grey-500: $gray-500;
+$grey-900: $gray-900;
+$grey-800: $gray-800;
+$grey-700: $gray-700;
+$grey-600: $gray-600;
+$grey-400: $gray-400;
+$grey-300: $gray-300;
+$grey-200: $gray-200;
+$grey-100: $gray-100;
+$grey-50: $gray-50;
+
+/* named aliases */
+$near-black: $gray-900;
+$near-white: $gray-50;
+
+/* css-in-js support */
+// :export {
+//   gray: $gray;
+//   grey: $grey;
+// }

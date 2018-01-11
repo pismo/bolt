@@ -1,6 +1,6 @@
-@import './font-sizes.scss';
-@import './line-heights.scss';
-@import './lato.scss';
+@import '_font-sizes';
+@import '_line-heights';
+@import 'fonts/lato';
 
 html, body {
   font-family: 'Lato', sans-serif;
