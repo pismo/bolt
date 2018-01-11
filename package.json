@@ -51,6 +51,7 @@
     "currency.js": "^1.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "styled-components": "^2.4.0"
+    "styled-components": "^2.4.0",
+    "typography": "^0.16.6"
   }
 }

@@ -1,7 +1,8 @@
 import { css } from 'styled-components'
+import { rhythm } from '@pismo/bolt-typography'
 
 const largeSizeStyle = css`
-  font-size: 1.2rem;
+  font-size: ${rhythm(1.2)};
   padding: 1.2rem;
 `
 

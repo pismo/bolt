@@ -11,6 +11,7 @@
   "author": "Pismo",
   "license": "ISC",
   "dependencies": {
+    "@pismo/bolt-typography": "^0.0.1-5",
     "@pismo/bolt-button": "^0.0.1-5",
     "@pismo/bolt-modal": "^0.0.1-5",
     "@pismo/eslint-config-bolt": "^0.0.1-5",

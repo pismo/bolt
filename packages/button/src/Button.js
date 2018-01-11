@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import typography from '@pismo/bolt-typography'
 
 import * as sizeStyles from './sizes'
 import * as weightStyles from './weights'
