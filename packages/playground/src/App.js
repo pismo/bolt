@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
 
+import '@pismo/bolt-typography'
+
 class App extends Component {
   state = {
     isModalOpen: false,
@@ -24,6 +26,9 @@ class App extends Component {
 
     return (
       <div>
+        <h1>Heading h1</h1>
+        <p>Body text <small>small</small> and <span className="tiny">tiny</span>.</p>
+
         <Button onClick={this.handleClick} innerRef={this.handleRef}>
           Open modal
         </Button>
