@@ -19,7 +19,12 @@ const readSASS = filename =>
   stripComments(fs.readFileSync(filename).toString())
 
 const writeJS = (filename, contents) =>
-  fs.writeFileSync(`${filename}.js`, JSON.stringify(contents, null, 2).concat('\n'))
+  fs.writeFileSync(
+    `${filename}.js`,
+    'module.exports = {\n'
+      .concat(JSON.stringify(contents, null, 2).replace(/[\{\}]/g, ''))
+      .concat('\n}\n')
+  )
 
 const writeModuleJS = sassModule => writeJS(sassModule.name, toObject(sassModule.variables))
 
@@ -39,21 +44,22 @@ const main = () => {
       const moduleName = filename.split('.')[0].replace(/[_\.]/, '')
       const sassModule = { name: moduleName, variables: [] }
 
-      const contents = readSASS(filename).split('\n').map(line => {
-        const variablesFromLine = SASS_VARIABLE_REGEX.exec(line)
+      const contents = readSASS(filename).split('\n')
+        .map(line => {
+          const variablesFromLine = SASS_VARIABLE_REGEX.exec(line)
 
-        if (!variablesFromLine) {
-          return false
-        }
+          if (!variablesFromLine) {
+            return false
+          }
 
-        const key = variablesFromLine[1]
-        const value = variablesFromLine[2]
+          const key = variablesFromLine[1]
+          const value = variablesFromLine[2]
 
-        sassModule.variables.push({
-          key: key.trim(),
-          value: value.trim(),
+          sassModule.variables.push({
+            key: key.trim(),
+            value: value.trim(),
+          })
         })
-      })
 
       const computedSassModule = {
         ...sassModule,
@@ -77,7 +83,7 @@ const main = () => {
             key: variable.key,
             value: computedValue,
           }
-        })
+        }),
       }
 
       const camelCaseSassModule = {
@@ -85,7 +91,7 @@ const main = () => {
         variables: computedSassModule.variables.map(variable => ({
           ...variable,
           key: camelCase(variable.key),
-        }))
+        })),
       }
 
       sassModules.push(camelCaseSassModule)

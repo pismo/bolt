@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "camelcase": "^4.1.0",
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "@pismo/eslint-config-bolt": "^0.0.1-5"
   }
 }
