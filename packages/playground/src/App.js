@@ -41,7 +41,7 @@ class App extends Component {
           I can also be <span style={blueStyle}>blue</span>.
         </p>
 
-        <Button onClick={this.handleClick} innerRef={this.handleRef}>
+        <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
           Open modal
         </Button>
 

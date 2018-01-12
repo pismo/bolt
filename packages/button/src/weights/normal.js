@@ -4,15 +4,16 @@ import common from './common'
 
 const normalWeightStyle = css`
   ${common}
-  background-color: ${colors.gray200};
-  color: ${colors.gray700};
-  font-weight: 600;
+  color: ${colors.blue};
+  background-color: ${colors.gray100};
+  font-weight: bold;
 
   &:hover {
-    background-color: ${colors.gray300};
+    background-color: ${colors.gray50};
   }
 
   &:active {
+    color: ${colors.blue700};
     background-color: ${colors.gray200};
   }
 `
