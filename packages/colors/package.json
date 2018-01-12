@@ -3,11 +3,9 @@
   "version": "0.0.1-7",
   "description": "Color palette for Pismo Bolt",
   "main": "index.scss",
-  "files": [
-    "index.scss"
-  ],
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "prepare": "node ../../sass-vars-to-json.js"
   },
   "keywords": [
     "pismo",
@@ -24,6 +22,7 @@
     "url": "git+https://github.com/pismo/bolt.git"
   },
   "devDependencies": {
+    "camelcase": "^4.1.0",
     "node-sass": "^4.7.2"
   }
 }
