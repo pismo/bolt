@@ -7,11 +7,11 @@
     "test": "npm test",
     "doc:all": "lerna run doc",
     "lint:all": "lerna run lint",
-    "prepare:all": "lerna run prepare",
+    "prepare-sass:all": "lerna run prepare-sass",
     "clean-computed-sass:all": "lerna run clean-computed-sass",
     "play": "lerna run playground",
     "postinstall": "lerna bootstrap",
-    "precommit": "yarn clean-computed-sass:all && yarn prepare:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
+    "precommit": "yarn clean-computed-sass:all && yarn prepare-sass:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
   },
   "repository": {
     "type": "git",

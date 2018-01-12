@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "clean-computed-sass": "rm -f *.js",
-    "prepare": "node ../../sass-vars-to-js.js",
+    "prepare-sass": "node ../../sass-vars-to-js.js",
     "lint": "node_modules/.bin/eslint --fix"
   },
   "keywords": [
