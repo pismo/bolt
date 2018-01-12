@@ -1,6 +1,6 @@
 {
   "linters": {
-    "**/**/*.js": [
+    "*.js": [
       "yarn lint:all",
       "git add"
     ]

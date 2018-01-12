@@ -8,9 +8,10 @@
     "doc:all": "lerna run doc",
     "lint:all": "lerna run lint",
     "prepare:all": "lerna run prepare",
+    "clean-computed-sass:all": "lerna run clean-computed-sass",
     "play": "lerna run playground",
     "postinstall": "lerna bootstrap",
-    "precommit": "yarn prepare:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
+    "precommit": "yarn clean-computed-sass:all && yarn prepare:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
   },
   "repository": {
     "type": "git",
