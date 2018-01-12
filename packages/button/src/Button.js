@@ -33,7 +33,7 @@ class Button extends Component {
   static defaultProps = {
     size: 'medium',
     block: false,
-    weight: 'primary',
+    weight: 'normal',
   }
 
   render() {

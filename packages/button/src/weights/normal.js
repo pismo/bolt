@@ -1,18 +1,19 @@
 import { css } from 'styled-components'
+import colors from '@pismo/bolt-colors'
 import common from './common'
 
 const normalWeightStyle = css`
   ${common}
-  background-color: #ccc;
-  color: #666;
-  font-weight: 500;
+  background-color: ${colors.gray200};
+  color: ${colors.gray700};
+  font-weight: 600;
 
   &:hover {
-    background-color: #ddd;
+    background-color: ${colors.gray300};
   }
 
   &:active {
-    background-color: #ccc;
+    background-color: ${colors.gray200};
   }
 `
 

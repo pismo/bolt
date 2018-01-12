@@ -18,5 +18,5 @@ Prop | Type | Description | Required | Default
 --- | :---: | --- | :---: | :---:
 **size** | enum | 'small', 'medium', 'large' | false | 'medium'
 **block** | bool | – | false | false
-**weight** | enum | 'normal', 'primary' | false | 'primary'
+**weight** | enum | 'normal', 'primary' | false | 'normal'
 **innerRef** | func | – | false | –
