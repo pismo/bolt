@@ -10,7 +10,7 @@
     "prepare:all": "lerna run prepare",
     "play": "lerna run playground",
     "postinstall": "lerna bootstrap",
-    "precommit": "yarn prepare:all && lint-staged && yarn doc:all && git add --all -v ."
+    "precommit": "yarn prepare:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
   },
   "repository": {
     "type": "git",

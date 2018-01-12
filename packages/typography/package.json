@@ -5,7 +5,8 @@
   "main": "index.scss",
   "scripts": {
     "test": "npm test",
-    "prepare": "node ../../sass-vars-to-js.js"
+    "prepare": "node ../../sass-vars-to-js.js",
+    "lint": "node_modules/.bin/eslint --fix"
   },
   "keywords": [
     "pismo",
