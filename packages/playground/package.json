@@ -16,6 +16,7 @@
     "@pismo/bolt-modal": "^0.0.1-8",
     "@pismo/bolt-typography": "^0.0.1-8",
     "@pismo/eslint-config-bolt": "^0.0.1-8",
+    "normalize.css": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
