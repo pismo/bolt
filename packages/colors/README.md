@@ -14,7 +14,7 @@ If you are have a `sass-loader` prepared to import `.scss` files from your `node
 
 `MyApp/index.js`:
 ```js
-import '@pismo/bolt-colors'
+import '@pismo/bolt-colors/index.scss'
 ```
 
 You can name the import to make use of the same variables declared in the SCSS files, but in your JS:
@@ -38,7 +38,7 @@ In this case you just need to import the specific file that contains the variabl
 
 `MyApp/style.scss`:
 ```scss
-@import '~@pismo/bolt-colors';
+@import '~@pismo/bolt-colors/index.scss';
 
 .my-class {
   color: $blue;

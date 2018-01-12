@@ -2,7 +2,7 @@
   "name": "@pismo/bolt-colors",
   "version": "0.0.1-7",
   "description": "Color palette for Pismo Bolt",
-  "main": "index.scss",
+  "main": "index.js",
   "scripts": {
     "test": "npm test",
     "clean-computed-sass": "rm -f *.js",

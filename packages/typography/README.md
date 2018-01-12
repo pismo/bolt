@@ -14,7 +14,7 @@ If you are have a `sass-loader` prepared to import `.scss` files from your `node
 
 `MyApp/index.js`:
 ```js
-import '@pismo/bolt-typography'
+import '@pismo/bolt-typography/index.scss'
 ```
 
 You can name the import to make use of the same variables declared in the SCSS files, but in your JS:
@@ -43,6 +43,17 @@ In this case you just need to import the specific file that contains the variabl
 
 .my-class {
   font-size: $f1;
+}
+```
+
+Or import them all, I don't care
+
+```MyApp/style.scss`:
+```scss
+@import '~@pismo/bolt-typography/index.scss';
+
+.my-class {
+  line-height: $baseLineHeight;
 }
 ```
 

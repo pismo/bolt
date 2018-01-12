@@ -2,7 +2,7 @@
   "name": "@pismo/bolt-typography",
   "version": "0.0.1-7",
   "description": "Typography, fonts and vertical rhythm",
-  "main": "index.scss",
+  "main": "index.js",
   "scripts": {
     "test": "npm test",
     "clean-computed-sass": "rm -f *.js",
