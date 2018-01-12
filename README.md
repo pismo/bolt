@@ -38,6 +38,20 @@ Things that are common between all components packages:
  - .eslintrc (extends from `@pismo/eslint-config-bolt` package)
  - most scripts of each `package.json` "scripts" declaration (e.g.: `npm run doc` for documentation, we need this so we can execute a common command of each package from within the root directory using lerna exec/run)
 
+## Usage
+
+Each package has its own `README.md` with installation and usage guides, along with whatever information you might need to make use of them in your project.
+
+We strongly recommend adding [normalize.css](https://necolas.github.io/normalize.css) to your project before any of the Bolt packages.
+
+```sh
+> yarn add normalize.css
+```
+
+At the top of your `index.js` file, or anywhere else that comes before importing `@pismo/bolt-{package}`.
+```js
+import 'normalize.css'
+```
 
 ## Playground (development)
 
