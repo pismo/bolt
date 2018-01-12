@@ -28,7 +28,7 @@ const btnStyle = {
 }
 
 const MyButton = () => (
-  <Button style={btnStyle}>I'm bolt blue!</Button>
+  <Button style={btnStyle}>Bolt blue!</Button>
 )
 ```
 
@@ -53,3 +53,7 @@ Pro-tip: You can import specific color palettes, like so:
 ```scss
 @import '~@pismo/bolt-colors/_red'
 ```
+
+### Development
+
+Edit the `.scss` files. All the JS files are generated automatically upon commit.

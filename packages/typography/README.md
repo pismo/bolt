@@ -29,7 +29,7 @@ const btnStyle = {
 }
 
 const MyButton = () => (
-  <Button style={btnStyle}>I'm too big!</Button>
+  <Button style={btnStyle}>Too big!</Button>
 )
 ```
 
@@ -47,3 +47,7 @@ In this case you just need to import the specific file that contains the variabl
 ```
 
 e.g.: We're using the `$f1` variable from the file `_font-sizes.scss` of `@pismo/bolt-typography`.
+
+### Development
+
+Edit the `.scss` files. All the JS files are generated automatically upon commit.
