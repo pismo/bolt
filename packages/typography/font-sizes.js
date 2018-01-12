@@ -1,5 +1,4 @@
 module.exports = {
-
   "baseFontSize": "16px",
   "fHeadline": "6rem",
   "fSubHeadline": "5rem",
@@ -11,6 +10,5 @@ module.exports = {
   "f5": "1rem",
   "f6": ".875rem",
   "f7": ".75rem",
-  "f8": ".625rem",
-
+  "f8": ".625rem"
 }

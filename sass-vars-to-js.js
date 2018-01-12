@@ -21,9 +21,9 @@ const readSASS = filename =>
 const writeJS = (filename, contents) =>
   fs.writeFileSync(
     `${filename}.js`,
-    'module.exports = {\n'
+    'module.exports = {'
       .concat(JSON.stringify(contents, null, 2).replace(/[\{\}]/g, ''))
-      .concat('\n}\n')
+      .concat('}\n')
   )
 
 const writeModuleJS = sassModule => writeJS(sassModule.name, toObject(sassModule.variables))
