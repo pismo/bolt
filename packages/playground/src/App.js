@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
 import colors from '@pismo/bolt-colors/index.js'
+import typography from '@pismo/bolt-typography'
 
-import '@pismo/bolt-typography'
+import '@pismo/bolt-typography/index.scss'
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
 
     const blueStyle = {
       color: colors.blue,
+      fontSize: typography.f4,
     }
 
     return (
