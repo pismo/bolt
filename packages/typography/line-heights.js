@@ -1,3 +1,3 @@
 module.exports = {
-  "baseLineHeight": "1.5"
+  "baseLineHeight": "1.5",
 }

@@ -9,5 +9,5 @@ module.exports = {
   "gray300": "#c1c7d4",
   "gray200": "#d6dae2",
   "gray100": "#eceef2",
-  "gray50": "#fafafa"
+  "gray50": "#fafafa",
 }

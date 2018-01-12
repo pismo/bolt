@@ -11,5 +11,5 @@ module.exports = {
   "f6": ".875rem",
   "f7": ".75rem",
   "f8": ".625rem",
-  "baseLineHeight": "1.5"
+  "baseLineHeight": "1.5",
 }

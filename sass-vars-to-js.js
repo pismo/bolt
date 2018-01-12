@@ -22,7 +22,9 @@ const writeJS = (filename, contents) =>
   fs.writeFileSync(
     `${filename}.js`,
     'module.exports = {'
-      .concat(JSON.stringify(contents, null, 2).replace(/[\{\}]/g, ''))
+      .concat(JSON.stringify(contents, null, 2)
+        .replace(/[\{\}]/g, '')
+      )
       .concat('}\n')
   )
 
