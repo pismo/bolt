@@ -5,7 +5,7 @@
   "main": "index.scss",
   "scripts": {
     "test": "npm test",
-    "prepare": "node ../../sass-vars-to-json.js"
+    "prepare": "node ../../sass-vars-to-js.js"
   },
   "keywords": [
     "pismo",

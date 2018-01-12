@@ -3,11 +3,9 @@
   "version": "0.0.1-7",
   "description": "Typography, fonts and vertical rhythm",
   "main": "index.scss",
-  "files": [
-    "index.scss"
-  ],
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "prepare": "node ../../sass-vars-to-js.js"
   },
   "keywords": [
     "pismo",

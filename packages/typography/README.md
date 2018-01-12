@@ -17,17 +17,33 @@ If you are have a `sass-loader` prepared to import `.scss` files from your `node
 import '@pismo/bolt-typography'
 ```
 
+You can name the import to make use of the same variables declared in the SCSS files, but in your JS:
+
+`MyButton.js`:
+```js
+import typography from '@pismo/bolt-typography'
+
+const btnStyle = {
+  fontSize: typography.f1,
+  lineHeight: typography.baseLineHeight,
+}
+
+const MyButton = () => (
+  <Button style={btnStyle}>I'm too big!</Button>
+)
+```
+
 ### Using the variables inside your own SCSS/SASS
 
 In this case you just need to import the specific file that contains the variables you want to reuse in your `.scss`.
 
 `MyApp/style.scss`:
 ```scss
-@import '~@pismo/bolt-typography/font-sizes';
+@import '~@pismo/bolt-typography/_font-sizes';
 
 .my-class {
   font-size: $f1;
 }
 ```
 
-e.g.: We're using the `$f1` variable from the file `font-sizes.scss` of `@pismo/bolt-typography`.
+e.g.: We're using the `$f1` variable from the file `_font-sizes.scss` of `@pismo/bolt-typography`.
