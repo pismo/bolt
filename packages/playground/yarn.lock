@@ -2,31 +2,31 @@
 # yarn lockfile v1
 
 
-"@pismo/bolt-button@^0.0.1-7":
-  version "0.0.1-7"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-button/-/bolt-button-0.0.1-7.tgz#e22cde169c6403391b2b522290f42a9ce05d0033"
+"@pismo/bolt-button@^0.0.1-8":
+  version "0.0.1-8"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-button/-/bolt-button-0.0.1-8.tgz#c765aacf46e2818aaf8d03a24c18d2aa2e966f17"
   dependencies:
-    "@pismo/bolt-colors" "^0.0.1-7"
-    "@pismo/bolt-typography" "^0.0.1-7"
-    "@pismo/eslint-config-bolt" "^0.0.1-7"
+    "@pismo/bolt-colors" "^0.0.1-8"
+    "@pismo/bolt-typography" "^0.0.1-8"
+    "@pismo/eslint-config-bolt" "^0.0.1-8"
     react "^16.2.0"
     styled-components "^2.4.0"
 
-"@pismo/bolt-colors@^0.0.1-7":
-  version "0.0.1-7"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-7.tgz#faec47e77e5a918291464eb33b2a794597bba503"
+"@pismo/bolt-colors@^0.0.1-8":
+  version "0.0.1-8"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-8.tgz#0c0401e9cf28ac6abfdd12dd9114adb128147001"
 
-"@pismo/bolt-modal@^0.0.1-7":
-  version "0.0.1-7"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-modal/-/bolt-modal-0.0.1-7.tgz#0feaf5180677a6e436d4f4f904f4f8ba77fdc26e"
+"@pismo/bolt-modal@^0.0.1-8":
+  version "0.0.1-8"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-modal/-/bolt-modal-0.0.1-8.tgz#9a4452a750caaa99408ac6525e7b1e563e908c15"
 
-"@pismo/bolt-typography@^0.0.1-7":
-  version "0.0.1-7"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-7.tgz#fd4547f3bd37de286d0ce2e9807de593b30da900"
+"@pismo/bolt-typography@^0.0.1-8":
+  version "0.0.1-8"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-8.tgz#cdf75fb0c8cebec022e47bc7c12b99692c07bfa0"
 
-"@pismo/eslint-config-bolt@^0.0.1-7":
-  version "0.0.1-7"
-  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-7.tgz#131b4b3bcf7829b98fcd1f837f3775b9f53282a6"
+"@pismo/eslint-config-bolt@^0.0.1-8":
+  version "0.0.1-8"
+  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-8.tgz#7fdd8010545d8641269747d6109aa0b1872d10ca"
 
 asap@~2.0.3:
   version "2.0.6"
@@ -130,6 +130,10 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+normalize.css@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
 
 object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"

@@ -1,3 +1,5 @@
+import 'normalize.css'
+
 import React, { Component } from 'react'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
@@ -32,7 +34,7 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div style={{ padding: '0 3rem' }}>
         <h1>Heading h1</h1>
         <p>
           Body text <small>small</small> and <span className="tiny">tiny</span>.
