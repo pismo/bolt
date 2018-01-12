@@ -28,7 +28,7 @@ const writeJS = (filename, contents) =>
       .concat('}\n')
   )
 
-const writeModuleJS = sassModule => writeJS(sassModule.name, toObject(sassModule.variables))
+const writeModuleJS = sassModule => writeJS(`_${sassModule.name}`, toObject(sassModule.variables))
 
 const writeIndexJS = sassModules => {
   const filename = 'index'
