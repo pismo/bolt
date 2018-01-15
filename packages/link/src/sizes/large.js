@@ -3,7 +3,7 @@ import typography from '@pismo/bolt-typography'
 
 const largeSizeStyle = css`
   font-size: ${typography.f3};
-  padding: ${typography.f5};
+  padding: ${typography.f7} ${typography.f5};
 `
 
 export default largeSizeStyle

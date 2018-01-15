@@ -3,7 +3,7 @@ import typography from '@pismo/bolt-typography'
 
 const mediumSizeStyle = css`
   font-size: ${typography.f5};
-  padding: ${typography.f6} ${typography.f4};
+  padding: ${typography.f7} ${typography.f5};
 `
 
 export default mediumSizeStyle
