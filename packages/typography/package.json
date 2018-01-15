@@ -27,7 +27,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "@pismo/eslint-config-bolt": "^0.0.1-9"
   }
 }

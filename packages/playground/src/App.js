@@ -3,6 +3,7 @@ import 'normalize.css'
 import React, { Component } from 'react'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
+import Link from '@pismo/bolt-link'
 import colors from '@pismo/bolt-colors/index.js'
 import typography from '@pismo/bolt-typography'
 
@@ -44,6 +45,16 @@ class App extends Component {
         <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
           Open modal
         </Button>
+
+        &nbsp;&nbsp;
+
+        <Button onClick={this.handleClick} innerRef={this.handleRef}>
+          Open modal
+        </Button>
+
+        &nbsp;&nbsp;
+
+        <Link to="/not-found">Link to a route</Link>
 
         <Modal isOpen={isModalOpen}>
           Modal contents

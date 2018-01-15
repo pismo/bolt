@@ -19,7 +19,7 @@
   ],
   "author": "Pismo",
   "license": "ISC",
-  "devDependencies": {
+  "peerDependencies": {
     "@pismo/eslint-config-bolt": "^0.0.1-9"
   },
   "publishConfig": {
