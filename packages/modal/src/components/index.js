@@ -1,2 +1,5 @@
+export { default as OuterContainer } from './OuterContainer'
 export { default as Overlay } from './Overlay'
-export { default as Container } from './Container'
+export { default as InnerContainer } from './InnerContainer'
+export { default as Header } from './Header'
+export { default as Body } from './Body'

@@ -8,18 +8,58 @@
         "name": "bool"
       },
       "required": false,
-      "description": "",
+      "description": "controls whether it's open or closed on the screen",
       "defaultValue": {
         "value": "false",
         "computed": false
       }
+    },
+    "onClose": {
+      "type": {
+        "name": "func"
+      },
+      "required": true,
+      "description": "callback fired if user tried to close modal somehow"
     },
     "children": {
       "type": {
         "name": "any"
       },
       "required": true,
-      "description": ""
+      "description": "anything you want rendered inside"
+    },
+    "controlOverflow": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "should disable page scrolling when open?",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
+    },
+    "closeIcon": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "element"
+          },
+          {
+            "name": "func"
+          }
+        ]
+      },
+      "required": false,
+      "description": "custom icon that closes modal on click",
+      "defaultValue": {
+        "value": "'X'",
+        "computed": false
+      }
     }
   }
 }
