@@ -25,8 +25,6 @@ class Button extends Component {
   static propTypes = {
     /** 'small', 'medium', 'large' */
     size: PropTypes.oneOf(supportedSizes),
-    /** block mode sets `display: block` and max width, useful for modal footers for example */
-    block: PropTypes.bool,
     /** 'normal' */
     weight: PropTypes.oneOf(supportedWeights),
     /** returns the actual `ref` of the inner `<a />` */
@@ -35,7 +33,6 @@ class Button extends Component {
 
   static defaultProps = {
     size: 'medium',
-    block: false,
     weight: 'normal',
     innerRef: Function.prototype,
   }

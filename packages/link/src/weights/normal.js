@@ -5,7 +5,7 @@ import common from './common'
 const normalWeightStyle = css`
   ${common}
   color: ${colors.blue};
-  background-color: ${colors.gray100};
+  background-color: white;
   font-weight: bold;
 
   &:hover {
