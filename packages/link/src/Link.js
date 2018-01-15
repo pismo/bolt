@@ -19,13 +19,17 @@ const StyledLink = styled(Link)`
   ${props => props.disabled ? stateStyles['disabled'] : ''}
 `
 
-const anchorStyle = css`
+const globalLinkStyle = css`
   a {
     box-sizing: border-box;
     cursor: pointer;
     text-decoration: underline;
     ${sizeStyles['medium']}
     ${weightStyles['normal']}
+  }
+
+  a.disabled {
+    ${stateStyles['disabled']}
   }
 `
 
@@ -61,6 +65,6 @@ class Button extends Component {
   }
 }
 
-injectGlobal`${anchorStyle}`
+injectGlobal`${globalLinkStyle}`
 
 export default Button

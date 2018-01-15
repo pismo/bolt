@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css, injectGlobal } from 'styled-components'
 
 import * as sizeStyles from './sizes'
 import * as weightStyles from './weights'
@@ -16,6 +16,23 @@ const StyledButton = styled.button`
   ${props => sizeStyles[props.size]}
   ${props => weightStyles[props.weight]}
   ${props => props.disabled ? stateStyles['disabled'] : ''}
+`
+
+const globalButtonStyle = css`
+  button {
+    box-sizing: border-box;
+    cursor: pointer;
+    ${sizeStyles['medium']}
+    ${weightStyles['normal']}
+  }
+
+  button.primary {
+    ${weightStyles['primary']}
+  }
+
+  button.disabled {
+    ${stateStyles['disabled']}
+  }
 `
 
 /**
@@ -50,5 +67,7 @@ class Button extends Component {
     )
   }
 }
+
+injectGlobal`${globalButtonStyle}`
 
 export default Button

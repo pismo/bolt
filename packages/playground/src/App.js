@@ -59,6 +59,9 @@ class App extends Component {
         <Button size="small">Small</Button>&nbsp;&nbsp;
         <br /><br />
         <Button block>Block</Button>
+        <br /><br />
+        <button>Regular button tag</button>&nbsp;&nbsp;
+        <button className="disabled">Disabled regular button</button>
 
         {/* Link examples */}
         <h2>Links</h2>
@@ -66,7 +69,9 @@ class App extends Component {
         <Link to="/not-found" disabled>Disabled</Link>&nbsp;&nbsp;
         <Link to="/not-found" size="large">Large</Link>&nbsp;&nbsp;
         <Link to="/not-found" size="small">Small</Link>&nbsp;&nbsp;
+        <br /><br />
         <a>Regular anchor tag</a>
+        <a className="disabled">Disabled anchor tag</a>
 
         <Modal isOpen={isModalOpen}>
           Modal contents
