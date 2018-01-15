@@ -41,37 +41,31 @@ class App extends Component {
 
     return (
       <div style={pageContainerStyle}>
+        {/* Typography mixed with colors examples */}
         <h1>Heading h1</h1>
         <p>
           Body text <small>small</small> and <span className="tiny">tiny</span>.
           I can also be <span style={blueStyle}>blue</span>.
         </p>
 
+        {/* Button examples */}
         <h2>Buttons</h2>
-
         <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
           Open modal
-        </Button>
-
-        &nbsp;&nbsp;
-
-        <Button onClick={this.handleClick} innerRef={this.handleRef}>
-          Open modal
-        </Button>
-
-        &nbsp;&nbsp;
-
-        <Button disabled>
-          Open modal
-        </Button>
-
+        </Button>&nbsp;&nbsp;
+        <Button>Default</Button>&nbsp;&nbsp;
+        <Button disabled>Disabled</Button>&nbsp;&nbsp;
+        <Button size="large">Large</Button>&nbsp;&nbsp;
+        <Button size="small">Small</Button>&nbsp;&nbsp;
         <br /><br />
+        <Button block>Block</Button>
 
+        {/* Link examples */}
         <h2>Links</h2>
-
-        <Link to="/not-found">Link to a route</Link>
-        &nbsp;&nbsp;
-        <Link to="/not-found" disabled>Link to a route</Link>
+        <Link to="/not-found">Link to a route</Link>&nbsp;&nbsp;
+        <Link to="/not-found" disabled>Disabled</Link>&nbsp;&nbsp;
+        <Link to="/not-found" size="large">Large</Link>&nbsp;&nbsp;
+        <Link to="/not-found" size="small">Small</Link>&nbsp;&nbsp;
 
         <Modal isOpen={isModalOpen}>
           Modal contents

@@ -7,6 +7,7 @@ const disabledStyle = css`
   background-color: transparent;
   text-decoration: none;
   cursor: 'not-allowed';
+  font-weight: normal;
 `
 
 export default disabledStyle
