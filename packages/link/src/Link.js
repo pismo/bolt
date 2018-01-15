@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled, { css, injectGlobal } from 'styled-components'
 
@@ -9,7 +10,7 @@ import * as stateStyles from './states'
 const supportedSizes = Object.keys(sizeStyles)
 const supportedWeights = Object.keys(weightStyles)
 
-const StyledButton = styled.button`
+const StyledLink = styled(Link)`
   width: ${props => props.block ? '100%' : 'auto'};
   box-sizing: border-box;
   cursor: pointer;
@@ -18,19 +19,16 @@ const StyledButton = styled.button`
   ${props => props.disabled ? stateStyles['disabled'] : ''}
 `
 
-const globalButtonStyle = css`
-  button {
+const globalLinkStyle = css`
+  a {
     box-sizing: border-box;
     cursor: pointer;
+    text-decoration: underline;
     ${sizeStyles['medium']}
     ${weightStyles['normal']}
   }
 
-  button.primary {
-    ${weightStyles['primary']}
-  }
-
-  button.disabled {
+  a.disabled {
     ${stateStyles['disabled']}
   }
 `
@@ -40,34 +38,33 @@ const globalButtonStyle = css`
  */
 class Button extends Component {
   static propTypes = {
+    /** same `to` prop of react-router-dom's Link, check their docs for the others as well */
+    to: PropTypes.string.isRequired,
     /** 'small', 'medium', 'large' */
     size: PropTypes.oneOf(supportedSizes),
-    /** block mode sets `display: block` and max width, useful for modal footers for example */
-    block: PropTypes.bool,
-    /** 'normal', 'primary' */
+    /** 'normal' */
     weight: PropTypes.oneOf(supportedWeights),
-    /** returns the actual `ref` of the inner `<button />` */
+    /** returns the actual `ref` of the inner `<a />` */
     innerRef: PropTypes.func,
   }
 
   static defaultProps = {
     size: 'medium',
-    block: false,
     weight: 'normal',
     innerRef: Function.prototype,
   }
 
   render() {
-    const { children, ...otherProps } = this.props
+    const { children, to, ...otherProps } = this.props
 
     return (
-      <StyledButton {...otherProps}>
+      <StyledLink to={to} {...otherProps}>
         {children}
-      </StyledButton>
+      </StyledLink>
     )
   }
 }
 
-injectGlobal`${globalButtonStyle}`
+injectGlobal`${globalLinkStyle}`
 
 export default Button

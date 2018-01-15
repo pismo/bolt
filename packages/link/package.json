@@ -1,12 +1,12 @@
 {
-  "name": "@pismo/bolt-button",
+  "name": "@pismo/bolt-link",
   "version": "0.0.1-11",
-  "description": "Button component for the Pismo Bolt styleguide",
+  "description": "React Router Link component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
-    "docgen": "react-docgen ./src/Button.js --out .meta.json --pretty",
+    "docgen": "react-docgen ./src/Link.js --out .meta.json --pretty",
     "mdgen": "node ../../docgen-to-md.js",
     "doc": "yarn docgen && yarn mdgen"
   },
@@ -27,15 +27,16 @@
   "devDependencies": {
     "prop-types": "^15.6.0"
   },
-  "peerDependencies": {
-    "react": "^16.2.0",
-    "styled-components": "^2.4.0"
-  },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "styled-components": "^2.4.0"
   }
 }
