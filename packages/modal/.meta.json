@@ -8,7 +8,7 @@
         "name": "bool"
       },
       "required": false,
-      "description": "",
+      "description": "controls whether it's open or closed on the screen",
       "defaultValue": {
         "value": "false",
         "computed": false
@@ -19,7 +19,18 @@
         "name": "any"
       },
       "required": true,
-      "description": ""
+      "description": "anything you want rendered inside"
+    },
+    "controlOverflow": {
+      "type": {
+        "name": "bool"
+      },
+      "required": false,
+      "description": "should disable page scrolling when open?",
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      }
     }
   }
 }
