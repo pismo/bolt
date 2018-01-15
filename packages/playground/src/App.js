@@ -31,6 +31,14 @@ class App extends Component {
     console.log('the ref is real', ref)
   }
 
+  handleModalClose = event => {
+    console.log('the modal close is real', event)
+
+    this.setState({
+      isModalOpen: false,
+    })
+  }
+
   render() {
     const { isModalOpen } = this.state
 
@@ -73,7 +81,7 @@ class App extends Component {
         <a>Regular anchor tag</a>
         <a className="disabled">Disabled anchor tag</a>
 
-        <Modal isOpen={isModalOpen}>
+        <Modal isOpen={isModalOpen} onClose={this.handleModalClose}>
           Modal contents
         </Modal>
       </div>

@@ -7,7 +7,6 @@ const InnerContainer = styled.div`
   border-radius: .125rem;
   background-color: white;
   box-sizing: border-box;
-  padding: 1.75rem 2.25rem;
   transition: all 150ms ease-in-out;
   opacity: ${props => props.isOpen ? '1' : '.3'};
   transform: scale(${props => props.isOpen ? '1' : '.5'});

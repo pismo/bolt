@@ -14,6 +14,13 @@
         "computed": false
       }
     },
+    "onClose": {
+      "type": {
+        "name": "func"
+      },
+      "required": true,
+      "description": "callback fired if user tried to close modal somehow"
+    },
     "children": {
       "type": {
         "name": "any"
@@ -29,6 +36,28 @@
       "description": "should disable page scrolling when open?",
       "defaultValue": {
         "value": "true",
+        "computed": false
+      }
+    },
+    "closeIcon": {
+      "type": {
+        "name": "union",
+        "value": [
+          {
+            "name": "string"
+          },
+          {
+            "name": "element"
+          },
+          {
+            "name": "func"
+          }
+        ]
+      },
+      "required": false,
+      "description": "custom icon that closes modal on click",
+      "defaultValue": {
+        "value": "'X'",
         "computed": false
       }
     }
