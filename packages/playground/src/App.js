@@ -66,6 +66,7 @@ class App extends Component {
         <Link to="/not-found" disabled>Disabled</Link>&nbsp;&nbsp;
         <Link to="/not-found" size="large">Large</Link>&nbsp;&nbsp;
         <Link to="/not-found" size="small">Small</Link>&nbsp;&nbsp;
+        <a>Regular anchor tag</a>
 
         <Modal isOpen={isModalOpen}>
           Modal contents

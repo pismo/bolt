@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css, injectGlobal } from 'styled-components'
 
 import * as sizeStyles from './sizes'
 import * as weightStyles from './weights'
@@ -13,9 +13,20 @@ const supportedWeights = Object.keys(weightStyles)
 const StyledLink = styled(Link)`
   width: ${props => props.block ? '100%' : 'auto'};
   box-sizing: border-box;
+  cursor: pointer;
   ${props => sizeStyles[props.size]}
   ${props => weightStyles[props.weight]}
   ${props => props.disabled ? stateStyles['disabled'] : ''}
+`
+
+const anchorStyle = css`
+  a {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: underline;
+    ${sizeStyles['medium']}
+    ${weightStyles['normal']}
+  }
 `
 
 /**
@@ -49,5 +60,7 @@ class Button extends Component {
     )
   }
 }
+
+injectGlobal`${anchorStyle}`
 
 export default Button
