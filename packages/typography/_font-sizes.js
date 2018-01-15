@@ -11,4 +11,5 @@ module.exports = {
   "f6": ".875rem",
   "f7": ".75rem",
   "f8": ".625rem",
+  "f9": ".5rem",
 }
