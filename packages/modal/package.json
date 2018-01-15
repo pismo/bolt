@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-modal",
-  "version": "0.0.1-10",
+  "version": "0.0.1-11",
   "description": "Modal component for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
