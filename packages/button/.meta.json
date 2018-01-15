@@ -21,7 +21,7 @@
         "name": "bool"
       },
       "required": false,
-      "description": "",
+      "description": "block mode sets `display: block` and max width, useful for modal footers for example",
       "defaultValue": {
         "value": "false",
         "computed": false
@@ -45,7 +45,11 @@
         "name": "func"
       },
       "required": false,
-      "description": ""
+      "description": "returns the actual `ref` of the inner `<button />`",
+      "defaultValue": {
+        "value": "Function.prototype",
+        "computed": true
+      }
     }
   }
 }

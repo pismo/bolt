@@ -17,6 +17,6 @@ import Button from '@pismo/bolt-button'
 Prop | Type | Description | Required | Default
 --- | :---: | --- | :---: | :---:
 **size** | enum | 'small', 'medium', 'large' | false | 'medium'
-**block** | bool | – | false | false
+**block** | bool | block mode sets `display: block` and max width, useful for modal footers for example | false | false
 **weight** | enum | 'normal', 'primary' | false | 'normal'
-**innerRef** | func | – | false | –
+**innerRef** | func | returns the actual `ref` of the inner `<button />` | false | Function.prototype
