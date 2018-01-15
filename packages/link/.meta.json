@@ -3,6 +3,13 @@
   "displayName": "Button",
   "methods": [],
   "props": {
+    "to": {
+      "type": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "same `to` prop of react-router-dom's Link, check their docs for the others as well"
+    },
     "size": {
       "type": {
         "name": "enum",

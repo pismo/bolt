@@ -23,6 +23,8 @@ const StyledLink = styled(Link)`
  */
 class Button extends Component {
   static propTypes = {
+    /** same `to` prop of react-router-dom's Link, check their docs for the others as well */
+    to: PropTypes.string.isRequired,
     /** 'small', 'medium', 'large' */
     size: PropTypes.oneOf(supportedSizes),
     /** 'normal' */
