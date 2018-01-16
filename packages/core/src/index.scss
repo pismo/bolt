@@ -1,5 +1,5 @@
-@import '~@pismo/bolt-typography/index.scss';
-@import '~@pismo/bolt-colors/index.scss';
+@import '../node_modules/@pismo/bolt-typography/index.scss';
+@import '../node_modules/@pismo/bolt-colors/index.scss';
 
 a {
   font-size: $f5;
@@ -11,21 +11,22 @@ a {
   color: $blue;
   background-color: transparent;
   font-weight: bold;
+  cursor: pointer;
 
   &:hover {
-    background-color: $gray50;
+    background-color: $gray-50;
   }
 
   &:active {
-    color: $blue700;
-    background-color: $gray100;
+    color: $blue-700;
+    background-color: $gray-100;
   }
 
   &.disabled {
     cursor: not-allowed;
     font-weight: normal;
     pointer-events: none;
-    color: $gray300;
+    color: $gray-300;
     background-color: transparent;
   }
 }

@@ -24,7 +24,8 @@
     "url": "git+https://github.com/pismo/bolt.git"
   },
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-15"
+    "@pismo/eslint-config-bolt": "^0.0.1-15",
+    "node-sass": "^4.7.2"
   },
   "dependencies": {
     "@pismo/bolt-colors": "^0.0.1-15",
