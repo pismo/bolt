@@ -1,5 +1,5 @@
 # Bolt Core
-This is meant to make it easy to import all styles that are core to the Bolt system
+This is meant to make it easy to import all styles that are core to the Bolt system.
 
 ## Installation
 
@@ -9,7 +9,7 @@ yarn add @pismo/bolt-core
 
 ## Usage
 
-This loads every module style (colors, typography, etc) for you and make them available globally to the document:
+This loads every module style (colors, typography, etc) for you and make them available globally to the document, along with a few core styles from this very package:
 
 ```js
 import '@pismo/bolt-core'

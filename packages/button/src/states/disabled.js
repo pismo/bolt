@@ -5,7 +5,7 @@ const disabledStyle = css`
   pointer-events: none;
   color: ${colors.gray300};
   background-color: ${colors.gray100};
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 `
 
 export default disabledStyle

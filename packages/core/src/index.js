@@ -2,9 +2,7 @@
  * These are valid for the whole document since we are importing .scss files directly
  */
 
-import '@pismo/bolt-typography/index.scss'
-import '@pismo/bolt-colors/index.scss'
-
+import './index.scss'
 
 /** CSS-in-JS
  * These are meant to be used in css-in-js solutions like styled-components
