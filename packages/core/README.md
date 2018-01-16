@@ -12,7 +12,6 @@ yarn add @pismo/bolt-core
 This loads every module style (colors, typography, etc) for you and make them available globally to the document, along with a few core styles from this very package:
 
 ```js
-import 'normalize.css'
 import '@pismo/bolt-core'
 ```
 
