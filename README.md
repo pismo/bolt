@@ -57,6 +57,10 @@ import 'normalize.css'
 
 It's easier to just add the [core](https://github.com/pismo/bolt/tree/master/packages/core) package to your app so most of the common style gets set right away, then you extend your code as needed.
 
+```sh
+> yarn add @pismo/bolt-core
+```
+
 ```js
   import 'normalize.css'
   import '@pismo/bolt-core'
