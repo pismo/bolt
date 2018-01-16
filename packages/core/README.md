@@ -16,7 +16,7 @@ import 'normalize.css'
 import '@pismo/bolt-core'
 ```
 
-You can also name the import if you need to access variables from them:
+You can also name the import _if you need to_ access variables from them:
 
 ```js
 import styleguide from '@pismo/bolt-core'

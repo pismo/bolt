@@ -2,13 +2,11 @@ import 'normalize.css'
 
 import React, { Component } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import core from '@pismo/bolt-core'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
-import Link from '@pismo/bolt-link'
-import colors from '@pismo/bolt-colors/index.js'
-import typography from '@pismo/bolt-typography'
 
-import '@pismo/bolt-typography/index.scss'
+const { typography, colors } = core
 
 const pageContainerStyle = {
   padding: '0 2rem',
@@ -73,11 +71,6 @@ class App extends Component {
 
         {/* Link examples */}
         <h2>Links</h2>
-        <Link to="/not-found">Link to a route</Link>&nbsp;&nbsp;
-        <Link to="/not-found" disabled>Disabled</Link>&nbsp;&nbsp;
-        <Link to="/not-found" size="large">Large</Link>&nbsp;&nbsp;
-        <Link to="/not-found" size="small">Small</Link>&nbsp;&nbsp;
-        <br /><br />
         <a>Regular anchor tag</a>
         <a className="disabled">Disabled anchor tag</a>
 
