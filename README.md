@@ -53,6 +53,17 @@ At the top of your `index.js` file, or anywhere else that comes before importing
 import 'normalize.css'
 ```
 
+### Core
+
+It's easier to just add the [core](https://github.com/pismo/bolt/tree/master/packages/core) package to your app so most of the common style gets set right away, then you extend your code as needed.
+
+```js
+  import 'normalize.css'
+  import '@pismo/bolt-core'
+
+  import 'my-own-styles.scss'
+```
+
 ## Playground (development)
 
 Install global dependencies:
