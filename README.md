@@ -62,10 +62,10 @@ It's easier to just add the [core](https://github.com/pismo/bolt/tree/master/pac
 ```
 
 ```js
-  import 'normalize.css'
-  import '@pismo/bolt-core'
+import 'normalize.css'
+import '@pismo/bolt-core'
 
-  import 'my-own-styles.scss'
+import 'my-own-styles.scss'
 ```
 
 ## Playground (development)
