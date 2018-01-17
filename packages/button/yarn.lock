@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@pismo/bolt-colors@^0.0.1-16":
-  version "0.0.1-16"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-16.tgz#c63b8f379cb3d3601b20bc5927a376a10a9d179c"
+"@pismo/bolt-colors@^0.0.1-17":
+  version "0.0.1-17"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-17.tgz#6063215caf47ec79ae5e7d8430621a45e1366f3e"
 
-"@pismo/bolt-typography@^0.0.1-16":
-  version "0.0.1-16"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-16.tgz#47cfd7c9bf645b74f80623a18ad932e4d8f0d32a"
+"@pismo/bolt-typography@^0.0.1-17":
+  version "0.0.1-17"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-17.tgz#3f7031836e4be3eb409dc778c750ca553e3e8f6c"
 
-"@pismo/eslint-config-bolt@^0.0.1-16":
-  version "0.0.1-16"
-  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-16.tgz#543e9a36eaf21e4792f1de25a15d0199c8f036ec"
+"@pismo/eslint-config-bolt@^0.0.1-17":
+  version "0.0.1-17"
+  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-17.tgz#952dca7b48824099e5c1e7a31c73e094411d22c0"
 
 asap@~2.0.3:
   version "2.0.6"

@@ -1,0 +1,42 @@
+{
+  "name": "@pismo/bolt-label",
+  "version": "0.0.1-17",
+  "description": "Label component for the Pismo Bolt styleguide",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "yarn",
+    "test": "npm test",
+    "lint": "node_modules/.bin/eslint --fix",
+    "docgen": "react-docgen ./src/Label.js --out .meta.json --pretty",
+    "mdgen": "node ../../docgen-to-md.js",
+    "doc": "yarn docgen && yarn mdgen"
+  },
+  "keywords": [
+    "pismo",
+    "react",
+    "bolt",
+    "styled",
+    "component"
+  ],
+  "author": "Pismo",
+  "license": "ISC",
+  "dependencies": {
+    "@pismo/bolt-colors": "^0.0.1-17",
+    "@pismo/bolt-typography": "^0.0.1-17",
+    "@pismo/eslint-config-bolt": "^0.0.1-17"
+  },
+  "devDependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "styled-components": "^2.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  }
+}
