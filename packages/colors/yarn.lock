@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@pismo/eslint-config-bolt@^0.0.1-21":
+  version "0.0.1-21"
+  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-21.tgz#9e73c2e24f70b8892a9640904e2e8b7728c032d1"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

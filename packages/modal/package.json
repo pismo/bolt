@@ -20,15 +20,17 @@
   ],
   "author": "Pismo",
   "license": "ISC",
-  "peerDependencies": {
-    "@pismo/bolt-colors": "^0.0.1-11",
-    "@pismo/eslint-config-bolt": "^0.0.1-9"
-  },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "dependencies": {
+    "@pismo/bolt-colors": "^0.0.1-21"
+  },
+  "devDependencies": {
+    "@pismo/eslint-config-bolt": "^0.0.1-21"
   }
 }

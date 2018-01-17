@@ -22,11 +22,11 @@
   "license": "ISC",
   "dependencies": {
     "@pismo/bolt-colors": "^0.0.1-21",
-    "@pismo/bolt-typography": "^0.0.1-21",
-    "@pismo/eslint-config-bolt": "^0.0.1-21"
+    "@pismo/bolt-typography": "^0.0.1-21"
   },
   "devDependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "@pismo/eslint-config-bolt": "^0.0.1-21"
   },
   "peerDependencies": {
     "react": "^16.2.0",
