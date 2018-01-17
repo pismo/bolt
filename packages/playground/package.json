@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-playground",
-  "version": "0.0.1-22",
+  "version": "0.0.1-23",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -12,11 +12,11 @@
   "author": "Pismo",
   "license": "ISC",
   "dependencies": {
-    "@pismo/bolt-button": "^0.0.1-22",
-    "@pismo/bolt-core": "^0.0.1-22",
-    "@pismo/bolt-label": "^0.0.1-22",
-    "@pismo/bolt-modal": "^0.0.1-22",
-    "@pismo/eslint-config-bolt": "^0.0.1-22",
+    "@pismo/bolt-button": "^0.0.1-23",
+    "@pismo/bolt-core": "^0.0.1-23",
+    "@pismo/bolt-label": "^0.0.1-23",
+    "@pismo/bolt-modal": "^0.0.1-23",
+    "@pismo/eslint-config-bolt": "^0.0.1-23",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

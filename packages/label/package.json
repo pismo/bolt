@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-label",
-  "version": "0.0.1-22",
+  "version": "0.0.1-23",
   "description": "Label component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
@@ -21,9 +21,9 @@
   "author": "Pismo",
   "license": "ISC",
   "dependencies": {
-    "@pismo/bolt-colors": "^0.0.1-22",
-    "@pismo/bolt-typography": "^0.0.1-22",
-    "@pismo/eslint-config-bolt": "^0.0.1-22"
+    "@pismo/bolt-colors": "^0.0.1-23",
+    "@pismo/bolt-typography": "^0.0.1-23",
+    "@pismo/eslint-config-bolt": "^0.0.1-23"
   },
   "devDependencies": {
     "prop-types": "^15.6.0"
