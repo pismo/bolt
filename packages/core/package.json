@@ -1,11 +1,15 @@
 {
   "name": "@pismo/bolt-core",
-  "version": "0.0.1-15",
+  "version": "0.0.1-16",
   "description": "Pismo Bolt core UI style",
   "main": "src/index.js",
   "scripts": {
     "test": "npm test"
   },
+  "files": [
+    "typography.scss",
+    "colors.scss"
+  ],
   "keywords": [
     "pismo",
     "bolt",
@@ -24,11 +28,11 @@
     "url": "git+https://github.com/pismo/bolt.git"
   },
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-15",
+    "@pismo/eslint-config-bolt": "^0.0.1-16",
     "node-sass": "^4.7.2"
   },
   "dependencies": {
-    "@pismo/bolt-colors": "^0.0.1-15",
-    "@pismo/bolt-typography": "^0.0.1-15"
+    "@pismo/bolt-colors": "^0.0.1-16",
+    "@pismo/bolt-typography": "^0.0.1-16"
   }
 }
