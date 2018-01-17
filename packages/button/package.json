@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-button",
-  "version": "0.0.1-21",
+  "version": "0.0.1-22",
   "description": "Button component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
@@ -21,12 +21,12 @@
   "author": "Pismo",
   "license": "ISC",
   "dependencies": {
-    "@pismo/bolt-colors": "^0.0.1-21",
-    "@pismo/bolt-typography": "^0.0.1-21"
+    "@pismo/bolt-colors": "^0.0.1-22",
+    "@pismo/bolt-typography": "^0.0.1-22"
   },
   "devDependencies": {
-    "prop-types": "^15.6.0",
-    "@pismo/eslint-config-bolt": "^0.0.1-21"
+    "@pismo/eslint-config-bolt": "^0.0.1-22",
+    "prop-types": "^15.6.0"
   },
   "peerDependencies": {
     "react": "^16.2.0",
