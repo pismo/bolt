@@ -7,10 +7,6 @@
     "setup": "yarn",
     "test": "npm test"
   },
-  "files": [
-    "typography.scss",
-    "colors.scss"
-  ],
   "keywords": [
     "pismo",
     "bolt",
