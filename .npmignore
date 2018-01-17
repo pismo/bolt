@@ -1,4 +1,7 @@
-node_modules/
+**/**/.vscode/
+**/**/.cache/
+**/**/.DS_Store
 **/**/node_modules/
-src/
-**/**/src
+**/**/package-lock.json
+**/**/yarn-error.log
+**/**/lerna-debug.log
