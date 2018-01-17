@@ -68,6 +68,8 @@ import '@pismo/bolt-core'
 import 'my-own-styles.scss'
 ```
 
+Please check out the [core](https://github.com/pismo/bolt/tree/master/packages/core)'s README document if you need to go any further.
+
 ## Playground (development)
 
 Install global dependencies:

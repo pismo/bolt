@@ -9,6 +9,7 @@ yarn add @pismo/bolt-core
 
 ## Usage
 
+### In JS
 This loads every module style (colors, typography, etc) for you and make them available globally to the document, along with a few core styles from this very package:
 
 ```js
@@ -35,6 +36,25 @@ const styleExample = {
   fontSize: typography.f1,
   color: colors.blue,
 }
+```
+
+### In SCSS
+Just import the sub-package you need inside your sass and use the variables as you want:
+
+```scss
+import '~@pismo/bolt-core/typography.scss';
+import '~@pismo/bolt-core/colors.scss';
+
+.my-custom-error-label {
+  font-size: $f7;
+  color: $red;
+}
+```
+
+This loads everything into your .scss file as well, making all variables and styles available to be used in scss. But we strongly recommend importing each submodule independently as you need them, so you only get the variables to be reused inside scss instead of repeating styles everywhere, since you probably have already imported the core main js in your app js.
+
+```scss
+import '~@pismo/bolt-core/index.scss'
 ```
 
 ## Dependencies
