@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-typography",
-  "version": "0.0.1-16",
+  "version": "0.0.1-17",
   "description": "Typography, fonts and vertical rhythm",
   "main": "index.js",
   "scripts": {
