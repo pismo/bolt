@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
-    "playground": "parcel src/index.html -o"
+    "start": "parcel src/index.html -o"
   },
   "author": "Pismo",
   "license": "ISC",
@@ -26,5 +26,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
   }
 }

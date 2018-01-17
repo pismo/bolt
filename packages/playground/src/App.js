@@ -6,6 +6,8 @@ import core from '@pismo/bolt-core'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
 
+import './App.scss'
+
 const { typography, colors } = core
 
 const pageContainerStyle = {
