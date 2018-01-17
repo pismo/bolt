@@ -2,36 +2,36 @@
 # yarn lockfile v1
 
 
-"@pismo/bolt-button@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-button/-/bolt-button-0.0.1-15.tgz#e71b13b6965c09301287ff6ef3a1f2d761d650b2"
+"@pismo/bolt-button@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-button/-/bolt-button-0.0.1-16.tgz#78bfe125ca2c924713f579e39e4a79d967ceb6ec"
   dependencies:
-    "@pismo/bolt-colors" "^0.0.1-15"
-    "@pismo/bolt-typography" "^0.0.1-15"
-    "@pismo/eslint-config-bolt" "^0.0.1-15"
+    "@pismo/bolt-colors" "^0.0.1-16"
+    "@pismo/bolt-typography" "^0.0.1-16"
+    "@pismo/eslint-config-bolt" "^0.0.1-16"
 
-"@pismo/bolt-colors@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-15.tgz#ab0b20d97d04d296302bb95bc4192af300bb95c2"
+"@pismo/bolt-colors@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-colors/-/bolt-colors-0.0.1-16.tgz#c63b8f379cb3d3601b20bc5927a376a10a9d179c"
 
-"@pismo/bolt-core@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-core/-/bolt-core-0.0.1-15.tgz#b4ed7bf107aebd2ecd163747db79e42b13860370"
+"@pismo/bolt-core@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-core/-/bolt-core-0.0.1-16.tgz#4ed59693a67eb8abb05d47e49ece6a01b3939018"
   dependencies:
-    "@pismo/bolt-colors" "^0.0.1-15"
-    "@pismo/bolt-typography" "^0.0.1-15"
+    "@pismo/bolt-colors" "^0.0.1-16"
+    "@pismo/bolt-typography" "^0.0.1-16"
 
-"@pismo/bolt-modal@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-modal/-/bolt-modal-0.0.1-15.tgz#f983b462b5bbe6e4599521d98d39bfc27413f710"
+"@pismo/bolt-modal@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-modal/-/bolt-modal-0.0.1-16.tgz#fac1418704af3dc58853219d6f1fe4a3a3cad816"
 
-"@pismo/bolt-typography@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-15.tgz#21e73e93d375e860011ff20c59788bf671b292b3"
+"@pismo/bolt-typography@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-typography/-/bolt-typography-0.0.1-16.tgz#47cfd7c9bf645b74f80623a18ad932e4d8f0d32a"
 
-"@pismo/eslint-config-bolt@^0.0.1-15":
-  version "0.0.1-15"
-  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-15.tgz#404e42c6d41c30c4c84f742c0d2d1ad604367407"
+"@pismo/eslint-config-bolt@^0.0.1-16":
+  version "0.0.1-16"
+  resolved "https://registry.yarnpkg.com/@pismo/eslint-config-bolt/-/eslint-config-bolt-0.0.1-16.tgz#543e9a36eaf21e4792f1de25a15d0199c8f036ec"
 
 abbrev@1:
   version "1.1.1"
