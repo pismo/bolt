@@ -1,0 +1,32 @@
+@import '../node_modules/@pismo/bolt-typography/index.scss';
+@import '../node_modules/@pismo/bolt-colors/index.scss';
+
+a {
+  font-size: $f5;
+  padding: $f7 $f5;
+  text-align: center;
+  border: 0;
+  border-radius: .2rem;
+  transition: background-color 50ms ease-in-out;
+  color: $blue;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $gray-50;
+  }
+
+  &:active {
+    color: $blue-700;
+    background-color: $gray-100;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    font-weight: normal;
+    pointer-events: none;
+    color: $gray-300;
+    background-color: transparent;
+  }
+}

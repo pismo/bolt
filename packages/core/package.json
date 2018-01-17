@@ -1,18 +1,18 @@
 {
-  "name": "@pismo/eslint-config-bolt",
+  "name": "@pismo/bolt-core",
   "version": "0.0.1-15",
-  "description": "Pismo Bolt eslint config",
-  "main": "index.js",
+  "description": "Pismo Bolt core UI style",
+  "main": "src/index.js",
   "scripts": {
     "test": "npm test"
   },
   "keywords": [
     "pismo",
     "bolt",
+    "styleguide",
     "react",
-    "eslint",
-    "config",
-    "lint"
+    "core",
+    "style"
   ],
   "author": "Pismo",
   "license": "ISC",
@@ -24,9 +24,11 @@
     "url": "git+https://github.com/pismo/bolt.git"
   },
   "devDependencies": {
-    "eslint": "^4.15.0"
+    "@pismo/eslint-config-bolt": "^0.0.1-15",
+    "node-sass": "^4.7.2"
   },
-  "peerDependencies": {
-    "eslint-plugin-react": "^7.5.1"
+  "dependencies": {
+    "@pismo/bolt-colors": "^0.0.1-15",
+    "@pismo/bolt-typography": "^0.0.1-15"
   }
 }
