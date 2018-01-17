@@ -61,6 +61,7 @@ It's easier to just add the [core](https://github.com/pismo/bolt/tree/master/pac
 > yarn add @pismo/bolt-core
 ```
 
+`my-app/index.js`:
 ```js
 import 'normalize.css'
 import '@pismo/bolt-core'
