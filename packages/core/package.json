@@ -4,6 +4,7 @@
   "description": "Pismo Bolt core UI style",
   "main": "src/index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test"
   },
   "files": [

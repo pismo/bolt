@@ -4,6 +4,7 @@
   "description": "Button component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
     "docgen": "react-docgen ./src/Button.js --out .meta.json --pretty",

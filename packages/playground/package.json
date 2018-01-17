@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
     "start": "parcel src/index.html -o"

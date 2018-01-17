@@ -4,6 +4,7 @@
   "description": "Typography, fonts and vertical rhythm",
   "main": "index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test",
     "clean-computed-sass": "rm -f *.js",
     "prepare-sass": "node ../../sass-vars-to-js.js",

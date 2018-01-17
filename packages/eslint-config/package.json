@@ -4,6 +4,7 @@
   "description": "Pismo Bolt eslint config",
   "main": "index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test"
   },
   "keywords": [

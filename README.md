@@ -79,10 +79,10 @@ Install global dependencies:
 > yarn global add parcel-bundler lerna
 ```
 
-Install local dependencies:
+Install local dependencies of all packages and setup lerna bootstrap:
 
 ```sh
-> yarn
+> yarn && yarn setup:all
 ```
 
 Run the sandbox:
@@ -91,7 +91,7 @@ Run the sandbox:
 > yarn play
 ```
 
-This should exec the command `npm run playground` of the `playground` package from the root directory.
+This should exec the command `npm run start` of the `playground` package from the root directory.
 
 
 ## Documentation

@@ -4,6 +4,7 @@
   "description": "Modal component for Pismo Bolt",
   "main": "src/index.js",
   "scripts": {
+    "setup": "yarn",
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
     "docgen": "react-docgen ./src/Modal.js --out .meta.json --pretty",
