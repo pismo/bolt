@@ -1,0 +1,44 @@
+{
+  "description": "One label to rule them all.",
+  "displayName": "Label",
+  "methods": [],
+  "props": {
+    "size": {
+      "type": {
+        "name": "enum",
+        "computed": true,
+        "value": "supportedSizes"
+      },
+      "required": false,
+      "description": "'small', 'medium', 'large'",
+      "defaultValue": {
+        "value": "'medium'",
+        "computed": false
+      }
+    },
+    "weight": {
+      "type": {
+        "name": "enum",
+        "computed": true,
+        "value": "supportedWeights"
+      },
+      "required": false,
+      "description": "'normal', 'primary'",
+      "defaultValue": {
+        "value": "'normal'",
+        "computed": false
+      }
+    },
+    "innerRef": {
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "returns the actual `ref` of the inner `<span />`",
+      "defaultValue": {
+        "value": "Function.prototype",
+        "computed": true
+      }
+    }
+  }
+}

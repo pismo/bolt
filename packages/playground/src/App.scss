@@ -1,6 +1,10 @@
 @import './node_modules/@pismo/bolt-core/typography.scss';
 @import './node_modules/@pismo/bolt-core/colors.scss';
 
+section {
+  margin: 0.625rem 0;
+}
+
 .custom-error-label {
   font-size: $f7;
   color: $red;

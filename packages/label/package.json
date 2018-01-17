@@ -1,13 +1,13 @@
 {
-  "name": "@pismo/bolt-button",
+  "name": "@pismo/bolt-label",
   "version": "0.0.1-18",
-  "description": "Button component for the Pismo Bolt styleguide",
+  "description": "Label component for the Pismo Bolt styleguide",
   "main": "src/index.js",
   "scripts": {
     "setup": "yarn",
     "test": "npm test",
     "lint": "node_modules/.bin/eslint --fix",
-    "docgen": "react-docgen ./src/Button.js --out .meta.json --pretty",
+    "docgen": "react-docgen ./src/Label.js --out .meta.json --pretty",
     "mdgen": "node ../../docgen-to-md.js",
     "doc": "yarn docgen && yarn mdgen"
   },

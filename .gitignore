@@ -6,4 +6,3 @@
 **/**/dist/
 **/**/yarn-error.log
 **/**/lerna-debug.log
-*/*/yarn.lock
