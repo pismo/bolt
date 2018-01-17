@@ -51,9 +51,16 @@ class App extends Component {
       <div style={pageContainerStyle}>
         {/* Typography mixed with colors examples */}
         <h1>Heading h1</h1>
+
         <p>
           Body text <small>small</small> and <span className="tiny">tiny</span>.
           I can also be <span style={blueStyle}>blue</span>.
+          Check App.js.
+        </p>
+
+        <p className="custom-error-label">
+          Custom error label styled directly in .scss using variables from the core submodules.
+          Check App.scss.
         </p>
 
         {/* Button examples */}
