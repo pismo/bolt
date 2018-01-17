@@ -11,7 +11,7 @@
     "clean-computed-sass:all": "lerna run clean-computed-sass",
     "setup:all": "lerna run setup && yarn",
     "play": "cd ./packages/playground && yarn && yarn start",
-    "postinstall": "lerna bootstrap",
+    "postinstall": "yarn setup:all && lerna bootstrap",
     "precommit": "yarn clean-computed-sass:all && yarn prepare-sass:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
   },
   "repository": {

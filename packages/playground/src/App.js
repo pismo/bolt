@@ -5,6 +5,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import core from '@pismo/bolt-core'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
+import Label from '@pismo/bolt-label'
 
 import './App.scss'
 
@@ -82,6 +83,12 @@ class App extends Component {
         <h2>Links</h2>
         <a>Regular anchor tag</a>
         <a className="disabled">Disabled anchor tag</a>
+
+        {/* Label examples */}
+        <Label>default</Label>
+        <Label weight="primary">primary</Label>
+        <Label size="large">large</Label>
+        <Label size="small">small</Label>
 
         <Modal isOpen={isModalOpen} onClose={this.handleModalClose}>
           Modal contents

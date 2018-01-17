@@ -82,7 +82,7 @@ Install global dependencies:
 Install local dependencies of all packages and setup lerna bootstrap:
 
 ```sh
-> yarn && yarn setup:all
+> yarn
 ```
 
 Run the sandbox:

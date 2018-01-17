@@ -21,6 +21,14 @@
     "@pismo/bolt-colors" "^0.0.1-18"
     "@pismo/bolt-typography" "^0.0.1-18"
 
+"@pismo/bolt-label@^0.0.1-18":
+  version "0.0.1-18"
+  resolved "https://registry.yarnpkg.com/@pismo/bolt-label/-/bolt-label-0.0.1-18.tgz#5e87243a227ea77fdf29d5298e74eb0fc8ca2ab7"
+  dependencies:
+    "@pismo/bolt-colors" "^0.0.1-18"
+    "@pismo/bolt-typography" "^0.0.1-18"
+    "@pismo/eslint-config-bolt" "^0.0.1-18"
+
 "@pismo/bolt-modal@^0.0.1-18":
   version "0.0.1-18"
   resolved "https://registry.yarnpkg.com/@pismo/bolt-modal/-/bolt-modal-0.0.1-18.tgz#6deee6ecb4fc2f78de87b5c37d87c0697c1cc6fe"
