@@ -3,7 +3,8 @@ import typography from '@pismo/bolt-typography'
 
 const smallSizeStyle = css`
   font-size: ${typography.f7};
-  padding: ${typography.f9} ${typography.f8};
+  padding: .125rem ${typography.f9};
+
 `
 
 export default smallSizeStyle

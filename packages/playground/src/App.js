@@ -65,30 +65,38 @@ class App extends Component {
         </p>
 
         {/* Button examples */}
-        <h2>Buttons</h2>
-        <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
-          Open modal
-        </Button>&nbsp;&nbsp;
-        <Button>Default</Button>&nbsp;&nbsp;
-        <Button disabled>Disabled</Button>&nbsp;&nbsp;
-        <Button size="large">Large</Button>&nbsp;&nbsp;
-        <Button size="small">Small</Button>&nbsp;&nbsp;
-        <br /><br />
-        <Button block>Block</Button>
-        <br /><br />
-        <button>Regular button tag</button>&nbsp;&nbsp;
-        <button className="disabled">Disabled regular button</button>
+        <section>
+          <h2>Buttons</h2>
+          <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
+            Open modal
+          </Button>&nbsp;&nbsp;
+          <Button>Default</Button>&nbsp;&nbsp;
+          <Button disabled>Disabled</Button>&nbsp;&nbsp;
+          <Button size="large">Large</Button>&nbsp;&nbsp;
+          <Button size="small">Small</Button>&nbsp;&nbsp;
+          <br /><br />
+          <Button block>Block</Button>
+          <br /><br />
+          <button>Regular button tag</button>&nbsp;&nbsp;
+          <button className="disabled">Disabled regular button</button>
+        </section>
 
         {/* Link examples */}
-        <h2>Links</h2>
-        <a>Regular anchor tag</a>
-        <a className="disabled">Disabled anchor tag</a>
+        <section>
+          <h2>Links</h2>
+          <a>Regular anchor tag</a>
+          <a className="disabled">Disabled anchor tag</a>
+        </section>
 
         {/* Label examples */}
-        <Label>default</Label>
-        <Label weight="primary">primary</Label>
-        <Label size="large">large</Label>
-        <Label size="small">small</Label>
+        <section>
+          <h2>Labels</h2>
+          <Label>default</Label>&nbsp;&nbsp;
+          <Label weight="primary">primary</Label>&nbsp;&nbsp;
+          <Label size="large">large</Label>&nbsp;&nbsp;
+          <Label size="small">small</Label>&nbsp;&nbsp;
+          <Label size="tiny">tiny</Label>&nbsp;&nbsp;
+        </section>
 
         <Modal isOpen={isModalOpen} onClose={this.handleModalClose}>
           Modal contents
