@@ -1,21 +1,17 @@
 {
-  "name": "@pismo/bolt-modal",
+  "name": "@pismo/bolt-toast",
   "version": "0.0.1-26",
-  "description": "Modal component for Pismo Bolt",
+  "description": "Pismo Bolt Toast component",
   "main": "src/index.js",
   "scripts": {
-    "setup": "yarn",
-    "test": "npm test",
-    "lint": "node_modules/.bin/eslint --fix",
-    "docgen": "react-docgen ./src/Modal.js --out .meta.json --pretty",
-    "mdgen": "node ../../docgen-to-md.js",
-    "doc": "yarn docgen && yarn mdgen"
+    "test": "npm test"
   },
   "keywords": [
     "pismo",
     "bolt",
+    "styleguide",
+    "toast",
     "react",
-    "modal",
     "component"
   ],
   "author": "Pismo",
@@ -27,10 +23,17 @@
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
   },
-  "dependencies": {
-    "@pismo/bolt-colors": "^0.0.1-26"
-  },
   "devDependencies": {
     "@pismo/eslint-config-bolt": "^0.0.1-26"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "styled-components": "^2.4.0"
+  },
+  "dependencies": {
+    "@pismo/bolt-colors": "^0.0.1-26",
+    "@pismo/bolt-typography": "^0.0.1-26",
+    "react-icons": "^2.2.7"
   }
 }
