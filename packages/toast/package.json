@@ -16,6 +16,13 @@
   ],
   "author": "Pismo",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
   "devDependencies": {
     "@pismo/eslint-config-bolt": "^0.0.1-25"
   },
