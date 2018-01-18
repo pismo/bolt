@@ -18,3 +18,5 @@ Prop | Type | Description | Required | Default
 **children** | any | anything you want rendered inside | true | –
 **controlOverflow** | bool | should disable page scrolling when open? | false | true
 **closeIcon** | union | custom icon that closes modal on click | false | 'X'
+
+
