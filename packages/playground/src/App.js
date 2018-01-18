@@ -6,9 +6,11 @@ import core from '@pismo/bolt-core'
 import Modal from '@pismo/bolt-modal'
 import Button from '@pismo/bolt-button'
 import Label from '@pismo/bolt-label'
+import Toast from '@pismo/bolt-toast'
 
 import './App.scss'
 
+const TOAST_DURATION = 5000
 const { typography, colors } = core
 
 const pageContainerStyle = {
@@ -16,16 +18,32 @@ const pageContainerStyle = {
 }
 
 class App extends Component {
+  timeout = null
+
   state = {
     isModalOpen: false,
+    isToastVisible: false,
   }
 
-  handleClick = event => {
+  handleOpenModalClick = event => {
     console.log('Button click', event)
 
     this.setState({
       isModalOpen: true,
     })
+  }
+
+  handleShowToastClick = () => {
+    this.setState({
+      isToastVisible: true,
+      toastMessage: 'Congratulations! This is a Toast example.',
+    })
+
+    this.timeout = window.setTimeout(() => {
+      this.setState({
+        isToastVisible: false,
+      })
+    }, TOAST_DURATION)
   }
 
   handleRef = ref => {
@@ -40,8 +58,19 @@ class App extends Component {
     })
   }
 
+  handleToastDismiss = event => {
+    console.log('the toast dismiss event is real', event)
+
+    window.clearTimeout(this.timeout)
+    this.timeout = null
+
+    this.setState({
+      isToastVisible: false,
+    })
+  }
+
   render() {
-    const { isModalOpen } = this.state
+    const { isModalOpen, isToastVisible, toastMessage } = this.state
 
     const blueStyle = {
       color: colors.blue,
@@ -67,10 +96,12 @@ class App extends Component {
         {/* Button examples */}
         <section>
           <h2>Buttons</h2>
-          <Button onClick={this.handleClick} innerRef={this.handleRef} weight="primary">
+          <Button onClick={this.handleOpenModalClick} innerRef={this.handleRef} weight="primary">
             Open modal
           </Button>&nbsp;&nbsp;
-          <Button>Default</Button>&nbsp;&nbsp;
+          <Button onClick={this.handleShowToastClick}>
+            Show toast
+          </Button>&nbsp;&nbsp;
           <Button disabled>Disabled</Button>&nbsp;&nbsp;
           <Button size="large">Large</Button>&nbsp;&nbsp;
           <Button size="small">Small</Button>&nbsp;&nbsp;
@@ -101,6 +132,10 @@ class App extends Component {
         <Modal isOpen={isModalOpen} onClose={this.handleModalClose}>
           Modal contents
         </Modal>
+
+        <Toast isVisible={isToastVisible} onDismiss={this.handleToastDismiss}>
+          {toastMessage}
+        </Toast>
       </div>
     )
   }

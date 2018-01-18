@@ -32,6 +32,7 @@
     "styled-components": "^2.4.0"
   },
   "dependencies": {
-    "@pismo/bolt-colors": "^0.0.1-26"
+    "@pismo/bolt-colors": "^0.0.1-26",
+    "@pismo/bolt-typography": "^0.0.1-26"
   }
 }

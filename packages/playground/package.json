@@ -16,6 +16,7 @@
     "@pismo/bolt-core": "^0.0.1-26",
     "@pismo/bolt-label": "^0.0.1-26",
     "@pismo/bolt-modal": "^0.0.1-26",
+    "@pismo/bolt-toast": "^0.0.1-26",
     "@pismo/eslint-config-bolt": "^0.0.1-26",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
