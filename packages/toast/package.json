@@ -1,0 +1,30 @@
+{
+  "name": "@pismo/bolt-toast",
+  "version": "0.0.0",
+  "description": "Pismo Bolt Toast component",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pismo",
+    "bolt",
+    "styleguide",
+    "toast",
+    "react",
+    "component"
+  ],
+  "author": "Pismo",
+  "license": "ISC",
+  "devDependencies": {
+    "@pismo/eslint-config-bolt": "^0.0.1-24"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "styled-components": "^2.4.0"
+  },
+  "dependencies": {
+    "@pismo/bolt-colors": "^0.0.1-24"
+  }
+}
