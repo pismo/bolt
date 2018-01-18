@@ -64,6 +64,10 @@ class Toast extends Component {
     innerRef: PropTypes.func,
     /** user asked to dismiss the toast; clicked on it (click event) */
     onDismiss: PropTypes.func,
+    customIcon: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+    ]),
   }
 
   static defaultProps = {
@@ -83,7 +87,7 @@ class Toast extends Component {
   }
 
   render() {
-    const { isVisible, children, error, onDismiss, ...otherProps } = this.props
+    const { isVisible, customIcon, error, onDismiss, children, ...otherProps } = this.props
     const isClickable = isFn(onDismiss)
 
     return (
@@ -94,7 +98,7 @@ class Toast extends Component {
         isClickable={isClickable}
         {...otherProps}
       >
-        <ToastSymbol>{error ? <MdError /> : <MdCheckCircle />}</ToastSymbol>
+        <ToastSymbol>{customIcon || error ? <MdError /> : <MdCheckCircle />}</ToastSymbol>
         <ToastMessage>{children}</ToastMessage>
       </ToastBubble>
     )
