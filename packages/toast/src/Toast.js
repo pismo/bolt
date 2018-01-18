@@ -9,7 +9,7 @@ const ToastBubble = styled.div`
   z-index: 9999;
   position: fixed;
   width: 30rem;
-  bottom: 1rem;
+  bottom: ${props => props.isVisible ? '1' : '-2'}rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -24,7 +24,7 @@ const ToastBubble = styled.div`
   background-color: ${props => props.error ? colors.red : colors.gray800};
   opacity: ${props => props.isVisible ? '1' : '0'};
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
-  transition: opacity 600ms ease-in-out;
+  transition: all 200ms ease-in-out;
 `
 
 class Toast extends Component {
