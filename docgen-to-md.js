@@ -2,12 +2,26 @@ const fs = require('fs')
 
 const META_FILENAME = '.meta.json'
 const README_FILENAME = 'README.md'
+const COMPLEMENTARY_README_FILENAME = 'complementary.md'
 
 const readJSON = file =>
   JSON.parse(fs.readFileSync(file))
 
+const readMD = file => {
+  let result = ''
+
+  try {
+    result = fs.readFileSync(file)
+  } catch (e) {
+    //
+  }
+
+  return result
+}
+
 const capitalized = str =>
-  str.charAt(0).toUpperCase().concat(str.slice(1, str.length))
+  str.charAt(0).toUpperCase()
+    .concat(str.slice(1, str.length))
 
 const convertDocgenJSONToMarkdown = data => {
   const {
@@ -55,10 +69,11 @@ const convertDocgenJSONToMarkdown = data => {
 
     ### Props
     ${propsTableHeader
-      .concat('\n')
-      .concat(propsTableRows.join('\n'))
-    }
-  `.replace(/   +/g, '').trim().concat('\n')
+    .concat('\n')
+    .concat(propsTableRows.join('\n')
+    )}
+  `.replace(/   +/g, '').trim()
+    .concat('\n')
 }
 
 const writeFile = (file, contents) =>
@@ -68,7 +83,9 @@ const main = () => {
   const componentDir = process.cwd()
   const metaContents = readJSON(`${componentDir}/${META_FILENAME}`)
   const readmeOut = `${componentDir}/${README_FILENAME}`
-  const readmeContents = convertDocgenJSONToMarkdown(metaContents)
+  const readmeAutoContents = convertDocgenJSONToMarkdown(metaContents)
+  const readmeComplementaryContents = readMD(`${componentDir}/${COMPLEMENTARY_README_FILENAME}`)
+  const readmeContents = readmeAutoContents.concat('\n\n').concat(readmeComplementaryContents)
 
   return writeFile(readmeOut, readmeContents)
 }
