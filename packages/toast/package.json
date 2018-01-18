@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@pismo/bolt-colors": "^0.0.1-26",
-    "@pismo/bolt-typography": "^0.0.1-26"
+    "@pismo/bolt-typography": "^0.0.1-26",
+    "react-icons": "^2.2.7"
   }
 }

@@ -3,28 +3,49 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '@pismo/bolt-colors'
 import typography from '@pismo/bolt-typography'
+import MdCheckCircle from 'react-icons/lib/md/check-circle'
+import MdError from 'react-icons/lib/md/error'
 import { isFn } from './utils'
+
+const bubbleHeight = 5.25
 
 const ToastBubble = styled.div`
   z-index: 9999;
   position: fixed;
+  display: flex;
+  align-items: center;
   width: 30rem;
+  height: ${bubbleHeight}rem;
   bottom: ${props => props.isVisible ? '1' : '-2'}rem;
   left: 0;
   right: 0;
   margin: auto;
   box-sizing: border-box;
-  padding: 1.25rem 2.25rem;
   font-weight: normal;
   border-radius: 4.5rem;
-  color: white;
-  font-size: ${typography.f6};
   cursor: ${props => props.isClickable ? 'pointer' : 'auto'};
   pointer-events: ${props => props.isVisible ? 'auto' : 'none'};
   background-color: ${props => props.error ? colors.red : colors.gray800};
   opacity: ${props => props.isVisible ? '1' : '0'};
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
   transition: all 200ms ease-in-out;
+`
+const symbolWidth = parseInt(typography.f2.replace(/\s/g, '')) + (1.25 * 2)
+const rightPadding = 1.25 * 4
+
+const ToastSymbol = styled.span`
+  font-size: ${typography.f1};
+  color: white;
+  padding: 0 2.5rem 0 1rem;
+  margin-top: -${typography.f7};
+`
+
+const ToastMessage = styled.span`
+  font-size: ${typography.f6};
+  max-width: ${30 - symbolWidth - rightPadding}rem;
+  max-height: ${bubbleHeight - 1.25}rem;
+  color: white;
+  overflow: hidden;
 `
 
 class Toast extends Component {
@@ -73,7 +94,8 @@ class Toast extends Component {
         isClickable={isClickable}
         {...otherProps}
       >
-        {children}
+        <ToastSymbol>{error ? <MdError /> : <MdCheckCircle />}</ToastSymbol>
+        <ToastMessage>{children}</ToastMessage>
       </ToastBubble>
     )
   }
