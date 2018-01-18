@@ -108,6 +108,7 @@ Check the `/docs` folder for the updated `.json` and `.md` files (WIP).
 
 **Keep in mind that this command is automatically executed along with the linting task on every commit so you don't need to constantly worry about keeping the docs up to date as you develop any package.**
 
+Pro-tip: Although the README.md file of a React Component is automatically generated, you can extend it by placing a `complementary.md` file in the package's root directory. It will be **appended** to the README.
 
 ## Distribution
 
