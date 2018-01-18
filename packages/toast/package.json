@@ -4,7 +4,13 @@
   "description": "Pismo Bolt Toast component",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test"
+    "setup": "yarn",
+    "test": "npm test",
+    "lint": "node_modules/.bin/eslint --fix",
+    "docgen": "react-docgen ./src/Toast.js --out .meta.json --pretty",
+    "mdgen": "node ../../docgen-to-md.js",
+    "doc": "yarn docgen && yarn mdgen"
+
   },
   "keywords": [
     "pismo",
