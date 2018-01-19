@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-typography",
-  "version": "0.0.1-27",
+  "version": "0.0.1-28",
   "description": "Typography, fonts and vertical rhythm",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-27"
+    "@pismo/eslint-config-bolt": "^0.0.1-28"
   }
 }
