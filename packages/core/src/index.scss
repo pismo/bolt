@@ -1,5 +1,5 @@
-@import '~@pismo/bolt-typography/index.scss';
-@import '~@pismo/bolt-colors/index.scss';
+@import '../typography.scss';
+@import '../colors.scss';
 
 a {
   font-size: $f5;
