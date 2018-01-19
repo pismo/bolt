@@ -1,6 +1,6 @@
 {
   "name": "@pismo/eslint-config-bolt",
-  "version": "0.0.1-28",
+  "version": "0.0.1-29",
   "description": "Pismo Bolt eslint config",
   "main": "index.js",
   "scripts": {
