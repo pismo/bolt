@@ -76,14 +76,14 @@ const main = () => {
             }
           }
 
-          const noVarValue = variable.value.replace(/\$/, '')
-          const computedValue = sassModule.variables.find(someVariable =>
-            someVariable.key === noVarValue
+          const noSignValue = sanitizedValue.replace(/\$/, '')
+          const referenceVariable = sassModule.variables.find(someVariable =>
+            someVariable.key === noSignValue
           )
 
           return {
             key: variable.key,
-            value: computedValue,
+            value: referenceVariable.value.replace(/\;/, ''),
           }
         }),
       }
