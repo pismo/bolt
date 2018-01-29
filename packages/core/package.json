@@ -2,7 +2,7 @@
   "name": "@pismo/bolt-core",
   "version": "0.0.1-30",
   "description": "Pismo Bolt core UI style",
-  "main": "src/index.js",
+  "main": "./index.js",
   "scripts": {
     "setup": "yarn",
     "test": "npm test"

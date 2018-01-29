@@ -115,8 +115,8 @@ class App extends Component {
         {/* Link examples */}
         <section>
           <h2>Links</h2>
-          <a>Regular anchor tag</a>
-          <a className="disabled">Disabled anchor tag</a>
+          <a className="link">Regular anchor tag with 'link' class</a>
+          <a className="link disabled">Disabled anchor tag</a>
         </section>
 
         {/* Label examples */}

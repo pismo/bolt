@@ -1,7 +1,7 @@
-@import '../typography.scss';
-@import '../colors.scss';
+@import './typography.scss';
+@import './colors.scss';
 
-a {
+.link {
   font-size: $f5;
   padding: $f7 $f5;
   text-align: center;
