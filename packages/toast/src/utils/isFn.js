@@ -1,4 +1,4 @@
 const isFn = something =>
-  something && typeof something === 'function'
+  typeof something === 'function'
 
 export default isFn
