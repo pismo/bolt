@@ -1,61 +1,37 @@
 {
-  "name": "@pismo/bolt",
-  "version": "1.0.0",
-  "description": "Pismo styleguide components",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm test",
-    "doc:all": "lerna run doc",
-    "lint:all": "lerna run lint",
-    "prepare-sass:all": "lerna run prepare-sass",
-    "clean-computed-sass:all": "lerna run clean-computed-sass",
-    "setup:all": "lerna run setup",
-    "play": "cd ./packages/playground && yarn && yarn start",
-    "postinstall": "yarn setup:all && lerna bootstrap",
-    "precommit": "yarn clean-computed-sass:all && yarn prepare-sass:all && git add --all -v . && lint-staged && yarn doc:all && git add --all -v ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pismo/bolt.git"
-  },
-  "keywords": [
-    "pismo",
-    "styleguide",
-    "styled",
-    "components",
-    "react"
-  ],
-  "author": "Pismo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pismo/bolt/issues"
-  },
-  "homepage": "https://github.com/pismo/bolt#readme",
+  "name": "bolt",
+  "private": true,
   "devDependencies": {
-    "@pismo/eslint-config-bolt": "^0.0.1-5",
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-styled-components": "^1.4.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^4.15.0",
-    "fs": "^0.0.1-security",
-    "glob": "^7.1.2",
-    "husky": "^0.14.3",
-    "lerna": "^2.5.1",
-    "lint-staged": "^6.0.0",
-    "react-docgen": "^2.20.0",
-    "react-dom": "^16.2.0",
-    "strip-json-comments": "^2.0.1"
+    "@types/jest": "^23.3.10",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "@types/styled-components": "^4.1.4",
+    "docz": "^0.12.16",
+    "jest": "^23.6.0",
+    "lerna": "^3.6.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-testing-library": "^5.3.2",
+    "styled-components": "^4.1.2",
+    "ts-jest": "^23.10.5",
+    "ts-lint": "^4.5.1",
+    "typescript": "^3.2.2"
   },
-  "dependencies": {
-    "currency.js": "^1.0.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "styled-components": "^2.4.0"
+  "peerDependencies": {
+    "styled-components": "^4.1.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lerna:dev": "yarn lerna:tsc:watch && yarn docz:build",
+    "lerna:tsc": "lerna run tsc",
+    "lerna:tsc:watch": "lerna run tsc:watch",
+    "lerna:bootstrap": "lerna bootstrap",
+    "lerna:publish": "yarn run:tsc && lerna publish",
+    "lerna:test": "jest --config jest.json",
+    "lerna:test:cov": "jest --no-cache --coverage --config jest.json",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   }
 }

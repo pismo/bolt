@@ -1,8 +1,0 @@
-{
-  "linters": {
-    "**/*.js": [
-      "yarn lint:all",
-      "git add"
-    ]
-  }
-}

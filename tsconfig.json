@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": false, 
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": ["es5"]
+  },
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
