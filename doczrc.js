@@ -1,4 +1,5 @@
 export default {
+  typescript: true,
   title: 'Pismo',
   description: 'Pismo UI documentation',
   themeConfig: {
