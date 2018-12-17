@@ -1,12 +1,6 @@
 {
-  "lerna": "2.5.1",
-  "packages": [
-    "packages/*"
-  ],
-  "version": "0.0.1-32",
-  "command": {
-    "publish": {
-      "message": "Release %s"
-    }
-  }
+  "packages": ["packages/*"],
+  "version": "0.1.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }
