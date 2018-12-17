@@ -2,30 +2,25 @@
   "name": "bolt",
   "private": true,
   "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/react": "^16.7.17",
-    "@types/react-dom": "^16.0.11",
-    "@types/styled-components": "^4.1.4",
-    "docz": "^0.12.16",
+    "concurrently": "^4.1.0",
+    "docz": "^0.12.17",
     "jest": "^23.6.0",
     "lerna": "^3.6.0",
+    "lint-staged": "^8.1.0",
     "pre-commit": "^1.2.2",
+    "prettier": "^1.15.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-testing-library": "^5.3.2",
-    "styled-components": "^4.1.2",
-    "ts-jest": "^23.10.5",
-    "ts-lint": "^4.5.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
-  },
-  "peerDependencies": {
-    "styled-components": "^4.1.2"
   },
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "lerna:dev": "yarn lerna:tsc:watch && yarn docz:build",
+    "lerna:dev": "concurrently \"yarn lerna:tsc:watch\"  \"yarn docz:build\"",
     "lerna:tsc": "lerna run tsc",
     "lerna:tsc:watch": "lerna run tsc:watch",
     "lerna:bootstrap": "lerna bootstrap",
@@ -33,6 +28,14 @@
     "lerna:test": "jest --config jest.json",
     "lerna:test:cov": "jest --no-cache --coverage --config jest.json",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
-  }
+    "docz:build": "docz build",
+    "lint:staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,tsx,ts}": [
+      "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged"
 }
