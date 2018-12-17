@@ -3,7 +3,7 @@
     "module": "commonjs",
     "declaration": true,
     "noImplicitAny": false,
-    "removeComments": false, 
+    "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -12,7 +12,7 @@
     "target": "es5",
     "sourceMap": true,
     "jsx": "react",
-    "lib": ["es5"]
+    "lib": ["es5", "es6", "esnext", "dom"]
   },
   "exclude": ["node_modules", "**/*.test.ts"]
 }
