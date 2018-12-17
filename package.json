@@ -41,6 +41,10 @@
     "*.{js,json,tsx,ts}": [
       "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
       "git add"
+    ],
+    "*.{tsx,ts}": [
+      "tslint --fix",
+      "git add"
     ]
   },
   "pre-commit": "lint:staged",

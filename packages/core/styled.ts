@@ -1,7 +1,5 @@
 import * as styledComponents from 'styled-components'
-import { StyledComponentBase, ThemedStyledComponentsModule } from 'styled-components'
-
-import { ThemeInterface } from './themePismo'
+import * as theme from './themePismo'
 
 const {
   default: styled,
@@ -9,7 +7,7 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider,
-} = styledComponents as ThemedStyledComponentsModule<ThemeInterface>
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<theme.ThemeInterface>
 
-export { css, createGlobalStyle, keyframes, ThemeInterface, ThemeProvider, StyledComponentBase }
+export { css, createGlobalStyle, keyframes, ThemeProvider }
 export default styled
