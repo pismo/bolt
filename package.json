@@ -2,6 +2,9 @@
   "name": "bolt",
   "private": true,
   "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
     "concurrently": "^4.1.0",
     "docz": "^0.12.17",
     "docz-theme-default": "^0.12.17",
@@ -12,6 +15,8 @@
     "prettier": "^1.15.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-testing-library": "^5.4.0",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
@@ -26,8 +31,8 @@
     "lerna:tsc:watch": "lerna run tsc:watch",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:publish": "yarn run:tsc && lerna publish",
-    "lerna:test": "jest --config jest.json",
-    "lerna:test:cov": "jest --no-cache --coverage --config jest.json",
+    "lerna:test": "jest",
+    "lerna:test:cov": "jest --no-cache --coverage",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "lint:staged": "lint-staged"
@@ -38,5 +43,8 @@
       "git add"
     ]
   },
-  "pre-commit": "lint:staged"
+  "pre-commit": "lint:staged",
+  "jest": {
+    "preset": "ts-jest"
+  }
 }
