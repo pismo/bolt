@@ -1,17 +1,9 @@
-interface Pallete {
-  primary: Array<string>
-  secondary: Array<string>
-}
-
 export interface ThemeInterface {
-  palette: Pallete
+  background: string
+  primary: string
 }
 
-const theme = {
-  palette: {
-    primary: ['#D6DAE2'],
-    secondary: ['#576272', '#8692A6', '#fafafa'],
-  },
+export const themePismo = {
+  background: '#ECEEF2',
+  primary: '#D6DAE2',
 }
-
-export default theme
