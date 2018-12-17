@@ -20,7 +20,7 @@
     "packages/*"
   ],
   "scripts": {
-    "lerna:dev": "concurrently \"yarn lerna:tsc:watch\"  \"yarn docz:build\"",
+    "lerna:dev": "concurrently \"yarn lerna:tsc:watch\"  \"yarn docz:dev\"",
     "lerna:tsc": "lerna run tsc",
     "lerna:tsc:watch": "lerna run tsc:watch",
     "lerna:bootstrap": "lerna bootstrap",
