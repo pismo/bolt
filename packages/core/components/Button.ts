@@ -6,7 +6,7 @@ export interface ButtonProps {
   onClick(event: React.FormEvent<EventTarget>): void
 }
 
-export const Button: React.SFC<ButtonProps> = styled.button`
+export const Button = styled.button<ButtonProps>`
   ${cleanButton()};
   border-radius: 4px;
   border: solid 2px #3cb4e0;

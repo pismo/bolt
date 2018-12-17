@@ -1,12 +1,12 @@
 import logo from '../assets/logo.png'
-import * as styled from '../styled'
+import styled from '../styled'
 
 export interface LogoProps {
   height?: string
   width?: string
 }
 
-export const Logo = styled.default('img').attrs<LogoProps>({
+export const Logo = styled.img.attrs<LogoProps>({
   id: 'Logo',
   src: logo,
   alt: 'Pismo Logo',
