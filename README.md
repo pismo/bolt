@@ -1,114 +1,126 @@
 # Bolt
+
 Pismo's styleguide and design system with it's React components that compose most of the platform UI.
 
 ---
 
-This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project that should export a single component and have it's own bundle configuration and documentation scripts. They are individually published to [npm](https://www.npmjs.com/org/pismo).
+This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
-You should keep in mind that they must be able to be imported both from the source file and compiled and minified build file. e.g.:
+_Technologies used_
 
-_a component's package.json_:
-```json
- {
-    "main": "./src/index.js",
-    "publishConfig": {
-      "access": "public"
-    },
-    "devDependencies": {
-      "@pismo/eslint-config-bolt": "^X.Y.Z"
-    }
- }
+- React(https://reactjs.org/docs/getting-started.html)
+- [Typescript](https://github.com/sw-yx/react-typescript-cheatsheet)
+- [Styled Components](https://www.styled-components.com/docs/api#typescript)
+- [Docz](https://www.docz.site/documentation/components-api)
+- [Jest](https://github.com/sapegin/jest-cheat-sheet)
+- [React Testing Library](https://github.com/kentcdodds/react-testing-library#usage)
+
+_Goals_
+
+The `@pismo/bolt-core`:
+
+- export a styled component instance and their helpers already ready to use in typescript projects
+- export the app theme (to be used in ThemeProvider) and a GlobalStyle component to use in pismo front-ends
+
+The `@pismo/bolt-<component-name>`:
+
+- export a component already ready to use.
+
+## Bolt usage in pismo applications
+
+_Setup_
+
+- In your `App.js` or `index.js` use the `ThemeProvider` from styled-components to import the theme of your choice from `@pismo/bolt-core`.
+- Also in your `App.js` or `index.js` create a `GlobalStyle` component with the `createGlobalStylePismo` from `@pismo/bolt-core` and use it.
+- If there is a need you can also pass a string in `createGlobalStylePismo` to set your own globals.
+
+Check a complete example below of an App.js:
+
+```jsx
+import React from 'react'
+import PismoID from 'id-ui'
+import { I18nProvider } from '@lingui/react'
+import { Router } from '@reach/router'
+import { ThemeProvider, withTheme } from 'styled-components'
+import { createGlobalStylePismo, themePismo } from '@bolt/core'
+
+import { setUser } from './hooks/userContext'
+import { language } from './hooks/languageContext'
+
+import Dashboard from './Dashboard'
+import ContractLink from './ContractLink'
+import ContractStores from './ContractStores'
+import ContractStoreUpsert from './ContractStoreUpsert'
+import ContractStoreTerminals from './ContractStoreTerminals'
+import ContractStoreTerminalUpsert from './ContractStoreTerminalUpsert'
+
+const GlobalStyle = withTheme(createGlobalStylePismo())
+
+export const App = () => {
+  const BASE_URL = process.env.REACT_APP_API_URL
+  const BASE_CONTRACT_URL = '/customer/:customerId/account/:accountId/contract/:contractId'
+
+  return (
+    <ThemeProvider theme={themePismo}>
+      <I18nProvider language={language}>
+        <PismoID onUpdate={setUser} baseURL={BASE_URL} keepAlive>
+          <Router>
+            <Dashboard path="/" />
+            <ContractLink path={`${BASE_CONTRACT_URL}`} />
+            <ContractStores path={`${BASE_CONTRACT_URL}/stores`} />
+            <ContractStoreUpsert path={`${BASE_CONTRACT_URL}/store/upsert/:storeId`} />
+            <ContractStoreTerminals path={`${BASE_CONTRACT_URL}/store/:storeId/terminals`} />
+            <ContractStoreTerminalUpsert path={`${BASE_CONTRACT_URL}/store/:storeId/terminal/upsert/:terminalId`} />
+          </Router>
+          <GlobalStyle />
+        </PismoID>
+      </I18nProvider>
+    </ThemeProvider>
+  )
+}
 ```
 
-_a component's directory structure_:
-```
-dist/
-  - index.min.js
-src/
-  - Component.js
-  - index.js
-.babelrc
-package.json
-README.md
-```
+_Components_
 
-So, by default, we are pointing to our source file but there's also the build file installed if needed.
+- Read the documentation to find the component you need and check props and examples
+- Install the component in your app `yarn add @pismo/bolt-<component-name>`
+- Use it!
 
-Things that are common between all components packages:
- - .eslintrc (extends from `@pismo/eslint-config-bolt` package)
- - most scripts of each `package.json` "scripts" declaration (e.g.: `npm run doc` for documentation, we need this so we can execute a common command of each package from within the root directory using lerna exec/run)
-
-## Usage
-
-Each package has its own `README.md` with installation and usage guides, along with whatever information you might need to make use of them in your project.
-
-We strongly recommend adding [normalize.css](https://necolas.github.io/normalize.css) to your project before any of the Bolt packages.
-
-```sh
-> yarn add normalize.css
-```
-
-At the top of your `index.js` file, or anywhere else that comes before importing `@pismo/bolt-{package}`.
-```js
-import 'normalize.css'
-```
+## Development flow
 
 ### Core
 
-It's easier to just add the [core](https://github.com/pismo/bolt/tree/master/packages/core) package to your app so most of the common style gets set right away, then you extend your code as needed.
+If you need to change the creation method for GlobalStyle or create a new theme, core is the place to make those changes.
 
-```sh
-> yarn add @pismo/bolt-core
-```
+_Change a Theme_
 
-`my-app/index.js`:
-```js
-import 'normalize.css'
-import '@pismo/bolt-core'
+- Access the `themeXXX.ts`
+- Make your changes in the interface and also the theme object
+- Done!
 
-import 'my-own-styles.scss'
-```
+_Create a new Theme_
 
-Please check out the [core](https://github.com/pismo/bolt/tree/master/packages/core)'s README document if you need to go any further.
+- Create a `themeXXX.ts` in the root folder. (Don't forget the interface)
+- Export it in `index.js` as `export { themeXXX } from './themeXXX'`
 
-## Playground (development)
+### Components
 
-Install global dependencies:
+Create new components is pretty easy. Follow the instructions below to start.
 
-```sh
-> yarn global add parcel-bundler lerna
-```
-
-Install local dependencies of all packages and setup lerna bootstrap:
-
-```sh
-> yarn
-```
-
-Run the sandbox:
-
-```sh
-> yarn play
-```
-
-This should exec the command `npm run start` of the `playground` package from the root directory.
-
+- Git clone this monorepo
+- Create a new branch for this component `feature/my-button`
+- Make sure you installed all dependencies by running `yarn`
+- Run the command `yarn template:component MyButton`
+- Install any dependencies you need in this package by `cd packages/my-button && yarn add other-dependency`
+- Make your changes to `MyButton.tsx` create `fns` or whatever is necessary to finish the feature
+- Update the documentation on `MyButton.mdx` file inside `packages/my-button`
+- Git push and create a PR.
 
 ## Documentation
 
-We're using [react-docgen](https://github.com/reactjs/react-docgen) to extract all the information from the components source codes, and then generating friendly markdown from it.
+We're using docz to document all the components. Jenkins is already set so on every merge to develop branch triggers a documentation change based on the .mdx files explained in the component development flow.
 
-To update the docs files simply run:
-
-```sh
-> yarn doc:all
-```
-
-Check the `/docs` folder for the updated `.json` and `.md` files (WIP).
-
-**Keep in mind that this command is automatically executed along with the linting task on every commit so you don't need to constantly worry about keeping the docs up to date as you develop any package.**
-
-Pro-tip: Although the README.md file of a React Component is automatically generated, you can extend it by placing a `complementary.md` file in the package's root directory. It will be **appended** to the README.
+Just check `https://bolt.pismolabs.io/`
 
 ## Distribution
 
@@ -125,3 +137,9 @@ Then, simply run:
 ```
 
 Follow the steps, choose the proper version to be published and lerna will publish every package for you.
+
+## Templates
+
+For now we just have the component template.
+
+Important to check it to make sure we have the most updated templates.

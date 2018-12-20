@@ -1,11 +1,5 @@
-# `core`
+# Bolt core
 
-> TODO: description
+Package that contains theme, styled configured to be used in projects and components.
 
-## Usage
-
-```
-const core = require('core');
-
-// TODO: DEMONSTRATE API
-```
+Please check the usage on Bolt README
