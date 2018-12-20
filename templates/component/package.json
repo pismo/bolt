@@ -1,18 +1,31 @@
 {
-  "name": "@pismo/bolt-button",
+  "name": "@pismo/bolt-cpackage",
   "version": "0.1.0",
-  "description": "Bolt button component",
-  "author": "Pismo <hello@pismo.io>",
+  "description": "Bolt component cpackage",
+  "author": "Guilherme Decampo <guilherme.decampo@gmail.com>",
   "homepage": "https://github.com/pismo/bolt#readme",
   "license": "ISC",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
   },
   "bugs": {
     "url": "https://github.com/pismo/bolt/issues"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc -w"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
@@ -33,9 +46,5 @@
   },
   "dependencies": {
     "@pismo/bolt-core": "^0.1.0"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "jest"
   }
 }
