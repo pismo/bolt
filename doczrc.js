@@ -15,4 +15,26 @@ export default {
       },
     },
   },
+  modifyBundlerConfig: config => ({
+    ...config,
+    module: {
+      ...config.module,
+      rules: config.module.rules.map(rule => ({
+        ...rule,
+        use: rule.use.map(ruleUse =>
+          ruleUse.loader.includes('react-docgen-typescript-loader')
+            ? {
+                ...ruleUse,
+                options: {
+                  propFilter: prop => {
+                    if (prop.parent == null) return true
+                    return !prop.parent.fileName.includes('node_modules')
+                  },
+                },
+              }
+            : ruleUse,
+        ),
+      })),
+    },
+  }),
 }

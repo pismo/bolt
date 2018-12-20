@@ -6,7 +6,7 @@
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "concurrently": "^4.1.0",
-    "docz": "^0.12.17",
+    "docz": "^0.13.4",
     "docz-theme-default": "^0.12.17",
     "jest": "^23.6.0",
     "lerna": "^3.6.0",
@@ -35,7 +35,8 @@
     "lerna:test:cov": "jest --no-cache --coverage",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "lint:staged": "lint-staged"
+    "lint:staged": "lint-staged",
+    "template:component": "node ./packages/templates/scripts/createComponent"
   },
   "lint-staged": {
     "*.{js,json,tsx,ts}": [
