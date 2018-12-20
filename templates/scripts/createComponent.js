@@ -4,7 +4,7 @@ const toKebabCase = (string = '') => string.replace(/([a-z0-9])([A-Z])/g, '$1-$2
 
 const COMPONENT_BASE_NAME_PACKAGE = 'cpackage'
 const COMPONENT_BASE_NAME = 'Component'
-const COMPONENT_BASE_PATH = './packages/templates/component'
+const COMPONENT_BASE_PATH = './templates/component'
 const COMPONENT_NAME = process.argv[2]
 const COMPONENT_PATH = `./packages/${toKebabCase(COMPONENT_NAME)}`
 
