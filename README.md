@@ -8,7 +8,7 @@ This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/pac
 
 _Technologies used_
 
-- React(https://reactjs.org/docs/getting-started.html)
+- [React](https://reactjs.org/docs/getting-started.html)
 - [Typescript](https://github.com/sw-yx/react-typescript-cheatsheet)
 - [Styled Components](https://www.styled-components.com/docs/api#typescript)
 - [Docz](https://www.docz.site/documentation/components-api)
