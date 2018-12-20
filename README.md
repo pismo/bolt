@@ -38,43 +38,24 @@ Check a complete example below of an App.js:
 
 ```jsx
 import React from 'react'
-import PismoID from 'id-ui'
-import { I18nProvider } from '@lingui/react'
-import { Router } from '@reach/router'
 import { ThemeProvider, withTheme } from 'styled-components'
 import { createGlobalStylePismo, themePismo } from '@bolt/core'
 
 import { setUser } from './hooks/userContext'
 import { language } from './hooks/languageContext'
 
-import Dashboard from './Dashboard'
-import ContractLink from './ContractLink'
-import ContractStores from './ContractStores'
-import ContractStoreUpsert from './ContractStoreUpsert'
-import ContractStoreTerminals from './ContractStoreTerminals'
-import ContractStoreTerminalUpsert from './ContractStoreTerminalUpsert'
+import { Wrapper } from '@pismo/bolt-wrapper'
+import { Button } from '@pismo/bolt-button'
 
 const GlobalStyle = withTheme(createGlobalStylePismo())
 
 export const App = () => {
-  const BASE_URL = process.env.REACT_APP_API_URL
-  const BASE_CONTRACT_URL = '/customer/:customerId/account/:accountId/contract/:contractId'
-
   return (
     <ThemeProvider theme={themePismo}>
-      <I18nProvider language={language}>
-        <PismoID onUpdate={setUser} baseURL={BASE_URL} keepAlive>
-          <Router>
-            <Dashboard path="/" />
-            <ContractLink path={`${BASE_CONTRACT_URL}`} />
-            <ContractStores path={`${BASE_CONTRACT_URL}/stores`} />
-            <ContractStoreUpsert path={`${BASE_CONTRACT_URL}/store/upsert/:storeId`} />
-            <ContractStoreTerminals path={`${BASE_CONTRACT_URL}/store/:storeId/terminals`} />
-            <ContractStoreTerminalUpsert path={`${BASE_CONTRACT_URL}/store/:storeId/terminal/upsert/:terminalId`} />
-          </Router>
-          <GlobalStyle />
-        </PismoID>
-      </I18nProvider>
+      <Wrapper>
+        <Button>
+      </Wrapper>
+      <GlobalStyle />
     </ThemeProvider>
   )
 }
