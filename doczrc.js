@@ -1,6 +1,7 @@
 export default {
   typescript: true,
   title: 'Pismo',
+  dest: '/build',
   description: 'Pismo UI documentation',
   themeConfig: {
     colors: {
