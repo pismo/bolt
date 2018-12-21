@@ -4,3 +4,5 @@ export { styled }
 export { createGlobalStylePismo } from './createGlobalStylePismo'
 export { themePismo } from './themePismo'
 export { css, createGlobalStyle, keyframes, ThemeProvider } from './styled'
+export { Grid, Flex } from '@rebass/grid'
+export { H1, H2, H3, H4, P, Small, Tiny } from './typography'
