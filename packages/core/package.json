@@ -15,12 +15,12 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "devDependencies": {
+    "@rebass/grid": "^6.0.0-7",
     "@types/jest": "^23.3.10",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "@types/styled-components": "4.1.4",
-    "docz": "^0.13.4",
-    "docz-theme-default": "^0.12.17",
+    "@astrocoders/docz": "0.13.6",
     "jest-dom": "^3.0.0",
     "polished": "^2.3.1",
     "react": "^16.6.3",
