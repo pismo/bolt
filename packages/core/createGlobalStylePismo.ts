@@ -8,8 +8,11 @@ export type createGlobalStylePismoI = (customStyle: string) => ThemedGlobalStyle
 
 export const createGlobalStylePismo: createGlobalStylePismoI = (customStyle = '') => createGlobalStyle`
   ${normalize()}
-  body {
-    font-family: 'Lato', sans-serif;
+  html, body {
+    font-family: ${({ theme }) => theme.fontFamily};
+    color: ${({ theme }) => theme.fontColor};
+    font-size: ${({ theme }) => theme.fontSizeBase};
+    line-height: ${({ theme }) => theme.lineHeightBase};
     background-color: ${({ theme }) => theme.background};
   }
   ${customStyle}
