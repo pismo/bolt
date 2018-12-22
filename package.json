@@ -39,6 +39,7 @@
     "docz:dev": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
     "lint:staged": "lint-staged",
-    "template:component": "node ./templates/scripts/createComponent"
+    "template:component": "node ./templates/scripts/createComponent",
+    "build:ext": "docz build"
   }
 }
