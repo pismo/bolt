@@ -1,0 +1,88 @@
+---
+name: Typography
+menu: Components
+---
+
+import { PropsTable, Playground } from 'docz'
+import { H1, H2, H3, H4, P, Small, Tiny } from './typography'
+import { WrapperPismoTheme } from './docz/wrapperPismoTheme'
+
+# Typography
+
+## Global settings
+
+All elements of Bolt have defaults that comes from the theme:
+
+- `fontFamily`: Lato
+- `fontSizeBase`: 16px
+- `lineHeightBase`: 1.5
+
+## Available Components
+
+4 Heading sizes
+
+<Playground>
+  <WrapperPismoTheme>
+    <H1> {'<H1> -'} Bolt components library </H1>
+    <H2> {'<H2> -'} Bolt components library </H2>
+    <H3> {'<H3> -'} Bolt components library </H3>
+    <H4> {'<H4> -'} Bolt components library </H4>
+  </WrapperPismoTheme>
+</Playground>
+
+2 Small sizes
+
+<Playground>
+  <WrapperPismoTheme>
+    <Small> {'<Small> -'} Bolt components library </Small>
+    <br />
+    <Tiny> {'<Tiny> -'} Bolt components library </Tiny>
+  </WrapperPismoTheme>
+</Playground>
+
+Paragraph
+
+<Playground>
+  <WrapperPismoTheme>
+    <P> {'<P> -'} Bolt components library </P>
+  </WrapperPismoTheme>
+</Playground>
+
+## Styles
+
+Use the prop `fontStyle` to style the Typography
+
+<Playground>
+  <WrapperPismoTheme>
+    <P fontStyle="light">
+      {'<P fontStyle="light"> -'} Bolt component {'<P>'} light
+    </P>
+    <P fontStyle="light italic">
+      {'<P fontStyle="light italic"> -'} Bolt component {'<P>'} light italic
+    </P>
+    <P>
+      {'<P> -'} Bolt component {'<P>'} regular
+    </P>
+    <P fontStyle="regular italic">
+      {'<P fontStyle="regular italic"> -'} Bolt component {'<P>'} regular italic
+    </P>
+    <P fontStyle="bold">
+      {'<P fontStyle="bold"> -'} Bolt component {'<P>'} bold
+    </P>
+    <P fontStyle="bold italic">
+      {'<P fontStyle="bold italic"> -'} Bolt component {'<P>'} bold italic
+    </P>
+    <P fontStyle="black">
+      {'<P fontStyle="black"> -'} Bolt component {'<P>'} black
+    </P>
+    <P fontStyle="black italic">
+      {'<P fontStyle="black italic"> -'} Bolt component {'<P>'} black italic
+    </P>
+  </WrapperPismoTheme>
+</Playground>
+
+## API
+
+All Typography components have the props as the H1 shown below
+
+<PropsTable of={H1} />
