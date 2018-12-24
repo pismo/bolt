@@ -1,12 +1,21 @@
 {
-  "name": "@pismo/bolt-core",
+  "name": "@pismo/bolt-cpackage",
   "version": "0.1.0",
-  "description": "Bolt core features",
+  "description": "Bolt component cpackage",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
   "license": "ISC",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pismo/bolt.git"
@@ -14,13 +23,16 @@
   "bugs": {
     "url": "https://github.com/pismo/bolt/issues"
   },
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc -w"
+  },
   "devDependencies": {
-    "@rebass/grid": "^6.0.0-7",
     "@types/jest": "^23.3.10",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "@types/styled-components": "4.1.4",
-    "@astrocoders/docz": "0.13.6",
+    "docz": "^0.13.4",
     "jest-dom": "^3.0.0",
     "polished": "^2.3.1",
     "react": "^16.6.3",
@@ -32,8 +44,7 @@
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2"
   },
-  "scripts": {
-    "build": "tsc",
-    "test": "jest"
+  "dependencies": {
+    "@pismo/bolt-core": "^0.1.0"
   }
 }

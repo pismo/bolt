@@ -1,12 +1,7 @@
-import React from 'react'
-import styled from '../styled'
+import { styled } from '@pismo/bolt-core'
 import cleanButton from './polished/cleanButton'
 
-export interface ButtonProps {
-  onClick(event: React.FormEvent<EventTarget>): void
-}
-
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button`
   ${cleanButton()};
   border-radius: 4px;
   border: solid 2px #3cb4e0;

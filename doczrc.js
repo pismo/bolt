@@ -1,6 +1,6 @@
 export default {
   typescript: true,
-  title: 'Pismo',
+  title: 'Pismo Bolt',
   description: 'Pismo UI documentation',
   themeConfig: {
     colors: {
@@ -15,4 +15,7 @@ export default {
       },
     },
   },
+  menu: ['Home', 'Basics', 'Components', 'Utilities'],
+  files: '**/packages/**/*.mdx',
+  dest: '/build',
 }
