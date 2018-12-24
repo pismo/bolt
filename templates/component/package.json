@@ -2,7 +2,7 @@
   "name": "@pismo/bolt-cpackage",
   "version": "0.1.0",
   "description": "Bolt component cpackage",
-  "author": "Guilherme Decampo <guilherme.decampo@gmail.com>",
+  "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
   "license": "ISC",
   "main": "dist/index.js",

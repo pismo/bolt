@@ -15,6 +15,11 @@ _Technologies used_
 - [Jest](https://github.com/sapegin/jest-cheat-sheet)
 - [React Testing Library](https://github.com/kentcdodds/react-testing-library#usage)
 
+_To do_
+
+- [ ] Toggle themes on docz
+- [ ]
+
 _Goals_
 
 The `@pismo/bolt-core`:
