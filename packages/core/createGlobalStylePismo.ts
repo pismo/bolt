@@ -13,11 +13,12 @@ export const baseStyle = (theme: ThemeInterface) => `
   font-size: ${theme.fontSizeBase};
   line-height: ${theme.lineHeightBase};
   background-color: ${theme.background};
+  height: 100%;
 `
 
 export const createGlobalStylePismo: createGlobalStylePismoI = (customStyle = '') => createGlobalStyle`
   ${normalize()}
-  html, body {
+  html, body, #root, #router {
     ${({ theme }) => baseStyle(theme)}
   }
   ${customStyle}
