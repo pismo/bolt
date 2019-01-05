@@ -10,10 +10,13 @@ const SIZES = {
 
 export const media = Object.keys(SIZES).reduce((acc, label) => {
   const mediaStart = label.includes('desktop') ? 'min' : 'max'
-  acc[label] = (args: TemplateStringsArray) => css`
+
+  return {
+    ...acc,
+    [label]: (args: TemplateStringsArray) => css`
     @media (${mediaStart}-width: ${SIZES[label] / BASE_FONT_SIZE}em) {
       ${css(args)}
     }
-  `
-  return acc
+  `,
+  }
 }, {})
