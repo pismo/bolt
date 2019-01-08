@@ -8,7 +8,13 @@ const SIZES = {
   mobile: 737,
 }
 
-export const media = Object.keys(SIZES).reduce((acc, label) => {
+export interface MediaInterface {
+  desktop?: (args: TemplateStringsArray) => string
+  tablet?: (args: TemplateStringsArray) => string
+  mobile?: (args: TemplateStringsArray) => string
+}
+
+export const media: MediaInterface = Object.keys(SIZES).reduce((acc, label) => {
   const mediaStart = label.includes('desktop') ? 'min' : 'max'
 
   return {
