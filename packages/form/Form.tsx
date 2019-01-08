@@ -57,7 +57,7 @@ export interface FormHeaderProps {
 
 export const Form = ({ onClickBack, title, children }: FormHeaderProps) => {
   return (
-    <Form>
+    <FormWrapper>
       {title && (
         <FormHeader>
           {onClickBack && (
@@ -69,6 +69,6 @@ export const Form = ({ onClickBack, title, children }: FormHeaderProps) => {
         </FormHeader>
       )}
       <FormArea>{children}</FormArea>
-    </Form>
+    </FormWrapper>
   )
 }
