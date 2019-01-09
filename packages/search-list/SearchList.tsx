@@ -30,7 +30,7 @@ const SearchExplanation = styled(H4)`
 `
 
 export interface SearchListProps {
-  hits: [any]
+  hits: any[]
   isLoading?: boolean
   isError?: boolean
   listItem: (arg0: any) => React.ReactNode
