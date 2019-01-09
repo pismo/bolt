@@ -54,7 +54,7 @@ export interface SelectFieldProps {
   label: string
   name: string
   value: string | number
-  onChange: () => void
+  onChange: (evt: any) => void
   placeholder: string
   options: Option[]
 }
