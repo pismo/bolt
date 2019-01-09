@@ -10,19 +10,18 @@ export const FormWrapper = styled.form`
   margin-left: auto;
   margin-right: auto;
   margin-top: 2.25rem;
-  padding-bottom: 2rem;
 
   ${media.mobile`
     width: auto;
-    padding: 0 2rem;
     margin-top: 0;
   `}
 `
 
 export const FormArea = styled.form`
-  padding: 0;
+  padding: 2rem 0;
+
   ${media.mobile`
-    padding: 0 2rem;
+    padding: 2rem;
   `}
 `
 
@@ -44,6 +43,7 @@ const BackLink = styled.span`
 `
 
 const BackIcon = styled(MdArrowBack)`
+  cursor: pointer;
   color: #2c3644;
   font-size: 1.2rem;
   margin-right: 0.35rem;
