@@ -17,7 +17,7 @@ export const FormWrapper = styled.form`
   `}
 `
 
-export const FormArea = styled.form`
+export const FormArea = styled.div`
   padding: 2rem 0;
 
   ${media.mobile`
