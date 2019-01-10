@@ -7,9 +7,7 @@ export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2.25rem;
+  margin: 1rem auto;
 
   ${media.mobile`
     width: auto;
