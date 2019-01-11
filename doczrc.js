@@ -17,5 +17,5 @@ export default {
   },
   menu: ['Home', 'Basics', 'Components', 'Utilities'],
   files: '**/packages/**/*.mdx',
-  dest: '/build',
+  dest: '/docs',
 }
