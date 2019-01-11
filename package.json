@@ -42,6 +42,7 @@
     "docz:build": "docz build",
     "lint:staged": "lint-staged",
     "template:component": "node ./scripts/createComponent",
+    "readme:update": "node ./scripts/updateRootReadme",
     "lerna:link:all": "node ./scripts/linkAll",
     "build:ext": "docz build"
   }
