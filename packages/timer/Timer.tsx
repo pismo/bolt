@@ -8,17 +8,23 @@ const TimerStyled = styled(P)`
   padding: 0 0.5rem;
 `
 
+const TIMER = '@pismo/timer'
+
 const timerFormatted = (timerCount: number) => {
   const timeFormat = timerCount > 60 * 60 * 1000 ? 'HH:mm:ss' : 'mm:ss'
   return format(new Date(0, 0, 0, 0, 0, 0, timerCount), timeFormat)
 }
 
 export const Timer = () => {
-  const [timerCount, setTimer] = React.useState(0)
+  const [timerCount, setTimer] = React.useState(Number(localStorage.getItem(TIMER)))
 
   React.useEffect(
     () => {
-      const timer = window.setInterval(() => setTimer(timerCount + 1000), 1000)
+      const timer = window.setInterval(() => {
+        const time = timerCount + 1000
+        setTimer(time)
+        localStorage.setItem(TIMER, String(time))
+      }, 1000)
       return () => window.clearInterval(timer)
     },
     [timerCount],
