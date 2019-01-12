@@ -1,5 +1,6 @@
 {
   "name": "bolt",
+  "version": "0.3.0",
   "private": true,
   "devDependencies": {
     "@astrocoders/docz": "0.13.6",
