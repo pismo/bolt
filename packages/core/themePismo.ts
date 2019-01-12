@@ -9,7 +9,7 @@ export interface ThemeInterface {
 }
 
 export const themePismo = {
-  background: '#ECEEF2',
+  background: '#fafafa',
   primary: '#D6DAE2',
   fontColor: '#2c3644',
   fontColorSmall: '#8692a6',
