@@ -49,13 +49,14 @@ const BackIcon = styled(MdArrowBack)`
 
 export interface FormHeaderProps {
   onClickBack?: () => void
+  onSubmit?: (event: React.FormEvent) => void
   title?: string
   children: React.ReactNode
 }
 
-export const Form = ({ onClickBack, title, children }: FormHeaderProps) => {
+export const Form = ({ onClickBack, title, onSubmit, children }: FormHeaderProps) => {
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={onSubmit}>
       {title && (
         <FormHeader>
           {onClickBack && (
