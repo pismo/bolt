@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/pismo/bolt/compare/v0.2.0...v0.3.0) (2019-01-11)
+
+
+### Bug Fixes
+
+* **core:** wrong export on index ([9319076](https://github.com/pismo/bolt/commit/9319076))
+* **media:** update reduce to be immutable ([9a0b322](https://github.com/pismo/bolt/commit/9a0b322))
+
+
+### Features
+
+* **core:** update media types ([dfe495d](https://github.com/pismo/bolt/commit/dfe495d))
+* **pismo-global-style:** add global styles ([69c88f1](https://github.com/pismo/bolt/commit/69c88f1))
+* **styled:** export withTheme and add media helper ([52da082](https://github.com/pismo/bolt/commit/52da082))
+
+
+
+
+
 # [0.2.0](https://github.com/pismo/bolt/compare/v0.0.1-32...v0.2.0) (2018-12-24)
 
 

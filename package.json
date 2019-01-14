@@ -1,14 +1,14 @@
 {
   "name": "bolt",
+  "version": "0.3.0",
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
     "@astrocoders/docz": "0.13.6",
     "concurrently": "^4.1.0",
     "docz-theme-default": "0.13.4",
-    "lerna": "^3.6.0",
-    "lint-staged": "^8.1.0",
-    "pre-commit": "^1.2.2",
+    "husky": "^1.3.1",
+    "lerna": "^3.10.5",
     "prettier": "^1.15.3",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
@@ -30,7 +30,11 @@
       "git add"
     ]
   },
-  "pre-commit": "lint:staged",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
     "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn docz:dev\"",
     "lerna:build": "lerna run build --stream --parallel",
@@ -41,8 +45,8 @@
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage",
     "docz:dev": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
-    "lint:staged": "lint-staged",
     "template:component": "node ./scripts/createComponent",
+    "readme:update": "node ./scripts/updateRootReadme",
     "lerna:link:all": "node ./scripts/linkAll"
   }
 }
