@@ -3,6 +3,7 @@
 Pismo's styleguide and design system with it's React components that compose most of the platform UI.
 
 ---
+[![Build Status](https://travis-ci.org/pismo/bolt.svg?branch=master)](https://travis-ci.org/pismo/bolt)
 
 This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
