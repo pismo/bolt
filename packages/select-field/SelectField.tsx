@@ -10,7 +10,7 @@ const SelectInput = styled.select`
   box-sizing: border-box;
   background-color: rgba(236, 238, 242, 0.5);
   color: #151a21;
-  padding: 0.75rem 0.75rem 0.7rem 0.75rem;
+  padding: 0.75rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0;
@@ -54,7 +54,7 @@ export interface SelectFieldProps {
   label: string
   name: string
   value: string | number
-  onChange: () => void
+  onChange: (evt: any) => void
   placeholder: string
   options: Option[]
 }

@@ -38,18 +38,19 @@ export const Loader = styled.div<LoaderProps>`
     animation-duration: 500ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    border: .1rem solid ${props => props.color || '#2c3644'};
+    border: 0.1rem solid ${props => props.color || '#2c3644'};
     border-radius: 50%;
     border-right-color: transparent;
     border-top-color: transparent;
-    content: "";
+    content: '';
     display: block;
     height: 1.6rem;
     width: 1.6rem;
-    margin-left: -.8rem;
-    margin-top: -.8rem;
+    margin-left: -0.8rem;
+    margin-top: -0.8rem;
     left: 50%;
     top: 50%;
     position: absolute;
     z-index: 1;
+  }
 `
