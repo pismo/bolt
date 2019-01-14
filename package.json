@@ -1,6 +1,7 @@
 {
   "name": "bolt",
   "private": true,
+  "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
     "@astrocoders/docz": "0.13.6",
     "concurrently": "^4.1.0",
@@ -42,7 +43,6 @@
     "docz:build": "docz build",
     "lint:staged": "lint-staged",
     "template:component": "node ./scripts/createComponent",
-    "lerna:link:all": "node ./scripts/linkAll",
-    "build:ext": "docz build"
+    "lerna:link:all": "node ./scripts/linkAll"
   }
 }
