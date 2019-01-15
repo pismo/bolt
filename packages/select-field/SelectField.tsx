@@ -10,7 +10,7 @@ const SelectInput = styled.select`
   box-sizing: border-box;
   background-color: rgba(236, 238, 242, 0.5);
   color: #151a21;
-  padding: 0.75rem;
+  padding: 0.75rem 0.75rem 0.75rem 0.2rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   border: 0;
@@ -54,6 +54,7 @@ export interface SelectFieldProps {
   label: string
   name: string
   value: string | number
+  field: any
   onChange: (evt: any) => void
   placeholder: string
   options: Option[]
@@ -66,11 +67,11 @@ const renderListOptions = (options: Option[]) =>
     </option>
   ))
 
-export const SelectField = ({ flex, label, name, value, onChange, placeholder, options }: SelectFieldProps) => {
+export const SelectField = ({ flex, label, field, options, ...props }: SelectFieldProps) => {
   return (
     <SelectWrapper flex={flex}>
       <Label>{label}</Label>
-      <SelectInput name={name} value={value} onChange={onChange} placeholder={placeholder}>
+      <SelectInput {...field} {...props}>
         {renderListOptions(options)}
       </SelectInput>
       <ArrowDownIcon />
