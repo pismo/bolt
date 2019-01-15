@@ -1,8 +1,8 @@
-import * as React from 'react'
-
 import { Small, styled } from '@pismo/bolt-core'
+import * as React from 'react'
+import * as InputMask from 'react-input-mask'
 
-const InputField = styled.input`
+const inputStyle = `
   outline: none;
   overflow: visible;
   margin: 0;
@@ -31,6 +31,14 @@ const InputField = styled.input`
   }
 `
 
+const InputField = styled.input`
+  ${inputStyle}
+`
+
+const InputMaskedField = styled(InputMask)`
+  ${inputStyle}
+`
+
 const TextWrapper = styled.div<{ flex?: string }>`
   display: flex;
   flex-direction: column;
@@ -42,11 +50,9 @@ const Label = styled(Small)`
   margin-bottom: 0.1875rem;
 `
 
-export const TextField = ({ flex, label, ...props }) => {
-  return (
-    <TextWrapper flex={flex}>
-      <Label>{label}</Label>
-      <InputField {...props} />
-    </TextWrapper>
-  )
-}
+export const TextField = ({ flex, label, field, mask, ...props }) => (
+  <TextWrapper flex={flex}>
+    <Label>{label}</Label>
+    {mask ? <InputMaskedField mask={mask} {...field} {...props} /> : <InputField {...field} {...props} />}
+  </TextWrapper>
+)
