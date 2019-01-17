@@ -33,8 +33,9 @@ const SelectWrapper = styled.div<{ flex?: string }>`
   flex: ${({ flex = '1' }) => flex};
 `
 
-const Label = styled(Small)`
+const Label = styled(Small)<{ hasError?: boolean }>`
   margin-bottom: 0.1875rem;
+  ${({ hasError }) => hasError && `color: red`};
 `
 
 const ArrowDownIcon = styled(MdKeyboardArrowDown)`
@@ -53,6 +54,7 @@ export interface SelectFieldProps {
   flex?: string
   label: string
   name: string
+  error?: string
   value: string | number
   field: any
   onChange: (evt: any) => void
@@ -61,16 +63,18 @@ export interface SelectFieldProps {
 }
 
 const renderListOptions = (options: Option[]) =>
-  options.map(({ label, value }) => (
-    <option key={label} value={value}>
+  options.map(({ label, value }, index) => (
+    <option key={label || index} value={value}>
       {label}
     </option>
   ))
 
-export const SelectField = ({ flex, label, field, options, ...props }: SelectFieldProps) => {
+export const SelectField = ({ flex, label, error, field, options, ...props }: SelectFieldProps) => {
   return (
     <SelectWrapper flex={flex}>
-      <Label>{label}</Label>
+      <Label hasError={Boolean(error)}>
+        {label} {error && <> ({error})</>}
+      </Label>
       <SelectInput {...field} {...props}>
         {renderListOptions(options)}
       </SelectInput>
