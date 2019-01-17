@@ -46,13 +46,28 @@ const TextWrapper = styled.div<{ flex?: string }>`
   flex: ${({ flex = '1' }) => flex};
 `
 
-const Label = styled(Small)`
+const Label = styled(Small)<{ hasError?: boolean }>`
   margin-bottom: 0.1875rem;
+  ${({ hasError }) => hasError && `color: red`};
 `
 
-export const TextField = ({ flex, label, field, mask, ...props }) => (
+export interface TextieldProps {
+  flex?: string
+  label: string
+  field?: any
+  form?: any
+  error?: string
+  mask: string
+  value: string | number
+  onChange: (evt: any) => void
+  placeholder: string
+}
+
+export const TextField = ({ flex, label, field, mask, error, form, ...props }: TextieldProps) => (
   <TextWrapper flex={flex}>
-    <Label>{label}</Label>
+    <Label hasError={Boolean(error)}>
+      {label} {error && <> ({error})</>}
+    </Label>
     {mask ? <InputMaskedField mask={mask} {...field} {...props} /> : <InputField {...field} {...props} />}
   </TextWrapper>
 )
