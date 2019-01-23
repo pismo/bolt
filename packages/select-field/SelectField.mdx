@@ -1,5 +1,6 @@
 ---
 name: SelectField
+menu: Components
 ---
 
 import { Playground, PropsTable } from 'docz'
@@ -7,10 +8,15 @@ import { SelectField } from './SelectField'
 
 # SelectField
 
-<PropsTable of={SelectField} />
-
 ## Basic usage
 
 <Playground>
-  <SelectField>My SelectField</SelectField>
+  <SelectField
+    name="test"
+    options={[{ label: 'Active', value: 'active' }, { label: 'Deactive', value: 'deactivate' }]}
+  />
 </Playground>
+
+## PropsTable
+
+<PropsTable of={SelectField} />
