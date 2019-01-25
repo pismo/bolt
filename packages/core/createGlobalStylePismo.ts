@@ -17,6 +17,7 @@ export const baseStyle = (theme: ThemeInterface) => ({
 
 export const createGlobalStylePismo: createGlobalStylePismoI = (customStyle = '') =>
   withTheme(createGlobalStyle`
+  ${normalize()}
   @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i');
 
   html, body, #root, #router {

@@ -1,5 +1,6 @@
 ---
 name: TextField
+menu: Components
 ---
 
 import { Playground, PropsTable } from 'docz'
@@ -7,10 +8,12 @@ import { TextField } from './TextField'
 
 # TextField
 
-<PropsTable of={TextField} />
-
 ## Basic usage
 
 <Playground>
-  <TextField>My TextField</TextField>
+  <TextField name="field" />
 </Playground>
+
+## PropsTable
+
+<PropsTable of={TextField} />
