@@ -47,15 +47,23 @@ const BackIcon = styled(MdArrowBack)`
   margin-right: 0.35rem;
 `
 
+export type onSubmitType = (event: React.FormEvent) => void
+
 export interface FormHeaderProps {
   onClickBack?: () => void
+  onSubmit?: onSubmitType
   title?: string
   children: React.ReactNode
 }
 
-export const Form = ({ onClickBack, title, children }: FormHeaderProps) => {
+const submitProxy = (onSubmit: onSubmitType) => (event: React.FormEvent): void => {
+  event.preventDefault()
+  if (onSubmit) onSubmit(event)
+}
+
+export const Form = ({ onClickBack, title, onSubmit, children }: FormHeaderProps) => {
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={submitProxy(onSubmit)}>
       {title && (
         <FormHeader>
           {onClickBack && (

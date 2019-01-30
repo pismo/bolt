@@ -1,8 +1,8 @@
-import * as React from 'react'
-
 import { Small, styled } from '@pismo/bolt-core'
+import * as React from 'react'
+import * as InputMask from 'react-input-mask'
 
-const InputField = styled.input`
+const inputStyle = `
   outline: none;
   overflow: visible;
   margin: 0;
@@ -31,6 +31,14 @@ const InputField = styled.input`
   }
 `
 
+const InputField = styled.input`
+  ${inputStyle}
+`
+
+const InputMaskedField = styled(InputMask)`
+  ${inputStyle}
+`
+
 const TextWrapper = styled.div<{ flex?: string }>`
   display: flex;
   flex-direction: column;
@@ -38,15 +46,28 @@ const TextWrapper = styled.div<{ flex?: string }>`
   flex: ${({ flex = '1' }) => flex};
 `
 
-const Label = styled(Small)`
+const Label = styled(Small)<{ hasError?: boolean }>`
   margin-bottom: 0.1875rem;
+  ${({ hasError }) => hasError && `color: red`};
 `
 
-export const TextField = ({ flex, label, ...props }) => {
-  return (
-    <TextWrapper flex={flex}>
-      <Label>{label}</Label>
-      <InputField {...props} />
-    </TextWrapper>
-  )
+export interface TextieldProps {
+  flex?: string
+  label: string
+  field?: any
+  form?: any
+  error?: string
+  mask: string
+  value: string | number
+  onChange: (evt: any) => void
+  placeholder: string
 }
+
+export const TextField = ({ flex, label, field, mask, error, form, ...props }: TextieldProps) => (
+  <TextWrapper flex={flex}>
+    <Label hasError={Boolean(error)}>
+      {label} {error && <> ({error})</>}
+    </Label>
+    {mask ? <InputMaskedField mask={mask} {...field} {...props} /> : <InputField {...field} {...props} />}
+  </TextWrapper>
+)

@@ -3,6 +3,7 @@
 Pismo's styleguide and design system with it's React components that compose most of the platform UI.
 
 ---
+[![Build Status](https://travis-ci.org/pismo/bolt.svg?branch=master)](https://travis-ci.org/pismo/bolt)
 
 This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
@@ -84,6 +85,8 @@ _Components_
 | [`bolt-search-field`](/packages/search-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-search-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-search-field)| [SearchField Documentation](https://bolt.pismolabs.io/packages-core-components-search-field) |
 | [`bolt-search-list`](/packages/search-list)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-search-list.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-search-list)| [SearchList Documentation](https://bolt.pismolabs.io/packages-core-components-search-list) |
 | [`bolt-select-field`](/packages/select-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-select-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-select-field)| [SelectField Documentation](https://bolt.pismolabs.io/packages-core-components-select-field) |
+| [`bolt-table`](/packages/table)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-table.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-table)| [Table Documentation](https://bolt.pismolabs.io/packages-core-components-table) |
+| [`bolt-table-item`](/packages/table-item)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-table-item.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-table-item)| [TableItem Documentation](https://bolt.pismolabs.io/packages-core-components-table-item) |
 | [`bolt-text-field`](/packages/text-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-text-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-text-field)| [TextField Documentation](https://bolt.pismolabs.io/packages-core-components-text-field) |
 | [`bolt-timer`](/packages/timer)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-timer.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-timer)| [Timer Documentation](https://bolt.pismolabs.io/packages-core-components-timer) |
 
