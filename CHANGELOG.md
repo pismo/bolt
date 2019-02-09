@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/pismo/bolt/compare/v0.3.0...v0.4.0) (2019-02-09)
+
+
+### Bug Fixes
+
+* **docz:** fix version and add resolutions ([08751b3](https://github.com/pismo/bolt/commit/08751b3))
+* **docz:** mdx files from package in order to show tableprops in the end ([9c6f831](https://github.com/pismo/bolt/commit/9c6f831))
+* **form:** pass onSubmit along ([ca39f87](https://github.com/pismo/bolt/commit/ca39f87))
+* **package:** add version number on root package.json ([2856589](https://github.com/pismo/bolt/commit/2856589))
+* **theme:** update background color ([c6f6f12](https://github.com/pismo/bolt/commit/c6f6f12))
+* **travis:** update command to use yarn ([9e99a27](https://github.com/pismo/bolt/commit/9e99a27))
+
+
+### Features
+
+* **button:** add disabled styles ([d0fd8f3](https://github.com/pismo/bolt/commit/d0fd8f3))
+* **form:** add onsubmit proxy for prevent default ([38a9c8a](https://github.com/pismo/bolt/commit/38a9c8a))
+* **package:** upgrade packages ([553a504](https://github.com/pismo/bolt/commit/553a504))
+* **packages:** add table ([97ffd80](https://github.com/pismo/bolt/commit/97ffd80))
+* **packages:** add table-item ([57f46f2](https://github.com/pismo/bolt/commit/57f46f2))
+* **select-field:** add disabled styles ([aad83f3](https://github.com/pismo/bolt/commit/aad83f3))
+* **SelectField:** add error handling and pass formik props ([8a3e334](https://github.com/pismo/bolt/commit/8a3e334))
+* **TextField:** add error handling and pass formik props ([dd5498e](https://github.com/pismo/bolt/commit/dd5498e))
+* **TextField:** add react input mask and spread formik field prop ([2f03747](https://github.com/pismo/bolt/commit/2f03747))
+* **timer:** add localstorage ([4e7feff](https://github.com/pismo/bolt/commit/4e7feff))
+* **TravisCI:** Add TravisCI script ([#35](https://github.com/pismo/bolt/issues/35)) ([ae306a8](https://github.com/pismo/bolt/commit/ae306a8))
+
+
+
+
+
 # [0.3.0](https://github.com/pismo/bolt/compare/v0.2.0...v0.3.0) (2019-01-11)
 
 

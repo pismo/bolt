@@ -11,12 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **docz:** mdx files from package in order to show tableprops in the end ([9c6f831](https://github.com/pismo/bolt/commit/9c6f831))
 
 
-
-
-
-# [0.3.0](https://github.com/pismo/bolt/compare/v0.2.0...v0.3.0) (2019-01-11)
-
-
 ### Features
 
-* **form-buttons:** add package ([ab9839b](https://github.com/pismo/bolt/commit/ab9839b))
+* **packages:** add table ([97ffd80](https://github.com/pismo/bolt/commit/97ffd80))
