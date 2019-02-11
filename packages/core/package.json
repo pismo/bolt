@@ -33,8 +33,8 @@
     "styled-components": "^4.1.3"
   },
   "peerDependencies": {
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2"
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
   },
   "scripts": {
     "build": "tsc",
