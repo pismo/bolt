@@ -34,4 +34,9 @@ export const Button = styled.button<TypeButtonProps>`
   &:hover {
     background-color: ${props => getColorByType(props).backgroundColorHover};
   }
+
+  &:disabled {
+    cursor: wait;
+    background-color: ${props => getColorByType(props).backgroundColorHover};
+  }
 `

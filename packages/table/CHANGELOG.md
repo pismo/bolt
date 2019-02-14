@@ -5,7 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.4.1](https://github.com/pismo/bolt/compare/v0.4.0...v0.4.1) (2019-02-14)
 
-**Note:** Version bump only for package @pismo/bolt-form-section
+**Note:** Version bump only for package @pismo/bolt-table
 
 
 
@@ -19,12 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **docz:** mdx files from package in order to show tableprops in the end ([9c6f831](https://github.com/pismo/bolt/commit/9c6f831))
 
 
-
-
-
-# [0.3.0](https://github.com/pismo/bolt/compare/v0.2.0...v0.3.0) (2019-01-11)
-
-
 ### Features
 
-* **form-section:** add package ([aa2c207](https://github.com/pismo/bolt/commit/aa2c207))
+* **packages:** add table ([97ffd80](https://github.com/pismo/bolt/commit/97ffd80))

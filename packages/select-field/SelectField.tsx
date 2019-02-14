@@ -23,6 +23,13 @@ const SelectInput = styled.select`
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
   }
+
+  &:disabled {
+    color: #8692a6;
+    border-bottom: 1px dashed;
+    background-color: rgba(236, 238, 242, 0.5);
+    box-shadow: none;
+  }
 `
 
 const SelectWrapper = styled.div<{ flex?: string }>`
