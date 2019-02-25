@@ -89,6 +89,7 @@ _Components_
 | [`bolt-table-item`](/packages/table-item)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-table-item.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-table-item)| [TableItem Documentation](https://bolt.pismolabs.io/packages-core-components-table-item) |
 | [`bolt-text-field`](/packages/text-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-text-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-text-field)| [TextField Documentation](https://bolt.pismolabs.io/packages-core-components-text-field) |
 | [`bolt-timer`](/packages/timer)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-timer.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-timer)| [Timer Documentation](https://bolt.pismolabs.io/packages-core-components-timer) |
+| [`bolt-toast`](/packages/toast)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-toast.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-toast)| [Toast Documentation](https://bolt.pismolabs.io/packages-core-components-toast) |
 
 
 ## Development flow
