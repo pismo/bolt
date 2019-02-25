@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-button",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Bolt button component",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -28,7 +28,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@pismo/bolt-core": "^0.4.1"
+    "@pismo/bolt-core": "^0.5.0"
   },
   "peerDependencies": {
     "react": "16.8.1",
