@@ -1,8 +1,13 @@
 import { styled } from '@pismo/bolt-core'
+import * as React from 'react'
 
 import cleanButton from './polished/cleanButton'
 
 export interface TypeButtonProps {
+  /**
+   * Set the button color theme to secondary
+   * @default false
+   */
   secondary?: boolean
 }
 
@@ -23,7 +28,7 @@ const getColorByType = (props: TypeButtonProps) => {
   return colors.default
 }
 
-export const Button = styled.button<TypeButtonProps>`
+const StyledButton = styled.button<TypeButtonProps>`
   ${cleanButton()};
   border-radius: 4px;
   background-color: ${props => getColorByType(props).backgroundColor};
@@ -40,3 +45,7 @@ export const Button = styled.button<TypeButtonProps>`
     background-color: ${props => getColorByType(props).backgroundColorHover};
   }
 `
+
+export const Button = ({ children, ...props }: { children?: any } & TypeButtonProps) => (
+  <StyledButton {...props}> {children} </StyledButton>
+)
