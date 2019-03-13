@@ -5,6 +5,7 @@ import { TextField } from './TextField'
 
 describe('TextField test', () => {
   it('Render a TextField with label and flex', () => {
+    // @ts-ignore
     const { container, getByText } = render(<TextField label="text-field" flex="2.5" />)
 
     const textWrapper = container.querySelector('div')
@@ -18,6 +19,7 @@ describe('TextField test', () => {
 
   it('Render a TextField with props to input', () => {
     const { container, getByText } = render(
+      // @ts-ignore
       <TextField label="text-field" flex="2.5" value="input-test" name="name-test" onChange={e => e.target.value} />,
     )
 
