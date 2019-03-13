@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 
 addParameters({
   options: {
-    name: 'Bolt',
+    name: 'Pismo Bolt',
     addonPanelInRight: true,
   },
 })
