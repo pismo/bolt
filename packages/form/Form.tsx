@@ -50,8 +50,19 @@ const BackIcon = styled(MdArrowBack)`
 export type onSubmitType = (event: React.FormEvent) => void
 
 export interface FormHeaderProps {
+  /**
+   * onClickBack function
+   */
   onClickBack?: () => void
+
+  /**
+   * onSubmit function
+   */
   onSubmit?: onSubmitType
+
+  /**
+   * Form title
+   */
   title?: string
   children: React.ReactNode
 }
