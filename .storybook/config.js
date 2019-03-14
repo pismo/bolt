@@ -10,7 +10,11 @@ addParameters({
 })
 
 addDecorator(withKnobs)
-addDecorator(withInfo)
+addDecorator(
+  withInfo({
+    inline: true,
+  }),
+)
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../packages', true, /.stories.tsx$/)
