@@ -9,6 +9,7 @@ export interface TypeButtonProps {
    * @default false
    */
   secondary?: boolean
+  children?: React.ReactNode
 }
 
 const getColorByType = (props: TypeButtonProps) => {
@@ -46,6 +47,6 @@ const StyledButton = styled.button<TypeButtonProps>`
   }
 `
 
-export const Button = ({ children, ...props }: { children?: any } & TypeButtonProps) => (
-  <StyledButton {...props}> {children} </StyledButton>
+export const Button = (props: TypeButtonProps) => (
+  <StyledButton secondary={props.secondary}> {props.children} </StyledButton>
 )
