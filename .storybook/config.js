@@ -2,10 +2,12 @@ import { configure, addDecorator, addParameters } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withInfo } from '@storybook/addon-info'
 
+import { MainTheme, InfoAddonTheme } from './theme'
+
 addParameters({
   options: {
     name: 'Pismo Bolt',
-    addonPanelInRight: true,
+    theme: MainTheme,
   },
 })
 
@@ -13,6 +15,7 @@ addDecorator(withKnobs)
 addDecorator(
   withInfo({
     inline: true,
+    styles: InfoAddonTheme,
   }),
 )
 
