@@ -5,7 +5,11 @@ Pismo's styleguide and design system with it's React components that compose mos
 ---
 [![Build Status](https://travis-ci.org/pismo/bolt.svg?branch=master)](https://travis-ci.org/pismo/bolt)
 
-This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
+This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo). 
+
+_Important_
+
+You should use `yarn` as the dependency management.
 
 _Technologies used_
 
