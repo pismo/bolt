@@ -16,8 +16,7 @@ export const InfoAddonTheme = stylesheet => ({
   ...stylesheet,
   infoBody: {
     ...stylesheet.infoBody,
-    // backgroundColor: '#404040',
-    // border: 'none',
+    border: 'none',
     color: '#484848',
   },
 })

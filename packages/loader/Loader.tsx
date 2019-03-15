@@ -1,7 +1,9 @@
 import { keyframes, styled } from '@pismo/bolt-core'
+import * as React from 'react'
 
 interface LoaderProps {
   size?: string
+  children?: React.ReactNode
 }
 
 const getScaleBySize = size => {
@@ -24,7 +26,7 @@ const loading = keyframes`
   }
 `
 
-export const Loader = styled.div<LoaderProps>`
+export const StyledLoader = styled.div<LoaderProps>`
   transform: scale(${({ size }) => getScaleBySize(size)});
   color: transparent !important;
   min-height: 2rem;
@@ -54,3 +56,5 @@ export const Loader = styled.div<LoaderProps>`
     z-index: 1;
   }
 `
+
+export const Loader = (props: LoaderProps) => <StyledLoader size={props.size}> {props.children} </StyledLoader>
