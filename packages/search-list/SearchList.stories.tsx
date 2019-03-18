@@ -8,6 +8,7 @@ storiesOf('SearchList', module)
     info: {
       header: false,
       source: false,
+      text: `# SearchList`,
     },
   })
   .add('Usage', () => {

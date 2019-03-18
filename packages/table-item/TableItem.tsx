@@ -1,10 +1,12 @@
 import { media, styled } from '@pismo/bolt-core'
+import * as React from 'react'
 
 export interface TableItemProps {
   isSuspended?: boolean
+  children?: React.ReactNode
 }
 
-export const TableItem = styled.div.attrs({
+export const StyledTableItem = styled.div.attrs({
   role: 'button',
 })<TableItemProps>`
   text-decoration: none;
@@ -21,3 +23,7 @@ export const TableItem = styled.div.attrs({
     align-items: flex-start;
   `}
 `
+
+export const TableItem = (props: TableItemProps) => (
+  <StyledTableItem isSuspended={props.isSuspended}> {props.children} </StyledTableItem>
+)
