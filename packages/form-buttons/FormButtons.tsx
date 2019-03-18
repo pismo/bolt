@@ -5,6 +5,8 @@ export const StyledFormButtons = styled(Flex)`
   margin-top: 1.5rem;
 `
 
-export const FormButtons = (props: { children?: React.ReactNode }) => (
-  <StyledFormButtons> {props.children} </StyledFormButtons>
-)
+export interface FormButtonsProps {
+  children?: React.ReactNode
+}
+
+export const FormButtons = (props: FormButtonsProps) => <StyledFormButtons> {props.children} </StyledFormButtons>

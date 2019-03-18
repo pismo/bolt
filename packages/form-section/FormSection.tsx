@@ -10,6 +10,8 @@ export const StyledFormSection = styled(Flex)`
   `}
 `
 
-export const FormSection = (props: { children?: React.ReactNode }) => (
-  <StyledFormSection> {props.children} </StyledFormSection>
-)
+export interface FormSectionProps {
+  children?: React.ReactNode
+}
+
+export const FormSection = (props: FormSectionProps) => <StyledFormSection> {props.children} </StyledFormSection>
