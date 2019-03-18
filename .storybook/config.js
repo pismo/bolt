@@ -8,6 +8,7 @@ addParameters({
   options: {
     name: 'Pismo Bolt',
     theme: MainTheme,
+    panelPosition: 'bottom',
   },
 })
 
