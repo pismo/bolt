@@ -3,7 +3,7 @@ node_js:
   - "stable"
 script:
   - yarn install
-  - yarn docz:build
+  - yarn build-storybook
 
 deploy:
   provider: pages
