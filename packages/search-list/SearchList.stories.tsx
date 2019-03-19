@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { SearchList } from './SearchList'
 
-storiesOf('SearchList', module)
+storiesOf('Components/SearchList', module)
   .addParameters({
     info: {
       header: false,

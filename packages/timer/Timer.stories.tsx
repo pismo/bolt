@@ -4,4 +4,4 @@ import * as React from 'react'
 import { Timer } from './Timer'
 
 // Story source displays 'unknown'
-storiesOf('Timer', module).add('Usage', () => <Timer />)
+storiesOf('Components/Timer', module).add('Usage', () => <Timer />)

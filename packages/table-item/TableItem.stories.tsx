@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { TableItem } from './TableItem'
 
-storiesOf('TableItem', module).add('Usage', () => {
+storiesOf('Components/TableItem', module).add('Usage', () => {
   const props = {
     isSuspended: boolean('isSuspended', false),
   }

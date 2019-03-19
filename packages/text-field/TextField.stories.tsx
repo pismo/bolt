@@ -6,7 +6,7 @@ import * as React from 'react'
 import { TextField } from './TextField'
 
 // The text isn't being changed at the story
-storiesOf('TextField', module).add('Usage', () => {
+storiesOf('Components/TextField', module).add('Usage', () => {
   const props = {
     label: text('Label', ''),
     mask: text('Mask', ''),

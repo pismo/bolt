@@ -3,4 +3,4 @@ import * as React from 'react'
 
 import { Loader } from './Loader'
 
-storiesOf('Loader', module).add('Usage', () => <Loader />)
+storiesOf('Components/Loader', module).add('Usage', () => <Loader />)

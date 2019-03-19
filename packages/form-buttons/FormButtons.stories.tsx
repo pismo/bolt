@@ -3,4 +3,4 @@ import * as React from 'react'
 
 import { FormButtons } from './FormButtons'
 
-storiesOf('FormButtons', module).add('Usage', () => <FormButtons> My FormButtons </FormButtons>)
+storiesOf('Components/FormButtons', module).add('Usage', () => <FormButtons> My FormButtons </FormButtons>)

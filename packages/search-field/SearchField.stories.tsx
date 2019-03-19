@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import { SearchField } from './SearchField'
 
-storiesOf('SearchField', module).add('Usage', () => {
+storiesOf('Components/SearchField', module).add('Usage', () => {
   const props = {
     defaultValue: text('Default Value', ''),
     onChange: action('onChange'),

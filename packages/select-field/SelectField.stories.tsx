@@ -6,7 +6,7 @@ import * as React from 'react'
 import { SelectField } from './SelectField'
 
 // The select value isn't being changed at the story
-storiesOf('SelectField', module).add('Usage', () => {
+storiesOf('Components/SelectField', module).add('Usage', () => {
   const options = [{ label: 'Active', value: 'active' }, { label: 'Deactive', value: 'deactivate' }]
 
   const props = {

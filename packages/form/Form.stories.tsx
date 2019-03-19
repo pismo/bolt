@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Form } from './Form'
 
-storiesOf('Form', module).add('Usage', () => {
+storiesOf('Components/Form', module).add('Usage', () => {
   const props = {
     title: text('Title', 'My Form'),
   }

@@ -4,7 +4,12 @@ import * as React from 'react'
 
 import { Button } from './Button'
 
-storiesOf('Button', module)
+storiesOf('Components.Button', module)
+  .addParameters({
+    info: {
+      text: `# Button`,
+    },
+  })
   .add('Usage', () => {
     const props = {
       secondary: boolean('Secondary', false),

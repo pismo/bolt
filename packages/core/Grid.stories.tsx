@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 
-storiesOf('Grid', module)
+storiesOf('Components/Grid', module)
   .addParameters({
     info: {
       header: false,
