@@ -18,8 +18,6 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "concurrently": "4.1.0",
-    "docz": "0.12.17",
-    "docz-theme-default": "0.12.17",
     "husky": "1.3.1",
     "lerna": "3.11.1",
     "lint-staged": "^8.1.5",
@@ -51,7 +49,7 @@
     }
   },
   "scripts": {
-    "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn docz:dev\"",
+    "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn storybook\"",
     "lerna:build": "lerna run build --stream --parallel",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
@@ -59,8 +57,6 @@
     "lerna:test": "lerna run test --stream --parallel -- --colors",
     "lerna:test:watch": "lerna run test --stream --parallel --scope=@pismo/bolt-toast -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
-    "docz:dev": "rm -rf .docz && docz dev",
-    "docz:build": "docz build",
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
     "lerna:link:all": "node ./scripts/linkAll",
