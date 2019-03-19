@@ -4,16 +4,10 @@ import * as React from 'react'
 
 import { Button } from './Button'
 
-storiesOf('Components.Button', module)
-  .addParameters({
-    info: {
-      text: `# Button`,
-    },
-  })
-  .add('Usage', () => {
-    const props = {
-      secondary: boolean('Secondary', false),
-    }
+storiesOf('Components.Button', module).add('Usage', () => {
+  const props = {
+    secondary: boolean('Secondary', false),
+  }
 
-    return <Button {...props}> My button </Button>
-  })
+  return <Button {...props}> My button </Button>
+})
