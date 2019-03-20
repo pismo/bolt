@@ -9,6 +9,10 @@ interface FlexProps {
   backgroundColor: string
   color?: string
   height: number
+  justifyContent?: string
+  alignItems?: string
+  flexWrap?: string
+  flexDirection?: string
 }
 
 const Flex: React.SFC<FlexProps> = props => <FlexGrid {...props}>{props.children}</FlexGrid>
