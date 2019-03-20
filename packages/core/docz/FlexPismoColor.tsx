@@ -7,11 +7,11 @@ import { ThemeInterface } from '../themePismo'
 interface FlexProps {
   theme?: ThemeInterface
   backgroundColor: string
-  color: string
+  color?: string
   height: number
 }
 
-const Flex: React.SFC<FlexProps> = (props) => <FlexGrid {...props}>{props.children}</FlexGrid>
+const Flex: React.SFC<FlexProps> = props => <FlexGrid {...props}>{props.children}</FlexGrid>
 
 export const FlexPismoColor = styled(Flex)`
   background-color: ${({ backgroundColor }) => backgroundColor || '#000'};

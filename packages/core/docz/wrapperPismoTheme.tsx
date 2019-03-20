@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { withTheme } from 'styled-components'
 import { baseStyle } from '../createGlobalStylePismo'
 import styled, { ThemeProvider } from '../styled'
