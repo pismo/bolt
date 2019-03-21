@@ -57,4 +57,6 @@ export const StyledLoader = styled.div<LoaderProps>`
   }
 `
 
-export const Loader = (props: LoaderProps) => <StyledLoader size={props.size}> {props.children} </StyledLoader>
+export const Loader = (props: LoaderProps & React.HTMLAttributes<HTMLDivElement>) => (
+  <StyledLoader size={props.size}> {props.children} </StyledLoader>
+)

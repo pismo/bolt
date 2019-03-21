@@ -47,6 +47,6 @@ const StyledButton = styled.button<TypeButtonProps>`
   }
 `
 
-export const Button = (props: TypeButtonProps) => (
-  <StyledButton secondary={props.secondary}> {props.children} </StyledButton>
+export const Button = (props: TypeButtonProps & React.HTMLAttributes<HTMLButtonElement>) => (
+  <StyledButton {...props}> {props.children} </StyledButton>
 )

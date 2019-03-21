@@ -24,6 +24,6 @@ export const StyledTableItem = styled.div.attrs({
   `}
 `
 
-export const TableItem = (props: TableItemProps) => (
+export const TableItem = (props: TableItemProps & React.HTMLAttributes<HTMLDivElement>) => (
   <StyledTableItem isSuspended={props.isSuspended}> {props.children} </StyledTableItem>
 )

@@ -8,6 +8,12 @@ module.exports = ({ config, mode }) => {
       },
       {
         loader: require.resolve('react-docgen-typescript-loader'),
+        options: {
+          propFilter: prop => {
+            if (prop.parent == null) return true
+            return prop.parent.fileName.indexOf('node_modules/@types/react') < 0
+          },
+        },
       },
     ],
   })

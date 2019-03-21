@@ -3,21 +3,41 @@ import { text } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import { SelectField } from './SelectField'
+import { SelectField as ActualSelectField } from './SelectField'
 
-// The select value isn't being changed at the story
-storiesOf('Components/SelectField', module).add('Usage', () => {
-  const options = [{ label: 'Active', value: 'active' }, { label: 'Deactive', value: 'deactivate' }]
+// 'value' knob is missing because knobs values can't be set through code so far
+const SelectField = props => {
+  const [value, setValue] = React.useState('')
 
-  const props = {
-    label: text('Label', ''),
-    name: text('Name', 'SelectField'),
-    value: text('Value', ''),
-    field: text('Field', ''),
-    onChange: action('onChange'),
-    placeholder: text('Placeholder', ''),
-    options,
-  }
+  return (
+    <ActualSelectField
+      value={value}
+      onChange={e => {
+        action('onChange')(e.target.value)
+        setValue(e.target.value)
+      }}
+      {...props}
+    />
+  )
+}
 
-  return <SelectField {...props} />
-})
+storiesOf('Components/SelectField', module)
+  .addParameters({
+    info: {
+      propTables: [ActualSelectField],
+      propTablesExclude: [SelectField],
+    },
+  })
+  .add('Usage', () => {
+    const options = [{ label: 'Active', value: 'active' }, { label: 'Deactive', value: 'deactivate' }]
+
+    const props = {
+      label: text('Label', ''),
+      name: text('Name', 'SelectField'),
+      field: text('Field', ''),
+      placeholder: text('Placeholder', ''),
+      options,
+    }
+
+    return <SelectField {...props} />
+  })
