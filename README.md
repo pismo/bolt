@@ -5,7 +5,7 @@ Pismo's styleguide and design system with it's React components that compose mos
 ---
 [![Build Status](https://travis-ci.org/pismo/bolt.svg?branch=master)](https://travis-ci.org/pismo/bolt)
 
-This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo). 
+This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
 _Important_
 
@@ -16,13 +16,11 @@ _Technologies used_
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Typescript](https://github.com/sw-yx/react-typescript-cheatsheet)
 - [Styled Components](https://www.styled-components.com/docs/api#typescript)
-- [Docz](https://www.docz.site/documentation/components-api)
+- [Storybook](https://storybook.js.org/docs/basics/introduction/)
 - [Jest](https://github.com/sapegin/jest-cheat-sheet)
 - [React Testing Library](https://github.com/kentcdodds/react-testing-library#usage)
 
 _To do_
-
-- [ ] Toggle themes on docz
 
 _Goals_
 
