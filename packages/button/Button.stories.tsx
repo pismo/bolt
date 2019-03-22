@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import { Button } from './Button'
 
-storiesOf('Components.Button', module).add('Usage', () => {
+storiesOf('Components/Button', module).add('Usage', () => {
   const props = {
     secondary: boolean('Secondary', false),
     onClick: action('onClick'),
