@@ -1,17 +1,22 @@
 import { storiesOf } from '@storybook/react'
+import * as React from 'react'
 
-storiesOf('Components/Grid', module)
+import { Box, Flex } from '@rebass/grid'
+
+storiesOf('Components/Grid System', module)
   .addParameters({
     info: {
       header: false,
       source: false,
-      text: `
-        # Grid System
-        ## Flex
-        ---
-        ## Box
-        ---
-      `,
+      text: `# Components/Box`,
     },
   })
-  .add('Grid System', () => undefined)
+  .add('Box', () => <Box />)
+  .addParameters({
+    info: {
+      header: false,
+      source: false,
+      text: `# Components/Flex`,
+    },
+  })
+  .add('Flex', () => <Flex />)
