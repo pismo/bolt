@@ -11,7 +11,11 @@ import { Uploader } from './Uploader'
 ## Basic Usage
 
 <Playground>
-  <Uploader onRemove={files => console.log({files})} onSelect={files => console.log({ files })} placeholder={'Placeholder'} />
+  <Uploader 
+    onRemove={files => null} 
+    onSelect={files => console.log({ files })}
+    placeholder={'Click or drag files here'}
+  />
 </Playground>
 
 
