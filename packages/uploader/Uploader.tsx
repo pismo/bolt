@@ -1,12 +1,11 @@
-import { styled } from '@pismo/bolt-core'
+import { Button } from '@pismo/bolt-button'
+import { colors, P, styled } from '@pismo/bolt-core'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 
 const Wrapper = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
 `
 
@@ -14,44 +13,84 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  margin: 10px 20px;
+  justify-content: center;
+  margin: 10px 0;
   padding: 20px;
-  background-color: azure;
+  background-color: #ececec;
+  align-self: center;
+  border-color: ${colors.grey300};
+  border-width: 2px;
+  border-style: dotted;
+  opacity: 0.75;
+  cursor: pointer;
+  width: 100%;
 `
 
 const FileList = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+`
+
+const FileItemLabel = styled(P)`
+  color: ${colors.grey900};
+  font-weight: 700;
+  align-self: center;
+  transition: color ease-in-out 5ms;
 `
 
 const FileItem = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 25px;
-  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-color: ${colors.grey300};
+  border-width: 0;
+  border-top-width: 0.5px;
+  border-style: solid;
+  transition: background-color ease-in-out 5ms;
+  &:hover {
+    background-color: ${colors.grey700};
+  }
+  &:hover ${FileItemLabel} {
+    color: #fff;
+  }
 `
 
-const Input = styled.input`
-  width: 100%;
-  height: 20px;
-`
+export interface Props {
+  placeholder?: string
+  style?: React.CSSProperties
+  accept?: string
+  disabled?: boolean
+  multiple?: boolean
+  removeButtonLabel?: string
+  onSelect?(files: File[]): null
+  onRemove?(files: File[]): null
+  onChange?(files: File[]): null
+}
 
 export const Uploader = ({
   style = {},
-  accept,
+  accept = '',
   disabled = false,
   multiple = true,
-  onSelect,
-  onRemove,
-  placeholder,
-}) => {
+  removeButtonLabel = 'Remover',
+  onSelect = () => null,
+  onRemove = () => null,
+  onChange = () => null,
+  placeholder = 'Click or drag files here',
+}: Props) => {
   const [selectedFiles, setSelectedFiles] = React.useState([])
+
+  React.useEffect(() => {
+    onChange(selectedFiles)
+  }, [selectedFiles])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: files => {
-      setSelectedFiles(files.filter(file => !selectedFiles.includes(file)))
+      setSelectedFiles(selectedFiles.concat(files.filter(file => !selectedFiles.includes(file))))
       onSelect(selectedFiles)
     },
     accept,
@@ -62,24 +101,27 @@ export const Uploader = ({
   return (
     <Wrapper>
       <Box {...getRootProps({ style })}>
-        <Input {...getInputProps()} />
-        <p>{placeholder}</p>
+        <input {...getInputProps()} />
+        <P>{placeholder}</P>
       </Box>
-      <FileList>
-        {selectedFiles.map(file => (
-          <FileItem key={file.path}>
-            <p>{file.name}</p>
-            <button
-              onClick={() => {
-                setSelectedFiles(selectedFiles.filter(selectedFile => selectedFile !== file))
-                onRemove(selectedFiles)
-              }}
-            >
-              Remover
-            </button>
-          </FileItem>
-        ))}
-      </FileList>
+      {selectedFiles.length > 0 && (
+        <FileList>
+          <P>Lista de arquivos</P>
+          {selectedFiles.map(file => (
+            <FileItem key={file.path}>
+              <FileItemLabel>{file.name}</FileItemLabel>
+              <Button
+                onClick={() => {
+                  setSelectedFiles(selectedFiles.filter(selectedFile => selectedFile !== file))
+                  onRemove(selectedFiles)
+                }}
+              >
+                {removeButtonLabel}
+              </Button>
+            </FileItem>
+          ))}
+        </FileList>
+      )}
     </Wrapper>
   )
 }
