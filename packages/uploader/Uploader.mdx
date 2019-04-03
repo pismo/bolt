@@ -1,0 +1,21 @@
+---
+name: Uploader
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import { Uploader } from './Uploader'
+
+# Uploader
+
+## Basic Usage
+
+<Playground>
+  <Uploader onRemove={files => console.log({files})} onSelect={files => console.log({ files })} placeholder={'Placeholder'} />
+</Playground>
+
+
+## PropsTable
+
+<PropsTable of={Uploader} />
+
