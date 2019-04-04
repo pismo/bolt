@@ -9,3 +9,4 @@
 **/**/lerna-debug.log
 .docz/
 build/
+.idea/
