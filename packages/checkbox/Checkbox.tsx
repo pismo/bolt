@@ -53,10 +53,10 @@ const Label = styled.span<{ checked: boolean }>`
 `
 
 export interface Props {
-  name: string
-  checked: boolean
-  children: string
-  onChange(evt: React.ChangeEvent<HTMLInputElement>): void
+  name?: string
+  checked?: boolean
+  children?: string
+  onChange?(evt: React.ChangeEvent<HTMLInputElement>): void
 }
 
 export const Checkbox = ({ name, onChange, checked, children }: Props) => (
