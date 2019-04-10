@@ -1,5 +1,6 @@
 import { colors, styled } from '@pismo/bolt-core'
 import { Loader } from '@pismo/bolt-loader'
+import { ToastProvider } from '@pismo/bolt-toast'
 import * as React from 'react'
 import { Modes } from './constants/Modes'
 import { LoginForm } from './LoginForm'
@@ -8,13 +9,13 @@ import { RecoverySuccess } from './RecoverySuccess'
 
 const Wrapper = styled.div`
   height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  color: ${colors.grey800};
+  color: ${colors.grey800}´;
   background-color: rgba(0, 0, 0, 0.7);
   font-family: Helvetica, Arial, sans-serif;
-  position: fixed;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
 `
 
 const LoaderWrapper = styled.div`
@@ -34,14 +35,18 @@ interface PismoIDProps {
   auth: any
 }
 
+const PismoIDContext = React.createContext(null)
+
 export const PismoID = (props: PismoIDProps) => {
   const { children, auth } = props
 
-  const [isValid, setIsValid] = React.useState(false)
-  const [loading, setLoading] = React.useState(true)
-  const [mode, setMode] = React.useState(Modes.LOGIN)
-  const [email, setEmail] = React.useState('')
-  const [tokenRefresher, setTokenRefresher] = React.useState(null)
+  const [isValid, setIsValid] = React.useState<boolean>(false)
+  const [loading, setLoading] = React.useState<boolean>(true)
+  const [mode, setMode] = React.useState<Modes>(Modes.LOGIN)
+  const [email, setEmail] = React.useState<string>('')
+  const [tokenRefresher, setTokenRefresher] = React.useState<any>(null)
+
+  const setValid = valid => setIsValid(valid)
 
   React.useEffect(() => {
     auth
@@ -52,7 +57,7 @@ export const PismoID = (props: PismoIDProps) => {
           .then(() => {
             setLoading(false)
             setIsValid(true)
-            return auth.onUpdateProxy()
+            return auth.onUpdateProxy(tokenRefresher)
           })
           .catch(() => {
             setLoading(false)
@@ -69,7 +74,7 @@ export const PismoID = (props: PismoIDProps) => {
         tokenRefresher.stop()
       }
     }
-  }, [])
+  }, [isValid])
 
   if (loading) {
     return (
@@ -80,33 +85,38 @@ export const PismoID = (props: PismoIDProps) => {
   }
 
   if (isValid) {
-    return children
+    return <PismoIDContext.Provider value={{ setValid, isValid }}>{children}</PismoIDContext.Provider>
   }
 
   return (
-    <Wrapper>
-      {mode === Modes.LOGIN && (
-        <LoginForm
-          setIsValid={setIsValid}
-          setTokenRefresher={setTokenRefresher}
-          auth={auth}
-          goToRecovery={() => setMode(Modes.RECOVERY)}
-        />
-      )}
-      {mode === Modes.RECOVERY && (
-        <RecoveryForm
-          auth={auth}
-          goToRecoverySuccess={userEmail => {
-            setEmail(userEmail)
-            setMode(Modes.RECOVERY_SUCCESS)
-          }}
-          goToLogin={() => {
-            setEmail('')
-            setMode(Modes.LOGIN)
-          }}
-        />
-      )}
-      {mode === Modes.RECOVERY_SUCCESS && <RecoverySuccess email={email} />}
-    </Wrapper>
+    <ToastProvider>
+      <Wrapper>
+        {mode === Modes.LOGIN && (
+          <LoginForm
+            setIsValid={setIsValid}
+            setTokenRefresher={setTokenRefresher}
+            tokenRefresher={tokenRefresher}
+            auth={auth}
+            goToRecovery={() => setMode(Modes.RECOVERY)}
+          />
+        )}
+        {mode === Modes.RECOVERY && (
+          <RecoveryForm
+            auth={auth}
+            goToRecoverySuccess={userEmail => {
+              setEmail(userEmail)
+              setMode(Modes.RECOVERY_SUCCESS)
+            }}
+            goToLogin={() => {
+              setEmail('')
+              setMode(Modes.LOGIN)
+            }}
+          />
+        )}
+        {mode === Modes.RECOVERY_SUCCESS && <RecoverySuccess email={email} />}
+      </Wrapper>
+    </ToastProvider>
   )
 }
+
+export const usePismoID = () => React.useContext(PismoIDContext)
