@@ -85,7 +85,11 @@ export const PismoID = (props: PismoIDProps) => {
   }
 
   if (isValid) {
-    return <PismoIDContext.Provider value={{ setValid, isValid }}>{children}</PismoIDContext.Provider>
+    return (
+      <PismoIDContext.Provider value={{ setIsLoggedIn: setValid, isLoggedIn: isValid }}>
+        {children}
+      </PismoIDContext.Provider>
+    )
   }
 
   return (
