@@ -1,1 +1,1 @@
-export { PismoID } from './PismoID'
+export { PismoID, usePismoID } from './PismoID'
