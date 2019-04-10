@@ -1,6 +1,7 @@
 import { styled } from '@pismo/bolt-core'
 
 export const FormCard = styled.div`
+  width: 100%;
   padding: 4rem 2rem;
   background-color: #fff;
   max-width: 32rem;
