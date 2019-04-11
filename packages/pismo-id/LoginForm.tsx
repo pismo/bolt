@@ -44,8 +44,7 @@ export const LoginForm = (props: LoginFormProps) => {
   const { goToRecovery, setIsValid, setTokenRefresher, auth, tokenRefresher } = props
 
   React.useEffect(() => {
-    auth.getPreferences().then(response => {
-      const { identification = '', rememberMe = false } = response
+    auth.getPreferences().then(({ identification = '', rememberMe = false }) => {
       setIdentification(identification)
       setRememberMe(rememberMe)
     })
@@ -84,42 +83,40 @@ export const LoginForm = (props: LoginFormProps) => {
           setTokenRefresher(result)
           return setIsValid(true)
         }}
-        render={({ values, setFieldValue, isSubmitting, submitForm, isValid }) => (
-          <>
-            <InputWrapper>
-              <FormikField
-                name={'emailOrCPF'}
-                placeholder={'E-mail'}
-                flex={'0.49'}
-                component={Input}
-                disabled={isSubmitting}
-              />
-              <FormikField
-                name={'password'}
-                placeholder={'Senha'}
-                flex={'0.49'}
-                component={Input}
-                disabled={isSubmitting}
-                type={'password'}
-              />
-            </InputWrapper>
-            <SubmitButton onClick={submitForm} disabled={!isValid}>
-              ENTRAR
-            </SubmitButton>
-            <LinkWrapper>
-              <Checkbox
-                name={'rememberMe'}
-                onChange={evt => {
-                  return setFieldValue('rememberMe', evt.target.checked)
-                }}
-                checked={values.rememberMe}
-              >
-                Lembrar
-              </Checkbox>
-              <Link onClick={() => goToRecovery()}>Esqueceu a senha?</Link>
-            </LinkWrapper>
-          </>
-        )}
+        render={({ values, setFieldValue, isSubmitting, submitForm, isValid }) => {
+          const setCheckboxValue = (name: string) => evt => setFieldValue(name, evt.target.checked)
+
+          return (
+            <>
+              <InputWrapper>
+                <FormikField
+                  name={'emailOrCPF'}
+                  placeholder={'E-mail'}
+                  flex={'0.49'}
+                  component={Input}
+                  disabled={isSubmitting}
+                />
+                <FormikField
+                  name={'password'}
+                  placeholder={'Senha'}
+                  flex={'0.49'}
+                  component={Input}
+                  disabled={isSubmitting}
+                  type={'password'}
+                />
+              </InputWrapper>
+              <SubmitButton onClick={submitForm} disabled={!isValid}>
+                ENTRAR
+              </SubmitButton>
+              <LinkWrapper>
+                <Checkbox name={'rememberMe'} onChange={setCheckboxValue('rememberMe')} checked={values.rememberMe}>
+                  Lembrar
+                </Checkbox>
+                <Link onClick={() => goToRecovery()}>Esqueceu a senha?</Link>
+              </LinkWrapper>
+            </>
+          )
+        }}
       />
     </FormCard>
   )
