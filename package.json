@@ -47,7 +47,7 @@
     "lerna:test": "lerna run test --stream --parallel -- --colors",
     "lerna:test:watch": "lerna run test --stream --parallel --scope=@pismo/bolt-toast -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
-    "coveralls": "coveralls",
+    "coveralls": "yarn test --coverage --coverageReporters=text-lcov | coveralls",
     "docz:dev": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
     "template:component": "node ./scripts/createComponent",
