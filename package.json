@@ -47,11 +47,14 @@
     "lerna:test": "lerna run test --stream --parallel -- --colors",
     "lerna:test:watch": "lerna run test --stream --parallel --scope=@pismo/bolt-toast -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
-    "coveralls": "coveralls",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "docz:dev": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
     "lerna:link:all": "node ./scripts/linkAll"
+  },
+  "jest": {
+    "coverageDirectory": "<rootDir>/packages/**/coverage"
   }
 }
