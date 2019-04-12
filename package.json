@@ -48,7 +48,7 @@
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
     "lerna:publish": "yarn lerna:build && lerna publish --conventional-commits",
     "lerna:test": "lerna run test --stream --parallel -- --colors",
-    "lerna:test:watch": "lerna run test --stream --parallel --scope=@pismo/bolt-toast -- --watch --colors",
+    "lerna:test:watch": "lerna run test --stream --parallel -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "docz:dev": "rm -rf .docz && docz dev",
