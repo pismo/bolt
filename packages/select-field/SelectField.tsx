@@ -63,7 +63,7 @@ export interface SelectFieldProps {
   name: string
   error?: string
   value: string | number
-  field: any
+  field?: any
   onChange: (evt: any) => void
   placeholder: string
   options: Option[]
