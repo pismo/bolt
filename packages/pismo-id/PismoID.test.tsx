@@ -7,13 +7,16 @@ describe('Checkbox test', () => {
   it('Simple render PismoID', () => {
     const { container } = render(
       <PismoID
-        children={<div>Test</div>}
-        auth={{teste:'teste'}}
-      />
+        auth={{
+          getPreferences: jest.fn().mockImplementation(() => Promise.resolve()),
+          ensure: jest.fn().mockImplementation(() => Promise.resolve()),
+        }}
+      >
+        Testing
+      </PismoID>,
     )
 
     expect(container).toBeInTheDocument()
     expect(container).toBeVisible()
   })
-
 })
