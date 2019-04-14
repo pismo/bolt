@@ -52,12 +52,13 @@ const Label = styled(Small)<{ hasError?: boolean }>`
 `
 
 export interface TextieldProps {
+  name?: string
   flex?: string
   label: string
   field?: any
   form?: any
   error?: string
-  mask: string
+  mask?: string
   value: string | number
   onChange: (evt: any) => void
   placeholder: string
