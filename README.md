@@ -77,11 +77,13 @@ _Components_
 | Package | Version | Documentation |
 | - | - | - |
 | [`bolt-button`](/packages/button)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-button.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-button)| [Button Documentation](https://bolt.pismolabs.io/packages-core-components-button) |
+| [`bolt-checkbox`](/packages/checkbox)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-checkbox.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-checkbox)| [Checkbox Documentation](https://bolt.pismolabs.io/packages-core-components-checkbox) |
 | [`bolt-core`](/packages/core)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-core.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-core)| [Core Documentation](https://bolt.pismolabs.io/packages-core-components-core) |
 | [`bolt-form`](/packages/form)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-form.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-form)| [Form Documentation](https://bolt.pismolabs.io/packages-core-components-form) |
 | [`bolt-form-buttons`](/packages/form-buttons)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-form-buttons.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-form-buttons)| [FormButtons Documentation](https://bolt.pismolabs.io/packages-core-components-form-buttons) |
 | [`bolt-form-section`](/packages/form-section)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-form-section.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-form-section)| [FormSection Documentation](https://bolt.pismolabs.io/packages-core-components-form-section) |
 | [`bolt-loader`](/packages/loader)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-loader.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-loader)| [Loader Documentation](https://bolt.pismolabs.io/packages-core-components-loader) |
+| [`bolt-pismo-id`](/packages/pismo-id)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-pismo-id.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-pismo-id)| [PismoId Documentation](https://bolt.pismolabs.io/packages-core-components-pismo-id) |
 | [`bolt-search-field`](/packages/search-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-search-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-search-field)| [SearchField Documentation](https://bolt.pismolabs.io/packages-core-components-search-field) |
 | [`bolt-search-list`](/packages/search-list)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-search-list.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-search-list)| [SearchList Documentation](https://bolt.pismolabs.io/packages-core-components-search-list) |
 | [`bolt-select-field`](/packages/select-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-select-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-select-field)| [SelectField Documentation](https://bolt.pismolabs.io/packages-core-components-select-field) |
@@ -90,6 +92,7 @@ _Components_
 | [`bolt-text-field`](/packages/text-field)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-text-field.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-text-field)| [TextField Documentation](https://bolt.pismolabs.io/packages-core-components-text-field) |
 | [`bolt-timer`](/packages/timer)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-timer.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-timer)| [Timer Documentation](https://bolt.pismolabs.io/packages-core-components-timer) |
 | [`bolt-toast`](/packages/toast)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-toast.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-toast)| [Toast Documentation](https://bolt.pismolabs.io/packages-core-components-toast) |
+| [`bolt-uploader`](/packages/uploader)| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-uploader.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-uploader)| [Uploader Documentation](https://bolt.pismolabs.io/packages-core-components-uploader) |
 
 
 ## Development flow
