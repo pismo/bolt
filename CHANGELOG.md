@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/pismo/bolt/compare/v0.5.0...v0.6.0) (2019-04-14)
+
+
+### Bug Fixes
+
+* **pismo-id:** login form submit and setFieldValue ([9a70822](https://github.com/pismo/bolt/commit/9a70822))
+* **pismo-id:** tests ([7798b1e](https://github.com/pismo/bolt/commit/7798b1e))
+* **scripts:** lerna:test:watch ([708d3ba](https://github.com/pismo/bolt/commit/708d3ba))
+* **select-field:** props interface ([83046e5](https://github.com/pismo/bolt/commit/83046e5))
+* **table:** add test ([24d6989](https://github.com/pismo/bolt/commit/24d6989))
+* **table-item:** add test ([3723267](https://github.com/pismo/bolt/commit/3723267))
+* **text-field:** props interface ([f2a8df2](https://github.com/pismo/bolt/commit/f2a8df2))
+* **text-field:** tests ([5d29c40](https://github.com/pismo/bolt/commit/5d29c40))
+* **toast:** add test ([5c6bf67](https://github.com/pismo/bolt/commit/5c6bf67))
+
+
+### Features
+
+* **checkbox:** add component ([33cacca](https://github.com/pismo/bolt/commit/33cacca))
+* **checkbox:** update props interface ([f7a4c37](https://github.com/pismo/bolt/commit/f7a4c37))
+* **checkbox-test:** add tests for checked and unchecked ([dad1d7f](https://github.com/pismo/bolt/commit/dad1d7f))
+* **pismo-id:** add export of usePismoID ([591e49e](https://github.com/pismo/bolt/commit/591e49e))
+* **pismo-id:** add get preferences on login form ([928c9f2](https://github.com/pismo/bolt/commit/928c9f2))
+* **pismo-id:** add initial structure ([82cea11](https://github.com/pismo/bolt/commit/82cea11))
+* **pismo-id:** add pismo id context and toast provider ([fcb288f](https://github.com/pismo/bolt/commit/fcb288f))
+* **pismo-id:** add toast on recovery form ([98f205d](https://github.com/pismo/bolt/commit/98f205d))
+* **pismo-id:** add with on form card component ([02c1a93](https://github.com/pismo/bolt/commit/02c1a93))
+* **pismo-id:** remove component wrapper ([d804262](https://github.com/pismo/bolt/commit/d804262))
+* **pismo-id:** remove wrapper component from recovery success ([bfac3d3](https://github.com/pismo/bolt/commit/bfac3d3))
+* **pismo-id:** update context values ([f8f6770](https://github.com/pismo/bolt/commit/f8f6770))
+* **uploader:** add initial structure ([19cae37](https://github.com/pismo/bolt/commit/19cae37))
+* **uploader:** add onChange props ([803be7f](https://github.com/pismo/bolt/commit/803be7f))
+* **uploader:** add tests ([715a515](https://github.com/pismo/bolt/commit/715a515))
+* **uploader-test:** add test drop event ([e3554fb](https://github.com/pismo/bolt/commit/e3554fb))
+
+
+
+
+
+# [0.5.0](https://github.com/pismo/bolt/compare/v0.4.1...v0.5.0) (2019-02-25)
+
+
+### Features
+
+* **packages:** add toast ([428864d](https://github.com/pismo/bolt/commit/428864d))
+* **readme:** add toast link ([c031062](https://github.com/pismo/bolt/commit/c031062))
+
+
+
+
+
 ## [0.4.1](https://github.com/pismo/bolt/compare/v0.4.0...v0.4.1) (2019-02-14)
 
 

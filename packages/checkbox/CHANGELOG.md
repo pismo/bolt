@@ -1,0 +1,13 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.6.0](https://github.com/pismo/bolt/compare/v0.5.0...v0.6.0) (2019-04-14)
+
+
+### Features
+
+* **checkbox:** add component ([33cacca](https://github.com/pismo/bolt/commit/33cacca))
+* **checkbox:** update props interface ([f7a4c37](https://github.com/pismo/bolt/commit/f7a4c37))
+* **checkbox-test:** add tests for checked and unchecked ([dad1d7f](https://github.com/pismo/bolt/commit/dad1d7f))

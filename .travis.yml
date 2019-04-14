@@ -3,6 +3,8 @@ node_js:
   - "stable"
 script:
   - yarn install
+  - yarn lerna:test:cov
+  - yarn coveralls
   - yarn docz:build
 
 deploy:
