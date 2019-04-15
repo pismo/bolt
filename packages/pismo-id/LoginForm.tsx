@@ -105,7 +105,7 @@ export const LoginForm = (props: LoginFormProps) => {
                   type={'password'}
                 />
               </InputWrapper>
-              <SubmitButton type={'Submit'} disabled={!isValid}>
+              <SubmitButton type={'submit'} disabled={!isValid}>
                 ENTRAR
               </SubmitButton>
               <LinkWrapper>

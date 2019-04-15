@@ -73,7 +73,7 @@ export const RecoveryForm = (props: RecoveryFormProps) => {
                 onChange={handleChange}
               />
             </InputWrapper>
-            <SubmitButton type={'Submit'} disabled={!isValid}>
+            <SubmitButton type={'submit'} disabled={!isValid}>
               ENVIAR
             </SubmitButton>
             <LinkWrapper>
