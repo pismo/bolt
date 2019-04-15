@@ -117,7 +117,15 @@ export const PismoID = (props: PismoIDProps) => {
             }}
           />
         )}
-        {mode === Modes.RECOVERY_SUCCESS && <RecoverySuccess email={email} />}
+        {mode === Modes.RECOVERY_SUCCESS && (
+          <RecoverySuccess
+            goToLogin={() => {
+              setEmail('')
+              setMode(Modes.LOGIN)
+            }}
+            email={email}
+          />
+        )}
       </Wrapper>
     </ToastProvider>
   )
