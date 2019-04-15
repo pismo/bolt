@@ -83,11 +83,11 @@ export const LoginForm = (props: LoginFormProps) => {
           setTokenRefresher(result)
           return setIsValid(true)
         }}
-        render={({ values, setFieldValue, isSubmitting, submitForm, isValid }) => {
+        render={({ values, handleSubmit, setFieldValue, isSubmitting, isValid }) => {
           const setCheckboxValue = (name: string) => evt => setFieldValue(name, evt.target.checked)
 
           return (
-            <>
+            <form onSubmit={handleSubmit}>
               <InputWrapper>
                 <FormikField
                   name={'emailOrCPF'}
@@ -105,7 +105,7 @@ export const LoginForm = (props: LoginFormProps) => {
                   type={'password'}
                 />
               </InputWrapper>
-              <SubmitButton onClick={submitForm} disabled={!isValid}>
+              <SubmitButton type={'Submit'} disabled={!isValid}>
                 ENTRAR
               </SubmitButton>
               <LinkWrapper>
@@ -114,7 +114,7 @@ export const LoginForm = (props: LoginFormProps) => {
                 </Checkbox>
                 <Link onClick={() => goToRecovery()}>Esqueceu a senha?</Link>
               </LinkWrapper>
-            </>
+            </form>
           )
         }}
       />
