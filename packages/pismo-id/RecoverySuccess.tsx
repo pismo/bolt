@@ -14,13 +14,12 @@ interface RecoverySuccessProps {
   goToLogin(): void
 }
 
-export const RecoverySuccess = (props: RecoverySuccessProps) => {
-  const { email, goToLogin } = props
+export const RecoverySuccess = ({ email, goToLogin }: RecoverySuccessProps) => {
   return (
     <FormCard>
       <Title>{`As instruções para redefinição de senha foram enviadas para ${email}`}</Title>
       <ArrowBack>&larr;</ArrowBack>
-      <Link onClick={() => goToLogin()}>Voltar ao login</Link>
+      <Link onClick={goToLogin}>Voltar ao login</Link>
     </FormCard>
   )
 }

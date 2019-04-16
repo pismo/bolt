@@ -19,6 +19,9 @@ const LinkWrapper = styled.div`
 `
 const InputWrapper = styled.div`
   margin-bottom: 4rem;
+  @media (min-width: 481px) and (max-width: 767px) {
+    margin-bottom: 0;
+  }
 `
 
 const validationSchema = Yup.object().shape({
@@ -105,14 +108,14 @@ export const LoginForm = (props: LoginFormProps) => {
                   type={'password'}
                 />
               </InputWrapper>
-              <SubmitButton type={'submit'} disabled={!isValid}>
+              <SubmitButton type="submit" disabled={!isValid}>
                 ENTRAR
               </SubmitButton>
               <LinkWrapper>
                 <Checkbox name={'rememberMe'} onChange={setCheckboxValue('rememberMe')} checked={values.rememberMe}>
                   Lembrar
                 </Checkbox>
-                <Link onClick={() => goToRecovery()}>Esqueceu a senha?</Link>
+                <Link onClick={goToRecovery}>Esqueceu a senha?</Link>
               </LinkWrapper>
             </form>
           )

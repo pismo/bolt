@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   transition: all 0.15s ease-in-out;
+  overflow: hidden;
 `
 
 const LoaderWrapper = styled.div`
@@ -92,6 +93,11 @@ export const PismoID = (props: PismoIDProps) => {
     )
   }
 
+  const goToLogin = () => {
+    setEmail('')
+    return setMode(Modes.LOGIN)
+  }
+
   return (
     <ToastProvider>
       <Wrapper>
@@ -109,23 +115,12 @@ export const PismoID = (props: PismoIDProps) => {
             auth={auth}
             goToRecoverySuccess={userEmail => {
               setEmail(userEmail)
-              setMode(Modes.RECOVERY_SUCCESS)
+              return setMode(Modes.RECOVERY_SUCCESS)
             }}
-            goToLogin={() => {
-              setEmail('')
-              setMode(Modes.LOGIN)
-            }}
+            goToLogin={goToLogin}
           />
         )}
-        {mode === Modes.RECOVERY_SUCCESS && (
-          <RecoverySuccess
-            goToLogin={() => {
-              setEmail('')
-              setMode(Modes.LOGIN)
-            }}
-            email={email}
-          />
-        )}
+        {mode === Modes.RECOVERY_SUCCESS && <RecoverySuccess email={email} goToLogin={goToLogin} />}
       </Wrapper>
     </ToastProvider>
   )

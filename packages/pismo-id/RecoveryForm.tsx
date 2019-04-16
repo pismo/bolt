@@ -73,12 +73,12 @@ export const RecoveryForm = (props: RecoveryFormProps) => {
                 onChange={handleChange}
               />
             </InputWrapper>
-            <SubmitButton type={'submit'} disabled={!isValid}>
+            <SubmitButton type="submit" disabled={!isValid}>
               ENVIAR
             </SubmitButton>
             <LinkWrapper>
               <ArrowBack>&larr;</ArrowBack>
-              <Link onClick={() => goToLogin()}>Lembrou?</Link>
+              <Link onClick={goToLogin}>Lembrou?</Link>
             </LinkWrapper>
           </form>
         )}
