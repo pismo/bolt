@@ -13,7 +13,7 @@ describe('Timer test', () => {
 
     expect(timer).toBeVisible()
     expect(timer.textContent).toBe('00:00')
-    expect(timer).toHaveStyle('color: rgb(0, 0, 0)')
+    expect(timer).toHaveStyle('color: rgb(0, 0, 0);')
     expect(timer).toHaveStyle('padding: 0 0.5rem')
   })
 
@@ -24,7 +24,7 @@ describe('Timer test', () => {
 
     expect(timer).toBeVisible()
     expect(timer.textContent).toBe('00:00')
-    expect(timer).toHaveStyle('color: rgb(0, 0, 0)')
+    expect(timer).toHaveStyle('color: rgb(0, 0, 0);')
     expect(timer).toHaveStyle('padding: 0 0.5rem')
 
     jest.advanceTimersByTime(5000)
