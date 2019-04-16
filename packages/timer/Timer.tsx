@@ -4,7 +4,7 @@ import { P, styled } from '@pismo/bolt-core'
 import { format } from 'date-fns'
 
 const TimerStyled = styled(P)`
-  color: #fff;
+  color: #000;
   padding: 0 0.5rem;
 `
 
@@ -18,17 +18,14 @@ const timerFormatted = (timerCount: number) => {
 export const Timer = () => {
   const [timerCount, setTimer] = React.useState(Number(localStorage.getItem(TIMER)))
 
-  React.useEffect(
-    () => {
-      const timer = window.setInterval(() => {
-        const time = timerCount + 1000
-        setTimer(time)
-        localStorage.setItem(TIMER, String(time))
-      }, 1000)
-      return () => window.clearInterval(timer)
-    },
-    [timerCount],
-  )
+  React.useEffect(() => {
+    const timer = window.setInterval(() => {
+      const time = timerCount + 1000
+      setTimer(time)
+      localStorage.setItem(TIMER, String(time))
+    }, 1000)
+    return () => window.clearInterval(timer)
+  }, [timerCount])
 
   return <TimerStyled>{timerFormatted(timerCount)}</TimerStyled>
 }

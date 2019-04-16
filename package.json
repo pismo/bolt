@@ -4,18 +4,31 @@
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "@emotion/cache": "10.0.0",
+    "@emotion/core": "^10.0.6",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-info": "^5.0.6",
+    "@storybook/addon-knobs": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addon-viewport": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/react": "^5.0.6",
+    "@types/storybook__react": "^4.0.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.5",
+    "concurrently": "4.1.0",
     "@emotion/core": "10.0.6",
     "@types/jest": "^23.3.10",
     "concurrently": "4.1.0",
     "coveralls": "^3.0.3",
-    "docz": "0.12.17",
-    "docz-theme-default": "0.12.17",
     "husky": "1.3.1",
     "jest": "23.6.0",
     "lerna": "3.11.1",
+    "lint-staged": "^8.1.5",
     "prettier": "1.16.4",
     "react": "16.8.1",
+    "react-docgen-typescript-loader": "^3.0.1",
     "react-dom": "16.8.1",
     "styled-components": "4.1.3",
     "tslint": "5.12.1",
@@ -42,7 +55,7 @@
     }
   },
   "scripts": {
-    "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn docz:dev\"",
+    "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn storybook\"",
     "lerna:build": "lerna run build --stream --parallel",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
@@ -51,10 +64,14 @@
     "lerna:test:watch": "lerna run test --stream --parallel -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "docz:dev": "rm -rf .docz && docz dev",
-    "docz:build": "docz build",
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
-    "lerna:link:all": "node ./scripts/linkAll"
+    "lerna:link:all": "node ./scripts/linkAll",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o build"
+  },
+  "dependencies": {
+    "@emotion/styled": "^10.0.9",
+    "@storybook/theming": "^5.0.3"
   }
 }

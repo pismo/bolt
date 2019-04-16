@@ -1,6 +1,6 @@
 import 'jest-dom/extend-expect'
 import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
+import { fireEvent, render } from 'react-testing-library'
 import { SelectField } from './SelectField'
 
 describe('SelectField test', () => {
@@ -12,6 +12,7 @@ describe('SelectField test', () => {
     ]
 
     const { container, getByText } = render(
+      // @ts-ignore
       <SelectField
         label="test-label"
         name="test-name"
@@ -47,6 +48,7 @@ describe('SelectField test', () => {
     ]
 
     const { container } = render(
+      // @ts-ignore
       <SelectField
         label="test-label"
         name="test-name"
