@@ -47,8 +47,8 @@
       "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
       "git add"
     ],
-    "*.{tsx,ts}": [
-      "tslint --fix --exclude=./**/*.d.ts",
+    "*.{tsx,ts},!*.d.ts": [
+      "tslint --fix",
       "git add"
     ]
   },
