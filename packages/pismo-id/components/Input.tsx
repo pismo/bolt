@@ -7,4 +7,8 @@ export const Input = styled(TextField)`
   line-height: 1.15;
   margin: 0;
   padding: 0.75rem 0.75rem 0.7rem 0.75rem;
+  @media (min-width: 481px) and (max-width: 767px) {
+    line-height: 1;
+    padding: 0.55rem 0.55rem 0.5rem 0.55rem;
+  }
 `
