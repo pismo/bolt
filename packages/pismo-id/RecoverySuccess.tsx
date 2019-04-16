@@ -7,6 +7,7 @@ import { Title } from './components/Title'
 const ArrowBack = styled.span`
   font-size: 1.25rem;
   color: ${colors.grey800};
+  align-self: flex-end;
 `
 
 interface RecoverySuccessProps {
@@ -18,8 +19,10 @@ export const RecoverySuccess = ({ email, goToLogin }: RecoverySuccessProps) => {
   return (
     <FormCard>
       <Title>{`As instruções para redefinição de senha foram enviadas para ${email}`}</Title>
-      <ArrowBack>&larr;</ArrowBack>
-      <Link onClick={goToLogin}>Voltar ao login</Link>
+      <div>
+        <ArrowBack>&larr;</ArrowBack>
+        <Link onClick={goToLogin}>Voltar ao login</Link>
+      </div>
     </FormCard>
   )
 }
