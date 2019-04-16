@@ -9,4 +9,4 @@ export interface FormButtonsProps {
   children?: React.ReactNode
 }
 
-export const FormButtons = (props: FormButtonsProps) => <StyledFormButtons> {props.children} </StyledFormButtons>
+export const FormButtons = (props: FormButtonsProps) => <StyledFormButtons>{props.children}</StyledFormButtons>
