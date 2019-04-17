@@ -70,6 +70,6 @@
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o build"
+    "build-storybook": "build-storybook -c .storybook -o docs"
   }
 }
