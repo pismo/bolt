@@ -7,18 +7,20 @@ Pismo's styleguide and design system with it's React components that compose mos
 
 This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
+_Important_
+
+You should use `yarn` as the dependency management.
+
 _Technologies used_
 
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Typescript](https://github.com/sw-yx/react-typescript-cheatsheet)
 - [Styled Components](https://www.styled-components.com/docs/api#typescript)
-- [Docz](https://www.docz.site/documentation/components-api)
+- [Storybook](https://storybook.js.org/docs/basics/introduction/)
 - [Jest](https://github.com/sapegin/jest-cheat-sheet)
 - [React Testing Library](https://github.com/kentcdodds/react-testing-library#usage)
 
 _To do_
-
-- [ ] Toggle themes on docz
 
 _Goals_
 
@@ -127,7 +129,7 @@ Create new components is pretty easy. Follow the instructions below to start.
 
 ## Documentation
 
-We're using docz to document all the components. Jenkins is already set so on every merge to develop branch triggers a documentation change based on the .mdx files explained in the component development flow.
+We're using storybooks to document all the components. Jenkins is already set so on every merge to develop branch triggers a documentation change based on the .mdx files explained in the component development flow.
 
 Just check `https://bolt.pismolabs.io/`
 
