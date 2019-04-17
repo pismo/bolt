@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-checkbox",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Bolt component checkbox",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -37,7 +37,7 @@
     "typescript": "^3.4.3"
   },
   "dependencies": {
-    "@pismo/bolt-core": "^0.6.0"
+    "@pismo/bolt-core": "^0.7.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",

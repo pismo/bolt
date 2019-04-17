@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/pismo/bolt/compare/v0.6.0...v0.7.0) (2019-04-17)
+
+
+### Bug Fixes
+
+* **Storybook:** Button, Loader and TableItem are now able to receive HTML props again; fixes to SelectField and TextField ([980a2b6](https://github.com/pismo/bolt/commit/980a2b6))
+* **Storybook:** fix missing panel at componentss ([dbe0e6e](https://github.com/pismo/bolt/commit/dbe0e6e))
+* **Storybook:** typo ([9960be6](https://github.com/pismo/bolt/commit/9960be6))
+* **Timer:** test to use rgb ([6cc72bc](https://github.com/pismo/bolt/commit/6cc72bc))
+* commited wrong files in last commit ([95c7b98](https://github.com/pismo/bolt/commit/95c7b98))
+
+
+### Features
+
+* **button:** add children prop to its interface ([b1c5f12](https://github.com/pismo/bolt/commit/b1c5f12))
+* **Storybook:** add a custom theme ([468cdcf](https://github.com/pismo/bolt/commit/468cdcf))
+* **Storybook:** add more stories ([b54a57a](https://github.com/pismo/bolt/commit/b54a57a))
+* **Storybook:** add stories for Forms and FormButtons ([0806baf](https://github.com/pismo/bolt/commit/0806baf))
+* **Storybook:** change name parameter in configs ([2cbbe2e](https://github.com/pismo/bolt/commit/2cbbe2e))
+* **Storybook:** changes to make the component work with storybook ([077b86c](https://github.com/pismo/bolt/commit/077b86c))
+* **Storybook:** install and configure addons ([53b9fe4](https://github.com/pismo/bolt/commit/53b9fe4))
+* **Storybook:** installed viewport addon ([4714982](https://github.com/pismo/bolt/commit/4714982))
+* **Storybook:** make inline config global ([f201550](https://github.com/pismo/bolt/commit/f201550))
+* **Storybook:** remove doczrc.js and updated grid ([51c2bf6](https://github.com/pismo/bolt/commit/51c2bf6))
+* **Storybook:** remove options addon and set the panel to the bottom ([127197d](https://github.com/pismo/bolt/commit/127197d))
+* **Storybook:** upgrade storybook ([3c60cfa](https://github.com/pismo/bolt/commit/3c60cfa))
+
+
+
+
+
 # [0.6.0](https://github.com/pismo/bolt/compare/v0.5.0...v0.6.0) (2019-04-14)
 
 
