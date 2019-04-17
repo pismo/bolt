@@ -129,7 +129,7 @@ Create new components is pretty easy. Follow the instructions below to start.
 
 ## Documentation
 
-We're using docz to document all the components. Jenkins is already set so on every merge to develop branch triggers a documentation change based on the .mdx files explained in the component development flow.
+We're using storybooks to document all the components. Jenkins is already set so on every merge to develop branch triggers a documentation change based on the .mdx files explained in the component development flow.
 
 Just check `https://bolt.pismolabs.io/`
 

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import { WrapperPismoTheme } from './docz/wrapperPismoTheme'
+import { WrapperPismoTheme } from './components/wrapperPismoTheme'
 import { H1, H2, H3, H4, P, Small, Tiny } from './typography'
 
 storiesOf('Basics/Typography', module)

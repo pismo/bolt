@@ -2,8 +2,8 @@ import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
 import { Flex } from '@rebass/grid'
-import { FlexPismoColor } from './docz/FlexPismoColor'
-import { WrapperPismoTheme } from './docz/wrapperPismoTheme'
+import { FlexPismoColor } from './components/FlexPismoColor'
+import { WrapperPismoTheme } from './components/wrapperPismoTheme'
 
 import { colors } from './colors'
 import { P } from './typography'
