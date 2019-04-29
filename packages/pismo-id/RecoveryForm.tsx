@@ -61,8 +61,8 @@ export const RecoveryForm = (props: RecoveryFormProps) => {
           setSubmitting(false)
           return goToRecoverySuccess(values.email)
         }}
-        render={({ handleChange, isSubmitting, submitForm, isValid }) => (
-          <div>
+        render={({ handleChange, handleSubmit, isSubmitting, isValid }) => (
+          <form onSubmit={handleSubmit}>
             <InputWrapper>
               <FormikField
                 name={'email'}
@@ -73,14 +73,14 @@ export const RecoveryForm = (props: RecoveryFormProps) => {
                 onChange={handleChange}
               />
             </InputWrapper>
-            <SubmitButton onClick={() => submitForm()} disabled={!isValid}>
+            <SubmitButton type="submit" disabled={!isValid}>
               ENVIAR
             </SubmitButton>
             <LinkWrapper>
               <ArrowBack>&larr;</ArrowBack>
-              <Link onClick={() => goToLogin()}>Lembrou?</Link>
+              <Link onClick={goToLogin}>Lembrou?</Link>
             </LinkWrapper>
-          </div>
+          </form>
         )}
       />
     </FormCard>

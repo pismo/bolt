@@ -19,6 +19,9 @@ const LinkWrapper = styled.div`
 `
 const InputWrapper = styled.div`
   margin-bottom: 4rem;
+  @media (min-width: 481px) and (max-width: 767px) {
+    margin-bottom: 0;
+  }
 `
 
 const validationSchema = Yup.object().shape({
@@ -83,11 +86,11 @@ export const LoginForm = (props: LoginFormProps) => {
           setTokenRefresher(result)
           return setIsValid(true)
         }}
-        render={({ values, setFieldValue, isSubmitting, submitForm, isValid }) => {
+        render={({ values, handleSubmit, setFieldValue, isSubmitting, isValid }) => {
           const setCheckboxValue = (name: string) => evt => setFieldValue(name, evt.target.checked)
 
           return (
-            <>
+            <form onSubmit={handleSubmit}>
               <InputWrapper>
                 <FormikField
                   name={'emailOrCPF'}
@@ -105,16 +108,16 @@ export const LoginForm = (props: LoginFormProps) => {
                   type={'password'}
                 />
               </InputWrapper>
-              <SubmitButton onClick={submitForm} disabled={!isValid}>
+              <SubmitButton type="submit" disabled={!isValid}>
                 ENTRAR
               </SubmitButton>
               <LinkWrapper>
                 <Checkbox name={'rememberMe'} onChange={setCheckboxValue('rememberMe')} checked={values.rememberMe}>
                   Lembrar
                 </Checkbox>
-                <Link onClick={() => goToRecovery()}>Esqueceu a senha?</Link>
+                <Link onClick={goToRecovery}>Esqueceu a senha?</Link>
               </LinkWrapper>
-            </>
+            </form>
           )
         }}
       />
