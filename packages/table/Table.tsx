@@ -3,8 +3,16 @@ import * as React from 'react'
 
 import { MdArrowBack } from 'react-icons/md'
 
-const TableWrapper = styled.div`
-  width: 60%;
+
+export interface TableProps {
+  onClickBack?: () => void
+  title?: string
+  children: React.ReactNode
+  width?: string
+}
+
+const TableWrapper = styled.div.attrs({})<TableProps>`
+  width: ${({ width }) => (width ? width : '60%')};
   margin: 1rem auto;
 
   ${media.mobile`
@@ -43,15 +51,9 @@ const BackIcon = styled(MdArrowBack)`
   margin-right: 0.35rem;
 `
 
-export interface TableProps {
-  onClickBack?: () => void
-  title?: string
-  children: React.ReactNode
-}
-
-export const Table = ({ onClickBack, title, children }: TableProps) => {
+export const Table = ({ onClickBack, title, children, width }: TableProps) => {
   return (
-    <TableWrapper>
+    <TableWrapper width={width}>
       {title && (
         <TableHeader>
           {onClickBack && (
