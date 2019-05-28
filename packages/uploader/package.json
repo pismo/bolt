@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-uploader",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Bolt uploader",
   "main": "index.js",
   "repository": "git+https://github.com/pismo/bolt.git",

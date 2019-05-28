@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/pismo/bolt/compare/v0.7.0...v0.8.0) (2019-05-28)
+
+
+### Bug Fixes
+
+* **package:** build on docs folder ([c2d718f](https://github.com/pismo/bolt/commit/c2d718f))
+* **pismo-id:** button type submit ([209735d](https://github.com/pismo/bolt/commit/209735d))
+* **pismo-id:** general improvements ([7c734b4](https://github.com/pismo/bolt/commit/7c734b4))
+* **pismo-id-recovery-success:** link alignment ([9b31e00](https://github.com/pismo/bolt/commit/9b31e00))
+
+
+### Features
+
+* added optional heigth to table ([90d6cc4](https://github.com/pismo/bolt/commit/90d6cc4))
+
+
+
+
+
 # [0.7.0](https://github.com/pismo/bolt/compare/v0.6.0...v0.7.0) (2019-04-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/pismo/bolt/compare/v0.7.0...v0.8.0) (2019-05-28)
+
+
+### Features
+
+* added optional heigth to table ([90d6cc4](https://github.com/pismo/bolt/commit/90d6cc4))
+
+
+
+
+
 # [0.7.0](https://github.com/pismo/bolt/compare/v0.6.0...v0.7.0) (2019-04-17)
 
 **Note:** Version bump only for package @pismo/bolt-table

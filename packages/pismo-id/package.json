@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-pismo-id",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Bolt component pismo-id",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@brazilian-utils/is-valid-cnpj": "^0.1.11",
     "@brazilian-utils/is-valid-cpf": "^0.1.11",
-    "@pismo/bolt-core": "^0.7.0"
+    "@pismo/bolt-core": "^0.8.0"
   },
   "peerDependencies": {
     "eres": "^1.0.1",
