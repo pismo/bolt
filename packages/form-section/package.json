@@ -46,5 +46,6 @@
   "scripts": {
     "build": "tsc",
     "test": "jest"
-  }
+  },
+  "gitHead": "affca44f8fb1ab19b12c1e91360aa1e5fea78003"
 }
