@@ -9,10 +9,12 @@ export interface TableProps {
   title?: string
   children: React.ReactNode
   width?: string
+  height? :string
 }
 
 const TableWrapper = styled.div.attrs({})<TableProps>`
   width: ${({ width }) => (width ? width : '60%')};
+  height: ${({ height }) => (height ? height : '')};
   margin: 1rem auto;
 
   ${media.mobile`
@@ -51,9 +53,9 @@ const BackIcon = styled(MdArrowBack)`
   margin-right: 0.35rem;
 `
 
-export const Table = ({ onClickBack, title, children, width }: TableProps) => {
+export const Table = ({ onClickBack, title, children, width, height }: TableProps) => {
   return (
-    <TableWrapper width={width}>
+    <TableWrapper width={width} height={height}>
       {title && (
         <TableHeader>
           {onClickBack && (
