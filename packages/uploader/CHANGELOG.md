@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/pismo/bolt/compare/v0.8.1...v0.8.2) (2019-05-28)
+
+
+### Bug Fixes
+
+* added bolt-core as dependencie to bolt-uploader ([05ee88f](https://github.com/pismo/bolt/commit/05ee88f))
+
+
+
+
+
 ## [0.8.1](https://github.com/pismo/bolt/compare/v0.8.0...v0.8.1) (2019-05-28)
 
 **Note:** Version bump only for package @pismo/bolt-uploader

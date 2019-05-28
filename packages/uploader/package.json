@@ -1,13 +1,13 @@
 {
   "name": "@pismo/bolt-uploader",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Bolt uploader",
   "main": "index.js",
   "repository": "git+https://github.com/pismo/bolt.git",
   "author": "Pismo <hello@pismo.io>",
   "license": "ISC",
   "dependencies": {
-    "@pismo/bolt-core": "^0.8.1",
+    "@pismo/bolt-core": "^0.8.2",
     "react-dropzone": "^10.1.0"
   },
   "devDependencies": {
