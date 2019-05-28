@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-search-field",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Bolt component search-field",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -37,7 +37,7 @@
     "typescript": "^3.4.3"
   },
   "dependencies": {
-    "@pismo/bolt-core": "^0.8.0",
+    "@pismo/bolt-core": "^0.8.1",
     "react-icons": "^3.2.2"
   },
   "peerDependencies": {

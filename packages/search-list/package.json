@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-search-list",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Bolt component search-list",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -37,7 +37,7 @@
     "typescript": "^3.4.3"
   },
   "dependencies": {
-    "@pismo/bolt-core": "^0.8.0",
+    "@pismo/bolt-core": "^0.8.1",
     "lodash.isempty": "^4.4.0",
     "react-virtualized": "^9.21.0"
   },
