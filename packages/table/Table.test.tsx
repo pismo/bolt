@@ -7,6 +7,7 @@ describe('Table test', () => {
   it('Render a Table', () => {
     const { container } = render(<Table>Testing</Table>)
 
+    expect(container).toBeDefined()
     expect(container).toBeVisible()
   })
 })
