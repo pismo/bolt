@@ -7,8 +7,8 @@
   "author": "Pismo <hello@pismo.io>",
   "license": "ISC",
   "dependencies": {
-    "react-dropzone": "^10.1.0",
-    "@pismo/bolt-core": "^0.8.1"
+    "@pismo/bolt-core": "^0.8.1",
+    "react-dropzone": "^10.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
@@ -31,5 +31,5 @@
     "build": "tsc",
     "test": "jest"
   },
-  "gitHead": "7aa3790fbc8eebad113437716e56b7561dffa12d"
+  "gitHead": "b23bc5e43ea2d7c1c64961fc20767940665a2581"
 }

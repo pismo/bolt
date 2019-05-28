@@ -48,5 +48,5 @@
     "build": "tsc",
     "test": "jest"
   },
-  "gitHead": "7aa3790fbc8eebad113437716e56b7561dffa12d"
+  "gitHead": "b23bc5e43ea2d7c1c64961fc20767940665a2581"
 }
