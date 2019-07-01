@@ -8,19 +8,17 @@
     "native": false,
     "codeSandbox": true,
     "themeConfig": {},
-    "separator": "-"
+    "separator": "-",
+    "typescript": true
   },
   "props": [
     {
-      "key": "packages/core/dist/Core.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Provider",
-          "methods": [],
-          "actualName": "Provider"
-        }
-      ]
+      "key": "templates/component/Component.tsx",
+      "value": []
+    },
+    {
+      "key": "packages/core/Core.tsx",
+      "value": []
     }
   ],
   "entries": [

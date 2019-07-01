@@ -1,11 +1,16 @@
 ---
 "name": Core
 ---
-
-import {Provider} from './dist/Core'
+import {ComponentsProvider} from 'docz'
+import {Provider} from './Core'
+import Button from '@material-ui/core/Button'
 
 # Core
 
 Hello, I'm a mdx file
 
-<Provider>teste</Provider>
+<ComponentsProvider>
+    <Provider>
+        <Button>teste</Button>
+    </Provider>
+    </ComponentsProvider>

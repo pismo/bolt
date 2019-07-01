@@ -1,0 +1,43 @@
+{
+  "remainingRequest": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/thread-loader/dist/cjs.js??ref--11-1!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/docz-core/node_modules/babel-loader/lib/index.js??ref--11-2!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/source-map-loader/index.js!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/themes/index.ts",
+  "dependencies": [
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/themes/index.ts",
+      "mtime": 1562021101249
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/cache-loader/dist/cjs.js",
+      "mtime": 1560878154213
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/thread-loader/dist/cjs.js",
+      "mtime": 1560878154956
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/docz-core/node_modules/babel-loader/lib/index.js",
+      "mtime": 1560878154206
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/source-map-loader/index.js",
+      "mtime": 1545397572535
+    }
+  ],
+  "contextDependencies": [],
+  "result": [
+    {
+      "type": "Buffer",
+      "data": "base64:dmFyIF9fc2lnbmF0dXJlX18gPSB0eXBlb2YgcmVhY3RIb3RMb2FkZXJHbG9iYWwgIT09ICd1bmRlZmluZWQnID8gcmVhY3RIb3RMb2FkZXJHbG9iYWxbImRlZmF1bHQiXS5zaWduYXR1cmUgOiBmdW5jdGlvbiAoYSkgewogIHJldHVybiBhOwp9OwoKZXhwb3J0IHsgUGlzbW9EZWZhdWx0VGhlbWUgfSBmcm9tICcuL1Bpc21vRGVmYXVsdFRoZW1lJzsKCmlmICh0eXBlb2YgUGlzbW9EZWZhdWx0VGhlbWUgIT09ICd1bmRlZmluZWQnICYmIFBpc21vRGVmYXVsdFRoZW1lICYmIFBpc21vRGVmYXVsdFRoZW1lID09PSBPYmplY3QoUGlzbW9EZWZhdWx0VGhlbWUpICYmIE9iamVjdC5pc0V4dGVuc2libGUoUGlzbW9EZWZhdWx0VGhlbWUpKSB7CiAgT2JqZWN0LmRlZmluZVByb3BlcnR5KFBpc21vRGVmYXVsdFRoZW1lLCAnX19maWxlbWV0YScsIHsKICAgIGVudW1lcmFibGU6IHRydWUsCiAgICBjb25maWd1cmFibGU6IHRydWUsCiAgICB2YWx1ZTogewogICAgICBuYW1lOiAiUGlzbW9EZWZhdWx0VGhlbWUiLAogICAgICBmaWxlbmFtZTogInBhY2thZ2VzL2NvcmUvdGhlbWVzL2luZGV4LnRzIgogICAgfQogIH0pOwp9"
+    },
+    {
+      "version": 3,
+      "sources": [
+        "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/themes/index.ts"
+      ],
+      "names": ["PismoDefaultTheme"],
+      "mappings": ";;;;AAAA,SAAQA,iBAAR,QAAgC,qBAAhC",
+      "sourcesContent": [
+        "export {PismoDefaultTheme} from './PismoDefaultTheme'"
+      ]
+    }
+  ]
+}

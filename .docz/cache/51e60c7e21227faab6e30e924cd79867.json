@@ -1,0 +1,75 @@
+{
+  "remainingRequest": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/thread-loader/dist/cjs.js??ref--11-1!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/docz-core/node_modules/babel-loader/lib/index.js??ref--11-2!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/source-map-loader/index.js!/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/Core.tsx",
+  "dependencies": [
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/Core.tsx",
+      "mtime": 1562021448635
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/cache-loader/dist/cjs.js",
+      "mtime": 1560878154213
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/thread-loader/dist/cjs.js",
+      "mtime": 1560878154956
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/docz-core/node_modules/babel-loader/lib/index.js",
+      "mtime": 1560878154206
+    },
+    {
+      "path": "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/node_modules/source-map-loader/index.js",
+      "mtime": 1545397572535
+    }
+  ],
+  "contextDependencies": [],
+  "result": [
+    {
+      "type": "Buffer",
+      "data": "base64:aW1wb3J0IF9zbGljZWRUb0FycmF5IGZyb20gIi9ob21lL3Bpc21vL0RvY3VtZW50b3MvUFJPSkVUT1MvbW9ub3BvbHkvcGFja2FnZXMvYm9sdC9ub2RlX21vZHVsZXMvYmFiZWwtcHJlc2V0LXJlYWN0LWFwcC9ub2RlX21vZHVsZXMvQGJhYmVsL3J1bnRpbWUvaGVscGVycy9lc20vc2xpY2VkVG9BcnJheSI7CmltcG9ydCBfZGVmaW5lUHJvcGVydHkgZnJvbSAiL2hvbWUvcGlzbW8vRG9jdW1lbnRvcy9QUk9KRVRPUy9tb25vcG9seS9wYWNrYWdlcy9ib2x0L25vZGVfbW9kdWxlcy9iYWJlbC1wcmVzZXQtcmVhY3QtYXBwL25vZGVfbW9kdWxlcy9AYmFiZWwvcnVudGltZS9oZWxwZXJzL2VzbS9kZWZpbmVQcm9wZXJ0eSI7CmltcG9ydCBfb2JqZWN0U3ByZWFkIGZyb20gIi9ob21lL3Bpc21vL0RvY3VtZW50b3MvUFJPSkVUT1MvbW9ub3BvbHkvcGFja2FnZXMvYm9sdC9ub2RlX21vZHVsZXMvYmFiZWwtcHJlc2V0LXJlYWN0LWFwcC9ub2RlX21vZHVsZXMvQGJhYmVsL3J1bnRpbWUvaGVscGVycy9lc20vb2JqZWN0U3ByZWFkIjsKdmFyIF9qc3hGaWxlTmFtZSA9ICIvaG9tZS9waXNtby9Eb2N1bWVudG9zL1BST0pFVE9TL21vbm9wb2x5L3BhY2thZ2VzL2JvbHQvcGFja2FnZXMvY29yZS9Db3JlLnRzeCI7CgooZnVuY3Rpb24gKCkgewogIHZhciBlbnRlck1vZHVsZSA9ICh0eXBlb2YgcmVhY3RIb3RMb2FkZXJHbG9iYWwgIT09ICd1bmRlZmluZWQnID8gcmVhY3RIb3RMb2FkZXJHbG9iYWwgOiByZXF1aXJlKCdyZWFjdC1ob3QtbG9hZGVyJykpLmVudGVyTW9kdWxlOwogIGVudGVyTW9kdWxlICYmIGVudGVyTW9kdWxlKG1vZHVsZSk7Cn0pKCk7Cgp2YXIgX19zaWduYXR1cmVfXyA9IHR5cGVvZiByZWFjdEhvdExvYWRlckdsb2JhbCAhPT0gJ3VuZGVmaW5lZCcgPyByZWFjdEhvdExvYWRlckdsb2JhbFsiZGVmYXVsdCJdLnNpZ25hdHVyZSA6IGZ1bmN0aW9uIChhKSB7CiAgcmV0dXJuIGE7Cn07CgppbXBvcnQgUmVhY3QsIHsgdXNlQ29udGV4dCwgdXNlUmVkdWNlciwgdXNlU3RhdGUsIHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JzsKaW1wb3J0IHsgY3JlYXRlTXVpVGhlbWUgfSBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9zdHlsZXMnOwppbXBvcnQgeyBUaGVtZVByb3ZpZGVyIH0gZnJvbSAnQG1hdGVyaWFsLXVpL3N0eWxlcyc7CmltcG9ydCB7IFBpc21vRGVmYXVsdFRoZW1lIH0gZnJvbSAnLi90aGVtZXMnOwoKdmFyIG1peGluID0gcmVxdWlyZSgnZGVlcG1lcmdlJyk7Cgp2YXIgdm9pZFRoZW1lID0gY3JlYXRlTXVpVGhlbWUoKTsKdmFyIGluaXRpYWxUaGVtZVN0YXRlID0gewogIHRoZW1lczogewogICAgInZvaWQiOiB2b2lkVGhlbWUsCiAgICAiZGVmYXVsdCI6IFBpc21vRGVmYXVsdFRoZW1lCiAgfSwKICBjdXJyZW50VGhlbWU6ICdkZWZhdWx0Jwp9OwpleHBvcnQgdmFyIENvbnRleHQgPSBSZWFjdC5jcmVhdGVDb250ZXh0KG1peGluKHt9LCBpbml0aWFsVGhlbWVTdGF0ZSkpOwoKaWYgKHR5cGVvZiBDb250ZXh0ICE9PSAndW5kZWZpbmVkJyAmJiBDb250ZXh0ICYmIENvbnRleHQgPT09IE9iamVjdChDb250ZXh0KSAmJiBPYmplY3QuaXNFeHRlbnNpYmxlKENvbnRleHQpKSB7CiAgT2JqZWN0LmRlZmluZVByb3BlcnR5KENvbnRleHQsICdfX2ZpbGVtZXRhJywgewogICAgZW51bWVyYWJsZTogdHJ1ZSwKICAgIGNvbmZpZ3VyYWJsZTogdHJ1ZSwKICAgIHZhbHVlOiB7CiAgICAgIG5hbWU6ICJDb250ZXh0IiwKICAgICAgZmlsZW5hbWU6ICJwYWNrYWdlcy9jb3JlL0NvcmUudHN4IgogICAgfQogIH0pOwp9Cgp2YXIgdGhlbWVSZWR1Y2VyID0gZnVuY3Rpb24gdGhlbWVSZWR1Y2VyKHN0YXRlLCBhY3Rpb24pIHsKICBzd2l0Y2ggKGFjdGlvbi50eXBlKSB7CiAgICBjYXNlICdBREQnOgogICAgICByZXR1cm4gX29iamVjdFNwcmVhZCh7fSwgc3RhdGUsIHsKICAgICAgICB0aGVtZXM6IF9vYmplY3RTcHJlYWQoe30sIHN0YXRlLnRoZW1lcywgX2RlZmluZVByb3BlcnR5KHt9LCBhY3Rpb24ucGF5bG9hZC5uYW1lLCBhY3Rpb24ucGF5bG9hZC50aGVtZSkpCiAgICAgIH0pOwoKICAgIGNhc2UgJ0NIQU5HRSc6CiAgICAgIHJldHVybiBfb2JqZWN0U3ByZWFkKHt9LCBzdGF0ZSwgewogICAgICAgIGN1cnJlbnRUaGVtZTogYWN0aW9uLnBheWxvYWQubmFtZQogICAgICB9KTsKCiAgICBkZWZhdWx0OgogICAgICByZXR1cm4gc3RhdGU7CiAgfQp9OwoKZXhwb3J0IGZ1bmN0aW9uIFByb3ZpZGVyKF9yZWYpIHsKICB2YXIgY2hpbGRyZW4gPSBfcmVmLmNoaWxkcmVuOwoKICB2YXIgX3VzZVJlZHVjZXIgPSB1c2VSZWR1Y2VyKHRoZW1lUmVkdWNlciwgdXNlQ29udGV4dChDb250ZXh0KSksCiAgICAgIF91c2VSZWR1Y2VyMiA9IF9zbGljZWRUb0FycmF5KF91c2VSZWR1Y2VyLCAyKSwKICAgICAgc3RhdGUgPSBfdXNlUmVkdWNlcjJbMF0sCiAgICAgIGRpc3BhdGNoID0gX3VzZVJlZHVjZXIyWzFdOwoKICB2YXIgX3VzZVN0YXRlID0gdXNlU3RhdGUoc3RhdGUudGhlbWVzW3N0YXRlLmN1cnJlbnRUaGVtZV0pLAogICAgICBfdXNlU3RhdGUyID0gX3NsaWNlZFRvQXJyYXkoX3VzZVN0YXRlLCAyKSwKICAgICAgdGhlbWUgPSBfdXNlU3RhdGUyWzBdLAogICAgICBzZXRUaGVtZSA9IF91c2VTdGF0ZTJbMV07CgogIHVzZUVmZmVjdChmdW5jdGlvbiAoKSB7CiAgICBzZXRUaGVtZShzdGF0ZS50aGVtZXNbc3RhdGUuY3VycmVudFRoZW1lXSk7CiAgfSwgW3N0YXRlLmN1cnJlbnRUaGVtZV0pOwoKICB2YXIgcmVnaXN0ZXJUaGVtZSA9IGZ1bmN0aW9uIHJlZ2lzdGVyVGhlbWUobmFtZSwgdGhlbWUpIHsKICAgIGRpc3BhdGNoKHsKICAgICAgdHlwZTogJ0FERCcsCiAgICAgIHBheWxvYWQ6IHsKICAgICAgICBuYW1lOiBuYW1lLAogICAgICAgIHRoZW1lOiB0aGVtZQogICAgICB9CiAgICB9KTsKICB9OwoKICB2YXIgY2hhbmdlVGhlbWUgPSBmdW5jdGlvbiBjaGFuZ2VUaGVtZShuYW1lKSB7CiAgICBkaXNwYXRjaCh7CiAgICAgIHR5cGU6ICdDSEFOR0UnLAogICAgICBwYXlsb2FkOiB7CiAgICAgICAgbmFtZTogbmFtZQogICAgICB9CiAgICB9KTsKICB9OwoKICBjb25zb2xlLmxvZyh0aGVtZSk7CiAgcmV0dXJuIFJlYWN0LmNyZWF0ZUVsZW1lbnQoQ29udGV4dC5Qcm92aWRlciwgewogICAgdmFsdWU6IHsKICAgICAgY3VycmVudFRoZW1lOiBzdGF0ZS5jdXJyZW50VGhlbWUsCiAgICAgIHJlZ2lzdGVyVGhlbWU6IHJlZ2lzdGVyVGhlbWUsCiAgICAgIGNoYW5nZVRoZW1lOiBjaGFuZ2VUaGVtZQogICAgfSwKICAgIF9fc291cmNlOiB7CiAgICAgIGZpbGVOYW1lOiBfanN4RmlsZU5hbWUsCiAgICAgIGxpbmVOdW1iZXI6IDY1CiAgICB9LAogICAgX19zZWxmOiB0aGlzCiAgfSwgUmVhY3QuY3JlYXRlRWxlbWVudChUaGVtZVByb3ZpZGVyLCB7CiAgICB0aGVtZTogdGhlbWUsCiAgICBfX3NvdXJjZTogewogICAgICBmaWxlTmFtZTogX2pzeEZpbGVOYW1lLAogICAgICBsaW5lTnVtYmVyOiA2OAogICAgfSwKICAgIF9fc2VsZjogdGhpcwogIH0sIGNoaWxkcmVuKSk7Cn0KCl9fc2lnbmF0dXJlX18oUHJvdmlkZXIsICJ1c2VSZWR1Y2Vye1tzdGF0ZSwgZGlzcGF0Y2hdKHVzZUNvbnRleHQoQ29udGV4dCkpfVxudXNlQ29udGV4dHt9XG51c2VTdGF0ZXtbdGhlbWUsIHNldFRoZW1lXShzdGF0ZS50aGVtZXNbc3RhdGUuY3VycmVudFRoZW1lXSl9XG51c2VFZmZlY3R7fSIpOwoKaWYgKHR5cGVvZiBQcm92aWRlciAhPT0gJ3VuZGVmaW5lZCcgJiYgUHJvdmlkZXIgJiYgUHJvdmlkZXIgPT09IE9iamVjdChQcm92aWRlcikgJiYgT2JqZWN0LmlzRXh0ZW5zaWJsZShQcm92aWRlcikpIHsKICBPYmplY3QuZGVmaW5lUHJvcGVydHkoUHJvdmlkZXIsICdfX2ZpbGVtZXRhJywgewogICAgZW51bWVyYWJsZTogdHJ1ZSwKICAgIGNvbmZpZ3VyYWJsZTogdHJ1ZSwKICAgIHZhbHVlOiB7CiAgICAgIG5hbWU6ICJQcm92aWRlciIsCiAgICAgIGZpbGVuYW1lOiAicGFja2FnZXMvY29yZS9Db3JlLnRzeCIKICAgIH0KICB9KTsKfQoKOwoKKGZ1bmN0aW9uICgpIHsKICB2YXIgcmVhY3RIb3RMb2FkZXIgPSAodHlwZW9mIHJlYWN0SG90TG9hZGVyR2xvYmFsICE9PSAndW5kZWZpbmVkJyA/IHJlYWN0SG90TG9hZGVyR2xvYmFsIDogcmVxdWlyZSgncmVhY3QtaG90LWxvYWRlcicpKS5kZWZhdWx0OwoKICBpZiAoIXJlYWN0SG90TG9hZGVyKSB7CiAgICByZXR1cm47CiAgfQoKICByZWFjdEhvdExvYWRlci5yZWdpc3Rlcih2b2lkVGhlbWUsICJ2b2lkVGhlbWUiLCAiL2hvbWUvcGlzbW8vRG9jdW1lbnRvcy9QUk9KRVRPUy9tb25vcG9seS9wYWNrYWdlcy9ib2x0L3BhY2thZ2VzL2NvcmUvQ29yZS50c3giKTsKICByZWFjdEhvdExvYWRlci5yZWdpc3Rlcihpbml0aWFsVGhlbWVTdGF0ZSwgImluaXRpYWxUaGVtZVN0YXRlIiwgIi9ob21lL3Bpc21vL0RvY3VtZW50b3MvUFJPSkVUT1MvbW9ub3BvbHkvcGFja2FnZXMvYm9sdC9wYWNrYWdlcy9jb3JlL0NvcmUudHN4Iik7CiAgcmVhY3RIb3RMb2FkZXIucmVnaXN0ZXIoQ29udGV4dCwgIkNvbnRleHQiLCAiL2hvbWUvcGlzbW8vRG9jdW1lbnRvcy9QUk9KRVRPUy9tb25vcG9seS9wYWNrYWdlcy9ib2x0L3BhY2thZ2VzL2NvcmUvQ29yZS50c3giKTsKICByZWFjdEhvdExvYWRlci5yZWdpc3Rlcih0aGVtZVJlZHVjZXIsICJ0aGVtZVJlZHVjZXIiLCAiL2hvbWUvcGlzbW8vRG9jdW1lbnRvcy9QUk9KRVRPUy9tb25vcG9seS9wYWNrYWdlcy9ib2x0L3BhY2thZ2VzL2NvcmUvQ29yZS50c3giKTsKICByZWFjdEhvdExvYWRlci5yZWdpc3RlcihQcm92aWRlciwgIlByb3ZpZGVyIiwgIi9ob21lL3Bpc21vL0RvY3VtZW50b3MvUFJPSkVUT1MvbW9ub3BvbHkvcGFja2FnZXMvYm9sdC9wYWNrYWdlcy9jb3JlL0NvcmUudHN4Iik7Cn0pKCk7Cgo7CgooZnVuY3Rpb24gKCkgewogIHZhciBsZWF2ZU1vZHVsZSA9ICh0eXBlb2YgcmVhY3RIb3RMb2FkZXJHbG9iYWwgIT09ICd1bmRlZmluZWQnID8gcmVhY3RIb3RMb2FkZXJHbG9iYWwgOiByZXF1aXJlKCdyZWFjdC1ob3QtbG9hZGVyJykpLmxlYXZlTW9kdWxlOwogIGxlYXZlTW9kdWxlICYmIGxlYXZlTW9kdWxlKG1vZHVsZSk7Cn0pKCk7"
+    },
+    {
+      "version": 3,
+      "sources": [
+        "/home/pismo/Documentos/PROJETOS/monopoly/packages/bolt/packages/core/Core.tsx"
+      ],
+      "names": [
+        "React",
+        "useContext",
+        "useReducer",
+        "useState",
+        "useEffect",
+        "createMuiTheme",
+        "ThemeProvider",
+        "PismoDefaultTheme",
+        "mixin",
+        "require",
+        "voidTheme",
+        "initialThemeState",
+        "themes",
+        "currentTheme",
+        "Context",
+        "createContext",
+        "themeReducer",
+        "state",
+        "action",
+        "type",
+        "payload",
+        "name",
+        "theme",
+        "Provider",
+        "children",
+        "dispatch",
+        "setTheme",
+        "registerTheme",
+        "changeTheme",
+        "console",
+        "log"
+      ],
+      "mappings": "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",
+      "sourcesContent": [
+        "import React, {\n  useContext,\n  useReducer,\n  useState,\n  useEffect\n} from 'react'\nimport { createMuiTheme, Theme } from '@material-ui/core/styles'\nimport { ThemeProvider } from '@material-ui/styles'\n\nimport {PismoDefaultTheme} from './themes'\n\nconst mixin = require('deepmerge')\n\nconst voidTheme: Theme = createMuiTheme()\ninterface IThemeState {\n  themes: { [key: string]: Theme }\n  currentTheme: string\n}\n\nconst initialThemeState: IThemeState = {\n  themes: { void: voidTheme, default: PismoDefaultTheme },\n  currentTheme: 'default'\n}\n\nexport const Context: React.Context<any> = React.createContext(\n  mixin({}, initialThemeState)\n)\n\nconst themeReducer = (state: IThemeState, action): IThemeState => {\n  switch (action.type) {\n    case 'ADD':\n      return {\n        ...state,\n        themes: { ...state.themes, [action.payload.name]: action.payload.theme }\n      }\n    case 'CHANGE':\n      return {\n        ...state,\n        currentTheme: action.payload.name\n      }\n    default:\n      return state\n  }\n}\n\nexport function Provider ({ children }) {\n  const [state, dispatch] = useReducer(themeReducer, useContext(Context))\n  const [theme, setTheme] = useState(state.themes[state.currentTheme])\n\n  useEffect(() => {\n    setTheme(state.themes[state.currentTheme])\n  }, [state.currentTheme])\n\n  const registerTheme = (name: string, theme: Theme): void => {\n    dispatch({ type: 'ADD', payload: { name, theme } })\n  }\n\n  const changeTheme = (name: string): void => {\n    dispatch({ type: 'CHANGE', payload: { name } })\n  }\n\n  console.log(theme)\n\n  return (\n    <Context.Provider\n      value={{ currentTheme: state.currentTheme, registerTheme, changeTheme }}\n    >\n      <ThemeProvider theme={theme}>{children}</ThemeProvider>\n    </Context.Provider>\n  )\n}\n"
+      ]
+    }
+  ]
+}

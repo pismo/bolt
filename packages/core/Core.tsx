@@ -1,11 +1,8 @@
-import React, {
-  useContext,
-  useReducer,
-  useState,
-  useEffect
-} from 'react'
+import React, { useContext, useReducer, useState, useEffect } from 'react'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
+
+import { PismoDefaultTheme } from './themes'
 
 const mixin = require('deepmerge')
 
@@ -16,8 +13,8 @@ interface IThemeState {
 }
 
 const initialThemeState: IThemeState = {
-  themes: { void: voidTheme },
-  currentTheme: 'void'
+  themes: { void: voidTheme, default: PismoDefaultTheme },
+  currentTheme: 'default'
 }
 
 export const Context: React.Context<any> = React.createContext(
@@ -56,6 +53,8 @@ export function Provider ({ children }) {
   const changeTheme = (name: string): void => {
     dispatch({ type: 'CHANGE', payload: { name } })
   }
+
+  console.log(theme)
 
   return (
     <Context.Provider
