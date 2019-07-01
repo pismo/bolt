@@ -6,8 +6,10 @@ const readmetext = fs.readFileSync(PATH_README_ROOT, 'utf8')
 const packagesNames = fs.readdirSync('./packages')
 const listLines = readmetext.split('\n')
 
-const findComponentsBlock = (str = []) => str.findIndex(el => /## Components/.test(el))
-const findNextTopic = (base, str = []) => base + str.slice(base + 1).findIndex(el => /^#/.test(el))
+const findComponentsBlock = (str = []) =>
+  str.findIndex(el => /## Components/.test(el))
+const findNextTopic = (base, str = []) =>
+  base + str.slice(base + 1).findIndex(el => /^#/.test(el))
 
 const startComponentsBlock = findComponentsBlock(listLines)
 const endComponentsBlock = findNextTopic(startComponentsBlock, listLines)
@@ -21,16 +23,22 @@ const toCamelCase = (string = '') =>
 const lineTemplate = packageName =>
   `| [\`bolt-${packageName}\`](/packages/${packageName})` +
   `| [![npm version](https://badge.fury.io/js/%40pismo%2Fbolt-${packageName}.svg)](https://badge.fury.io/js/%40pismo%2Fbolt-${packageName})` +
-  `| [${toCamelCase(packageName)} Documentation](https://bolt.pismolabs.io/packages-core-components-${packageName}) |`
+  `| [${toCamelCase(
+    packageName
+  )} Documentation](https://bolt.pismolabs.io/packages-core-components-${packageName}) |`
 
-const table = ['| Package | Version | Documentation |', '| - | - | - |', ...packagesNames.map(pkg => lineTemplate(pkg))]
+const table = [
+  '| Package | Version | Documentation |',
+  '| - | - | - |',
+  ...packagesNames.map(pkg => lineTemplate(pkg))
+]
 
 const newListComponentsBlock = [`## Components`, '', ...table, '']
 
 const newReadme = [
   ...listLines.slice(0, startComponentsBlock),
   ...newListComponentsBlock,
-  ...listLines.slice(endComponentsBlock),
+  ...listLines.slice(endComponentsBlock)
 ].join('\n')
 
 try {

@@ -4,7 +4,7 @@ module.exports = ({ config, mode }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('awesome-typescript-loader'),
+        loader: require.resolve('awesome-typescript-loader')
       },
       {
         loader: require.resolve('react-docgen-typescript-loader'),
@@ -12,10 +12,10 @@ module.exports = ({ config, mode }) => {
           propFilter: prop => {
             if (prop.parent == null) return true
             return prop.parent.fileName.indexOf('node_modules/@types/react') < 0
-          },
-        },
-      },
-    ],
+          }
+        }
+      }
+    ]
   })
   config.resolve.extensions.push('.ts', '.tsx')
   return config

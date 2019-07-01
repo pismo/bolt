@@ -9,21 +9,21 @@ addParameters({
     name: 'Pismo Bolt',
     theme: MainTheme,
     panelPosition: 'bottom',
-    showPanel: true,
-  },
+    showPanel: true
+  }
 })
 
 addDecorator(withKnobs)
 addDecorator(
   withInfo({
     inline: true,
-    styles: InfoAddonTheme,
-  }),
+    styles: InfoAddonTheme
+  })
 )
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../packages', true, /.stories.tsx$/)
-function loadStories() {
+function loadStories () {
   req.keys().forEach(filename => req(filename))
 }
 

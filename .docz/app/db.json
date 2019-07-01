@@ -1,0 +1,47 @@
+{
+  "config": {
+    "title": "Bolt",
+    "description": "My awesome app using docz",
+    "menu": [],
+    "version": "0.4.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "props": [
+    {
+      "key": "packages/core/dist/Core.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Provider",
+          "methods": [],
+          "actualName": "Provider"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "key": "packages/core/core.mdx",
+      "value": {
+        "name": "Core",
+        "id": "faa2cdb0db2c8ca228a5853395959108",
+        "filepath": "packages/core/core.mdx",
+        "link": "",
+        "slug": "packages-core-core",
+        "route": "/packages-core-core",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "core",
+            "depth": 1,
+            "value": "Core"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -9,7 +9,7 @@ export const MainTheme = create({
 
   barSelectedColor: 'rgb(243, 122, 33)',
 
-  brandTitle: 'Pismo Bolt',
+  brandTitle: 'Pismo Bolt'
 })
 
 export const InfoAddonTheme = stylesheet => ({
@@ -17,6 +17,6 @@ export const InfoAddonTheme = stylesheet => ({
   infoBody: {
     ...stylesheet.infoBody,
     border: 'none',
-    color: '#484848',
-  },
+    color: '#484848'
+  }
 })
