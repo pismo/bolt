@@ -1,16 +1,80 @@
 ---
 "name": Core
 ---
-import {ComponentsProvider} from 'docz'
-import {Provider} from './Core'
+import {useState, useEffect, useContext} from 'react'
+import {Playground} from 'docz'
+import {Provider, Context} from './Core'
+import {createMuiTheme} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+
 
 # Core
+A biblioteca Bolt oferece uma variedade de components UI e é baseada na biblioteca @material-ui
+## Provider
+O provider trabalha com o contexto do React para oferecer ferramentas para a inclusão e modificação de temas.
+Todos os componentes da biblioteca @material-ui poderá ser utilizado dentro do tema utilizando o componente **Provider**
 
-Hello, I'm a mdx file
+```javascript
+import {Provider} from '@pismo/bolt-core'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+```
 
-<ComponentsProvider>
+<Playground>
     <Provider>
-        <Button>teste</Button>
+        <Grid container spacing={2}>
+            <Grid item><Button variant='contained' color='primary'>click</Button></Grid>
+            <Grid item><Button variant='contained' color='secondary'>click</Button></Grid>
+        </Grid>        
     </Provider>
-    </ComponentsProvider>
+</Playground>
+
+## Context
+Através do contexto temos acesso às propriedades e métodos para alteração do tema
+
+
+### Propriedades
+
+|**prop**           |**type**           |**desc**           |
+|---------------|---------------|---------------|
+|currentTheme   |string         |nome do thema atual |
+|registerTheme  |(name: string, theme: Theme) => void | adiciona um novo tema |
+|changeTheme    |(name: string) => void |muda o tema para o tema especificado |
+
+
+
+<Playground>
+    {
+        () => {
+            const ChangeTheme = () => {
+                const {currentTheme, registerTheme, changeTheme} = useContext(Context)
+                const redTheme = createMuiTheme({
+                    palette: {
+                        primary: {
+                            main: '#ff0000'
+                        }
+                    }
+                })
+
+                useEffect(() => {
+                    registerTheme('red', redTheme)
+                }, [])
+
+                const handlerToggle = () => {
+                    let name = currentTheme === 'default' ? 'red' : 'default'
+                    changeTheme(name)
+                }
+
+                return <Button variant='contained' color='primary' onClick={handlerToggle}>change theme</Button>
+            }
+
+            
+            return (
+                <Provider>
+                    <ChangeTheme />
+                </Provider>
+            )
+        }
+    }
+</Playground>

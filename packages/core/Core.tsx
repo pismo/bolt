@@ -1,8 +1,15 @@
 import React, { useContext, useReducer, useState, useEffect } from 'react'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
+import WebFont from 'webfontloader'
 
 import { PismoDefaultTheme } from './themes'
+
+WebFont.load({
+  google: {
+    families: ['Lato']
+  }
+})
 
 const mixin = require('deepmerge')
 

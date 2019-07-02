@@ -8,5 +8,8 @@
 **/**/npm-debug.log
 **/**/lerna-debug.log
 **/**/coverage
+**/**/.storybook
+**/**/.docz
+**/**/yarn.json
 build/
 .idea/
