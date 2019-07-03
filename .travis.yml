@@ -1,11 +1,20 @@
 language: node_js
 node_js:
   - "stable"
+
+matrix:
+  include:
+  - os: linux
+  - os: osx
+
 script:
   - yarn install
   - yarn build-storybook
   - yarn lerna:test:cov
-  - yarn coveralls
+  - 'if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+       yarn coveralls;
+     fi
+    '
 
 deploy:
   provider: pages
@@ -14,3 +23,4 @@ deploy:
   local_dir: docs
   on:
     branch: master
+    condition: $TRAVIS_OS_NAME = linux
