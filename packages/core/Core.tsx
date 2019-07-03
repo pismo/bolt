@@ -2,6 +2,7 @@ import React, { useContext, useReducer, useState, useEffect } from 'react'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import WebFont from 'webfontloader'
+console.log(WebFont)
 
 import { PismoDefaultTheme } from './themes'
 
@@ -61,11 +62,16 @@ export function Provider ({ children }) {
     dispatch({ type: 'CHANGE', payload: { name } })
   }
 
-  console.log(theme)
+  const getThemes = (): string[] => Object.keys(state.themes)
 
   return (
     <Context.Provider
-      value={{ currentTheme: state.currentTheme, registerTheme, changeTheme }}
+      value={{
+        currentTheme: state.currentTheme,
+        registerTheme,
+        changeTheme,
+        getThemes
+      }}
     >
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </Context.Provider>

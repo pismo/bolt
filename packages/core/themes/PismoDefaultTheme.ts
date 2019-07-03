@@ -17,7 +17,9 @@ export const PismoDefaultTheme = responsiveFontSizes(
     },
     overrides: {
       MuiButton: {
-        root: {}
+        root: {
+          textTransform: 'unset'
+        }
       }
     }
   })
