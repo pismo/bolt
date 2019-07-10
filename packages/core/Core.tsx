@@ -1,10 +1,11 @@
-import React, { useContext, useReducer, useState, useEffect } from 'react'
+import * as React from 'react'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import WebFont from 'webfontloader'
-console.log(WebFont)
 
 import { PismoDefaultTheme } from './themes'
+
+const { useContext, useReducer, useState, useEffect } = React
 
 WebFont.load({
   google: {

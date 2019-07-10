@@ -1,5 +1,7 @@
-const webfontloader = {
-  load: () => nul
-}
+const webfontloader = jest.genMockFromModule('webfontloader')
 
-export default webfontloader
+webfontloader.load = () => {}
+
+module.exports = {
+  default: webfontloader
+}

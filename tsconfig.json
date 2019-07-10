@@ -13,7 +13,8 @@
     "target": "es5",
     "sourceMap": true,
     "jsx": "react",
-    "lib": ["es5", "es6", "esnext", "dom"]
+    "lib": ["es5", "es6", "esnext", "dom"],
+    "allowJs": true
   },
   "exclude": ["node_modules", "**/*.test.ts"]
 }
