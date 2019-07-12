@@ -1,0 +1,45 @@
+{
+  "name": "@pismo/bolt-form-control",
+  "version": "0.8.2",
+  "description": "Bolt component form-control",
+  "author": "Pismo <hello@pismo.io>",
+  "homepage": "https://github.com/pismo/bolt#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pismo/bolt/issues"
+  },
+  "devDependencies": {
+    "@pismo/bolt-core": "^0.8.2",
+    "@pismo/bolt-text-field": "^0.8.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.1.3",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2",
+    "lodash.unset": "^4.5.2",
+    "validate.js": "^0.13.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  }
+}
