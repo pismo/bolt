@@ -24,8 +24,8 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "peerDependencies": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
     "@material-ui/core": "^4.1.3"
