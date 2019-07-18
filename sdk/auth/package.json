@@ -1,0 +1,36 @@
+{
+  "name": "@pismo/sdk-auth",
+  "version": "0.8.0",
+  "description": "Pismo Javascript SDK for auth API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/pismo/sdk-js/",
+  "bugs": {
+    "url": "https://github.com/pismo/sdk-js/issues"
+  },
+  "author": "Pismo <hello@pismo.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@brazilian-utils/is-valid-cnpj": "^0.1.11",
+    "@brazilian-utils/is-valid-cpf": "^0.1.11",
+    "@pismo/sdk-core": "^0.8.0",
+    "eres": "^1.0.1",
+    "token-refresher": "ssh://git@github.com/pismo/token-refresher.git"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "gitpkg": {
+    "registry": "git@github.com:pismo/sdk-js-pkgs.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  }
+}

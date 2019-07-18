@@ -8,6 +8,9 @@ export const paletteExtra = {
   },
   error: {
     main: '#ff0000'
+  },
+  background: {
+    special: '#4C4C4C'
   }
 }
 

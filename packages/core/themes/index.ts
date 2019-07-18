@@ -1,1 +1,1 @@
-export { PismoDefaultTheme } from './PismoDefaultTheme'
+export { PismoDefaultTheme, paletteExtra } from './PismoDefaultTheme'

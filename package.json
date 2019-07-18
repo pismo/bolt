@@ -23,7 +23,8 @@
     "typescript": "^3.4.3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "sdk/*"
   ],
   "lint-staged": {
     "**/*.{js,json}": [
