@@ -36,7 +36,8 @@
     "@material-ui/icons": "^4.2.1",
     "@pismo/bolt-core": "^0.8.2",
     "@pismo/bolt-form-control": "^0.8.2",
-    "@pismo/bolt-text-field": "^0.8.2"
+    "@pismo/bolt-text-field": "^0.8.2",
+    "@pismo/bolt-snackbar": "^0.8.2"
   },
   "scripts": {
     "build": "tsc",

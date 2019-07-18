@@ -3,6 +3,7 @@ import Box from '@material-ui/core/Box'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 import { paletteExtra } from '@pismo/bolt-core/themes'
+import { Snackbar } from '@pismo/bolt-snackbar'
 import { LoginForm } from './LoginForm'
 
 const { useState, useEffect, createContext, useContext } = React
@@ -25,6 +26,10 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
 
   const [loading, setLoading] = useState<boolean>(true)
   const [mode, setMode] = useState<Modes>(Modes.LOGIN)
+
+  const [variant] = useState<'info' | 'warning' | 'error' | 'success'>('error')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [messageOpen, setMessageOpen] = useState<boolean>(false)
 
   const [tokenRefresher, setTokenRefresher] = useState<any>(null)
 
@@ -58,6 +63,10 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
     }
   }
 
+  const closeMessage = () => {
+    setMessageOpen(false)
+  }
+
   console.log(loading)
   if (loading) {
     return (
@@ -85,23 +94,33 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
   }
 
   return (
-    <Box
-      width={1}
-      height='100%'
-      bgcolor={paletteExtra.background.special}
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
-    >
-      {mode === Modes.LOGIN && (
-        <LoginForm
-          auth={auth}
-          tokenRefresh={tokenRefresher}
-          setTokenRefresh={setTokenRefresher}
-          setIsValid={setIsValid}
-        />
-      )}
-    </Box>
+    <React.Fragment>
+      <Box
+        width={1}
+        height='100%'
+        bgcolor={paletteExtra.background.special}
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+      >
+        {mode === Modes.LOGIN && (
+          <LoginForm
+            auth={auth}
+            tokenRefresh={tokenRefresher}
+            setTokenRefresh={setTokenRefresher}
+            setIsValid={setIsValid}
+            setErrorMessage={setErrorMessage}
+            setMessageOpen={setMessageOpen}
+          />
+        )}
+      </Box>
+      <Snackbar
+        open={messageOpen}
+        variant={variant}
+        message={errorMessage}
+        onClose={closeMessage}
+      />
+    </React.Fragment>
   )
 }
 

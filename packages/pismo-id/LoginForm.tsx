@@ -22,13 +22,17 @@ interface LoginFormProps {
   tokenRefresh: any
   setTokenRefresh(refresher: any): void
   setIsValid(valid: boolean): void
+  setErrorMessage(message: string): void
+  setMessageOpen(val: boolean): void
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   auth,
   tokenRefresh,
   setTokenRefresh,
-  setIsValid
+  setIsValid,
+  setErrorMessage,
+  setMessageOpen
 }: LoginFormProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [rememberMe, setRememberMe] = useState<boolean>(false)
@@ -78,6 +82,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
       await auth.login({ emailOrCPF, password, rememberMe })
     } catch (err) {
       console.log(err)
+      setErrorMessage('Erro: usuário ou senha ínvalidos')
+      setMessageOpen(true)
       return auth.resetSession()
     }
 
@@ -88,6 +94,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
       console.log(result)
     } catch (err) {
       console.log(err)
+      setErrorMessage(
+        'Erro: algo inesperado ocorreu, por favor tente novamente'
+      )
+      setMessageOpen(true)
       return auth.resetSession()
     }
 

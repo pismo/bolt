@@ -51,7 +51,11 @@ const Snackbar: React.FC<SnackProps> = (props: SnackProps) => {
   delete snackProps.message
   delete snackProps.variant
   return (
-    <MuiSnackbar {...snackProps} TransitionComponent={SlideTransition}>
+    <MuiSnackbar
+      autoHideDuration={6000}
+      {...snackProps}
+      TransitionComponent={SlideTransition}
+    >
       <Content message={props.message} variant={props.variant} />
     </MuiSnackbar>
   )
