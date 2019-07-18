@@ -1,0 +1,61 @@
+---
+'name': Snackbar
+---
+
+import {useState} from 'react'
+import { Playground } from 'docz'
+import { Provider } from '@pismo/bolt-core'
+import { Snackbar } from './Snackbar'
+
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+
+# Snackbar
+
+O component Snackbar fornece quatro variações de mensagem simples para feedback. Esse component é uma extensão do [Snackbar do material-ui](https://material-ui.com/components/snackbars/)
+
+### Propriedades
+
+Herda todas as propriedade do material-ui Snackbar
+
+| **prop**      | **type**                             | **required**   |   **desc**                                           |
+| ------------- | ------------------------------------ | :--------------: | ---------------------------------------------------- |
+| open          | boolean                              | true           | Valor que define se o Snackbar está visível ou não     |
+| message       | string                               | false          | menssagem que a ser exibida                            |
+| variant       | `enum: 'success' | 'error' | 'warning' | 'info'` | true | tipos válidos que definem o ícone e cor do component   |
+| onClose       | (event: object, reason: string) => void | false       | Método executado quando o componente pode ser fechado |
+
+<Playground>
+    {
+        () => {
+            const initialState = {error: false, info: false, success: false, warning: false}
+            const [isOpen, setIsOpen] = useState(false)
+            const [variant, setVariant] = useState('')
+
+            const closeAll = () => {
+                setIsOpen(false)
+            }
+
+            const openSnack = (variant) => () => {
+                setVariant(variant)
+                setIsOpen(true)
+            }
+            return (
+                <Provider>
+                    <Grid container spacing={3}>
+                        <Grid item><Button variant='contained' color='primary' onClick={openSnack('info')}>open info</Button></Grid>
+                        <Grid item><Button variant='contained' color='primary' onClick={openSnack('success')}>open success</Button></Grid>
+                        <Grid item><Button variant='contained' color='primary' onClick={openSnack('warning')}>open warning</Button></Grid>
+                        <Grid item><Button variant='contained' color='primary' onClick={openSnack('error')}>open error</Button></Grid>
+                    </Grid>
+                    <Snackbar
+                        open={isOpen}
+                        onClose={closeAll}
+                        message={`teste ${variant}`}
+                        variant={variant}
+                    />
+                </Provider>
+            )
+        }
+    }
+</Playground>
