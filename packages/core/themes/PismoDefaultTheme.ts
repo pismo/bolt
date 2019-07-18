@@ -1,13 +1,26 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { amber, green } from '@material-ui/core/colors'
 import * as Color from 'color'
 
 export const paletteExtra = {
+  primary: {
+    main: '#3bb2dd'
+  },
+  secondary: {
+    main: '#3bb2dd'
+  },
   textField: {
     defaultColor: '#8692a6',
     backgroundColor: 'rgba(236, 238, 242, 0.5)'
   },
   error: {
     main: '#ff0000'
+  },
+  success: {
+    main: green[600]
+  },
+  warning: {
+    main: amber[700]
   },
   background: {
     special: '#4C4C4C'
@@ -23,11 +36,11 @@ export const PismoDefaultTheme = responsiveFontSizes(
     },
     palette: {
       primary: {
-        main: '#3bb2dd',
+        main: paletteExtra.primary.main,
         contrastText: '#fff'
       },
       secondary: {
-        main: '#ec3853',
+        main: paletteExtra.secondary.main,
         contrastText: '#fff'
       },
       text: {
@@ -133,6 +146,24 @@ export const PismoDefaultTheme = responsiveFontSizes(
             color: Color(paletteExtra.textField.defaultColor)
               .fade(0.3)
               .string()
+          }
+        }
+      },
+
+      MuiSnackbarContent: {
+        root: {
+          borderRadius: '30px',
+          '&.error': {
+            backgroundColor: paletteExtra.error.main
+          },
+          '&.success': {
+            backgroundColor: paletteExtra.success.main
+          },
+          '&.warning': {
+            backgroundColor: paletteExtra.warning.main
+          },
+          '&.info': {
+            backgroundColor: paletteExtra.primary.main
           }
         }
       }
