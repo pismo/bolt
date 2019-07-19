@@ -86,7 +86,6 @@ export const PismoDefaultTheme = responsiveFontSizes(
           }
         },
         input: {
-          backgroundColor: paletteExtra.textField.backgroundColor,
           padding: '10px 10px',
           fontSize: '1.3rem',
           lineHeight: '1.8rem',
@@ -100,6 +99,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
         },
 
         formControl: {
+          backgroundColor: paletteExtra.textField.backgroundColor,
           borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`,
           transition: 'borderBottom 0.2',
 

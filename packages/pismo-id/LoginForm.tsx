@@ -15,7 +15,11 @@ import IconButton from '@material-ui/core/IconButton'
 import { FormControl } from '@pismo/bolt-form-control'
 import { TextField } from '@pismo/bolt-text-field'
 
+import { getTranslation } from './getTranslation'
+
 const { useState, useEffect } = React
+
+const lang = getTranslation()
 
 interface LoginFormProps {
   auth: any
@@ -24,6 +28,7 @@ interface LoginFormProps {
   setIsValid(valid: boolean): void
   setErrorMessage(message: string): void
   setMessageOpen(val: boolean): void
+  goToRecovery(): void
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
@@ -32,7 +37,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   setTokenRefresh,
   setIsValid,
   setErrorMessage,
-  setMessageOpen
+  setMessageOpen,
+  goToRecovery
 }: LoginFormProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [rememberMe, setRememberMe] = useState<boolean>(false)
@@ -41,13 +47,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const schema: any = {
     emailOrCPF: {
       email: {
-        message: 'E-mail inválido.'
+        message: lang['login.invalidEmail']
       }
     },
     password: {
       length: {
         minimum: 6,
-        message: 'A senha deve ter no mínimo 6 caracteres'
+        message: lang['login.minimumChar']
       }
     }
   }
@@ -82,7 +88,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
       await auth.login({ emailOrCPF, password, rememberMe })
     } catch (err) {
       console.log(err)
-      setErrorMessage('Erro: usuário ou senha ínvalidos')
+      setErrorMessage(lang['login.error.invalidUser'])
       setMessageOpen(true)
       return auth.resetSession()
     }
@@ -94,9 +100,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
       console.log(result)
     } catch (err) {
       console.log(err)
-      setErrorMessage(
-        'Erro: algo inesperado ocorreu, por favor tente novamente'
-      )
+      setErrorMessage(lang['login.error.server'])
       setMessageOpen(true)
       return auth.resetSession()
     }
@@ -106,86 +110,96 @@ const LoginForm: React.FC<LoginFormProps> = ({
   }
 
   return (
-    <Card>
-      <CardContent>
-        <Box width={1}>
-          <Typography variant='h5'>
-            Olá informe seus dados para continuar
-          </Typography>
-        </Box>
-        <FormControl
-          initialValue={{ emailOrCPF: '', password: '', remember: false }}
-          validationSchema={schema}
-          onSubmit={submit}
-        >
-          {({
-            values: { emailOrCPF, password, remember },
-            errors,
-            handleChange
-          }) => {
-            console.log(errors)
-            return (
-              <>
-                <Box width={1} mt='50px'>
-                  <TextField
-                    placeholder='E-mail ou CPF'
-                    name='emailOrCPF'
-                    value={emailOrCPF}
-                    onChange={handleChange}
-                    error={Boolean(errors.emailOrCPF)}
-                    helperText={errors.emailOrCPF}
-                  />
-                </Box>
-                <Box width={1} mt='20px'>
-                  <TextField
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder='Senha'
-                    name='password'
-                    value={password}
-                    onChange={handleChange}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position='end'>
-                          <IconButton onClick={toggleShowPassword}>
-                            {showPassword ? <Visibility /> : <VisibilityOff />}
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
-                    error={Boolean(errors.password)}
-                    helperText={errors.password}
-                  />
-                </Box>
-                <Box width={1} mt='20px' justifyContent='center' display='flex'>
-                  <Button type='submit' color='primary' variant='contained'>
-                    ENTRAR
-                  </Button>
-                </Box>
-                <Box width={1} mt='20px' display='flex'>
-                  <Box display='flex' width={1 / 2}>
-                    <FormControlLabel
-                      control={
-                        <Switch
-                          checked={rememberMe}
-                          name='remember'
-                          color='primary'
-                          value={remember}
-                          onChange={toggleRememberMe(handleChange)}
-                        />
-                      }
-                      label='Lembrar'
+    <Box maxWidth='436px'>
+      <Card>
+        <CardContent>
+          <Box width={1}>
+            <Typography variant='h5'>{lang['login.title']}</Typography>
+          </Box>
+          <FormControl
+            initialValue={{ emailOrCPF: '', password: '', remember: false }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {({
+              values: { emailOrCPF, password, remember },
+              errors,
+              handleChange
+            }) => {
+              return (
+                <>
+                  <Box width={1} mt='50px'>
+                    <TextField
+                      placeholder={lang['login.emailField']}
+                      name='emailOrCPF'
+                      value={emailOrCPF}
+                      onChange={handleChange}
+                      error={Boolean(errors.emailOrCPF)}
+                      helperText={errors.emailOrCPF}
                     />
                   </Box>
-                  <Box display='flex' width={1 / 2} justifyContent='flex-end'>
-                    <Button color='primary'>Esqueceu a senha?</Button>
+                  <Box width={1} mt='20px'>
+                    <TextField
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder={lang['login.passwordField']}
+                      name='password'
+                      value={password}
+                      onChange={handleChange}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position='end'>
+                            <IconButton onClick={toggleShowPassword}>
+                              {showPassword ? (
+                                <Visibility />
+                              ) : (
+                                <VisibilityOff />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
+                      error={Boolean(errors.password)}
+                      helperText={errors.password}
+                    />
                   </Box>
-                </Box>
-              </>
-            )
-          }}
-        </FormControl>
-      </CardContent>
-    </Card>
+                  <Box
+                    width={1}
+                    mt='20px'
+                    justifyContent='center'
+                    display='flex'
+                  >
+                    <Button type='submit' color='primary' variant='contained'>
+                      {lang['login.submit']}
+                    </Button>
+                  </Box>
+                  <Box width={1} mt='20px' display='flex'>
+                    <Box display='flex' width={1 / 2}>
+                      <FormControlLabel
+                        control={
+                          <Switch
+                            checked={rememberMe}
+                            name='remember'
+                            color='primary'
+                            value={remember}
+                            onChange={toggleRememberMe(handleChange)}
+                          />
+                        }
+                        label={lang['login.remember']}
+                      />
+                    </Box>
+                    <Box display='flex' width={1 / 2} justifyContent='flex-end'>
+                      <Button color='primary' onClick={goToRecovery}>
+                        {lang['login.forgot']}
+                      </Button>
+                    </Box>
+                  </Box>
+                </>
+              )
+            }}
+          </FormControl>
+        </CardContent>
+      </Card>
+    </Box>
   )
 }
 

@@ -5,6 +5,8 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { paletteExtra } from '@pismo/bolt-core/themes'
 import { Snackbar } from '@pismo/bolt-snackbar'
 import { LoginForm } from './LoginForm'
+import { RecoveryForm } from './RecoveryForm'
+import { RecoverySuccess } from './RecoverySuccess'
 
 const { useState, useEffect, createContext, useContext } = React
 
@@ -29,6 +31,7 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
 
   const [variant] = useState<'info' | 'warning' | 'error' | 'success'>('error')
   const [errorMessage, setErrorMessage] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
   const [messageOpen, setMessageOpen] = useState<boolean>(false)
 
   const [tokenRefresher, setTokenRefresher] = useState<any>(null)
@@ -65,6 +68,18 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
 
   const closeMessage = () => {
     setMessageOpen(false)
+  }
+
+  const goToRecovery = () => setMode(Modes.RECOVERY)
+
+  const goToRecoverySuccess = (userEmail: string) => {
+    setEmail(userEmail)
+    setMode(Modes.RECOVERY_SUCCESS)
+  }
+
+  const goToLogin = () => {
+    setEmail('')
+    return setMode(Modes.LOGIN)
   }
 
   console.log(loading)
@@ -111,7 +126,20 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
             setIsValid={setIsValid}
             setErrorMessage={setErrorMessage}
             setMessageOpen={setMessageOpen}
+            goToRecovery={goToRecovery}
           />
+        )}
+        {mode === Modes.RECOVERY && (
+          <RecoveryForm
+            auth={auth}
+            goToRecoverySuccess={goToRecoverySuccess}
+            goToLogin={goToLogin}
+            setErrorMessage={setErrorMessage}
+            setMessageOpen={setMessageOpen}
+          />
+        )}
+        {mode === Modes.RECOVERY_SUCCESS && (
+          <RecoverySuccess email={email} goToLogin={goToLogin} />
         )}
       </Box>
       <Snackbar
