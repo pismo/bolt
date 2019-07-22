@@ -3,7 +3,12 @@ import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import WebFont from 'webfontloader'
 
-import { PismoDefaultTheme } from './themes'
+import {
+  PismoDefaultTheme,
+  PismoDarkTheme,
+  paletteExtraDark,
+  paletteExtraDefault
+} from './themes'
 
 const { useContext, useReducer, useState, useEffect } = React
 
@@ -18,11 +23,13 @@ const mixin = require('deepmerge')
 const voidTheme: Theme = createMuiTheme()
 interface IThemeState {
   themes: { [key: string]: Theme }
+  paletteExtra: { [key: string]: any }
   currentTheme: string
 }
 
 const initialThemeState: IThemeState = {
-  themes: { void: voidTheme, default: PismoDefaultTheme },
+  themes: { void: voidTheme, default: PismoDefaultTheme, dark: PismoDarkTheme },
+  paletteExtra: { default: paletteExtraDefault, dark: paletteExtraDark },
   currentTheme: 'default'
 }
 
@@ -65,13 +72,19 @@ export function Provider ({ children }) {
 
   const getThemes = (): string[] => Object.keys(state.themes)
 
+  const getPalette = (): any =>
+    state.paletteExtra[state.currentTheme]
+      ? state.paletteExtra[state.currentTheme]
+      : state.paletteExtra['default']
+
   return (
     <Context.Provider
       value={{
         currentTheme: state.currentTheme,
         registerTheme,
         changeTheme,
-        getThemes
+        getThemes,
+        getPalette
       }}
     >
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

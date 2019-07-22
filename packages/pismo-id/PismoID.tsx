@@ -2,11 +2,11 @@ import * as React from 'react'
 import Box from '@material-ui/core/Box'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-import { paletteExtra } from '@pismo/bolt-core/themes'
 import { Snackbar } from '@pismo/bolt-snackbar'
 import { LoginForm } from './LoginForm'
 import { RecoveryForm } from './RecoveryForm'
 import { RecoverySuccess } from './RecoverySuccess'
+import { Context } from '@pismo/bolt-core'
 
 const { useState, useEffect, createContext, useContext } = React
 
@@ -36,9 +36,9 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
 
   const [tokenRefresher, setTokenRefresher] = useState<any>(null)
 
-  useEffect(() => {
-    console.log('passei aqui')
+  const { getPalette } = useContext(Context)
 
+  useEffect(() => {
     initializeAuth()
 
     return () => {
@@ -82,13 +82,12 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
     return setMode(Modes.LOGIN)
   }
 
-  console.log(loading)
   if (loading) {
     return (
       <Box
         width={1}
         height='100%'
-        bgcolor={paletteExtra.background.special}
+        bgcolor={getPalette().background.special}
         display='flex'
         justifyContent='center'
         alignItems='center'
@@ -113,7 +112,7 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
       <Box
         width={1}
         height='100%'
-        bgcolor={paletteExtra.background.special}
+        bgcolor={getPalette().background.special}
         display='flex'
         justifyContent='center'
         alignItems='center'

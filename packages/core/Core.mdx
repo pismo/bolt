@@ -53,7 +53,8 @@ Através do contexto temos acesso às propriedades e métodos para alteração d
 | currentTheme  | string                               | nome do thema atual                                  |
 | registerTheme | (name: string, theme: Theme) => void | adiciona um novo tema                                |
 | changeTheme   | (name: string) => void               | muda o tema para o tema especificado                 |
-| getThemes     | (): string[] => string[]             | retorna uma lista com os nomes dos temas registrados |
+| getThemes     | () => string[]                       | retorna uma lista com os nomes dos temas registrados |
+| getPalette    | () => {[key: string]: string}        | retorna a paleta de cores                            |
 
 ```javascript
 import { Provider, Context } from '@pismo/bolt-core'

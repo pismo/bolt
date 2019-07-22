@@ -117,7 +117,11 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <Typography variant='h5'>{lang['login.title']}</Typography>
           </Box>
           <FormControl
-            initialValue={{ emailOrCPF: '', password: '', remember: false }}
+            initialValue={{
+              emailOrCPF: identificationState,
+              password: '',
+              remember: rememberMe
+            }}
             validationSchema={schema}
             onSubmit={submit}
           >
