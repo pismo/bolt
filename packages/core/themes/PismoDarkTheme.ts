@@ -4,14 +4,14 @@ import Color from 'color'
 
 export const paletteExtra = {
   primary: {
-    main: '#3bb2dd'
+    main: '#644DF7'
   },
   secondary: {
-    main: '#3bb2dd'
+    main: '#FE6833'
   },
   textField: {
     defaultColor: '#8692a6',
-    backgroundColor: 'rgba(236, 238, 242, 0.5)'
+    backgroundColor: '#fff'
   },
   error: {
     main: '#ff0000'
@@ -23,13 +23,14 @@ export const paletteExtra = {
     main: amber[700]
   },
   background: {
-    special: '#4C4C4C'
+    main: '#333238',
+    special: '#231d22'
   }
 }
 
 const { shadows } = createMuiTheme()
 
-export const PismoDefaultTheme = responsiveFontSizes(
+export const PismoDarkTheme = responsiveFontSizes(
   createMuiTheme({
     typography: {
       fontFamily: 'Lato'
@@ -48,6 +49,10 @@ export const PismoDefaultTheme = responsiveFontSizes(
       },
       error: {
         main: paletteExtra.error.main
+      },
+      background: {
+        paper: paletteExtra.background.main,
+        default: paletteExtra.background.special
       }
     },
     overrides: {
@@ -152,6 +157,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
 
       MuiSnackbarContent: {
         root: {
+          color: '#fff',
           borderRadius: '30px',
           '&.error': {
             backgroundColor: paletteExtra.error.main

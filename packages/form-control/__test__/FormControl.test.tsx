@@ -34,7 +34,7 @@ describe('@pismo/bolt-form-control', () => {
     expect(submit).toBeDefined()
   })
 
-  test('it should return the error correctly', async () => {
+  test('it should return the error correctly', () => {
     const checkError = jest.fn(errors => errors.name)
 
     const schema = {
@@ -71,12 +71,12 @@ describe('@pismo/bolt-form-control', () => {
     const submit = getByText(container, 'submit')
 
     fireEvent.submit(submit)
-    await wait(() => true, { timeout: 1000 })
-
-    expect(checkError).toHaveReturnedWith('Faltou o nome')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(checkError).toHaveReturnedWith('Faltou o nome')
+    })
   })
 
-  test('it should call the onSubmit', async () => {
+  test('it should call the onSubmit', () => {
     const onsubmit = jest.fn(values => values.name)
 
     const schema = {
@@ -108,9 +108,9 @@ describe('@pismo/bolt-form-control', () => {
     const submit = getByText(container, 'submit')
 
     fireEvent.submit(submit)
-    await wait(() => true, { timeout: 1000 })
-
-    expect(onsubmit).toBeCalledTimes(1)
-    expect(onsubmit).toHaveReturnedWith('teste')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(onsubmit).toBeCalledTimes(1)
+      expect(onsubmit).toHaveReturnedWith('teste')
+    })
   })
 })

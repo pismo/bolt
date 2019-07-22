@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as set from 'lodash.set'
 import * as get from 'lodash.get'
 import * as unset from 'lodash.unset'
-import * as validate from 'validate.js'
+import { validate, isArray } from 'validate.js'
 
 const { useState } = React
 
@@ -45,7 +45,7 @@ function FormControl ({
     if (validationSchema) {
       const val = validate(values, validationSchema, { format: 'detailed' })
 
-      if (validate.isArray(val)) {
+      if (isArray(val)) {
         let err = { ...errors }
         val.map(({ attribute, options, error }) => {
           set(err, attribute, options.message ? options.message : error)

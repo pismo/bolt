@@ -1,0 +1,33 @@
+{
+  "name": "@pismo/sdk-cross-storage",
+  "version": "0.8.0",
+  "description": "Pismo Javascript SDK for cross-storage API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/pismo/sdk-js/",
+  "bugs": {
+    "url": "https://github.com/pismo/sdk-js/issues"
+  },
+  "author": "Pismo <hello@pismo.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@pismo/sdk-core": "^0.8.0",
+    "cross-storage": "^1.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "gitpkg": {
+    "registry": "git@github.com:pismo/sdk-js-pkgs.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  }
+}

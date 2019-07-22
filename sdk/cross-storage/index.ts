@@ -1,0 +1,1 @@
+export { CrossStorage } from './crossStorage'
