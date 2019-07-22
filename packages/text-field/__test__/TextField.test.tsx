@@ -1,9 +1,4 @@
-import {
-  cleanup,
-  render,
-  // waitForDomChange,
-  fireEvent
-} from '@testing-library/react'
+import { cleanup, render, wait, fireEvent } from '@testing-library/react'
 import 'jest-dom/extend-expect'
 import * as React from 'react'
 
@@ -47,7 +42,9 @@ describe('@pismo/bolt-text-field', () => {
 
     fireEvent.change(input, { target: { value: 'ab' } })
 
-    expect(changeTest).toBeCalledTimes(1)
-    expect(changeTest).toHaveReturnedWith('ab')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(changeTest).toBeCalledTimes(1)
+      expect(changeTest).toHaveReturnedWith('ab')
+    })
   })
 })

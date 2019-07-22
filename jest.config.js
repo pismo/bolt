@@ -13,5 +13,6 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest'
   },
-  testRegex: '(spec|test).[jt]s?(x)$'
+  testRegex: '(spec|test).[jt]s?(x)$',
+  testPathIgnorePatterns: ['/sdk/']
 }

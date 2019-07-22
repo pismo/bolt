@@ -1,6 +1,6 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { amber, green } from '@material-ui/core/colors'
-import Color from 'color'
+import * as ColorJ from 'color'
 
 export const paletteExtra = {
   primary: {
@@ -97,7 +97,7 @@ export const PismoDarkTheme = responsiveFontSizes(
           minHeight: '30px',
 
           '&$disabled': {
-            color: Color(paletteExtra.textField.defaultColor)
+            color: ColorJ(paletteExtra.textField.defaultColor)
               .fade(0.3)
               .string()
           }
@@ -135,7 +135,7 @@ export const PismoDarkTheme = responsiveFontSizes(
           },
 
           '&$disabled': {
-            color: Color(paletteExtra.textField.defaultColor)
+            color: ColorJ(paletteExtra.textField.defaultColor)
               .fade(0.3)
               .string()
           }
@@ -148,7 +148,7 @@ export const PismoDarkTheme = responsiveFontSizes(
       MuiFormHelperText: {
         filled: {
           '&$disabled': {
-            color: Color(paletteExtra.textField.defaultColor)
+            color: ColorJ(paletteExtra.textField.defaultColor)
               .fade(0.3)
               .string()
           }
