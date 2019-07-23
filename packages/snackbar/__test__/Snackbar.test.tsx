@@ -18,9 +18,9 @@ describe('@pismo/bolt-snackbar', () => {
   test('it should display the components correctly after click', () => {
     const Component = () => {
       const [isOpen, setIsOpen] = useState(false)
-      const [variant, setVariant] = useState<
-        'info' | 'success' | 'warning' | 'error'
-      >('info')
+      const [variant] = useState<'info' | 'success' | 'warning' | 'error'>(
+        'info'
+      )
 
       const closeAll = () => {
         setIsOpen(false)

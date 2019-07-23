@@ -40,7 +40,6 @@
     "@pismo/bolt-snackbar": "^0.8.2"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "jest"
+    "build": "tsc"
   }
 }

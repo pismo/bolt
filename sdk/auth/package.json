@@ -30,7 +30,6 @@
     "registry": "git@github.com:pismo/sdk-js-pkgs.git"
   },
   "scripts": {
-    "test": "jest",
     "build": "tsc"
   }
 }
