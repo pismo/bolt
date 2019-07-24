@@ -1,0 +1,35 @@
+---
+'name': FlagPanel
+---
+
+import {useState} from 'react'
+import { Playground } from 'docz'
+import { Provider } from '@pismo/bolt-core'
+import { FlagPanel } from './FlagPanel'
+
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+
+# FlagPanel
+
+
+
+<Playground>
+    {
+        () => {
+            
+            return (
+                <Provider>
+                    <FlagPanel
+                        title='idioma'
+                        data={[
+                            {flag: 'br', description: 'Português'},
+                            {flag: 'us', description: 'Inglês'},
+                            {flag: 'es', description: 'Espanhol'}
+                        ]}
+                    />
+                </Provider>
+            )
+        }
+    }
+</Playground>
