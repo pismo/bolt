@@ -171,6 +171,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
       MuiExpansionPanel: {
         root: {
           '&.FlagPanel': {
+            background: paletteExtra.textField.backgroundColor,
             boxShadow: 'none',
             borderBottom: `1px solid #fff`,
 
@@ -184,6 +185,8 @@ export const PismoDefaultTheme = responsiveFontSizes(
       MuiExpansionPanelSummary: {
         root: {
           '&.FlagPanel-summary': {
+            maxHeight: '55px',
+            minHeight: '46px',
             '&:hover': {
               backgroundColor: paletteExtra.background.special,
               color: '#fff'
