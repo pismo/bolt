@@ -47,7 +47,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             class="MuiBox-root MuiBox-root-184"
           >
             <img
-              src="https://www.countryflags.io/31/shiny/32.png"
+              src="https://www.countryflags.io/br/shiny/32.png"
             />
           </div>
         </div>
@@ -112,7 +112,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                       class="MuiBox-root MuiBox-root-214"
                     >
                       <img
-                        src="https://www.countryflags.io/31/shiny/32.png"
+                        src="https://www.countryflags.io/br/shiny/32.png"
                       />
                     </div>
                   </div>
@@ -147,7 +147,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                       class="MuiBox-root MuiBox-root-215"
                     >
                       <img
-                        src="https://www.countryflags.io/229/shiny/32.png"
+                        src="https://www.countryflags.io/us/shiny/32.png"
                       />
                     </div>
                   </div>
@@ -182,7 +182,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                       class="MuiBox-root MuiBox-root-216"
                     >
                       <img
-                        src="https://www.countryflags.io/68/shiny/32.png"
+                        src="https://www.countryflags.io/es/shiny/32.png"
                       />
                     </div>
                   </div>

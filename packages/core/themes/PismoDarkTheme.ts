@@ -172,6 +172,59 @@ export const PismoDarkTheme = responsiveFontSizes(
             backgroundColor: paletteExtra.primary.main
           }
         }
+      },
+
+      MuiExpansionPanel: {
+        root: {
+          '&.FlagPanel': {
+            background: paletteExtra.background.main,
+            boxShadow: 'none',
+            borderBottom: `1px solid #fff`
+          }
+        }
+      },
+
+      MuiExpansionPanelSummary: {
+        root: {
+          '&.FlagPanel-summary': {
+            maxHeight: '55px',
+            minHeight: '46px',
+            color: '#fff',
+            '&:hover': {
+              backgroundColor: ColorJ(paletteExtra.background.main)
+                .lighten(0.3)
+                .hex()
+            }
+          }
+        }
+      },
+
+      MuiSvgIcon: {
+        root: {
+          '&.FlagPanel-expandMoreIcon': {
+            fill: '#fff'
+          }
+        }
+      },
+
+      MuiExpansionPanelDetails: {
+        root: {
+          flexWrap: 'wrap'
+        }
+      },
+
+      MuiMenuItem: {
+        root: {
+          width: '100%',
+          '&.FlagPanel-menuItem': {
+            color: '#fff',
+            '&:hover': {
+              backgroundColor: ColorJ(paletteExtra.background.main)
+                .lighten(0.3)
+                .hex()
+            }
+          }
+        }
       }
     }
   })

@@ -16,6 +16,7 @@ const { useState } = React
 afterEach(cleanup)
 
 const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
+  console.log(change)
   const data = [
     { flag: FLAG.br, description: 'Português' },
     { flag: FLAG.us, description: 'Inglês' },
@@ -23,6 +24,7 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
   ]
 
   const [current] = useState(data[0])
+  console.log(current)
 
   const handleChange = value => {
     if (change) change(value)

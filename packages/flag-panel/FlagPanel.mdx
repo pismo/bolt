@@ -6,6 +6,7 @@ import {useState} from 'react'
 import { Playground } from 'docz'
 import { Provider } from '@pismo/bolt-core'
 import { FlagPanel } from './FlagPanel'
+import { FLAG } from './flags'
 
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -56,7 +57,7 @@ enum FLAG =
 
 ```javascript
 import { Provider } from '@pismo/bolt-core'
-import { FlagPanel } from '@pismo/bolt-flag-panel'
+import { FlagPanel, FLAG } from '@pismo/bolt-flag-panel'
 ```
 
 
@@ -64,9 +65,9 @@ import { FlagPanel } from '@pismo/bolt-flag-panel'
     {
         () => {
             const data = [
-                {flag: 'br', description: 'Português'},
-                {flag: 'us', description: 'Inglês'},
-                {flag: 'es', description: 'Espanhol'}
+                {flag: FLAG.br, description: 'Português'},
+                {flag: FLAG.us, description: 'Inglês'},
+                {flag: FLAG.es, description: 'Espanhol'}
             ]
             const [current, setCurrent] = useState(data[0])
 
