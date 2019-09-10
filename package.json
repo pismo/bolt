@@ -46,7 +46,6 @@
     }
   },
   "scripts": {
-    "preinstall": "@fortawesome:registry=https://npm.fontawesome.com/:_authToken=$FONTAWESOME_TOKEN",
     "lerna:dev": "concurrently \"yarn lerna:build:watch\"",
     "lerna:build": "lerna run build --stream --parallel",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
