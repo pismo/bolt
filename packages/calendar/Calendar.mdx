@@ -2,21 +2,28 @@
 'name': Calendar
 ---
 
-import {useState} from 'react'
+import { useState } from 'react'
 import { Playground } from 'docz'
 import { Provider } from '@pismo/bolt-core'
 import { Calendar } from './Calendar'
+import { Fragment } from 'react'
+import enLocale from 'date-fns/locale/en-US'
+import ptLocale from 'date-fns/locale/pt-BR'
 
 # Calendar
 
 <Playground>
-    {
-        () => {
-            return (
-                <Provider>
-                    <Calendar />
-                </Provider>
-            )
-        }
+  {() => {
+    const localeMap = {
+      en: enLocale,
+      pt: ptLocale
     }
+    return (
+      <Fragment>
+        <Provider>
+          <Calendar localeMap={localeMap} language='pt' format='dd MMM yyyy' />
+        </Provider>
+      </Fragment>
+    )
+  }}
 </Playground>
