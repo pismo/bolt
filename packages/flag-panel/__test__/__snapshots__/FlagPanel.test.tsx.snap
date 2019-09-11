@@ -109,7 +109,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-214"
+                      class="MuiBox-root MuiBox-root-215"
                     >
                       <img
                         src="https://www.countryflags.io/br/shiny/32.png"
@@ -144,7 +144,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-215"
+                      class="MuiBox-root MuiBox-root-216"
                     >
                       <img
                         src="https://www.countryflags.io/us/shiny/32.png"
@@ -179,7 +179,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-216"
+                      class="MuiBox-root MuiBox-root-217"
                     >
                       <img
                         src="https://www.countryflags.io/es/shiny/32.png"

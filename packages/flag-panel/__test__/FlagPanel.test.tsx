@@ -1,7 +1,8 @@
 import {
   cleanup,
   render,
-  fireEvent
+  fireEvent,
+  wait
   // getByText,
   // waitForDomChange
 } from '@testing-library/react'
@@ -16,7 +17,6 @@ const { useState } = React
 afterEach(cleanup)
 
 const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
-  console.log(change)
   const data = [
     { flag: FLAG.br, description: 'Português' },
     { flag: FLAG.us, description: 'Inglês' },
@@ -24,7 +24,6 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
   ]
 
   const [current] = useState(data[0])
-  console.log(current)
 
   const handleChange = value => {
     if (change) change(value)
@@ -63,17 +62,23 @@ describe('@pismo/bolt-flag-panel', () => {
 
     fireEvent.click(usBt)
 
-    expect(fn).toBeCalledTimes(1)
-    expect(fn).toReturnWith('Inglês')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(fn).toBeCalledTimes(1)
+      expect(fn).toHaveReturnedWith('Inglês')
+    })
 
     fireEvent.click(ptBt)
 
-    expect(fn).toBeCalledTimes(2)
-    expect(fn).toReturnWith('Português')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(fn).toBeCalledTimes(2)
+      expect(fn).toReturnWith('Português')
+    })
 
     fireEvent.click(esBt)
 
-    expect(fn).toBeCalledTimes(3)
-    expect(fn).toReturnWith('Espanhol')
+    wait(() => true, { timeout: 1000 }).then(() => {
+      expect(fn).toBeCalledTimes(3)
+      expect(fn).toReturnWith('Espanhol')
+    })
   })
 })

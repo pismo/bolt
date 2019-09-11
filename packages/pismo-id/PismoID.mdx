@@ -2,24 +2,20 @@
 'name': PismoID
 ---
 
-import { Playground } from 'docz'
-import { Provider } from '@pismo/bolt-core'
-import { Auth } from '@pismo/sdk-auth'
-
-import { PismoID } from './PismoID'
-
+```
 <Playground>
-    {
-        () => {
-            const AppAuth = Auth({baseURL: 'https://api-sandbox.pismolabs.io', onUpdate: (...args) => console.log(args)})
-            return (
-                
-                <Provider>
-                    <PismoID auth={AppAuth}>
-                        <div>LOGADO!!!</div>
-                    </PismoID>
-                </Provider>
-            )
-        }
-    }
+  {() => {
+    const AppAuth = Auth({
+      baseURL: 'URL',
+      onUpdate: (...args) => console.log(args)
+    })
+    return (
+      <Provider>
+        <PismoID auth={AppAuth}>
+          <div>LOGADO!!!</div>
+        </PismoID>
+      </Provider>
+    )
+  }}
 </Playground>
+```

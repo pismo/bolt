@@ -2,7 +2,7 @@
 'name': Snackbar
 ---
 
-import {useState} from 'react'
+import { useState } from 'react'
 import { Playground } from 'docz'
 import { Provider } from '@pismo/bolt-core'
 import { Snackbar } from './Snackbar'
@@ -18,12 +18,12 @@ O component Snackbar fornece quatro variações de mensagem simples para feedbac
 
 Herda todas as propriedade do material-ui Snackbar
 
-| **prop**      | **type**                             | **required**   |   **desc**                                           |
-| ------------- | ------------------------------------ | :--------------: | ---------------------------------------------------- |
-| open          | boolean                              | true           | Valor que define se o Snackbar está visível ou não     |
-| message       | string                               | false          | menssagem que a ser exibida                            |
-| variant       | `enum: 'success' | 'error' | 'warning' | 'info'` | true | tipos válidos que definem o ícone e cor do component   |
-| onClose       | (event: object, reason: string) => void | false       | Método executado quando o componente pode ser fechado |
+| **prop** | **type**                                         | **required** | **desc**                                              |
+| -------- | ------------------------------------------------ | :----------: | ----------------------------------------------------- |
+| open     | boolean                                          |     true     | Valor que define se o Snackbar está visível ou não    |
+| message  | string                                           |    false     | menssagem que a ser exibida                           |
+| variant  | `enum: 'success' | 'error' | 'warning' | 'info'` |     true     | tipos válidos que definem o ícone e cor do component  |
+| onClose  | (event: object, reason: string) => void          |    false     | Método executado quando o componente pode ser fechado |
 
 <Playground>
     {
@@ -58,4 +58,5 @@ Herda todas as propriedade do material-ui Snackbar
             )
         }
     }
+
 </Playground>
