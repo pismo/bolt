@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import WebFont from 'webfontloader'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import {
   PismoDefaultTheme,
@@ -9,6 +9,8 @@ import {
   paletteExtraDark,
   paletteExtraDefault
 } from './themes'
+
+const WebFont = require('webfontloader')
 
 const { useContext, useReducer, useState, useEffect } = React
 
@@ -87,7 +89,7 @@ export function Provider ({ children }) {
         getPalette
       }}
     >
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}><CssBaseline />{children}</ThemeProvider>
     </Context.Provider>
   )
 }
