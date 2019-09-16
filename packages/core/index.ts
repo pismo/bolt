@@ -1,1 +1,1 @@
-export { Provider, Context } from './Core'
+export { Bolt, Context } from './Core'

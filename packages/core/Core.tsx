@@ -56,7 +56,7 @@ const themeReducer = (state: IThemeState, action): IThemeState => {
   }
 }
 
-export function Provider ({ children }) {
+export function Bolt ({ children }) {
   const [state, dispatch] = useReducer(themeReducer, useContext(Context))
   const [theme, setTheme] = useState(state.themes[state.currentTheme])
 
