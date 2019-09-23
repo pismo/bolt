@@ -23,7 +23,8 @@ export const paletteExtra = {
     main: amber[700]
   },
   background: {
-    special: '#4C4C4C'
+    special: '#4C4C4C',
+    main: '#333238'
   }
 }
 
@@ -213,6 +214,12 @@ export const PismoDefaultTheme = responsiveFontSizes(
               color: '#fff'
             }
           }
+        }
+      },
+
+      MuiAppBar: {
+        colorPrimary: {
+          backgroundColor: paletteExtra.background.main
         }
       }
     }

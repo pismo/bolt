@@ -225,6 +225,12 @@ export const PismoDarkTheme = responsiveFontSizes(
             }
           }
         }
+      },
+
+      MuiAppBar: {
+        colorPrimary: {
+          backgroundColor: paletteExtra.background.main
+        }
       }
     }
   })
