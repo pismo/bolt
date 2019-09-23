@@ -57,7 +57,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
       }
     }
   }
-  console.log(auth)
 
   useEffect(() => {
     auth
