@@ -10,7 +10,7 @@ export const paletteExtra = {
     main: '#3bb2dd'
   },
   textField: {
-    defaultColor: '#8692a6',
+    defaultColor: '#3B4756',
     backgroundColor: 'rgba(236, 238, 242, 0.5)'
   },
   error: {
@@ -24,7 +24,8 @@ export const paletteExtra = {
   },
   background: {
     special: '#4C4C4C',
-    main: '#333238'
+    main: '#333238',
+    special2: '#586374'
   }
 }
 
@@ -174,10 +175,15 @@ export const PismoDefaultTheme = responsiveFontSizes(
           '&.FlagPanel': {
             background: paletteExtra.textField.backgroundColor,
             boxShadow: 'none',
-            borderBottom: `1px solid #fff`,
+            // borderBottom: `1px solid #fff`,
 
             '&$expanded': {
-              borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`
+              margin: 0,
+              // borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`
+            },
+
+            '&::before': {
+              all: 'unset'
             }
           }
         }
@@ -186,8 +192,9 @@ export const PismoDefaultTheme = responsiveFontSizes(
       MuiExpansionPanelSummary: {
         root: {
           '&.FlagPanel-summary': {
-            maxHeight: '55px',
-            minHeight: '46px',
+            maxHeight: 'auto',
+            minHeight: '0px',
+            height: '53px',
             '&:hover': {
               backgroundColor: paletteExtra.background.special,
               color: '#fff'
@@ -201,7 +208,8 @@ export const PismoDefaultTheme = responsiveFontSizes(
 
       MuiExpansionPanelDetails: {
         root: {
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          padding: 'unset'
         }
       },
 
@@ -217,9 +225,24 @@ export const PismoDefaultTheme = responsiveFontSizes(
         }
       },
 
+      MuiListItem: {
+        button: {
+          '&:hover': {
+            backgroundColor: paletteExtra.background.special,
+            color: '#fff'
+          }
+        }
+      },
+
       MuiAppBar: {
         colorPrimary: {
           backgroundColor: paletteExtra.background.main
+        }
+      },
+
+      MuiAvatar: {
+        colorDefault: {
+          backgroundColor: paletteExtra.textField.defaultColor
         }
       }
     }

@@ -179,7 +179,15 @@ export const PismoDarkTheme = responsiveFontSizes(
           '&.FlagPanel': {
             background: paletteExtra.background.main,
             boxShadow: 'none',
-            borderBottom: `1px solid #fff`
+            // borderBottom: `1px solid #fff`
+          },
+
+          '&$expanded': {
+            margin: 0
+          },
+
+          '&::before': {
+            all: 'unset'
           }
         }
       },
@@ -187,9 +195,9 @@ export const PismoDarkTheme = responsiveFontSizes(
       MuiExpansionPanelSummary: {
         root: {
           '&.FlagPanel-summary': {
-            maxHeight: '55px',
-            minHeight: '46px',
-            color: '#fff',
+            maxHeight: 'auto',
+            minHeight: '0px',
+            height: '53px',
             '&:hover': {
               backgroundColor: ColorJ(paletteExtra.background.main)
                 .lighten(0.3)
@@ -209,7 +217,8 @@ export const PismoDarkTheme = responsiveFontSizes(
 
       MuiExpansionPanelDetails: {
         root: {
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          padding: 'unset'
         }
       },
 
@@ -223,6 +232,17 @@ export const PismoDarkTheme = responsiveFontSizes(
                 .lighten(0.3)
                 .hex()
             }
+          }
+        }
+      },
+
+      MuiListItem: {
+        button: {
+          '&:hover': {
+            backgroundColor: ColorJ(paletteExtra.background.main)
+                .lighten(0.3)
+                .hex(),
+            color: '#fff'
           }
         }
       },

@@ -70,12 +70,12 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
         expandIcon={<ExpandMoreIcon className='FlagPanel-expandMoreIcon' />}
       >
         <Grid container spacing={2}>
-          <Grid item>
-            <GlobeIcon color='primary' viewBox='0 0 496 512' />
-          </Grid>
-          <Grid item>
+          <Box py='8px'>
+            <GlobeIcon viewBox='0 0 496 512' />
+          </Box>
+          <Box p='8px'>
             <Typography>{title}</Typography>
-          </Grid>
+          </Box>
           <Box display='flex' ml='auto' alignItems='center'>
             <img
               src={`https://www.countryflags.io/${
