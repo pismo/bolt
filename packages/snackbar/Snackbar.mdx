@@ -4,7 +4,7 @@
 
 import { useState } from 'react'
 import { Playground } from 'docz'
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { Snackbar } from './Snackbar'
 
 import Button from '@material-ui/core/Button'
@@ -41,7 +41,7 @@ Herda todas as propriedade do material-ui Snackbar
                 setIsOpen(true)
             }
             return (
-                <Provider>
+                <Bolt>
                     <Grid container spacing={3}>
                         <Grid item><Button variant='contained' color='primary' onClick={openSnack('info')}>open info</Button></Grid>
                         <Grid item><Button variant='contained' color='primary' onClick={openSnack('success')}>open success</Button></Grid>
@@ -54,7 +54,7 @@ Herda todas as propriedade do material-ui Snackbar
                         message={`teste ${variant}`}
                         variant={variant}
                     />
-                </Provider>
+                </Bolt>
             )
         }
     }

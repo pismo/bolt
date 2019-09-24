@@ -172,13 +172,13 @@ export const PismoDefaultTheme = responsiveFontSizes(
 
       MuiExpansionPanel: {
         root: {
-          '&.FlagPanel': {
+          '&.ExpansionMenu': {
             background: paletteExtra.textField.backgroundColor,
             boxShadow: 'none',
             // borderBottom: `1px solid #fff`,
 
             '&$expanded': {
-              margin: 0,
+              margin: 0
               // borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`
             },
 
@@ -191,7 +191,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
 
       MuiExpansionPanelSummary: {
         root: {
-          '&.FlagPanel-summary': {
+          '&.ExpansionMenu-summary': {
             maxHeight: 'auto',
             minHeight: '0px',
             height: '53px',
@@ -199,7 +199,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
               backgroundColor: paletteExtra.background.special,
               color: '#fff'
             },
-            '&:hover .FlagPanel-expandMoreIcon': {
+            '&:hover .ExpansionMenu-expandMoreIcon': {
               fill: '#fff'
             }
           }
@@ -216,7 +216,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
       MuiMenuItem: {
         root: {
           width: '100%',
-          '&.FlagPanel-menuItem': {
+          '&.ExpansionMenu-menuItem': {
             '&:hover': {
               backgroundColor: paletteExtra.background.special,
               color: '#fff'

@@ -4,7 +4,7 @@
 
 import { useState, useEffect, useContext } from 'react'
 import { Playground } from 'docz'
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { TextField } from './TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Grid from '@material-ui/core/Grid'
@@ -17,20 +17,20 @@ podendo usar os recursos de ambos.
 ## Basic
 
 ```javascript
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { TextField } from '@pismo/bolt-text-field'
 ```
 
 <Playground>
-  <Provider>
+  <Bolt>
     <TextField label='name' />
-  </Provider>
+  </Bolt>
 </Playground>
 
 ## Select
 
 ```javascript
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { TextField } from '@pismo/bolt-text-field'
 import MenuItem from '@material-ui/core/MenuItem'
 ```
@@ -57,9 +57,9 @@ import MenuItem from '@material-ui/core/MenuItem'
           }
 
           return (
-                <Provider>
+                <Bolt>
                     <MyComponent />
-                </Provider>
+                </Bolt>
           )
       }
 
@@ -79,7 +79,7 @@ Para mais detalhes sobre a máscara consulte a documentação [**Inputmask**](ht
 | maskOptions | InputmaskOptions | opções da biblioteca Inputmask |
 
 ```javascript
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { TextField } from '@pismo/bolt-text-field'
 import Grid from '@material-ui/core/Grid'
 ```
@@ -134,9 +134,9 @@ import Grid from '@material-ui/core/Grid'
           }
 
           return (
-                <Provider>
+                <Bolt>
                     <MyComponent />
-                </Provider>
+                </Bolt>
           )
       }
 

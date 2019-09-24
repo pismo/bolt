@@ -3,12 +3,12 @@
 exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiExpansionPanel-root FlagPanel"
+    class="MuiPaper-root MuiPaper-elevation1 MuiExpansionPanel-root ExpansionMenu"
   >
     <div
       aria-disabled="false"
       aria-expanded="false"
-      class="MuiButtonBase-root MuiExpansionPanelSummary-root FlagPanel-summary"
+      class="MuiButtonBase-root MuiExpansionPanelSummary-root ExpansionMenu-summary"
       role="button"
       tabindex="0"
     >
@@ -19,11 +19,11 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
-            class="MuiGrid-root MuiGrid-item"
+            class="MuiBox-root MuiBox-root-145"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root"
               focusable="false"
               role="presentation"
               viewBox="0 0 496 512"
@@ -35,7 +35,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             </svg>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item"
+            class="MuiBox-root MuiBox-root-155"
           >
             <p
               class="MuiTypography-root MuiTypography-body1"
@@ -44,7 +44,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             </p>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-184"
+            class="MuiBox-root MuiBox-root-186"
           >
             <img
               src="https://www.countryflags.io/br/shiny/32.png"
@@ -64,7 +64,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root FlagPanel-expandMoreIcon"
+            class="MuiSvgIcon-root ExpansionMenu-expandMoreIcon"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -97,19 +97,19 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             >
               <li
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root FlagPanel-menuItem MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-                data-testid="Português"
+                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                 role="menuitem"
                 tabindex="-1"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  data-testid="Português"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-215"
+                      class="MuiBox-root MuiBox-root-217"
                     >
                       <img
                         src="https://www.countryflags.io/br/shiny/32.png"
@@ -132,19 +132,19 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
               </li>
               <li
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root FlagPanel-menuItem MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-                data-testid="Inglês"
+                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                 role="menuitem"
                 tabindex="-1"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  data-testid="Inglês"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-216"
+                      class="MuiBox-root MuiBox-root-218"
                     >
                       <img
                         src="https://www.countryflags.io/us/shiny/32.png"
@@ -167,19 +167,19 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
               </li>
               <li
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root FlagPanel-menuItem MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-                data-testid="Espanhol"
+                class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                 role="menuitem"
                 tabindex="-1"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  data-testid="Espanhol"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-217"
+                      class="MuiBox-root MuiBox-root-219"
                     >
                       <img
                         src="https://www.countryflags.io/es/shiny/32.png"

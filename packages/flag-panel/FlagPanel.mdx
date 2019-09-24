@@ -4,7 +4,7 @@
 
 import { useState } from 'react'
 import { Playground } from 'docz'
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { FlagPanel } from './FlagPanel'
 import { FLAG } from './flags'
 
@@ -56,7 +56,7 @@ enum FLAG =
 ### Exemplo
 
 ```javascript
-import { Provider } from '@pismo/bolt-core'
+import { Bolt } from '@pismo/bolt-core'
 import { FlagPanel, FLAG } from '@pismo/bolt-flag-panel'
 ```
 
@@ -75,14 +75,14 @@ import { FlagPanel, FLAG } from '@pismo/bolt-flag-panel'
             }
 
             return (
-                <Provider>
+                <Bolt>
                     <FlagPanel
                         title='idioma'
                         data={data}
                         value={current}
                         onChange={handleChange}
                     />
-                </Provider>
+                </Bolt>
             )
         }
     }

@@ -7,7 +7,7 @@ import {
 import 'jest-dom/extend-expect'
 import * as React from 'react'
 
-import { Provider, Context } from '../Core'
+import { Bolt, Context } from '../Core'
 import { PismoDefaultTheme } from '../themes/PismoDefaultTheme'
 import Button from '@material-ui/core/Button'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -19,11 +19,11 @@ afterEach(cleanup)
 describe('@pismo/bolt-core', () => {
   test('it should be primary color from default theme', () => {
     const { getByTestId } = render(
-      <Provider>
+      <Bolt>
         <Button data-testid='button' variant='contained' color='primary'>
           teste
         </Button>
-      </Provider>
+      </Bolt>
     )
 
     const button = getByTestId('button')
@@ -71,9 +71,9 @@ describe('@pismo/bolt-core', () => {
 
   test('it should to show currentTheme', () => {
     const { getByTestId } = render(
-      <Provider>
+      <Bolt>
         <Component />
-      </Provider>
+      </Bolt>
     )
 
     const currentTheme = getByTestId('currentTheme')
@@ -87,9 +87,9 @@ describe('@pismo/bolt-core', () => {
 
   test('it should add a new theme', () => {
     const { getByTestId } = render(
-      <Provider>
+      <Bolt>
         <Component />
-      </Provider>
+      </Bolt>
     )
 
     const button = getByTestId('addTheme')
@@ -109,9 +109,9 @@ describe('@pismo/bolt-core', () => {
 
   test('it should change the theme', () => {
     const { getByTestId } = render(
-      <Provider>
+      <Bolt>
         <Component />
-      </Provider>
+      </Bolt>
     )
 
     const add = getByTestId('addTheme')

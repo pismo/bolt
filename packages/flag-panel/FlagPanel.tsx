@@ -1,18 +1,13 @@
 import * as React from 'react'
 
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
-import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
-import MenuItem from '@material-ui/core/MenuItem'
+import Grid from '@material-ui/core/Grid'
+
+import { ExpansionMenu } from '@pismo/bolt-expansion-menu'
 
 import { FLAG } from './flags'
-
-const { useState } = React
 
 interface Data {
   flag: FLAG
@@ -45,30 +40,37 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
   value,
   onChange
 }: FlagPanelProps) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false)
-
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded)
-  }
-
-  const handleSelect = item => () => {
-    setIsExpanded(false)
+  const handleSelect = (item: Data) => {
     if (onChange) {
       onChange(item)
     }
   }
 
   return (
-    <ExpansionPanel
-      expanded={isExpanded}
-      className='FlagPanel'
-      square={true}
-      onChange={toggleExpanded}
-    >
-      <ExpansionPanelSummary
-        className='FlagPanel-summary'
-        expandIcon={<ExpandMoreIcon className='FlagPanel-expandMoreIcon' />}
-      >
+    <ExpansionMenu
+      data={data}
+      getComponent={(item: Data) => (
+        <Grid
+          container
+          spacing={2}
+          alignItems='center'
+          data-testid={item.description}
+        >
+          <Grid item>
+            <Box display='flex' alignItems='center'>
+              <img
+                src={`https://www.countryflags.io/${
+                  item.flag
+                }/${type}/${size}.png`}
+              />
+            </Box>
+          </Grid>
+          <Grid item>
+            <Typography>{item.description}</Typography>
+          </Grid>
+        </Grid>
+      )}
+      SumaryComponent={() => (
         <Grid container spacing={2}>
           <Box py='8px'>
             <GlobeIcon viewBox='0 0 496 512' />
@@ -84,33 +86,9 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
             />
           </Box>
         </Grid>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        {data.map(item => (
-          <MenuItem
-            data-testid={item.description}
-            className='FlagPanel-menuItem'
-            key={item.flag}
-            onClick={handleSelect(item)}
-          >
-            <Grid container spacing={2} alignItems='center'>
-              <Grid item>
-                <Box display='flex' alignItems='center'>
-                  <img
-                    src={`https://www.countryflags.io/${
-                      item.flag
-                    }/${type}/${size}.png`}
-                  />
-                </Box>
-              </Grid>
-              <Grid item>
-                <Typography>{item.description}</Typography>
-              </Grid>
-            </Grid>
-          </MenuItem>
-        ))}
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      )}
+      onChange={handleSelect}
+    />
   )
 }
 
