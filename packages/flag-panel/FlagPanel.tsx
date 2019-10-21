@@ -3,7 +3,6 @@ import * as React from 'react'
 import Typography from '@material-ui/core/Typography'
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
 import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
 
 import { ExpansionMenu } from '@pismo/bolt-expansion-menu'
 
@@ -50,13 +49,13 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
     <ExpansionMenu
       data={data}
       getComponent={(item: Data) => (
-        <Grid
-          container
-          spacing={2}
+        <Box         
+        display='flex'
+        width={1}
           alignItems='center'
           data-testid={item.description}
         >
-          <Grid item>
+          <Box>
             <Box display='flex' alignItems='center'>
               <img
                 src={`https://www.countryflags.io/${
@@ -64,14 +63,14 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
                 }/${type}/${size}.png`}
               />
             </Box>
-          </Grid>
-          <Grid item>
+          </Box>
+          <Box p='8px'>
             <Typography>{item.description}</Typography>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       )}
       SumaryComponent={() => (
-        <Grid container spacing={2}>
+        <Box display='flex' width={1} >
           <Box py='8px'>
             <GlobeIcon viewBox='0 0 496 512' />
           </Box>
@@ -85,7 +84,7 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
               }/${type}/${32}.png`}
             />
           </Box>
-        </Grid>
+        </Box>
       )}
       onChange={handleSelect}
     />

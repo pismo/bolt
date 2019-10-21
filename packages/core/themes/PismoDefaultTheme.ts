@@ -195,6 +195,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
             maxHeight: 'auto',
             minHeight: '0px',
             height: '53px',
+            padding: '0px 10px',
             '&:hover': {
               backgroundColor: paletteExtra.background.special,
               color: '#fff'
@@ -216,6 +217,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
       MuiMenuItem: {
         root: {
           width: '100%',
+          padding: '6px 10px',
           '&.ExpansionMenu-menuItem': {
             '&:hover': {
               backgroundColor: paletteExtra.background.special,

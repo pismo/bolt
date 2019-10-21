@@ -176,7 +176,7 @@ export const PismoDarkTheme = responsiveFontSizes(
 
       MuiExpansionPanel: {
         root: {
-          '&.FlagPanel': {
+          '&.ExpansionMenu': {
             background: paletteExtra.background.main,
             boxShadow: 'none',
             // borderBottom: `1px solid #fff`
@@ -194,10 +194,11 @@ export const PismoDarkTheme = responsiveFontSizes(
 
       MuiExpansionPanelSummary: {
         root: {
-          '&.FlagPanel-summary': {
+          '&.ExpansionMenu-summary': {
             maxHeight: 'auto',
             minHeight: '0px',
             height: '53px',
+            padding: '0px 10px',
             '&:hover': {
               backgroundColor: ColorJ(paletteExtra.background.main)
                 .lighten(0.3)
@@ -209,7 +210,7 @@ export const PismoDarkTheme = responsiveFontSizes(
 
       MuiSvgIcon: {
         root: {
-          '&.FlagPanel-expandMoreIcon': {
+          '&.ExpansionMenu-expandMoreIcon': {
             fill: '#fff'
           }
         }
@@ -225,7 +226,8 @@ export const PismoDarkTheme = responsiveFontSizes(
       MuiMenuItem: {
         root: {
           width: '100%',
-          '&.FlagPanel-menuItem': {
+          padding: '6px 10px',
+          '&.ExpansionMenu-menuItem': {
             color: '#fff',
             '&:hover': {
               backgroundColor: ColorJ(paletteExtra.background.main)
