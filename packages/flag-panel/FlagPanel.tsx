@@ -5,7 +5,6 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
 import Box from '@material-ui/core/Box'
 
 import { ExpansionMenu } from '@pismo/bolt-expansion-menu'
-
 import { FLAG } from './flags'
 
 interface Data {
@@ -49,9 +48,9 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
     <ExpansionMenu
       data={data}
       getComponent={(item: Data) => (
-        <Box         
-        display='flex'
-        width={1}
+        <Box
+          display='flex'
+          width={1}
           alignItems='center'
           data-testid={item.description}
         >
@@ -70,7 +69,7 @@ const FlagPanel: React.FC<FlagPanelProps> = ({
         </Box>
       )}
       SumaryComponent={() => (
-        <Box display='flex' width={1} >
+        <Box display='flex' width={1}>
           <Box py='8px'>
             <GlobeIcon viewBox='0 0 496 512' />
           </Box>
