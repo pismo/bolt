@@ -22,7 +22,6 @@ enum Modes {
 }
 
 const PismoIDContext = createContext(null)
-
 const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
   const [isValid, setIsValid] = useState<boolean>(false)
 
