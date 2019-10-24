@@ -5,7 +5,6 @@ import MuiTextField, {
 import * as InputMask from 'inputmask'
 
 const { useRef, useEffect } = React
-
 interface Props extends StandardTextFieldProps {
   mask?: boolean
   maskOptions?: any
