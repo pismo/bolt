@@ -15,7 +15,6 @@ const variantIcon = {
   error: ErrorIcon,
   info: InfoIcon
 }
-
 interface ContentProps {
   message?: string
   variant: keyof typeof variantIcon
