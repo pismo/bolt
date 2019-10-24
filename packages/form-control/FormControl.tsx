@@ -12,7 +12,6 @@ interface IFormControl {
   onSubmit: (values: { [key: string]: any }) => void
   children: (props: childrenArgs) => JSX.Element
 }
-
 type childrenArgs = {
   values: { [key: string]: any }
   errors: { [key: string]: any }
