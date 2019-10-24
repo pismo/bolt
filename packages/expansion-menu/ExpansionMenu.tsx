@@ -7,7 +7,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MenuItem from '@material-ui/core/MenuItem'
 
 const { useState } = React
-
 interface ExpansionMenuProps {
   data: { [key: string]: any }[]
   getComponent: (item: { [key: string]: any }) => React.ReactNode
