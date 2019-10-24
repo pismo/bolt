@@ -16,10 +16,10 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
         class="MuiExpansionPanelSummary-content"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiBox-root MuiBox-root-42"
         >
           <div
-            class="MuiBox-root MuiBox-root-145"
+            class="MuiBox-root MuiBox-root-43"
           >
             <svg
               aria-hidden="true"
@@ -35,7 +35,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             </svg>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-155"
+            class="MuiBox-root MuiBox-root-53"
           >
             <p
               class="MuiTypography-root MuiTypography-body1"
@@ -44,7 +44,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
             </p>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-186"
+            class="MuiBox-root MuiBox-root-84"
           >
             <img
               src="https://www.countryflags.io/br/shiny/32.png"
@@ -102,14 +102,14 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                 tabindex="-1"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  class="MuiBox-root MuiBox-root-115"
                   data-testid="Português"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-116"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-217"
+                      class="MuiBox-root MuiBox-root-117"
                     >
                       <img
                         src="https://www.countryflags.io/br/shiny/32.png"
@@ -117,7 +117,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-118"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1"
@@ -137,14 +137,14 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                 tabindex="-1"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  class="MuiBox-root MuiBox-root-119"
                   data-testid="Inglês"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-120"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-218"
+                      class="MuiBox-root MuiBox-root-121"
                     >
                       <img
                         src="https://www.countryflags.io/us/shiny/32.png"
@@ -152,7 +152,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-122"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1"
@@ -172,14 +172,14 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                 tabindex="-1"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center"
+                  class="MuiBox-root MuiBox-root-123"
                   data-testid="Espanhol"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-124"
                   >
                     <div
-                      class="MuiBox-root MuiBox-root-219"
+                      class="MuiBox-root MuiBox-root-125"
                     >
                       <img
                         src="https://www.countryflags.io/es/shiny/32.png"
@@ -187,7 +187,7 @@ exports[`@pismo/bolt-flag-panel it should display the components correctly 1`] =
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item"
+                    class="MuiBox-root MuiBox-root-126"
                   >
                     <p
                       class="MuiTypography-root MuiTypography-body1"
