@@ -4,6 +4,7 @@ Pismo's styleguide and design system with it's React components that compose mos
 
 ---
 [![Build Status](https://travis-ci.org/pismo/bolt.svg?branch=master)](https://travis-ci.org/pismo/bolt)
+[![Coverage Status](https://coveralls.io/repos/pismo/bolt/badge.png)](https://coveralls.io/r/pismo/bolt)
 
 This is a monorepo using [lerna](https://lernajs.io/). Each package inside `/packages` is a completely decoupled project. They are individually published to [npm](https://www.npmjs.com/org/pismo).
 
