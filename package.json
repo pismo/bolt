@@ -51,6 +51,7 @@
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
     "lerna:publish": "yarn lerna:build && lerna publish --conventional-commits",
     "lerna:publish-packages": "yarn lerna:build && lerna publish from-package --conventional-commits",
+    "lerna:publish-git": "yarn lerna:build && lerna publish from-git --conventional-commits",
     "lerna:test": "lerna run test --stream --parallel -- --colors",
     "lerna:test:watch": "lerna run test --stream --parallel -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
