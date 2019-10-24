@@ -1,0 +1,145 @@
+---
+'name': TextField
+---
+
+import { useState, useEffect, useContext } from 'react'
+import { Playground } from 'docz'
+import { Bolt } from '@pismo/bolt-core'
+import { TextField } from './TextField'
+import MenuItem from '@material-ui/core/MenuItem'
+import Grid from '@material-ui/core/Grid'
+
+# TextField
+
+O componente TextField é uma extensão do componente TextField do [Material-ui](https://material-ui.com/components/text-fields/) e do [inputmask](https://github.com/RobinHerbots/Inputmask)
+podendo usar os recursos de ambos.
+
+## Basic
+
+```javascript
+import { Bolt } from '@pismo/bolt-core'
+import { TextField } from '@pismo/bolt-text-field'
+```
+
+<Playground>
+  <Bolt>
+    <TextField label='name' />
+  </Bolt>
+</Playground>
+
+## Select
+
+```javascript
+import { Bolt } from '@pismo/bolt-core'
+import { TextField } from '@pismo/bolt-text-field'
+import MenuItem from '@material-ui/core/MenuItem'
+```
+
+<Playground>
+  {
+      () => {
+          const MyComponent = () => {
+              const [currentSelect, setCurrentSelect] = useState(0)
+
+              const handlerSelect = e => setCurrentSelect(e.target.value)
+            return (
+                <TextField
+                    label='cidade'
+                    select
+                    value={currentSelect}
+                    onChange={handlerSelect}
+                >
+                    <MenuItem value={0}>São Paulo</MenuItem>
+                    <MenuItem value={1}>Rio de Janeiro</MenuItem>
+                    <MenuItem value={2}>Curitiba</MenuItem>
+                </TextField>
+            )
+          }
+
+          return (
+                <Bolt>
+                    <MyComponent />
+                </Bolt>
+          )
+      }
+
+}
+
+</Playground>
+
+## Mask
+
+Para mais detalhes sobre a máscara consulte a documentação [**Inputmask**](https://github.com/RobinHerbots/Inputmask)
+
+### Propriedades
+
+| **prop**    | **type**         | **desc**                       |
+| ----------- | ---------------- | ------------------------------ |
+| mask        | boolean          | habilita o uso da máscara      |
+| maskOptions | InputmaskOptions | opções da biblioteca Inputmask |
+
+```javascript
+import { Bolt } from '@pismo/bolt-core'
+import { TextField } from '@pismo/bolt-text-field'
+import Grid from '@material-ui/core/Grid'
+```
+
+<Playground>
+  {
+      () => {
+          const MyComponent = () => {
+              const [values, setValues] = useState({cep: '', address: ''})
+
+              const handlerSelect = e => {
+                  setValues({
+                      ...values,
+                      [e.target.name]: e.target.value
+                  })
+              }
+
+              const getAddress = e => {
+                  const val = e.target.inputmask.unmaskedvalue()
+                  fetch(`https://viacep.com.br/ws/${val}/json`)
+                  .then(res => res.json())
+                  .then(res => {
+                      setValues({
+                      cep: val,
+                      address: res.logradouro
+                  })
+                  })
+                  .catch(err => console.log(err))
+              }
+            return (
+                <Grid container spacing={2}>
+                    <Grid item xs={4}>
+                        <TextField
+                            name='cep'
+                            label='cep'
+                            mask
+                            maskOptions={{mask: '99999-999', oncomplete: getAddress}}
+                            value={values.cep}
+                            onChange={handlerSelect}
+                        />
+                    </Grid>
+                    <Grid item xs={8}>
+                        <TextField
+                            name='address'
+                            label='endereço'
+                            value={values.address}
+                            onChange={handlerSelect}
+                        />
+                    </Grid>
+                </Grid>
+            )
+          }
+
+          return (
+                <Bolt>
+                    <MyComponent />
+                </Bolt>
+          )
+      }
+
+}
+
+</Playground>

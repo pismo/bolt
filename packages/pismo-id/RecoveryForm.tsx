@@ -1,88 +1,102 @@
-import { colors, styled } from '@pismo/bolt-core'
-import { useToast } from '@pismo/bolt-toast'
-import * as eres from 'eres'
-import { FastField as FormikField, Formik } from 'formik'
 import * as React from 'react'
-import { FormCard } from './components/FormCard'
-import { Input } from './components/Input'
-import { Link } from './components/Link'
-import { SubmitButton } from './components/SubmitButton'
-import { Title } from './components/Title'
-import { Yup } from './fns/Yup'
 
-const LinkWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-`
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import ArrowBack from '@material-ui/icons/ArrowBack'
 
-const ArrowBack = styled.span`
-  font-size: 1.25rem;
-  color: ${colors.grey800};
-`
+import { FormControl } from '@pismo/bolt-form-control'
+import { TextField } from '@pismo/bolt-text-field'
 
-const InputWrapper = styled.div`
-  margin-bottom: 4rem;
-`
+import { getTranslation } from './getTranslation'
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string().required(),
-})
+const lang = getTranslation()
 
 interface RecoveryFormProps {
   auth: any
   goToLogin(): void
   goToRecoverySuccess(email: string): void
+  setErrorMessage(message: string): void
+  setMessageOpen(val: boolean): void
 }
 
-export const RecoveryForm = (props: RecoveryFormProps) => {
-  const { toast } = useToast()
-  const { goToLogin, goToRecoverySuccess, auth } = props
+const RecoveryForm: React.FC<RecoveryFormProps> = ({
+  auth,
+  goToLogin,
+  goToRecoverySuccess,
+  setErrorMessage,
+  setMessageOpen
+}: RecoveryFormProps) => {
+  const schema: any = {
+    emailOrCPF: {
+      email: {
+        message: lang['login.invalidEmail']
+      }
+    }
+  }
+
+  const submit = async ({ emailOrCPF }) => {
+    try {
+      await auth.recoverPassword(emailOrCPF)
+    } catch (err) {
+      setErrorMessage(lang['recoveryForm.error'])
+      setMessageOpen(true)
+      return
+    }
+
+    goToRecoverySuccess(emailOrCPF)
+  }
   return (
-    <FormCard>
-      <Title>{`Esqueceu a senha? Informe seu e-mail para continuar`}</Title>
-      <Formik
-        initialValues={{
-          email: '',
-        }}
-        validationSchema={validationSchema}
-        enableReinitialize
-        onSubmit={async (values, { setSubmitting }) => {
-          setSubmitting(true)
-          const [error] = await eres(auth.recoverPassword(values.email))
-
-          if (error) {
-            setSubmitting(false)
-            toast.error('Erro: usuário não encontrado')
-            return null
-          }
-
-          setSubmitting(false)
-          return goToRecoverySuccess(values.email)
-        }}
-        render={({ handleChange, handleSubmit, isSubmitting, isValid }) => (
-          <form onSubmit={handleSubmit}>
-            <InputWrapper>
-              <FormikField
-                name={'email'}
-                placeholder={'E-mail ou CPF'}
-                flex={'0.49'}
-                component={Input}
-                disabled={isSubmitting}
-                onChange={handleChange}
-              />
-            </InputWrapper>
-            <SubmitButton type="submit" disabled={!isValid}>
-              ENVIAR
-            </SubmitButton>
-            <LinkWrapper>
-              <ArrowBack>&larr;</ArrowBack>
-              <Link onClick={goToLogin}>Lembrou?</Link>
-            </LinkWrapper>
-          </form>
-        )}
-      />
-    </FormCard>
+    <Box maxWidth='436px'>
+      <Card>
+        <CardContent>
+          <Box width={1}>
+            <Typography variant='h5'>{lang['recoveryForm.title']}</Typography>
+          </Box>
+          <FormControl
+            initialValue={{ emailOrCPF: '' }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {({ values: { emailOrCPF }, errors, handleChange }) => {
+              return (
+                <>
+                  <Box width={1} mt='50px'>
+                    <TextField
+                      placeholder={lang['recoveryForm.emailField']}
+                      name='emailOrCPF'
+                      value={emailOrCPF}
+                      onChange={handleChange}
+                      error={Boolean(errors.emailOrCPF)}
+                      helperText={errors.emailOrCPF}
+                    />
+                  </Box>
+                  <Box
+                    width={1}
+                    mt='20px'
+                    justifyContent='center'
+                    display='flex'
+                  >
+                    <Button type='submit' color='primary' variant='contained'>
+                      {lang['recoveryForm.send']}
+                    </Button>
+                  </Box>
+                  <Box width={1} mt='20px' display='flex'>
+                    <Button color='primary' onClick={goToLogin}>
+                      <ArrowBack />
+                      {lang['recoveryForm.remembered']}
+                    </Button>
+                  </Box>
+                </>
+              )
+            }}
+          </FormControl>
+        </CardContent>
+      </Card>
+    </Box>
   )
 }
+
+export { RecoveryForm }

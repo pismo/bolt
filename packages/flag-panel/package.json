@@ -1,0 +1,41 @@
+{
+  "name": "@pismo/bolt-flag-panel",
+  "version": "0.8.2",
+  "description": "Bolt component flag-panel",
+  "author": "Pismo <hello@pismo.io>",
+  "homepage": "https://github.com/pismo/bolt#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pismo/bolt/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@pismo/bolt-expansion-menu": "^0.8.2"
+  },
+  "devDependencies": {
+    "@pismo/bolt-core": "^0.8.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  }
+}

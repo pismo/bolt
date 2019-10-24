@@ -1,0 +1,57 @@
+---
+'name': ExpansionMenu
+---
+
+import { useState } from 'react'
+import { Playground } from 'docz'
+import { Bolt } from '@pismo/bolt-core'
+import {ExpansionMenu} from './ExpansionMenu'
+
+# ExpansionMenu
+
+**ExpansionMenu** fornece um Panel list com ferramentas para mostrar um menu de com efeito de abrir e fechar
+
+### Propriedades
+
+| **prop** | **type**                                            |      **required**       | **desc**                                                                                                             |
+| -------- | --------------------------------------------------- | :---------------------: | -------------------------------------------------------------------------------------------------------------------- |
+| data     | {[key: string]: any}[]                              |          true           | array de objetos que formará o menu                                                                                  |
+| getComponent | (item: {[key: string]: any}) => React.ReactNode |          true           | método que constroi o componente unitário da lista - item é um objeto unitário do data                               |
+| SumaryComponent | () => React.ReactNode                        |          true           | Componente que formará o sumário                                                                                                 |
+| onChange | (value: {[key: string]: any} ) => void              |          false          | método que recebe o valor selecionado                                                                                |
+
+### Exemplo
+
+```javascript
+import { Bolt } from '@pismo/bolt-core'
+import { ExpansionMenu, FLAG } from '@pismo/bolt-flag-panel'
+```
+
+<Playground>
+    {
+        () => {
+            const data = [
+                {description: 'Português'},
+                {description: 'Inglês'},
+                {description: 'Espanhol'}
+            ]
+            const [current, setCurrent] = useState(data[0])
+
+            const handleChange = (value) => {
+                setCurrent(value)
+            }
+
+            return (
+                <Bolt>
+                    <ExpansionMenu
+                        data={data}
+                        getComponent={(item) => <div>{item.description}</div>}
+                        SumaryComponent={() => <div>Languages => {current.description}</div>}
+                        onChange={handleChange}
+                    />
+                </Bolt>
+            )
+        }
+    }
+
+</Playground>

@@ -1,1 +1,0 @@
-export { Uploader } from './Uploader'

@@ -1,5 +1,3 @@
-# Bolt core
+# Core
 
-Package that contains theme, styled configured to be used in projects and components.
-
-Please check the usage on Bolt README
+Please check the documentation of Core component at [bolt-core](https://bolt.pismolabs.io/packages-core-components-core)

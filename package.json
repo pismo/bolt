@@ -4,49 +4,37 @@
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@storybook/addon-actions": "^5.0.8",
-    "@storybook/addon-info": "^5.0.8",
-    "@storybook/addon-knobs": "^5.0.8",
-    "@storybook/addon-links": "^5.0.8",
-    "@storybook/addon-viewport": "^5.0.8",
-    "@storybook/addons": "^5.0.8",
-    "@storybook/react": "^5.0.8",
-    "@storybook/theming": "^5.0.8",
+    "@testing-library/react": "^8.0.4",
     "@types/jest": "^24.0.11",
-    "@types/storybook__react": "^4.0.1",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.5",
-    "concurrently": "4.1.0",
+    "concurrently": "^4.1.0",
     "coveralls": "^3.0.3",
-    "eres": "^1.0.1",
-    "formik": "^1.5.2",
-    "husky": "1.3.1",
-    "jest": "24.7.1",
-    "lerna": "3.13.2",
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0",
+    "husky": "^1.3.1",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.5.0",
+    "lerna": "^3.15.0",
     "lerna-update-wizard": "^0.13.0",
     "lint-staged": "^8.1.5",
-    "prettier": "1.17.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-docgen-typescript-loader": "^3.1.0",
-    "react-dom": "^16.8.6",
-    "ts-jest": "24.0.2",
-    "tslint": "5.15.0",
-    "tslint-react": "4.0.0",
-    "typescript": "3.4.3",
-    "webpack": "^4.30.0",
-    "yup": "^0.27.0"
+    "prettier-standard": "^9.1.1",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.15.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.4.3"
   },
   "workspaces": [
     "packages/*"
   ],
   "lint-staged": {
-    "*.{js,json,tsx,ts}": [
-      "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
+    "**/*.{js,json}": [
+      "prettier-standard",
       "git add"
     ],
-    "*.{tsx,ts},!*.d.ts": [
+    "**/*.{tsx,ts}": [
+      "prettier-standard --parser typescript",
+      "git add"
+    ],
+    "**/*.{tsx,ts},!*.d.ts": [
       "tslint --fix",
       "git add"
     ]
@@ -57,7 +45,7 @@
     }
   },
   "scripts": {
-    "lerna:dev": "concurrently \"yarn lerna:build:watch\"  \"yarn storybook\"",
+    "lerna:dev": "concurrently \"yarn lerna:build:watch\"",
     "lerna:build": "lerna run build --stream --parallel",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
@@ -69,7 +57,11 @@
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o docs"
+    "format:js": "prettier-standard '**/*.{json,js}'",
+    "format:mdx": "prettier-standard '**/*.mdx' --parser mdx",
+    "format:ts": "prettier-standard '**/*.{tsx,ts}' --parser typescript",
+    "format": "yarn format:js && yarn format:ts && yarn format:mdx",
+    "docs:dev": "docz dev",
+    "docs:build": "docz build"
   }
 }

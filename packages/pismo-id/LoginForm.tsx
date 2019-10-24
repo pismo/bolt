@@ -1,126 +1,209 @@
-import { Checkbox } from '@pismo/bolt-checkbox'
-import { styled } from '@pismo/bolt-core'
-import { useToast } from '@pismo/bolt-toast'
-import * as eres from 'eres'
-import { FastField as FormikField, Formik } from 'formik'
 import * as React from 'react'
-import { FormCard } from './components/FormCard'
-import { Input } from './components/Input'
-import { Link } from './components/Link'
-import { SubmitButton } from './components/SubmitButton'
-import { Title } from './components/Title'
-import { Yup } from './fns/Yup'
 
-const LinkWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`
-const InputWrapper = styled.div`
-  margin-bottom: 4rem;
-  @media (min-width: 481px) and (max-width: 767px) {
-    margin-bottom: 0;
-  }
-`
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Switch from '@material-ui/core/Switch'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import IconButton from '@material-ui/core/IconButton'
 
-const validationSchema = Yup.object().shape({
-  emailOrCPF: Yup.string().required(),
-  password: Yup.string().required(),
-  rememberMe: Yup.boolean(),
-})
+import { FormControl } from '@pismo/bolt-form-control'
+import { TextField } from '@pismo/bolt-text-field'
+
+import { getTranslation } from './getTranslation'
+
+const { useState, useEffect } = React
+
+const lang = getTranslation()
 
 interface LoginFormProps {
   auth: any
-  tokenRefresher: any
-  goToRecovery(): void
+  tokenRefresh: any
+  setTokenRefresh(refresher: any): void
   setIsValid(valid: boolean): void
-  setTokenRefresher(refresher: any): void
+  setErrorMessage(message: string): void
+  setMessageOpen(val: boolean): void
+  goToRecovery(): void
 }
 
-export const LoginForm = (props: LoginFormProps) => {
-  const [rememberMeState, setRememberMe] = React.useState<boolean>(false)
-  const [identificationState, setIdentification] = React.useState<string>('')
+const LoginForm: React.FC<LoginFormProps> = ({
+  auth,
+  tokenRefresh,
+  setTokenRefresh,
+  setIsValid,
+  setErrorMessage,
+  setMessageOpen,
+  goToRecovery
+}: LoginFormProps) => {
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [rememberMe, setRememberMe] = useState<boolean>(false)
+  const [identificationState, setIdentification] = useState<string>('')
 
-  const { toast } = useToast()
+  const schema: any = {
+    emailOrCPF: {
+      email: {
+        message: lang['login.invalidEmail']
+      }
+    },
+    password: {
+      length: {
+        minimum: 6,
+        message: lang['login.minimumChar']
+      }
+    }
+  }
 
-  const { goToRecovery, setIsValid, setTokenRefresher, auth, tokenRefresher } = props
-
-  React.useEffect(() => {
-    auth.getPreferences().then(({ identification = '', rememberMe = false }) => {
-      setIdentification(identification)
-      setRememberMe(rememberMe)
-    })
+  useEffect(() => {
+    auth
+      .getPreferences()
+      .then(({ identification = '', rememberMe = false }) => {
+        setIdentification(identification)
+        setRememberMe(rememberMe)
+      })
   }, [])
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const toggleRememberMe = handleChange => (
+    e: React.ChangeEvent<HTMLInputElement>,
+    val: boolean
+  ) => {
+    setRememberMe(val)
+    ;(e.target as any).value = val
+    handleChange(e)
+  }
+
+  const submit = async ({ emailOrCPF, password, remember: rememberMe }) => {
+    let result
+
+    try {
+      await auth.login({ emailOrCPF, password, rememberMe })
+    } catch (err) {
+      console.log(err)
+      setErrorMessage(lang['login.error.invalidUser'])
+      setMessageOpen(true)
+      return auth.resetSession()
+    }
+
+    try {
+      console.log(tokenRefresh)
+      result = await auth.onUpdateProxy(tokenRefresh)
+
+      console.log(result)
+    } catch (err) {
+      console.log(err)
+      setErrorMessage(lang['login.error.server'])
+      setMessageOpen(true)
+      return auth.resetSession()
+    }
+
+    setTokenRefresh(result)
+    return setIsValid(true)
+  }
+
   return (
-    <FormCard>
-      <Title>Olá informe seus dados para continuar</Title>
-      <Formik
-        initialValues={{
-          emailOrCPF: identificationState,
-          password: '',
-          rememberMe: rememberMeState,
-        }}
-        validationSchema={validationSchema}
-        enableReinitialize
-        onSubmit={async (values, { setSubmitting }) => {
-          setSubmitting(true)
-          const [error] = await eres(auth.login(values))
-
-          if (error) {
-            setSubmitting(false)
-            toast.error('Erro: usuário ou senha ínvalidos')
-            return auth.resetSession()
-          }
-
-          const [errorUpdate, result] = await eres(auth.onUpdateProxy(tokenRefresher))
-
-          if (errorUpdate) {
-            setSubmitting(false)
-            toast.error('Erro: algo inesperado ocorreu, por favor tente novamente')
-            return auth.resetSession()
-          }
-
-          setSubmitting(false)
-          setTokenRefresher(result)
-          return setIsValid(true)
-        }}
-        render={({ values, handleSubmit, setFieldValue, isSubmitting, isValid }) => {
-          const setCheckboxValue = (name: string) => evt => setFieldValue(name, evt.target.checked)
-
-          return (
-            <form onSubmit={handleSubmit}>
-              <InputWrapper>
-                <FormikField
-                  name={'emailOrCPF'}
-                  placeholder={'E-mail'}
-                  flex={'0.49'}
-                  component={Input}
-                  disabled={isSubmitting}
-                />
-                <FormikField
-                  name={'password'}
-                  placeholder={'Senha'}
-                  flex={'0.49'}
-                  component={Input}
-                  disabled={isSubmitting}
-                  type={'password'}
-                />
-              </InputWrapper>
-              <SubmitButton type="submit" disabled={!isValid}>
-                ENTRAR
-              </SubmitButton>
-              <LinkWrapper>
-                <Checkbox name={'rememberMe'} onChange={setCheckboxValue('rememberMe')} checked={values.rememberMe}>
-                  Lembrar
-                </Checkbox>
-                <Link onClick={goToRecovery}>Esqueceu a senha?</Link>
-              </LinkWrapper>
-            </form>
-          )
-        }}
-      />
-    </FormCard>
+    <Box maxWidth='436px'>
+      <Card>
+        <CardContent>
+          <Box width={1}>
+            <Typography variant='h5'>{lang['login.title']}</Typography>
+          </Box>
+          <FormControl
+            initialValue={{
+              emailOrCPF: identificationState,
+              password: '',
+              remember: rememberMe
+            }}
+            validationSchema={schema}
+            onSubmit={submit}
+          >
+            {({
+              values: { emailOrCPF, password, remember },
+              errors,
+              handleChange
+            }) => {
+              return (
+                <>
+                  <Box width={1} mt='50px'>
+                    <TextField
+                      placeholder={lang['login.emailField']}
+                      name='emailOrCPF'
+                      value={emailOrCPF}
+                      onChange={handleChange}
+                      error={Boolean(errors.emailOrCPF)}
+                      helperText={errors.emailOrCPF}
+                    />
+                  </Box>
+                  <Box width={1} mt='20px'>
+                    <TextField
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder={lang['login.passwordField']}
+                      name='password'
+                      value={password}
+                      onChange={handleChange}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position='end'>
+                            <IconButton onClick={toggleShowPassword}>
+                              {showPassword ? (
+                                <Visibility />
+                              ) : (
+                                <VisibilityOff />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
+                      error={Boolean(errors.password)}
+                      helperText={errors.password}
+                    />
+                  </Box>
+                  <Box
+                    width={1}
+                    mt='20px'
+                    justifyContent='center'
+                    display='flex'
+                  >
+                    <Button type='submit' color='primary' variant='contained'>
+                      {lang['login.submit']}
+                    </Button>
+                  </Box>
+                  <Box width={1} mt='20px' display='flex'>
+                    <Box display='flex' width={1 / 2}>
+                      <FormControlLabel
+                        control={
+                          <Switch
+                            checked={rememberMe}
+                            name='remember'
+                            color='primary'
+                            value={remember}
+                            onChange={toggleRememberMe(handleChange)}
+                          />
+                        }
+                        label={lang['login.remember']}
+                      />
+                    </Box>
+                    <Box display='flex' width={1 / 2} justifyContent='flex-end'>
+                      <Button color='primary' onClick={goToRecovery}>
+                        {lang['login.forgot']}
+                      </Button>
+                    </Box>
+                  </Box>
+                </>
+              )
+            }}
+          </FormControl>
+        </CardContent>
+      </Card>
+    </Box>
   )
 }
+
+export { LoginForm }

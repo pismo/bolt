@@ -1,96 +1,79 @@
-import { colors, styled } from '@pismo/bolt-core'
-import { Loader } from '@pismo/bolt-loader'
-import { ToastProvider } from '@pismo/bolt-toast'
 import * as React from 'react'
-import { Modes } from './constants/Modes'
+import Box from '@material-ui/core/Box'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
+import { Snackbar } from '@pismo/bolt-snackbar'
 import { LoginForm } from './LoginForm'
 import { RecoveryForm } from './RecoveryForm'
 import { RecoverySuccess } from './RecoverySuccess'
+import { Context } from '@pismo/bolt-core'
 
-const Wrapper = styled.div`
-  height: 100vh;
-  color: ${colors.grey800}´;
-  background-color: rgba(0, 0, 0, 0.7);
-  font-family: Helvetica, Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.15s ease-in-out;
-  overflow: hidden;
-`
-
-const LoaderWrapper = styled.div`
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  color: ${colors.grey800};
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+const { useState, useEffect, createContext, useContext } = React
 
 interface PismoIDProps {
   children: React.ReactNode
   auth: any
 }
 
-const PismoIDContext = React.createContext(null)
+enum Modes {
+  LOGIN,
+  RECOVERY,
+  RECOVERY_SUCCESS
+}
 
-export const PismoID = (props: PismoIDProps) => {
-  const { children, auth } = props
+const PismoIDContext = createContext(null)
+const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
+  const [isValid, setIsValid] = useState<boolean>(false)
 
-  const [isValid, setIsValid] = React.useState<boolean>(false)
-  const [loading, setLoading] = React.useState<boolean>(true)
-  const [mode, setMode] = React.useState<Modes>(Modes.LOGIN)
-  const [email, setEmail] = React.useState<string>('')
-  const [tokenRefresher, setTokenRefresher] = React.useState<any>(null)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [mode, setMode] = useState<Modes>(Modes.LOGIN)
 
-  const setValid = valid => setIsValid(valid)
+  const [variant] = useState<'info' | 'warning' | 'error' | 'success'>('error')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [messageOpen, setMessageOpen] = useState<boolean>(false)
 
-  React.useEffect(() => {
-    auth
-      .ensure()
-      .then(data => {
-        auth
-          .setSession(data)
-          .then(() => {
-            setLoading(false)
-            setIsValid(true)
-            return auth.onUpdateProxy(tokenRefresher)
-          })
-          .catch(() => {
-            setLoading(false)
-            setIsValid(false)
-            return auth.resetSession()
-          })
-      })
-      .catch(() => {
-        setLoading(false)
-        setIsValid(false)
-      })
+  const [tokenRefresher, setTokenRefresher] = useState<any>(null)
+
+  const { getPalette } = useContext(Context)
+
+  useEffect(() => {
+    initializeAuth()
+
     return () => {
       if (tokenRefresher) {
         tokenRefresher.stop()
       }
     }
-  }, [isValid])
+  }, [])
 
-  if (loading) {
-    return (
-      <LoaderWrapper>
-        <Loader color={'#FFF'} />
-      </LoaderWrapper>
-    )
+  const initializeAuth = async () => {
+    try {
+      const data = await auth.ensure()
+
+      await auth.setSession(data)
+
+      setLoading(false)
+      setIsValid(true)
+
+      return auth.onUpdateProxy(tokenRefresher)
+    } catch (err) {
+      setLoading(false)
+      setIsValid(false)
+
+      return auth.resetSession()
+    }
   }
 
-  if (isValid) {
-    return (
-      <PismoIDContext.Provider value={{ setIsLoggedIn: setValid, isLoggedIn: isValid }}>
-        {children}
-      </PismoIDContext.Provider>
-    )
+  const closeMessage = () => {
+    setMessageOpen(false)
+  }
+
+  const goToRecovery = () => setMode(Modes.RECOVERY)
+
+  const goToRecoverySuccess = (userEmail: string) => {
+    setEmail(userEmail)
+    setMode(Modes.RECOVERY_SUCCESS)
   }
 
   const goToLogin = () => {
@@ -98,32 +81,74 @@ export const PismoID = (props: PismoIDProps) => {
     return setMode(Modes.LOGIN)
   }
 
+  if (loading) {
+    return (
+      <Box
+        width={1}
+        height='100%'
+        bgcolor={getPalette().background.special}
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+      >
+        <CircularProgress color='primary' />
+      </Box>
+    )
+  }
+
+  if (isValid) {
+    return (
+      <PismoIDContext.Provider
+        value={{ setIsLoggedIn: setIsValid, isLoggedIn: isValid }}
+      >
+        {children}
+      </PismoIDContext.Provider>
+    )
+  }
+
   return (
-    <ToastProvider>
-      <Wrapper>
+    <React.Fragment>
+      <Box
+        width={1}
+        height='100%'
+        bgcolor={getPalette().background.special}
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+      >
         {mode === Modes.LOGIN && (
           <LoginForm
-            setIsValid={setIsValid}
-            setTokenRefresher={setTokenRefresher}
-            tokenRefresher={tokenRefresher}
             auth={auth}
-            goToRecovery={() => setMode(Modes.RECOVERY)}
+            tokenRefresh={tokenRefresher}
+            setTokenRefresh={setTokenRefresher}
+            setIsValid={setIsValid}
+            setErrorMessage={setErrorMessage}
+            setMessageOpen={setMessageOpen}
+            goToRecovery={goToRecovery}
           />
         )}
         {mode === Modes.RECOVERY && (
           <RecoveryForm
             auth={auth}
-            goToRecoverySuccess={userEmail => {
-              setEmail(userEmail)
-              return setMode(Modes.RECOVERY_SUCCESS)
-            }}
+            goToRecoverySuccess={goToRecoverySuccess}
             goToLogin={goToLogin}
+            setErrorMessage={setErrorMessage}
+            setMessageOpen={setMessageOpen}
           />
         )}
-        {mode === Modes.RECOVERY_SUCCESS && <RecoverySuccess email={email} goToLogin={goToLogin} />}
-      </Wrapper>
-    </ToastProvider>
+        {mode === Modes.RECOVERY_SUCCESS && (
+          <RecoverySuccess email={email} goToLogin={goToLogin} />
+        )}
+      </Box>
+      <Snackbar
+        open={messageOpen}
+        variant={variant}
+        message={errorMessage}
+        onClose={closeMessage}
+      />
+    </React.Fragment>
   )
 }
 
-export const usePismoID = () => React.useContext(PismoIDContext)
+export const usePismoID = () => useContext(PismoIDContext)
+export { PismoID }

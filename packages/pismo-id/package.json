@@ -14,7 +14,7 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "repository": {
     "type": "git",
@@ -23,34 +23,20 @@
   "bugs": {
     "url": "https://github.com/pismo/bolt/issues"
   },
-  "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@types/react": "^16.8.13",
-    "@types/react-dom": "^16.8.4",
-    "jest": "^24.7.1",
-    "jest-dom": "^3.1.3",
-    "react-testing-library": "6.1.2",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.15.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.4.3"
+  "peerDependencies": {
+    "@types/react": "^16.8.23",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@brazilian-utils/is-valid-cnpj": "^0.1.11",
-    "@brazilian-utils/is-valid-cpf": "^0.1.11",
-    "@pismo/bolt-core": "^0.8.2"
-  },
-  "peerDependencies": {
-    "eres": "^1.0.1",
-    "formik": "^1.5.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "yup": "^0.27.0"
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.2.1",
+    "@pismo/bolt-core": "^0.8.2",
+    "@pismo/bolt-form-control": "^0.8.2",
+    "@pismo/bolt-text-field": "^0.8.2",
+    "@pismo/bolt-snackbar": "^0.8.2"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "jest"
-  },
-  "gitHead": "b23bc5e43ea2d7c1c64961fc20767940665a2581"
+    "build": "tsc"
+  }
 }

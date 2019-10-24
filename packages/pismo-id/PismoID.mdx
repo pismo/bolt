@@ -1,20 +1,21 @@
 ---
-name: PismoID
-menu: Utilities
+'name': PismoID
 ---
 
-import { Playground, PropsTable } from 'docz'
-import { PismoID } from './PismoID'
-
-# PismoID
-
-## Basic usage
-
+```
 <Playground>
-  <PismoID>My PismoID</PismoID>
+  {() => {
+    const AppAuth = Auth({
+      baseURL: 'URL',
+      onUpdate: (...args) => console.log(args)
+    })
+    return (
+      <Bolt>
+        <PismoID auth={AppAuth}>
+          <div>LOGADO!!!</div>
+        </PismoID>
+      </Bolt>
+    )
+  }}
 </Playground>
-
-## PropsTable
-
-<PropsTable of={PismoID} />
-´
+```
