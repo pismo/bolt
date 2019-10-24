@@ -11,7 +11,6 @@ import {
 } from './themes'
 
 const WebFont = require('webfontloader')
-
 const { useContext, useReducer, useState, useEffect } = React
 
 WebFont.load({
@@ -89,7 +88,10 @@ export function Bolt ({ children }) {
         getPalette
       }}
     >
-      <ThemeProvider theme={theme}><CssBaseline />{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
     </Context.Provider>
   )
 }
