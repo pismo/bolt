@@ -28,13 +28,13 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "latest",
+    "react-dom": "latest"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "@material-ui/styles": "^4.5.0",
-    "@material-ui/system": "^4.3.0",
+    "@material-ui/core": "latest",
+    "@material-ui/styles": "latest",
+    "@material-ui/system": "latest",
     "@types/color": "^3.0.0",
     "color": "^3.1.2",
     "deepmerge": "^3.3.0",

@@ -28,11 +28,11 @@
     "@pismo/bolt-text-field": "^1.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "latest",
+    "react-dom": "latest"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
+    "@material-ui/core": "latest",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",

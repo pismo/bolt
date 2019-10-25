@@ -27,12 +27,12 @@
     "@pismo/bolt-core": "^1.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "latest",
+    "react-dom": "latest"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "@material-ui/icons": "^4.2.1"
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest"
   },
   "scripts": {
     "build": "tsc",

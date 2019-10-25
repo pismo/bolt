@@ -24,13 +24,13 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "peerDependencies": {
-    "@types/react": "^16.8.23",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "@types/react": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "@material-ui/icons": "^4.2.1",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
     "@pismo/bolt-core": "^1.0.0",
     "@pismo/bolt-form-control": "^1.0.0",
     "@pismo/bolt-snackbar": "^1.0.0",
