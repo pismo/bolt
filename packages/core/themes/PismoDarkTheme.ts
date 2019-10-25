@@ -178,7 +178,7 @@ export const PismoDarkTheme = responsiveFontSizes(
         root: {
           '&.ExpansionMenu': {
             background: paletteExtra.background.main,
-            boxShadow: 'none',
+            boxShadow: 'none'
             // borderBottom: `1px solid #fff`
           },
 
@@ -242,8 +242,8 @@ export const PismoDarkTheme = responsiveFontSizes(
         button: {
           '&:hover': {
             backgroundColor: ColorJ(paletteExtra.background.main)
-                .lighten(0.3)
-                .hex(),
+              .lighten(0.3)
+              .hex(),
             color: '#fff'
           }
         }
