@@ -11,7 +11,7 @@ export const paletteExtra = {
   },
   textField: {
     defaultColor: '#3B4756',
-    backgroundColor: 'rgba(236, 238, 242, 0.5)'
+    backgroundColor: '#ECEEF2'
   },
   error: {
     main: '#ff0000'
@@ -50,6 +50,9 @@ export const PismoDefaultTheme = responsiveFontSizes(
       },
       error: {
         main: paletteExtra.error.main
+      },
+      background: {
+        default: paletteExtra.textField.backgroundColor
       }
     },
     overrides: {
@@ -111,6 +114,7 @@ export const PismoDefaultTheme = responsiveFontSizes(
           },
 
           '&$focused': {
+            backgroundColor: '#fff',
             borderBottom: 'none'
           },
 
