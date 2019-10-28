@@ -5,7 +5,7 @@
 import { useState } from 'react'
 import { Playground } from 'docz'
 import { Bolt } from '@pismo/bolt-core'
-import {ExpansionMenu} from './ExpansionMenu'
+import { ExpansionMenu } from './ExpansionMenu'
 
 # ExpansionMenu
 
@@ -13,12 +13,12 @@ import {ExpansionMenu} from './ExpansionMenu'
 
 ### Propriedades
 
-| **prop** | **type**                                            |      **required**       | **desc**                                                                                                             |
-| -------- | --------------------------------------------------- | :---------------------: | -------------------------------------------------------------------------------------------------------------------- |
-| data     | {[key: string]: any}[]                              |          true           | array de objetos que formará o menu                                                                                  |
-| getComponent | (item: {[key: string]: any}) => React.ReactNode |          true           | método que constroi o componente unitário da lista - item é um objeto unitário do data                               |
-| SumaryComponent | () => React.ReactNode                        |          true           | Componente que formará o sumário                                                                                                 |
-| onChange | (value: {[key: string]: any} ) => void              |          false          | método que recebe o valor selecionado                                                                                |
+| **prop**        | **type**                                        | **required** | **desc**                                                                               |
+| --------------- | ----------------------------------------------- | :----------: | -------------------------------------------------------------------------------------- |
+| data            | {[key: string]: any}[]                          |     true     | array de objetos que formará o menu                                                    |
+| getComponent    | (item: {[key: string]: any}) => React.ReactNode |     true     | método que constroi o componente unitário da lista - item é um objeto unitário do data |
+| SumaryComponent | () => React.ReactNode                           |     true     | Componente que formará o sumário                                                       |
+| onChange        | (value: {[key: string]: any} ) => void          |    false     | método que recebe o valor selecionado                                                  |
 
 ### Exemplo
 

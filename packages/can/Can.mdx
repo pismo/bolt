@@ -2,9 +2,9 @@
 'name': Can
 ---
 
-import {Fragment} from 'react'
+import { Fragment } from 'react'
 import { Playground } from 'docz'
-import {Can, StaticCan} from './Can'
+import { Can, StaticCan } from './Can'
 
 # Can
 
@@ -12,7 +12,7 @@ O componente **Can** fornece uma forma para validar permisões do usuário. Pode
 
 ## StaticCan
 
-**StaticCan** é um utilitario que possui a variável *ROLES* estática.
+**StaticCan** é um utilitario que possui a variável _ROLES_ estática.
 Pode ser usada para definir as permissões globais da aplicação, os componentes Can utilizam essa variável por padrão
 
 ```
@@ -27,36 +27,44 @@ O componente **Can** pode ser usado para exibir (ou não) um outro componente de
 
 ### Propriedades
 
-| **prop** | **type**                                         | **required** | **desc**                                              |
-| -------- | ------------------------------------------------ | :----------: | ----------------------------------------------------- |
-| userRoles | string[]                                        |     true     | são as permissões do usuário, normalmente obtidas através de um login   |
-| children  | React.RactNode                                  |     true     | os componentes que serão exibidos caso as permissões sejam válidas      |
-| roles     | string[] = StaticCan.ROLES                      |     false    | as permissões necessárias para a validação atual, por default utiliza a variável estática *StaticCan.ROLES*  |
-| fallback  | () => React.ReactNode | React.FC | null         |    false     | componente que será exibido caso as permissões não sejam válidas |
+| **prop**  | **type**                   | **required** | **desc**                                                                                                    |
+| --------- | -------------------------- | :----------: | ----------------------------------------------------------------------------------------------------------- |
+| userRoles | string[]                   |     true     | são as permissões do usuário, normalmente obtidas através de um login                                       |
+| children  | React.RactNode             |     true     | os componentes que serão exibidos caso as permissões sejam válidas                                          |
+| roles     | string[] = StaticCan.ROLES |    false     | as permissões necessárias para a validação atual, por default utiliza a variável estática _StaticCan.ROLES_ |
+| fallback  | () => React.ReactNode      |   React.FC   | null                                                                                                        | false | componente que será exibido caso as permissões não sejam válidas |
 
 ```
 import { StaticCan, Can } from '@pismo/bolt-can'
 ```
 
 <Playground>
-    {
-        () => {
-            StaticCan.ROLES = ["batata", "cenoura"]
-            return (
-                <Fragment>
-                    <Can userRoles={["batata"]} fallback={() => <div>não tenho permissão</div>}>
-                        tenho permissão => batata
-                    </Can>
-                    <Can userRoles={["tomate"]} fallback={() => <div>não tenho permissão => tomate</div>}>
-                        tenho permissão => batata
-                    </Can>
-                    <Can userRoles={["banana"]} roles={["banana", "maçã"]} fallback={() => <div>não tenho permissão</div>}>
-                        tenho permissão => banana
-                    </Can>
-                </Fragment>
-            )
-        }
-    }
+  {() => {
+    StaticCan.ROLES = ['batata', 'cenoura']
+    return (
+      <Fragment>
+        <Can
+          userRoles={['batata']}
+          fallback={() => <div>não tenho permissão</div>}
+        >
+          tenho permissão => batata
+        </Can>
+        <Can
+          userRoles={['tomate']}
+          fallback={() => <div>não tenho permissão => tomate</div>}
+        >
+          tenho permissão => batata
+        </Can>
+        <Can
+          userRoles={['banana']}
+          roles={['banana', 'maçã']}
+          fallback={() => <div>não tenho permissão</div>}
+        >
+          tenho permissão => banana
+        </Can>
+      </Fragment>
+    )
+  }}
 </Playground>
 
 ## toCan
@@ -65,10 +73,10 @@ Método que pode ser utilizado para validar permissões, retorna verdadeiro caso
 
 ### Propriedades
 
-| **prop** | **type**                                         | **required** | **desc**                                              |
-| -------- | ------------------------------------------------ | :----------: | ----------------------------------------------------- |
-| userRoles | string[]                                        |     true     | são as permissões do usuário, normalmente obtidas através de um login   |
-| roles     | string[] = StaticCan.ROLES                      |     false    | as permissões necessárias para a validação atual, por default utiliza a variável estática *StaticCan.ROLES*  |
+| **prop**  | **type**                   | **required** | **desc**                                                                                                    |
+| --------- | -------------------------- | :----------: | ----------------------------------------------------------------------------------------------------------- |
+| userRoles | string[]                   |     true     | são as permissões do usuário, normalmente obtidas através de um login                                       |
+| roles     | string[] = StaticCan.ROLES |    false     | as permissões necessárias para a validação atual, por default utiliza a variável estática _StaticCan.ROLES_ |
 
 ```
 import { StaticCan, toCan } from '@pismo/bolt-can'
