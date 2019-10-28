@@ -38,6 +38,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "publish": "npm publish"
+    "manual-publish": "npm publish"
   }
 }

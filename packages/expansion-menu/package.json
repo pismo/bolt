@@ -36,6 +36,6 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "publish": "npm publish"
+    "manual-publish": "npm publish"
   }
 }

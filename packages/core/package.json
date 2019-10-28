@@ -26,8 +26,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "publish": "npm publish"
-  },
+    "manual-publish": "npm publish"  },
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
