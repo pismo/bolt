@@ -25,7 +25,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm publish"
   },
   "peerDependencies": {
     "react": "^16.8.6",
