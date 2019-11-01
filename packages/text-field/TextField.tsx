@@ -8,9 +8,7 @@ const { useRef, useEffect } = React
 interface Props extends StandardTextFieldProps {
   mask?: boolean
   maskOptions?: any
-  onChange?: (event: {
-    target: { value: string; name?: string; id?: string }
-  }) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function TextField (props: Props) {
@@ -27,13 +25,11 @@ function TextField (props: Props) {
     }
   }, [inputRef.current])
 
-  const changeValue = e => {
+  const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
       if (props.mask) {
-        let val: string = e.target.inputmask.unmaskedvalue()
-        props.onChange({
-          target: { value: val, name: e.target.name, id: e.target.id }
-        })
+        let val: string = e.target['inputmask'].unmaskedvalue()
+        props.onChange({ ...e, target: { ...e.target, value: val } })
       } else {
         props.onChange(e)
       }
