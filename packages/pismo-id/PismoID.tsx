@@ -6,7 +6,6 @@ import { Snackbar } from '@pismo/bolt-snackbar'
 import { LoginForm } from './LoginForm'
 import { RecoveryForm } from './RecoveryForm'
 import { RecoverySuccess } from './RecoverySuccess'
-import { Context } from '@pismo/bolt-core'
 
 const { useState, useEffect, createContext, useContext } = React
 
@@ -34,8 +33,6 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
   const [messageOpen, setMessageOpen] = useState<boolean>(false)
 
   const [tokenRefresher, setTokenRefresher] = useState<any>(null)
-
-  const { getPalette } = useContext(Context)
 
   useEffect(() => {
     initializeAuth()
@@ -86,7 +83,7 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
       <Box
         width={1}
         height='100%'
-        bgcolor={getPalette().background.special}
+        bgcolor='#231d22'
         display='flex'
         justifyContent='center'
         alignItems='center'
@@ -111,7 +108,7 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
       <Box
         width={1}
         height='100%'
-        bgcolor={getPalette().background.special}
+        bgcolor='#231d22'
         display='flex'
         justifyContent='center'
         alignItems='center'
