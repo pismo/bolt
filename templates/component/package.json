@@ -28,10 +28,11 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@material-ui/core": "^4.1.3"
+    "@material-ui/core": "^4.5.0"
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "manual-publish": "npm publish"
   }
 }
