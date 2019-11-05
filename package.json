@@ -1,6 +1,6 @@
 {
   "name": "bolt",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
@@ -50,12 +50,10 @@
     "lerna:build": "lerna run build --stream --parallel",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
-    "lerna:manual-publish": "npm run manual-publish",
-    "lerna:publish": "yarn lerna:build && lerna version && yarn run version && npm run publish",
+    "lerna:publish": "yarn lerna:build && lerna version && yarn run version && lerna publish --conventional-commits",
     "lerna:publish-packages": "yarn lerna:build && lerna publish from-package --conventional-commits",
     "lerna:publish-git": "yarn lerna:build && lerna publish from-git --conventional-commits",
     "manual-publish": "lerna run manual-publish --stream --parallel -- --colors",
-    "publish": "lerna publish --conventional-commits",
     "lerna:test": "lerna run test --stream --parallel -- --colors",
     "lerna:test:watch": "lerna run test --stream --parallel -- --watch --colors",
     "lerna:test:cov": "lerna run test --stream -- --no-cache --coverage --colors",
