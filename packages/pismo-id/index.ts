@@ -1,1 +1,1 @@
-export { PismoID } from './PismoID'
+export * from './PismoID'
