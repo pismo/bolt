@@ -1,5 +1,9 @@
 import * as React from 'react'
-import { createMuiTheme, Theme } from '@material-ui/core/styles'
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  Theme
+} from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
@@ -21,17 +25,31 @@ WebFont.load({
 
 const mixin = require('deepmerge')
 
-const voidTheme: Theme = createMuiTheme()
+const voidTheme: Theme = responsiveFontSizes(createMuiTheme())
+const _defaultTheme: Theme = mixin(
+  responsiveFontSizes(createMuiTheme()),
+  PismoDefaultTheme
+)
+const _darkTheme: Theme = mixin(
+  responsiveFontSizes(createMuiTheme()),
+  PismoDarkTheme
+)
 interface IThemeState {
   themes: { [key: string]: Theme }
   paletteExtra: { [key: string]: any }
   currentTheme: string
+  registerTheme: (name: string, theme: Theme) => void
+  getThemes: () => string[]
+  getPalette: () => any
 }
 
 const initialThemeState: IThemeState = {
-  themes: { void: voidTheme, default: PismoDefaultTheme, dark: PismoDarkTheme },
+  themes: { void: voidTheme, default: _defaultTheme, dark: _darkTheme },
   paletteExtra: { default: paletteExtraDefault, dark: paletteExtraDark },
-  currentTheme: 'default'
+  currentTheme: 'default',
+  registerTheme: (name: string, theme: Theme) => ({ name, theme }),
+  getThemes: () => [],
+  getPalette: () => {}
 }
 
 export const Context: React.Context<any> = React.createContext(

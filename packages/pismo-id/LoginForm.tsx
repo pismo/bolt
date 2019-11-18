@@ -93,10 +93,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     }
 
     try {
-      console.log(tokenRefresh)
       result = await auth.onUpdateProxy(tokenRefresh)
-
-      console.log(result)
     } catch (err) {
       console.log(err)
       setErrorMessage(lang['login.error.server'])

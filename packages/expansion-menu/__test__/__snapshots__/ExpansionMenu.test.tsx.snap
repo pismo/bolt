@@ -24,8 +24,6 @@ exports[`@pismo/bolt-expansion-menu it should display the components correctly 1
         aria-disabled="false"
         aria-hidden="true"
         class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
-        role="button"
-        tabindex="-1"
       >
         <span
           class="MuiIconButton-label"
