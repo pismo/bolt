@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
 import { amber, green } from '@material-ui/core/colors'
 import * as ColorJ from 'color'
 
@@ -31,8 +31,7 @@ export const paletteExtra = {
 
 const { shadows } = createMuiTheme()
 
-export const PismoDefaultTheme = responsiveFontSizes(
-  createMuiTheme({
+export const PismoDefaultTheme = {
     typography: {
       fontFamily: 'Lato'
     },
@@ -252,5 +251,4 @@ export const PismoDefaultTheme = responsiveFontSizes(
         }
       }
     }
-  })
-)
+  }

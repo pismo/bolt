@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createMuiTheme, Theme } from '@material-ui/core/styles'
+import { createMuiTheme, responsiveFontSizes, Theme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
@@ -21,7 +21,9 @@ WebFont.load({
 
 const mixin = require('deepmerge')
 
-const voidTheme: Theme = createMuiTheme()
+const voidTheme: Theme = responsiveFontSizes(createMuiTheme())
+const _defaultTheme: Theme = mixin(responsiveFontSizes(createMuiTheme()), PismoDefaultTheme)
+const _darkTheme: Theme = mixin(responsiveFontSizes(createMuiTheme()), PismoDarkTheme)
 interface IThemeState {
   themes: { [key: string]: Theme }
   paletteExtra: { [key: string]: any }
@@ -32,7 +34,7 @@ interface IThemeState {
 }
 
 const initialThemeState: IThemeState = {
-  themes: { void: voidTheme, default: PismoDefaultTheme, dark: PismoDarkTheme },
+  themes: { void: voidTheme, default: _defaultTheme, dark: _darkTheme },
   paletteExtra: { default: paletteExtraDefault, dark: paletteExtraDark },
   currentTheme: 'default',
   registerTheme: (name: string, theme: Theme) => ({name, theme}),
@@ -63,11 +65,15 @@ const themeReducer = (state: IThemeState, action): IThemeState => {
 
 export function Bolt ({ children }) {
   const [state, dispatch] = useReducer(themeReducer, useContext(Context))
-  const [theme, setTheme] = useState(state.themes[state.currentTheme])
+  const [theme, setTheme] = useState(state.themes[state.currentTheme])  
 
   useEffect(() => {
+    console.log('current: ', state.currentTheme)
+    console.log('theme....',state.themes[state.currentTheme])
     setTheme(state.themes[state.currentTheme])
   }, [state.currentTheme])
+
+  console.log(theme)
 
   const registerTheme = (name: string, theme: Theme): void => {
     dispatch({ type: 'ADD', payload: { name, theme } })
