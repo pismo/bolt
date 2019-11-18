@@ -25,13 +25,19 @@ const voidTheme: Theme = createMuiTheme()
 interface IThemeState {
   themes: { [key: string]: Theme }
   paletteExtra: { [key: string]: any }
-  currentTheme: string
+  currentTheme: string,
+  registerTheme: (name: string, theme: Theme) => void,
+  getThemes: () => string[],
+  getPalette: () => any
 }
 
 const initialThemeState: IThemeState = {
   themes: { void: voidTheme, default: PismoDefaultTheme, dark: PismoDarkTheme },
   paletteExtra: { default: paletteExtraDefault, dark: paletteExtraDark },
-  currentTheme: 'default'
+  currentTheme: 'default',
+  registerTheme: (name: string, theme: Theme) => ({name, theme}),
+  getThemes: () => [],
+  getPalette: () => {}
 }
 
 export const Context: React.Context<any> = React.createContext(
