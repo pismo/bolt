@@ -38,6 +38,19 @@ function TextField (props: Props) {
 
   return (
     <MuiTextField
+      SelectProps={{
+        MenuProps: {
+          getContentAnchorEl: null,
+          anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'center'
+          },
+          transformOrigin: {
+            vertical: 'top',
+            horizontal: 'center'
+          }
+        }
+      }}
       {..._props}
       InputLabelProps={{ shrink: true }}
       InputProps={{ disableUnderline: true, inputRef, ..._props.InputProps }}

@@ -43,16 +43,20 @@ import MenuItem from '@material-ui/core/MenuItem'
 
               const handlerSelect = e => setCurrentSelect(e.target.value)
             return (
-                <TextField
-                    label='cidade'
-                    select
-                    value={currentSelect}
-                    onChange={handlerSelect}
-                >
-                    <MenuItem value={0}>São Paulo</MenuItem>
-                    <MenuItem value={1}>Rio de Janeiro</MenuItem>
-                    <MenuItem value={2}>Curitiba</MenuItem>
-                </TextField>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <TextField
+                            label='cidade'
+                            select
+                            value={currentSelect}
+                            onChange={handlerSelect}
+                        >
+                            <MenuItem value={0}>São Paulo</MenuItem>
+                            <MenuItem value={1}>Rio de Janeiro</MenuItem>
+                            <MenuItem value={2}>Curitiba</MenuItem>
+                        </TextField>
+                    </Grid>
+                </Grid>
             )
           }
 
