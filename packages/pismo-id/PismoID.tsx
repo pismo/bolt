@@ -148,4 +148,4 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
 }
 
 export const usePismoID = () => useContext(PismoIDContext)
-export { PismoID }
+export default PismoID
