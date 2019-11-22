@@ -1,20 +1,21 @@
-import { createMuiTheme } from '@material-ui/core/styles'
 import { amber, green } from '@material-ui/core/colors'
 import * as ColorJ from 'color'
 
 export const paletteExtra = {
   primary: {
-    main: '#3bb2dd'
+    main: '#3d7efc'
   },
   secondary: {
     main: '#3bb2dd'
   },
   textField: {
-    defaultColor: '#3B4756',
-    backgroundColor: '#ECEEF2'
+    defaultColor: '#000',
+    backgroundColor: '#f2f5f8',
+    backgroundSpecial: '#dddee1',
+    border: '#dddee1'
   },
   error: {
-    main: '#ff0000'
+    main: '#ea2d71'
   },
   success: {
     main: green[600]
@@ -28,8 +29,6 @@ export const paletteExtra = {
     special2: '#586374'
   }
 }
-
-const { shadows } = createMuiTheme()
 
 export const PismoDefaultTheme = {
   typography: {
@@ -57,7 +56,10 @@ export const PismoDefaultTheme = {
   overrides: {
     MuiButton: {
       root: {
-        textTransform: 'unset'
+        textTransform: 'unset',
+        borderRadius: '6px',
+        width: '100%',
+        minHeight: '48px'
       }
     },
 
@@ -69,58 +71,31 @@ export const PismoDefaultTheme = {
 
     MuiInput: {
       root: {
-        '&$error': {
-          color: paletteExtra.error.main,
-          borderBottom: `1px solid ${paletteExtra.error.main}`,
-          transition: 'borderBottom 0.2',
-
-          '&:hover': {
-            borderBottom: `1px solid ${paletteExtra.error.main}`,
-            transition: 'borderBottom 0.2'
-          },
-
-          '&$focused': {
-            borderBottom: 'none'
-          }
-        },
-
         '&$focused': {
-          boxShadow: shadows[4],
-          borderBottom: 'none'
+          boxShadow: 'none'
         }
       },
       input: {
-        padding: '10px 10px',
-        fontSize: '1.3rem',
-        lineHeight: '1.8rem',
-        minHeight: '30px',
+        padding: '15px 10px',
+        fontSize: '1rem',
+        lineHeight: '1.3rem',
 
         '&$disabled': {
           color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.3)
+            .fade(0.5)
             .string()
         }
       },
 
       formControl: {
         backgroundColor: paletteExtra.textField.backgroundColor,
-        borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`,
-        transition: 'borderBottom 0.2',
-
-        '&:hover': {
-          borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`,
-          transition: 'borderBottom 0.2'
-        },
-
-        '&$focused': {
-          backgroundColor: '#fff',
-          borderBottom: 'none'
-        },
+        border: `1px solid ${paletteExtra.textField.border}`,
+        borderRadius: '6px',
 
         '&$disabled': {
-          borderBottom: `1px dashed ${paletteExtra.textField.defaultColor}`,
+          border: `1px dashed ${paletteExtra.textField.border}`,
           '&:hover': {
-            borderBottom: `1px dashed ${paletteExtra.textField.defaultColor}`
+            border: `1px dashed ${paletteExtra.textField.border}`
           }
         }
       }
@@ -129,8 +104,13 @@ export const PismoDefaultTheme = {
     MuiInputLabel: {
       root: {
         color: paletteExtra.textField.defaultColor,
+        fontWeight: 'bold',
 
         '&$focused': {
+          color: paletteExtra.textField.defaultColor
+        },
+
+        '&$error': {
           color: paletteExtra.textField.defaultColor
         },
 
@@ -146,12 +126,33 @@ export const PismoDefaultTheme = {
     },
 
     MuiFormHelperText: {
+      root: {
+        color: ColorJ(paletteExtra.textField.defaultColor)
+          .fade(0.5)
+          .string(),
+
+        '&$disabled': {
+          color: ColorJ(paletteExtra.textField.defaultColor)
+            .fade(0.5)
+            .string()
+        }
+      },
       filled: {
         '&$disabled': {
           color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.3)
+            .fade(0.5)
             .string()
         }
+      }
+    },
+
+    MuiSelect: {
+      icon: {
+        fontSize: '2rem',
+        color: paletteExtra.textField.defaultColor,
+        width: '36px',
+        height: '36px',
+        top: 'auto'
       }
     },
 
@@ -230,11 +231,26 @@ export const PismoDefaultTheme = {
       }
     },
 
+    MuiList: {
+      root: {
+        backgroundColor: paletteExtra.textField.backgroundSpecial
+      }
+    },
+
     MuiListItem: {
       button: {
         '&:hover': {
-          backgroundColor: paletteExtra.background.special,
-          color: '#fff'
+          backgroundColor: ColorJ(paletteExtra.textField.backgroundSpecial)
+            .darken(0.2)
+            .hex()
+            .toString()
+        },
+        '&$selected': {
+          backgroundColor: paletteExtra.primary.main,
+          color: '#fff',
+          '&:hover': {
+            backgroundColor: paletteExtra.primary.main
+          }
         }
       }
     },
