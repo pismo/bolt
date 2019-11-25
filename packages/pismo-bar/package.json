@@ -1,0 +1,41 @@
+{
+  "name": "@pismo/bolt-pismo-bar",
+  "version": "1.1.11",
+  "description": "Bolt component pismo-bar",
+  "author": "Pismo <hello@pismo.io>",
+  "homepage": "https://github.com/pismo/bolt#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pismo/bolt/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.5.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "manual-publish": "npm publish"
+  },
+  "devDependencies": {
+    "@pismo/bolt-core": "^1.1.11"
+  }
+}
