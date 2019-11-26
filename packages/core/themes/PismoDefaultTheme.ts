@@ -24,8 +24,8 @@ export const paletteExtra = {
     main: amber[700]
   },
   background: {
-    special: '#4C4C4C',
-    main: '#333238',
+    special: '#070709',
+    main: '#202731',
     special2: '#586374'
   }
 }
@@ -60,12 +60,26 @@ export const PismoDefaultTheme = {
         borderRadius: '6px',
         width: '100%',
         minHeight: '48px'
+      },
+      contained: {
+        '&$disabled': {
+          color: '#fff',
+          backgroundColor: ColorJ(paletteExtra.primary.main)
+            .alpha(0.6)
+            .toString()
+        }
       }
     },
 
     MuiFormControl: {
       root: {
-        width: '100%'
+        width: '100%',
+
+        '&$error': {
+          backgroundColor: ColorJ(paletteExtra.error.main)
+            .alpha(0.5)
+            .toString()
+        }
       }
     },
 
@@ -73,6 +87,12 @@ export const PismoDefaultTheme = {
       root: {
         '&$focused': {
           boxShadow: 'none'
+        },
+        '&$error': {
+          backgroundColor: ColorJ(paletteExtra.error.main)
+            .lighten(0.7)
+            .hex(),
+          border: `1px  solid ${paletteExtra.error.main}`
         }
       },
       input: {
