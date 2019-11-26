@@ -34,8 +34,8 @@ import Grid from '@material-ui/core/Grid'
         </Button>
       </Grid>
       <Grid item xs={6}>
-        <Button variant='contained' color='secondary'>
-          click
+        <Button variant='contained' color='primary' disabled>
+          disabled
         </Button>
       </Grid>
     </Grid>
@@ -93,11 +93,11 @@ import Typography from '@material-ui/core/Typography'
                         <Grid item xs={12}><Button variant='contained' color='primary' onClick={handlerToggle}>change theme</Button></Grid>
                         <Grid item xs={12}>
                             <Grid container>
-                                <Grid xs={6}>
+                                <Grid item xs={6}>
                                     <Typography variant='h5' color='primary'>lista de themas</Typography>
                                     {getThemes().map(k => <Typography variant='body1' color='primary' key={k}>{k}</Typography>)}
                                 </Grid>
-                                <Grid xs={6}>
+                                <Grid item xs={6}>
                                     <Typography variant='h5' color='primary'>Tema atual</Typography>
                                     <Typography variant='body1' color='primary'>{currentTheme}</Typography>
                                 </Grid>

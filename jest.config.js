@@ -1,3 +1,5 @@
+const { defaults } = require('jest-config')
+
 module.exports = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -8,11 +10,10 @@ module.exports = {
     '!**/index.ts',
     '!**/*.stories.{tsx,ts}'
   ],
-  moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
-  rootDir: '.',
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
+  preset: 'ts-jest',
   transform: {
-    '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest'
+    '^.+\\.[t|j]sx?$': 'ts-jest'
   },
-  testRegex: '(spec|test).[jt]s?(x)$',
-  testPathIgnorePatterns: ['/sdk/']
+  testRegex: '(spec|test).[jt]s?(x)$'
 }
