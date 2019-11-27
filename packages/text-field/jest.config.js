@@ -1,3 +1,6 @@
+const ext = require('../../jest.config')
+
 module.exports = {
-  preset: 'ts-jest'
+  ...ext,
+  collectCoverage: false
 }

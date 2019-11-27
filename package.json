@@ -1,11 +1,12 @@
 {
   "name": "bolt",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
     "@testing-library/react": "^8.0.4",
     "@types/jest": "^24.0.11",
+    "@types/node": "^12.12.14",
     "concurrently": "^4.1.0",
     "coveralls": "^3.0.3",
     "docz": "^1.2.0",
@@ -20,7 +21,7 @@
     "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.4.3"
+    "typescript": "^3.7.2"
   },
   "workspaces": [
     "packages/*"
