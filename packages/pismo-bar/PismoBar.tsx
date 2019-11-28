@@ -3,7 +3,7 @@ import AppBar, { AppBarProps } from '@material-ui/core/AppBar'
 import Toolbar, { ToolbarProps } from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 
-import { MenuIcon } from './components/MenuIcon'
+import { MenuIcon } from '@pismo/bolt-core'
 
 interface PismoBarProps {
   AppBarProps: AppBarProps
