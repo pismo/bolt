@@ -9,8 +9,20 @@ import { Bolt } from '@pismo/bolt-core'
 
 # PismoBar
 
+A **PismoBar** expõe a barra multiaplicativos da _Pismo_ contendo os ícones e url de todas as suas aplicações, é uma maneira rápida do usuário navegar por todos os aplicativos fornecidos pela _Pismo_
+
+### Propriedades
+
+
+| **prop**     | **type**                                                               | **required** | **desc**                                                                                       |
+| ------------ | ---------------------------------------------------------------------- | :----------: | ---------------------------------------------------------------------------------------------- |
+| AppBarProps  | AppBarProps                                                            |    false     | propriedades aplicadas à [_AppBar_](https://material-ui.com/pt/api/app-bar/)                   |
+| ToolbarProps | ToolbarProps                                                           |    false     | propriedades aplicadas à [_ToolbarProps_](https://material-ui.com/pt/api/toolbar/#toolbar-api) |
+| current      | `'Marketplace' / 'Adjustments' / 'Customer' / 'Backoffice' / 'WebPOS'` |     true     | variável que deve indicar a aplicação atual                                                    |
+| appSelected  | ({ url: string }) => void                                              |    false     | Método executado quando uma aplicação é selecionada. Retorna a url da aplicação                |
+
 <Playground>
   <Bolt>
-    <PismoBar AppBarProps={{ position: 'relative' }} />
+    <PismoBar AppBarProps={{ position: 'relative' }} current='marketplace' />
   </Bolt>
 </Playground>

@@ -35,6 +35,7 @@ export const PismoDefaultTheme = {
     fontFamily: 'Lato'
   },
   palette: {
+    extra: paletteExtra,
     primary: {
       main: paletteExtra.primary.main,
       contrastText: '#fff'
@@ -284,6 +285,12 @@ export const PismoDefaultTheme = {
     MuiAvatar: {
       colorDefault: {
         backgroundColor: paletteExtra.textField.defaultColor
+      }
+    },
+
+    MuiSvgIcon: {
+      root: {
+        color: '#fff'
       }
     }
   }
