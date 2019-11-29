@@ -1,25 +1,54 @@
-import { cleanup, render } from '@testing-library/react'
+import {
+  cleanup,
+  render,
+  fireEvent,
+  wait,
+  getByTestId
+} from '@testing-library/react'
 import 'jest-dom/extend-expect'
 import * as React from 'react'
 
+import { Bolt } from '@pismo/bolt-core'
 import { PismoBar } from '../PismoBar'
-
-// const { useState } = React
 
 afterEach(cleanup)
 
 describe('@pismo/bolt-pismo-bar', () => {
   test('it should display the bar', () => {
-    const Component = () => {
+    const Component = ({ current }) => {
       return (
-        <PismoBar
-          AppBarProps={{ position: 'relative' }}
-          current='marketplace'
-        />
+        <Bolt>
+          <PismoBar AppBarProps={{ position: 'relative' }} current={current} />
+        </Bolt>
       )
     }
-    const { container } = render(<Component />)
+    const testOne = render(<Component current='marketplace' />)
 
-    expect(container).toMatchSnapshot()
+    expect(testOne.getByText('Marketplace')).toBeDefined()
+
+    const testTwo = render(<Component current='backoffice' />)
+
+    expect(testTwo.getByText('Backoffice')).toBeDefined()
+  })
+
+  test('when you click the button you should open the icon bar', async () => {
+    const Component = ({ current }) => {
+      return (
+        <Bolt>
+          <PismoBar AppBarProps={{ position: 'relative' }} current={current} />
+        </Bolt>
+      )
+    }
+    const { container } = render(<Component current='marketplace' />)
+
+    const button = getByTestId(container, 'mainButton')
+    fireEvent.click(button)
+
+    await wait(() => {}, { timeout: 1000 })
+
+    const drawer = getByTestId(container.parentElement as HTMLElement, 'drawer')
+
+    expect(drawer).toBeDefined()
+    expect(container.parentElement).toMatchSnapshot()
   })
 })

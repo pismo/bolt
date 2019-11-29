@@ -17,14 +17,16 @@ const useStyles = makeStyles((theme: Theme) => {
       width: '100%',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: ({ isSelected }: any) =>
-        isSelected ? extra['background'].main : 'unset',
+        isSelected && extra ? extra['background'].main : 'unset',
       '&:hover': {
         backgroundColor: ({ isSelected }: any) =>
-          isSelected
+          isSelected && extra
             ? extra.background.main
-            : Color(extra['background'].special)
+            : extra
+            ? Color(extra['background'].special)
                 .lighten(0.8)
                 .hex()
+            : 'transparent'
       }
     },
     appButtonIcon: {

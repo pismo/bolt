@@ -49,8 +49,10 @@ const useStyles = makeStyles((theme: Theme) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: extra['background'].special,
-      color: theme.palette.getContrastText(extra['background'].special)
+      backgroundColor: extra ? extra['background'].special : 'transparent',
+      color: extra
+        ? theme.palette.getContrastText(extra['background'].special)
+        : '#fff'
     },
 
     appButtonContainer: {
@@ -97,6 +99,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
         open={isOpen}
         onClose={toClose}
         ModalProps={{ hideBackdrop: true }}
+        data-testid='drawer'
       >
         <Grid container spacing={2} className={classes.appButtonContainer}>
           {Object.keys(applications).map((k, index) => (

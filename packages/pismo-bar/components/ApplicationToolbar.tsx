@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     bar: {
       maxWidth,
-      backgroundColor: extra['background'].special
+      backgroundColor: extra ? extra['background'].special : 'transparent'
     },
     title: {
       '&>span': {
@@ -37,7 +37,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   return (
     <AppBar className={classes.bar} {...AppBarProps}>
       <Toolbar {...ToolbarProps}>
-        <IconButton onClick={onClick}>
+        <IconButton onClick={onClick} data-testid='mainButton'>
           <MenuIcon />
         </IconButton>
         <Box ml='5px'>
