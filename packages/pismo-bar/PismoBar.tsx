@@ -67,7 +67,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
   current,
   appSelected
 }: PismoBarProps) => {
-  const classes = useStyles()
+  const classes = useStyles({})
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toOpen = () => {

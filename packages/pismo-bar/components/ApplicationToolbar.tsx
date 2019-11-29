@@ -32,7 +32,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   onClick,
   applications
 }: ApplicationToolbarProps) => {
-  const classes = useStyles()
+  const classes = useStyles({})
 
   return (
     <AppBar className={classes.bar} {...AppBarProps}>
