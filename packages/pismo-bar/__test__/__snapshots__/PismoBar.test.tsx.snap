@@ -83,6 +83,30 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
       </div>
     </header>
   </div>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: Lato,serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: Lato,sans-serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: sans-serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
   <div
     class="MuiDrawer-root makeStyles-drawer-94 MuiDrawer-modal"
     data-testid="drawer"

@@ -66,7 +66,8 @@ const PismoBar: React.FC<PismoBarProps> = ({
   AppBarProps,
   ToolbarProps,
   current,
-  appSelected
+  appSelected,
+  contract
 }: PismoBarProps) => {
   const classes = useStyles({})
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
@@ -95,6 +96,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ToolbarProps={ToolbarProps}
         current={current}
         onClick={toOpen}
+        contract={contract}
       />
       <Drawer
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}

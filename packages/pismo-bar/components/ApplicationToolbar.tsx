@@ -15,15 +15,21 @@ const useStyles = makeStyles((theme: Theme) => {
   const { extra } = theme.palette as any
   return {
     bar: {
-      maxWidth,
+      maxWidth: ({ contract }: any) => (contract ? mobileMaxWidth : maxWidth),
       backgroundColor: extra ? extra['background'].special : 'transparent',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
       }
     },
-    toolbar: ({ full }: any) =>
+    toolbar: ({ full, contract }: any) =>
       !full
         ? {
+            ...(contract
+              ? {
+                  padding: 0,
+                  justifyContent: 'center'
+                }
+              : {}),
             [theme.breakpoints.down('xs')]: {
               padding: 0,
               justifyContent: 'center'
@@ -44,9 +50,10 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   current,
   onClick,
   applications,
-  full
+  full,
+  contract
 }: ApplicationToolbarProps) => {
-  const classes = useStyles({ full })
+  const classes = useStyles({ full, contract })
 
   return (
     <AppBar className={classes.bar} {...AppBarProps}>
@@ -54,13 +61,15 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
         <IconButton onClick={onClick} data-testid='mainButton'>
           <MenuIcon data-testid={applications[current].name} />
         </IconButton>
-        <Hidden xsDown={full ? false : true}>
-          <Box ml='5px'>
-            <Typography className={classes.title} variant='body1'>
-              Pismo<span>{applications[current].name}</span>
-            </Typography>
-          </Box>
-        </Hidden>
+        {contract ? null : (
+          <Hidden xsDown={full ? false : true}>
+            <Box ml='5px'>
+              <Typography className={classes.title} variant='body1'>
+                Pismo<span>{applications[current].name}</span>
+              </Typography>
+            </Box>
+          </Hidden>
+        )}
       </Toolbar>
     </AppBar>
   )

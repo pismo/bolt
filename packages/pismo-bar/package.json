@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest -u",
+    "test": "jest",
     "manual-publish": "npm publish"
   },
   "devDependencies": {
