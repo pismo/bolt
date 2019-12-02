@@ -35,6 +35,7 @@ export const PismoDarkTheme = {
     fontFamily: 'Lato'
   },
   palette: {
+    extra: paletteExtra,
     primary: {
       main: paletteExtra.primary.main,
       contrastText: '#fff'
