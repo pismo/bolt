@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-expansion-menu",
-  "version": "1.1.12",
+  "version": "1.2.0",
   "description": "Bolt component expansion-menu",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -31,7 +31,7 @@
     "@material-ui/core": "^4.5.0"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^1.1.12"
+    "@pismo/bolt-core": "^1.2.0"
   },
   "scripts": {
     "build": "tsc",
