@@ -7,6 +7,7 @@ export interface PismoBarProps {
   current: string
   appSelected?: ({ url: string }) => void
   full?: boolean
+  contract?: boolean
 }
 
 export type ApplicationsName =
