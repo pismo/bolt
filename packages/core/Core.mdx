@@ -9,8 +9,9 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 
-import { MenuIcon } from './icons'
+import { MenuIcon, DashboardIcon, SellerIcon, CreditorsIcon } from './icons'
 
 # Core
 
@@ -122,9 +123,31 @@ import Typography from '@material-ui/core/Typography'
 ## Icons
 
 <Playground>
-  <Grid container spacing={2}>
-    <Grid item xs={4}>
-      <MenuIcon />
-    </Grid>
-  </Grid>
+  {() => {
+    const icons = [
+      { Icon: MenuIcon, name: 'MenuIcon' },
+      { Icon: DashboardIcon, name: 'DashboardIcon' },
+      { Icon: SellerIcon, name: 'SellerIcon' },
+      { Icon: CreditorsIcon, name: 'CreditorsIcon' }
+    ]
+    return (
+      <Grid container spacing={2}>
+        {icons.map((icon, index) => (
+          <Grid key={`${icon.name}-${index}`} item xs={3}>
+            <Box
+              w={1}
+              display='flex'
+              alignItems='center'
+              flexDirection='column'
+            >
+              <icon.Icon />
+              <Box mt='5px'>
+                <Typography variant='body1'>{icon.name}</Typography>
+              </Box>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    )
+  }}
 </Playground>
