@@ -23,12 +23,13 @@ describe('@pismo/bolt-pismo-bar', () => {
       )
     }
     const testOne = render(<Component current='marketplace' />)
+    expect(testOne.container).toMatchSnapshot()
 
-    expect(testOne.getByText('Marketplace')).toBeDefined()
+    expect(testOne.getByTestId('Marketplace')).toBeDefined()
 
     const testTwo = render(<Component current='backoffice' />)
 
-    expect(testTwo.getByText('Backoffice')).toBeDefined()
+    expect(testTwo.getByTestId('Backoffice')).toBeDefined()
   })
 
   test('when you click the button you should open the icon bar', async () => {

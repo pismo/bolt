@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`@pismo/bolt-pismo-bar it should display the bar 1`] = `
+<div>
+  <header
+    class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionRelative makeStyles-bar-4 makeStyles-bar-7 MuiAppBar-colorPrimary"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-5 makeStyles-toolbar-8 MuiToolbar-gutters"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root"
+        data-testid="mainButton"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            data-testid="Marketplace"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 4H4V0H0V4ZM6 16H10V12H6V16ZM4 16H0V12H4V16ZM0 10H4V6H0V10ZM10 10H6V6H10V10ZM12 0V4H16V0H12ZM10 4H6V0H10V4ZM12 10H16V6H12V10ZM16 16H12V12H16V16Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
 exports[`@pismo/bolt-pismo-bar when you click the button you should open the icon bar 1`] = `
 <body
   style="padding-right: 0px;"
@@ -8,10 +48,10 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
     aria-hidden="true"
   >
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionRelative makeStyles-bar-125 MuiAppBar-colorPrimary"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionRelative makeStyles-bar-97 makeStyles-bar-100 MuiAppBar-colorPrimary"
     >
       <div
-        class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-98 makeStyles-toolbar-101 MuiToolbar-gutters"
       >
         <button
           class="MuiButtonBase-root MuiIconButton-root"
@@ -25,6 +65,7 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root"
+              data-testid="Marketplace"
               focusable="false"
               role="presentation"
               viewBox="0 0 16 16"
@@ -39,23 +80,35 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
             class="MuiTouchRipple-root"
           />
         </button>
-        <div
-          class="MuiBox-root MuiBox-root-189"
-        >
-          <p
-            class="MuiTypography-root makeStyles-title-126 MuiTypography-body1"
-          >
-            Pismo
-            <span>
-              Marketplace
-            </span>
-          </p>
-        </div>
       </div>
     </header>
   </div>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: Lato,serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: Lato,sans-serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
+  <span
+    aria-hidden="true"
+    style="display: block; position: absolute; top: -9999px; left: -9999px; font-size: 300px; width: auto; height: auto; line-height: normal; margin: 0px; padding: 0px; font-variant: normal; white-space: nowrap; font-family: sans-serif; font-style: normal; font-weight: 400;"
+  >
+    BESbswy
+  </span>
   <div
-    class="MuiDrawer-root makeStyles-drawer-122 MuiDrawer-modal"
+    class="MuiDrawer-root makeStyles-drawer-94 MuiDrawer-modal"
     data-testid="drawer"
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
@@ -65,26 +118,26 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
       tabindex="0"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper makeStyles-drawerPaper-123 MuiDrawer-paperAnchorTop"
+      class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper makeStyles-drawerPaper-95 MuiDrawer-paperAnchorTop"
       style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="MuiGrid-root makeStyles-appButtonContainer-124 MuiGrid-container MuiGrid-spacing-xs-2"
+        class="MuiGrid-root makeStyles-appButtonContainer-96 MuiGrid-container MuiGrid-spacing-xs-2"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <button
-            class="MuiButtonBase-root makeStyles-appButton-345 makeStyles-appButton-347"
+            class="MuiButtonBase-root makeStyles-appButton-288 makeStyles-appButton-290"
             tabindex="0"
             type="button"
           >
             <div
-              class="MuiBox-root MuiBox-root-348"
+              class="MuiBox-root MuiBox-root-292"
             >
               <div
-                class="MuiBox-root MuiBox-root-349 makeStyles-appButtonIcon-346"
+                class="MuiBox-root MuiBox-root-293 makeStyles-appButtonIcon-289"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -101,15 +154,15 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <button
-            class="MuiButtonBase-root makeStyles-appButton-345 makeStyles-appButton-350"
+            class="MuiButtonBase-root makeStyles-appButton-288 makeStyles-appButton-324"
             tabindex="0"
             type="button"
           >
             <div
-              class="MuiBox-root MuiBox-root-351"
+              class="MuiBox-root MuiBox-root-325"
             >
               <div
-                class="MuiBox-root MuiBox-root-352 makeStyles-appButtonIcon-346"
+                class="MuiBox-root MuiBox-root-326 makeStyles-appButtonIcon-289"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -126,15 +179,15 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <button
-            class="MuiButtonBase-root makeStyles-appButton-345 makeStyles-appButton-353"
+            class="MuiButtonBase-root makeStyles-appButton-288 makeStyles-appButton-327"
             tabindex="0"
             type="button"
           >
             <div
-              class="MuiBox-root MuiBox-root-354"
+              class="MuiBox-root MuiBox-root-328"
             >
               <div
-                class="MuiBox-root MuiBox-root-355 makeStyles-appButtonIcon-346"
+                class="MuiBox-root MuiBox-root-329 makeStyles-appButtonIcon-289"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -151,15 +204,15 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <button
-            class="MuiButtonBase-root makeStyles-appButton-345 makeStyles-appButton-356"
+            class="MuiButtonBase-root makeStyles-appButton-288 makeStyles-appButton-330"
             tabindex="0"
             type="button"
           >
             <div
-              class="MuiBox-root MuiBox-root-357"
+              class="MuiBox-root MuiBox-root-331"
             >
               <div
-                class="MuiBox-root MuiBox-root-358 makeStyles-appButtonIcon-346"
+                class="MuiBox-root MuiBox-root-332 makeStyles-appButtonIcon-289"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -176,15 +229,15 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <button
-            class="MuiButtonBase-root makeStyles-appButton-345 makeStyles-appButton-359"
+            class="MuiButtonBase-root makeStyles-appButton-288 makeStyles-appButton-333"
             tabindex="0"
             type="button"
           >
             <div
-              class="MuiBox-root MuiBox-root-360"
+              class="MuiBox-root MuiBox-root-334"
             >
               <div
-                class="MuiBox-root MuiBox-root-361 makeStyles-appButtonIcon-346"
+                class="MuiBox-root MuiBox-root-335 makeStyles-appButtonIcon-289"
               />
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -199,13 +252,13 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
         </div>
       </div>
       <div
-        class="MuiBox-root MuiBox-root-362"
+        class="MuiBox-root MuiBox-root-336"
       >
         <header
-          class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionRelative makeStyles-bar-125 MuiAppBar-colorPrimary"
+          class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionRelative makeStyles-bar-97 makeStyles-bar-337 MuiAppBar-colorPrimary"
         >
           <div
-            class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+            class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-98 makeStyles-toolbar-338 MuiToolbar-gutters"
           >
             <button
               class="MuiButtonBase-root MuiIconButton-root"
@@ -219,6 +272,7 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root"
+                  data-testid="Marketplace"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 16 16"
@@ -233,18 +287,6 @@ exports[`@pismo/bolt-pismo-bar when you click the button you should open the ico
                 class="MuiTouchRipple-root"
               />
             </button>
-            <div
-              class="MuiBox-root MuiBox-root-363"
-            >
-              <p
-                class="MuiTypography-root makeStyles-title-126 MuiTypography-body1"
-              >
-                Pismo
-                <span>
-                  Marketplace
-                </span>
-              </p>
-            </div>
           </div>
         </header>
       </div>

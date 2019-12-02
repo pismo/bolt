@@ -6,6 +6,7 @@ export interface PismoBarProps {
   ToolbarProps?: ToolbarProps
   current: string
   appSelected?: ({ url: string }) => void
+  full?: boolean
 }
 
 export type ApplicationsName =
@@ -36,3 +37,4 @@ export interface ApplicationButtonProps {
 }
 
 export const maxWidth = '240px'
+export const mobileMaxWidth = '68px'
