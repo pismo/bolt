@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import {
   PismoBarProps,
@@ -68,6 +69,8 @@ const PismoBar: React.FC<PismoBarProps> = ({
   appSelected
 }: PismoBarProps) => {
   const classes = useStyles({})
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toOpen = () => {
@@ -95,7 +98,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
       />
       <Drawer
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}
-        anchor='top'
+        anchor={matches ? 'left' : 'top'}
         open={isOpen}
         onClose={toClose}
         ModalProps={{ hideBackdrop: true }}
@@ -118,6 +121,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
             ToolbarProps={ToolbarProps}
             current={current}
             onClick={toClose}
+            full
           />
         </Box>
       </Drawer>
