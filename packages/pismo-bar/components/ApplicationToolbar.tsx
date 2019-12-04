@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
 
-import { MenuIcon } from '@pismo/bolt-core'
+import MenuIcon from '@material-ui/icons/Apps'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
 
 const useStyles = makeStyles((theme: Theme) => {
@@ -40,6 +40,12 @@ const useStyles = makeStyles((theme: Theme) => {
       '&>span': {
         fontWeight: 'bold'
       }
+    },
+    iconButton: {
+      padding: 0
+    },
+    icon: {
+      fontSize: '2.5rem'
     }
   }
 })
@@ -58,8 +64,15 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   return (
     <AppBar className={classes.bar} {...AppBarProps}>
       <Toolbar className={classes.toolbar} {...ToolbarProps}>
-        <IconButton onClick={onClick} data-testid='mainButton'>
-          <MenuIcon data-testid={applications[current].name} />
+        <IconButton
+          className={classes.iconButton}
+          onClick={onClick}
+          data-testid='mainButton'
+        >
+          <MenuIcon
+            className={classes.icon}
+            data-testid={applications[current].name}
+          />
         </IconButton>
         {contract ? null : (
           <Hidden xsDown={full ? false : true}>

@@ -4,6 +4,7 @@
 
 import { useState } from 'react'
 import { Playground } from 'docz'
+import Box from '@material-ui/core/Box'
 import { Bolt } from '@pismo/bolt-core'
 import { ExpansionMenu } from './ExpansionMenu'
 
@@ -12,6 +13,10 @@ import { ExpansionMenu } from './ExpansionMenu'
 **ExpansionMenu** fornece um Panel list com ferramentas para mostrar um menu de com efeito de abrir e fechar
 
 ### Propriedades
+expansionMenuClasses?: any
+  sumaryClasses?: any
+  menuItemClasses?: any,
+  expandMoreIconClasses?: any
 
 | **prop**        | **type**                                        | **required** | **desc**                                                                               |
 | --------------- | ----------------------------------------------- | :----------: | -------------------------------------------------------------------------------------- |
@@ -19,6 +24,10 @@ import { ExpansionMenu } from './ExpansionMenu'
 | getComponent    | (item: {[key: string]: any}) => React.ReactNode |     true     | método que constroi o componente unitário da lista - item é um objeto unitário do data |
 | SumaryComponent | () => React.ReactNode                           |     true     | Componente que formará o sumário                                                       |
 | onChange        | (value: {[key: string]: any} ) => void          |    false     | método que recebe o valor selecionado                                                  |
+| expansionMenuClasses | any | false | classes que serão aplicados ao componente expansion |
+| sumaryClasses | any | false | classes que serão aplicados ao componente sumary |
+| menuItemClasses | any | false | classes que serão aplicados ao componente menuItem |
+| expansionMenuClasses | any | false | classes que serão aplicados ao icone de expansão |
 
 ### Exemplo
 
@@ -43,12 +52,14 @@ import { ExpansionMenu, FLAG } from '@pismo/bolt-flag-panel'
 
             return (
                 <Bolt>
-                    <ExpansionMenu
-                        data={data}
-                        getComponent={(item) => <div>{item.description}</div>}
-                        SumaryComponent={() => <div>Languages => {current.description}</div>}
-                        onChange={handleChange}
-                    />
+                    <Box width={1} height={'400px'} style={{backgroundColor: '#202731'}}>
+                        <ExpansionMenu
+                            data={data}
+                            getComponent={(item) => <div>{item.description}</div>}
+                            SumaryComponent={() => <div>Languages => {current.description}</div>}
+                            onChange={handleChange}
+                        />
+                    </Box>
                 </Bolt>
             )
         }

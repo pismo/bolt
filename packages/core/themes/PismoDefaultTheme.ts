@@ -198,8 +198,9 @@ export const PismoDefaultTheme = {
     MuiExpansionPanel: {
       root: {
         '&.ExpansionMenu': {
-          background: paletteExtra.textField.backgroundColor,
+          background: 'transparent',
           boxShadow: 'none',
+          color: '#fff',
           // borderBottom: `1px solid #fff`,
 
           '&$expanded': {
@@ -222,7 +223,9 @@ export const PismoDefaultTheme = {
           height: '53px',
           padding: '0px 10px',
           '&:hover': {
-            backgroundColor: paletteExtra.background.special,
+            backgroundColor: ColorJ(paletteExtra.background.main)
+              .lighten(0.5)
+              .hex(),
             color: '#fff'
           },
           '&:hover .ExpansionMenu-expandMoreIcon': {
@@ -245,7 +248,9 @@ export const PismoDefaultTheme = {
         padding: '6px 10px',
         '&.ExpansionMenu-menuItem': {
           '&:hover': {
-            backgroundColor: paletteExtra.background.special,
+            backgroundColor: ColorJ(paletteExtra.background.main)
+              .lighten(0.5)
+              .hex(),
             color: '#fff'
           }
         }
