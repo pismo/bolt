@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme: Theme) => {
             ...(contract
               ? {
                   padding: 0,
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  minHeight: '56px'
                 }
               : {}),
             [theme.breakpoints.down('xs')]: {
