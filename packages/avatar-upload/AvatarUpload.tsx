@@ -2,17 +2,163 @@ import * as React from 'react'
 import Croppie from 'croppie'
 
 import Box from '@material-ui/core/Box'
+import IconButton from '@material-ui/core/IconButton'
+import { makeStyles, Theme } from '@material-ui/core/styles'
+import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined'
+import Typography from '@material-ui/core/Typography'
+import Slider from '@material-ui/core/Slider'
 
-const { useRef, useEffect, useState } = React
+import Color from 'color'
 
-const AvatarUpload = () => {
-  const el = useRef()
-  const [c, setC] = useState(null)
-  const [imgData, setImgData] = useState(null)
+const { useRef, useEffect, useState, Fragment } = React
+
+const useStyles = makeStyles((theme: Theme) => {
+  const extra = (theme.palette as any).extra
+  return {
+    iconButton: {
+      width: '156px',
+      height: '156px',
+      backgroundColor: extra
+        ? Color(extra.background.main)
+            .fade(0.6)
+            .toString()
+        : 'transparent',
+      '&:hover': {
+        backgroundColor: extra
+          ? Color(extra.background.main)
+              .fade(0.5)
+              .toString()
+          : 'transparent'
+      }
+    },
+    iconButtonLabel: {
+      display: 'flex',
+      flexDirection: 'column',
+      '&>*': {
+        color: extra
+          ? Color(extra.textField.defaultColor)
+              .fade(0.5)
+              .toString()
+          : 'transparent'
+      }
+    },
+    croppieContainer: {
+      '& .cr-boundary': {
+        position: 'relative',
+        width: '156px',
+        height: '156px',
+        overflow: 'hidden',
+        borderRadius: '50%'
+      },
+
+      '& .cr-image': {
+        position: 'absolute'
+      },
+
+      '& .cr-viewport': {
+        position: 'absolute'
+      },
+
+      '& .cr-overlay': {
+        position: 'absolute'
+      }
+    }
+  }
+})
+
+export interface ResultParams {
+  type?: 'base64' | 'html' | 'blob' | 'rawcanvas'
+  size?: 'viewport' | 'original' | { width: number; height: number }
+  format?: 'jpeg' | 'png' | 'webp'
+  quality?: number
+}
+
+interface AvatarUploadProps {
+  buttonLabel: string
+  resultType?: 'base64' | 'html' | 'blob' | 'rawcanvas'
+  imageUploaded?: (getResult: (params?: ResultParams) => Promise<any>) => void
+}
+
+const AvatarUpload: React.FC<AvatarUploadProps> = ({
+  buttonLabel,
+  imageUploaded,
+  resultType
+}) => {
+  const classes = useStyles({})
+
+  const [image, setImage] = useState(null)
+  const [croppieEl, setCroppieEl] = useState(null)
+  const [zoom, setZoom] = useState(0)
+
+  const croppieRef = useRef()
+
+  useEffect(() => {
+    if (croppieRef.current && image && !croppieEl) {
+      let c = new Croppie(croppieRef.current, {
+        viewport: {
+          width: 156,
+          height: 156,
+          type: 'circle'
+        },
+        showZoomer: false
+      })
+      c.bind({ url: image, zoom: 0, points: [0, 0] })
+
+      setCroppieEl(c)
+
+      if (imageUploaded && resultType) {
+        c.result(resultType).then(() => imageUploaded(c.result))
+      }
+    }
+
+    return () => (croppieEl ? croppieEl.destroy() : null)
+  }, [croppieRef.current, image, croppieEl])
+
+  const uploadClicked = () => {
+    var input = document.createElement('input')
+    input.type = 'file'
+    input.addEventListener('change', e => {
+      const reader = new FileReader()
+      reader.onload = f => {
+        setImage(f.target.result)
+      }
+      reader.readAsDataURL((e.target as any).files[0])
+    })
+
+    input.dispatchEvent(new MouseEvent('click'))
+  }
+
+  const handleImageZoom = (e, newValue) => {
+    setZoom(newValue)
+    if (croppieEl) {
+      croppieEl.setZoom(newValue / 100)
+    }
+  }
 
   return (
-    <Box>
-      <Box />
+    <Box
+      width='156px'
+      display='flex'
+      flexDirection='column'
+      alignItems='center'
+    >
+      {!image ? (
+        <IconButton
+          className={classes.iconButton}
+          classes={{ label: classes.iconButtonLabel }}
+          onClick={uploadClicked}
+        >
+          <AddAPhotoOutlinedIcon />
+          <Typography variant='body1'>{buttonLabel}</Typography>
+        </IconButton>
+      ) : (
+        <Fragment>
+          <div ref={croppieRef} className={classes.croppieContainer} />
+          <Box width='100%' mt='15px'>
+            <Slider value={zoom} onChange={handleImageZoom} />
+          </Box>
+        </Fragment>
+      )}
     </Box>
   )
 }
