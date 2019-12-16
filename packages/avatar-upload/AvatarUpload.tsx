@@ -10,7 +10,7 @@ import Slider from '@material-ui/core/Slider'
 
 import Color from 'color'
 
-const { useRef, useEffect, useState, Fragment } = React
+const { useRef, useEffect, useState, Fragment, useCallback } = React
 
 const useStyles = makeStyles((theme: Theme) => {
   const extra = (theme.palette as any).extra
@@ -66,17 +66,15 @@ const useStyles = makeStyles((theme: Theme) => {
   }
 })
 
-export interface ResultParams {
-  type?: 'base64' | 'html' | 'blob' | 'rawcanvas'
-  size?: 'viewport' | 'original' | { width: number; height: number }
-  format?: 'jpeg' | 'png' | 'webp'
-  quality?: number
+export interface AvatarResult {
+  getResult: () => Promise<any>
+  destroy: () => void
 }
 
 interface AvatarUploadProps {
   buttonLabel: string
-  resultType?: 'base64' | 'html' | 'blob' | 'rawcanvas'
-  imageUploaded?: (getResult: (params?: ResultParams) => Promise<any>) => void
+  resultType?: 'base64' | 'blob' | 'rawcanvas'
+  imageUploaded?: (result: AvatarResult) => void
 }
 
 const AvatarUpload: React.FC<AvatarUploadProps> = ({
@@ -107,7 +105,21 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
       setCroppieEl(c)
 
       if (imageUploaded && resultType) {
-        c.result(resultType).then(() => imageUploaded(c.result))
+        imageUploaded({
+          getResult: async () =>
+            await c.result({ type: resultType, size: 'viewport' }),
+          destroy: () => {
+            c.destroy()
+            setImage(null)
+            setTimeout(() => {
+              // setCroppieEl(null)
+            }, 300)
+
+            //
+            //
+            // c = null
+          }
+        })
       }
     }
 
