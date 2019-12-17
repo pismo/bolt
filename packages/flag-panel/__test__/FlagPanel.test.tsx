@@ -41,14 +41,12 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
 
 describe('@pismo/bolt-flag-panel', () => {
   test('it should display the components correctly', () => {
-    const { container, getByText } = render(<Component />)
+    const { getByText } = render(<Component />)
 
     expect(getByText('idioma')).toBeDefined()
     expect(getByText('Português')).toBeDefined()
     expect(getByText('Inglês')).toBeDefined()
     expect(getByText('Espanhol')).toBeDefined()
-
-    expect(container).toMatchSnapshot()
   })
 
   test('it should return the chosen value', () => {
