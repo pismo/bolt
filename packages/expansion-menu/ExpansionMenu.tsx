@@ -12,13 +12,21 @@ interface ExpansionMenuProps {
   getComponent: (item: { [key: string]: any }) => React.ReactNode
   SumaryComponent: React.ReactType
   onChange?: (item: { [key: string]: any }) => void
+  expansionMenuClasses?: any
+  sumaryClasses?: any
+  menuItemClasses?: any
+  expandMoreIconClasses?: any
 }
 
 const ExpansionMenu: React.FC<ExpansionMenuProps> = ({
   data,
   getComponent,
   SumaryComponent,
-  onChange
+  onChange,
+  expansionMenuClasses,
+  sumaryClasses,
+  menuItemClasses,
+  expandMoreIconClasses
 }: ExpansionMenuProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
@@ -38,17 +46,25 @@ const ExpansionMenu: React.FC<ExpansionMenuProps> = ({
       expanded={isExpanded}
       square={true}
       onChange={toggleExpanded}
-      className='ExpansionMenu'
+      className={`ExpansionMenu ${expansionMenuClasses}`}
     >
       <ExpansionPanelSummary
-        className='ExpansionMenu-summary'
-        expandIcon={<ExpandMoreIcon className='ExpansionMenu-expandMoreIcon' />}
+        className={`ExpansionMenu-summary ${sumaryClasses}`}
+        expandIcon={
+          <ExpandMoreIcon
+            className={`ExpansionMenu-expandMoreIcon ${expandMoreIconClasses}`}
+          />
+        }
       >
         <SumaryComponent />
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         {data.map((item, index) => (
-          <MenuItem key={index} onClick={handleSelect(item)}>
+          <MenuItem
+            className={`ExpansionMenu-menuItem ${menuItemClasses}`}
+            key={index}
+            onClick={handleSelect(item)}
+          >
             {getComponent(item)}
           </MenuItem>
         ))}

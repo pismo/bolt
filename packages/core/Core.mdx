@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-import { MenuIcon, DashboardIcon, SellerIcon, CreditorsIcon } from './icons'
+import { MenuIcon, DashboardIcon, SellerIcon, CreditorsIcon, GlobeIcon } from './icons'
 
 # Core
 
@@ -124,12 +124,10 @@ import Typography from '@material-ui/core/Typography'
 
 <Playground>
   {() => {
-    const icons = [
-      { Icon: MenuIcon, name: 'MenuIcon' },
-      { Icon: DashboardIcon, name: 'DashboardIcon' },
-      { Icon: SellerIcon, name: 'SellerIcon' },
-      { Icon: CreditorsIcon, name: 'CreditorsIcon' }
-    ]
+    //const icons = [
+      //{ Icon: MenuIcon, name: 'MenuIcon' }
+    //]
+    const icons = []
     return (
       <Grid container spacing={2}>
         {icons.map((icon, index) => (
