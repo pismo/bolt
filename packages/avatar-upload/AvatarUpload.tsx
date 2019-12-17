@@ -10,7 +10,7 @@ import Slider from '@material-ui/core/Slider'
 
 import Color from 'color'
 
-const { useRef, useEffect, useState, Fragment, useCallback } = React
+const { useRef, useEffect, useState, Fragment } = React
 
 const useStyles = makeStyles((theme: Theme) => {
   const extra = (theme.palette as any).extra
@@ -109,25 +109,27 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
           getResult: async () =>
             await c.result({ type: resultType, size: 'viewport' }),
           destroy: () => {
-            c.destroy()
             setImage(null)
-            setTimeout(() => {
-              // setCroppieEl(null)
-            }, 300)
-
-            //
-            //
-            // c = null
+            setCroppieEl(null)
           }
         })
       }
     }
 
-    return () => (croppieEl ? croppieEl.destroy() : null)
+    return () => {
+      if (croppieEl) {
+        try {
+          croppieEl.destroy()
+        } catch (err) {
+          console.log(err)
+        }
+      }
+    }
   }, [croppieRef.current, image, croppieEl])
 
   const uploadClicked = () => {
     var input = document.createElement('input')
+    input.id = 'input-upload'
     input.type = 'file'
     input.addEventListener('change', e => {
       const reader = new FileReader()
@@ -140,7 +142,8 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
     input.dispatchEvent(new MouseEvent('click'))
   }
 
-  const handleImageZoom = (e, newValue) => {
+  const handleImageZoom = (...args) => {
+    const newValue = args[1]
     setZoom(newValue)
     if (croppieEl) {
       croppieEl.setZoom(newValue / 100)
@@ -159,9 +162,12 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
           className={classes.iconButton}
           classes={{ label: classes.iconButtonLabel }}
           onClick={uploadClicked}
+          data-testid='upload-button'
         >
           <AddAPhotoOutlinedIcon />
-          <Typography variant='body1'>{buttonLabel}</Typography>
+          <Typography variant='body1' data-testid='upload-button-label'>
+            {buttonLabel}
+          </Typography>
         </IconButton>
       ) : (
         <Fragment>

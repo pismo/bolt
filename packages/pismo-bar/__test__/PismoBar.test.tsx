@@ -23,7 +23,6 @@ describe('@pismo/bolt-pismo-bar', () => {
       )
     }
     const testOne = render(<Component current='marketplace' />)
-    expect(testOne.container).toMatchSnapshot()
 
     expect(testOne.getByTestId('Marketplace')).toBeDefined()
 
@@ -50,6 +49,5 @@ describe('@pismo/bolt-pismo-bar', () => {
     const drawer = getByTestId(container.parentElement as HTMLElement, 'drawer')
 
     expect(drawer).toBeDefined()
-    expect(container.parentElement).toMatchSnapshot()
   })
 })

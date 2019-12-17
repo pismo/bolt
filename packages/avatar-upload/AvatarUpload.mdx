@@ -11,6 +11,30 @@ import Button from '@material-ui/core/Button'
 
 # AvatarUpload
 
+O componente **AvatarUpload** fornece ferramentas para fazer upload de imagens e fazer ajustes para se enquadrar na área delimitada. O componente fornece ainda ferramentas que retornam o resultado da edição nos formatos _canvas_, _base64_ ou _blob_ possibilitando o envio para o back-end.
+
+### Propriedades
+
+| **prop**      | **type**                          | **required** | **desc**                                                  |
+| ------------- | --------------------------------- | :----------: | --------------------------------------------------------- |
+| buttonLabel   | string                            |     true     | texto que vai no botão de upload                          |
+| resultType    | `'base64' / 'blob' / 'rawcanvas'` |    false     | tipo do formato para retorno                              |
+| imageUploaded | (result: AvatarResult) => void    |    false     | função que recebe a interface AvatarResult como argumento |
+
+### AvatarResult
+
+```
+{
+    getResult: () => Promise<any>
+    destroy: () => void
+}
+```
+
+- getResult: Método que retorna o resultado da edição no formato definido por **resultType**
+- destroy: Método que destroy a edição e retorna o botão de upload
+
+### Exemplo
+
 <Playground>
     {
         () => {
