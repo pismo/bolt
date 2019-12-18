@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Croppie from 'croppie'
+import * as Croppie from 'croppie'
 
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
@@ -8,7 +8,7 @@ import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined'
 import Typography from '@material-ui/core/Typography'
 import Slider from '@material-ui/core/Slider'
 
-import Color from 'color'
+import * as Color from 'color'
 
 const { useRef, useEffect, useState, Fragment } = React
 
