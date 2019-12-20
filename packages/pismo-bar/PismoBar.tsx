@@ -100,7 +100,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
       />
       <Drawer
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}
-        anchor={matches ? 'left' : 'top'}
+        anchor={matches || contract ? 'left' : 'top'}
         open={isOpen}
         onClose={toClose}
         ModalProps={{ hideBackdrop: true }}
