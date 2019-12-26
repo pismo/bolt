@@ -20,6 +20,7 @@ A **PismoBar** expõe a barra multiaplicativos da _Pismo_ contendo os ícones e 
 | current      | `'Marketplace' / 'Adjustments' / 'Customer' / 'Backoffice' / 'WebPOS'` |     true     | variável que deve indicar a aplicação atual                                                    |
 | appSelected  | ({ url: string }) => void                                              |    false     | Método executado quando uma aplicação é selecionada. Retorna a url da aplicação                |
 | contract     | boolean                                                                |    false     | forma contraída da barra                                                                       |
+| onClick      | () => void                                                             |    false     | se existir essa função será invocada uma vez antes de abrir a barra de apps                    |
 
 <Playground>
   <Bolt>
