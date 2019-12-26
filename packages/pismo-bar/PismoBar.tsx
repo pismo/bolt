@@ -67,15 +67,23 @@ const PismoBar: React.FC<PismoBarProps> = ({
   ToolbarProps,
   current,
   appSelected,
-  contract
+  contract,
+  onClick
 }: PismoBarProps) => {
   const classes = useStyles({})
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [countClick, setCountClick] = useState<number>(0)
 
   const toOpen = () => {
-    setIsOpen(true)
+    if (onClick && countClick === 0) {
+      setCountClick(1)
+      onClick()
+    } else {
+      setCountClick(0)
+      setIsOpen(true)
+    }
   }
 
   const toClose = () => {

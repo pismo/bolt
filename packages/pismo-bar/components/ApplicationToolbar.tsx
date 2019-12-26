@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { useSpring, useTransition, animated } from 'react-spring'
+
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -11,11 +13,13 @@ import Hidden from '@material-ui/core/Hidden'
 import MenuIcon from '@material-ui/icons/Apps'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
 
+const AAppBar = animated(AppBar)
+const AToolbar = animated(Toolbar)
+
 const useStyles = makeStyles((theme: Theme) => {
   const { extra } = theme.palette as any
   return {
     bar: {
-      maxWidth: ({ contract }: any) => (contract ? mobileMaxWidth : maxWidth),
       backgroundColor: extra ? extra['background'].special : 'transparent',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
@@ -62,30 +66,51 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
 }: ApplicationToolbarProps) => {
   const classes = useStyles({ full, contract })
 
+  const barState = useSpring({
+    width: Boolean(contract) ? mobileMaxWidth : maxWidth
+  })
+  const animatedContent = useTransition(Boolean(contract), null, {
+    enter: { opacity: 1 },
+    from: { opacity: 0 },
+    unique: true,
+    reset: true,
+    config: { duration: 500 }
+  })
+
   return (
-    <AppBar className={classes.bar} {...AppBarProps}>
-      <Toolbar className={classes.toolbar} {...ToolbarProps}>
-        <IconButton
-          className={classes.iconButton}
-          onClick={onClick}
-          data-testid='mainButton'
-        >
-          <MenuIcon
-            className={classes.icon}
-            data-testid={applications[current].name}
-          />
-        </IconButton>
-        {contract ? null : (
-          <Hidden xsDown={full ? false : true}>
-            <Box ml='5px'>
-              <Typography className={classes.title} variant='body1'>
-                Pismo<span>{applications[current].name}</span>
-              </Typography>
-            </Box>
-          </Hidden>
-        )}
-      </Toolbar>
-    </AppBar>
+    <AAppBar className={classes.bar} {...AppBarProps} style={barState}>
+      {animatedContent.map(
+        ({ item, key, props }) =>
+          item === Boolean(contract) && (
+            <AToolbar
+              key={key}
+              className={classes.toolbar}
+              {...ToolbarProps}
+              style={props}
+            >
+              <IconButton
+                className={classes.iconButton}
+                onClick={onClick}
+                data-testid='mainButton'
+              >
+                <MenuIcon
+                  className={classes.icon}
+                  data-testid={applications[current].name}
+                />
+              </IconButton>
+              {contract ? null : (
+                <Hidden xsDown={full ? false : true}>
+                  <Box ml='5px'>
+                    <Typography className={classes.title} variant='body1'>
+                      Pismo<span>{applications[current].name}</span>
+                    </Typography>
+                  </Box>
+                </Hidden>
+              )}
+            </AToolbar>
+          )
+      )}
+    </AAppBar>
   )
 }
 
