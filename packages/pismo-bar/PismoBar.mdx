@@ -2,10 +2,12 @@
 'name': PismoBar
 ---
 
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Playground } from 'docz'
 import { PismoBar } from './PismoBar'
 import { Bolt } from '@pismo/bolt-core'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
 
 # PismoBar
 
@@ -26,4 +28,37 @@ A **PismoBar** expõe a barra multiaplicativos da _Pismo_ contendo os ícones e 
   <Bolt>
     <PismoBar AppBarProps={{ position: 'relative' }} current='marketplace' />
   </Bolt>
+</Playground>
+
+#### Contract Example:
+
+<Playground>
+  {() => {
+    const [isOpen, set] = useState(true)
+
+const toggle = () => {
+set(!isOpen)
+}
+
+    return (
+      <Bolt>
+        <Box display='flex' width={1} alignItems='center'>
+          <Box>
+            <PismoBar
+              AppBarProps={{ position: 'relative' }}
+              current='marketplace'
+              contract={!isOpen}
+            />
+          </Box>
+          <Box width='200px' ml='100px'>
+            <Button variant='contained' color='primary' onClick={toggle}>
+              {isOpen ? 'close' : 'open'}
+            </Button>
+          </Box>
+        </Box>
+      </Bolt>
+    )
+
+}}
+
 </Playground>
