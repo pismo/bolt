@@ -50,4 +50,27 @@ describe('@pismo/bolt-pismo-bar', () => {
 
     expect(drawer).toBeDefined()
   })
+
+  test('it must call the function once', async () => {
+    const func = jest.fn(() => true)
+
+    const Component = ({ current }) => {
+      return (
+        <Bolt>
+          <PismoBar
+            AppBarProps={{ position: 'relative' }}
+            current={current}
+            onClick={func}
+          />
+        </Bolt>
+      )
+    }
+    const { container } = render(<Component current='marketplace' />)
+
+    const button = getByTestId(container, 'mainButton')
+    fireEvent.click(button)
+    fireEvent.click(button)
+
+    expect(func).toBeCalledTimes(1)
+  })
 })
