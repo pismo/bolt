@@ -68,6 +68,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
   current,
   appSelected,
   contract,
+  full,
   onClick
 }: PismoBarProps) => {
   const classes = useStyles({})
@@ -105,6 +106,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
         current={current}
         onClick={toOpen}
         contract={contract}
+        full={full}
       />
       <Drawer
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}
