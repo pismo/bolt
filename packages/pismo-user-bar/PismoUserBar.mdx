@@ -1,0 +1,30 @@
+---
+'name': PismoUserBar
+---
+
+import { Fragment, useState } from 'react'
+import { Playground } from 'docz'
+import { PismoUserBar } from './PismoUserBar'
+import { Bolt } from '@pismo/bolt-core'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+
+# PismoBar
+
+<Playground>
+  {() => {
+    const [isOpen, set] = useState(true)
+
+const toggle = () => {
+set(!isOpen)
+}
+
+    return (
+      <Bolt>
+        <PismoUserBar AppBarProps={{ position: 'relative' }} />
+      </Bolt>
+    )
+
+}}
+
+</Playground>
