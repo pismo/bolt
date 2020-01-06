@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-pismo-bar",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Bolt component pismo-bar",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -39,6 +39,6 @@
     "manual-publish": "npm publish"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^1.3.5"
+    "@pismo/bolt-core": "^1.4.1"
   }
 }
