@@ -9,7 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import { Avatar, AvatarProps } from './Avatar'
 
-export const maxWidth = '250px'
+export const maxWidth = '240px'
 export const mobileMaxWidth = '68px'
 
 const useStyles = makeStyles((theme: Theme) => {
