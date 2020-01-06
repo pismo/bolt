@@ -4,6 +4,7 @@ import Drawer from '@material-ui/core/Drawer'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
 import {
   ApplicationToolbar,
@@ -49,7 +50,9 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
     setIsOpen(!isOpen)
   }
 
-  const toClose = () => {}
+  const toClose = () => {
+    setIsOpen(false)
+  }
 
   return (
     <Fragment>
@@ -66,16 +69,20 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
-        <ApplicationToolbar {...toolbarProps} onClick={toOpen} full />
-        <Box
-          mt='15px'
-          width={1}
-          display='flex'
-          flexDirection='column'
-          height={1}
-        >
-          {children}
-        </Box>
+        <ClickAwayListener onClickAway={toClose}>
+          <Box width={1} height={1}>
+            <ApplicationToolbar {...toolbarProps} onClick={toOpen} full />
+            <Box
+              mt='15px'
+              width={1}
+              display='flex'
+              flexDirection='column'
+              height={1}
+            >
+              {children}
+            </Box>
+          </Box>
+        </ClickAwayListener>
       </Drawer>
     </Fragment>
   )
