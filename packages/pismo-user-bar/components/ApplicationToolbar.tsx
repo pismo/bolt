@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useSpring, animated } from 'react-spring'
 
 import Toolbar from '@material-ui/core/Toolbar'
 import Box from '@material-ui/core/Box'
@@ -9,6 +10,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import { Avatar, AvatarProps } from './Avatar'
 
+const AToolbar = animated(Toolbar)
+
 export const maxWidth = '240px'
 export const mobileMaxWidth = '68px'
 
@@ -17,7 +20,6 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     appBar: ({ full, contract }: any) => {
       const style = {
-        width: maxWidth,
         color: '#fff',
         backgroundColor: extra ? extra.background.special : null
       }
@@ -25,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) => {
       if (!full) {
         Object.assign(style, {
           [theme.breakpoints.down('xs')]: {
-            width: mobileMaxWidth,
             paddingLeft: 0,
             paddingRight: 0,
             justifyContent: 'center'
@@ -35,7 +36,6 @@ const useStyles = makeStyles((theme: Theme) => {
 
       if (contract) {
         Object.assign(style, {
-          width: mobileMaxWidth,
           paddingLeft: 0,
           paddingRight: 0,
           justifyContent: 'center'
@@ -76,13 +76,21 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   const classes = useStyles({ full, contract })
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
 
+  const animation = useSpring({
+    width: !full && (matches || contract) ? mobileMaxWidth : maxWidth
+  })
+
   const clicked = () => {
     if (onClick) onClick()
   }
 
   return (
     <ButtonBase onClick={clicked} data-testid='toolbar-button'>
-      <Toolbar className={classes.appBar} data-testid='toolbar-container'>
+      <AToolbar
+        className={classes.appBar}
+        data-testid='toolbar-container'
+        style={animation}
+      >
         <Avatar name={name} notification={notification} src={src} />
         {(matches && !full) || contract ? null : (
           <Box ml='10px' flexDirection='column'>
@@ -97,7 +105,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
             </Typography>
           </Box>
         )}
-      </Toolbar>
+      </AToolbar>
     </ButtonBase>
   )
 }
