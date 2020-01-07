@@ -40,6 +40,7 @@ interface PismoUserBarProps extends ApplicationToolbarProps {
 const PismoUserBar: React.FC<PismoUserBarProps> = ({
   contract,
   children,
+  full,
   ...toolbarProps
 }: PismoUserBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -59,11 +60,12 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
       <ApplicationToolbar
         {...toolbarProps}
         contract={contract}
+        full={full}
         onClick={toOpen}
       />
       <Drawer
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}
-        anchor={matches || contract ? 'left' : 'bottom'}
+        anchor={(matches || contract) && !full ? 'left' : 'bottom'}
         open={isOpen}
         onClose={toClose}
         ModalProps={{ hideBackdrop: true }}
