@@ -18,6 +18,16 @@ const useStyles = makeStyles((theme: Theme) => {
     iconButton: {
       width: '156px',
       height: '156px',
+      position: 'relative',
+      '&::before': {
+        content: '" "',
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#fff',
+        position: 'absolute',
+        borderRadius: '50%',
+        zIndex: -1
+      },
       backgroundColor: extra
         ? Color(extra.background.main)
             .fade(0.6)
