@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) => {
     appBar: ({ full, contract }: any) => {
       const style = {
         color: '#fff',
+        overflow: 'hidden',
         backgroundColor: extra ? extra.background.special : null
       }
 
@@ -77,7 +78,10 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
 
   const animation = useSpring({
-    width: !full && (matches || contract) ? mobileMaxWidth : maxWidth
+    width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,
+    from: {
+      width: !full && (matches || contract) ? maxWidth : mobileMaxWidth
+    }
   })
 
   const clicked = () => {
