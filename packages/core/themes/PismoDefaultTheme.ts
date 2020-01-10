@@ -12,7 +12,10 @@ export const paletteExtra = {
     defaultColor: '#000',
     backgroundColor: '#f2f5f8',
     backgroundSpecial: '#dddee1',
-    border: '#dddee1'
+    border: '#dddee1',
+    colorSpecial: ColorJ('#000000')
+      .alpha(0.6)
+      .toString()
   },
   error: {
     main: '#ea2d71'
