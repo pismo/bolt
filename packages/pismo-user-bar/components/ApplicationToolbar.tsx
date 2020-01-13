@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme: Theme) => {
 export interface ApplicationToolbarProps extends AvatarProps {
   email: string
   full?: boolean
+  fullAnimation?: boolean
   contract?: boolean
   onClick?: () => void
 }
@@ -72,7 +73,8 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   email,
   onClick,
   contract = false,
-  full = false
+  full = false,
+  fullAnimation = false
 }: ApplicationToolbarProps) => {
   const classes = useStyles({ full, contract })
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
@@ -80,7 +82,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   const animation = useSpring({
     width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,
     from: {
-      width: !full && (matches || contract) ? maxWidth : mobileMaxWidth
+      width: !full && (matches || contract) ? maxWidth : fullAnimation ? maxWidth : mobileMaxWidth
     }
   })
 
