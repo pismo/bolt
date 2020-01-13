@@ -5,11 +5,12 @@ script:
   - yarn install
   - yarn lerna:test:cov
   - yarn coveralls
+  - yarn docs:build
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: docs
+  local_dir: .docz/dist
   on:
     branch: master
