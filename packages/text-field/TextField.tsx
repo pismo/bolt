@@ -45,13 +45,13 @@ function TextField (props: Props) {
     if (props.mask && !props.select) {
       InputMask(props.maskOptions).mask(inputRef.current)
     }
-  }, [inputRef.current])
+  }, [inputRef.current, props.maskOptions])
 
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (props.onChange) {
       if (props.mask) {
         let val: string = e.target['inputmask'].unmaskedvalue()
-        props.onChange({ ...e, target: { ...e.target, value: val } })
+        props.onChange({ ...e, target: { ...e.target, name: e.target.name, value: val } })
       } else {
         props.onChange(e)
       }
