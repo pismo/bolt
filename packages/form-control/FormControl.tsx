@@ -10,6 +10,10 @@ interface IFormControl {
   initialValue: { [key: string]: any }
   validationSchema?: { [key: string]: any }
   onSubmit: (values: { [key: string]: any }) => void
+  onChange?: (
+    prev: { [key: string]: any },
+    values: { [key: string]: any }
+  ) => void
   children: (props: childrenArgs) => JSX.Element
 }
 type childrenArgs = {
@@ -22,7 +26,8 @@ function FormControl ({
   initialValue,
   validationSchema,
   onSubmit,
-  children
+  children,
+  onChange
 }: IFormControl) {
   const [values, setValues] = useState(initialValue)
   const [errors, setErrors] = useState({})
@@ -35,6 +40,7 @@ function FormControl ({
       setErrors(err)
     }
     set(val, e.target.name, e.target.value)
+    if (onChange) onChange({ ...values }, { ...val })
     setValues(val)
   }
 
