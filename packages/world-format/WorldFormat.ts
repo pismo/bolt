@@ -3,8 +3,9 @@ export enum Countrys {
     CHILE = 'chile'
 }
 
-interface Format {
+export interface Format {
     documentNumber: string
+    documentNumberIsValid: (value: string) => boolean
 }
 
 type WTFormat = {
@@ -13,9 +14,19 @@ type WTFormat = {
 
 export const WorldFormat: WTFormat = {
     [Countrys.BRAZIL]: {
-        documentNumber: '99.999.999/9999-99'
+        documentNumber: '\\d{2}\\.\\d{3}\\.\\d{3}\/\\d{4}-\\d{2}',
+        documentNumberIsValid: (value: string) => {
+            const pattern = /\d{2}\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2}/g
+
+            return Boolean(value.match(pattern))
+        }
     },
     [Countrys.CHILE]: {
-        documentNumber: '99.999.999-(a|9)'
+        documentNumber: '\\d{2}\\.\\d{3}\\.\\d{3}-[a-z A-Z 0-9]',
+        documentNumberIsValid: (value: string) => {
+            const pattern = /\d{2}\.?\d{3}\.?\d{3}\-?[a-z A-Z 0-9]/g
+
+            return Boolean(value.match(pattern))
+        }
     }
 }
