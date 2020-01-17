@@ -1,0 +1,40 @@
+---
+'name': WorldFormat
+---
+
+import { useEffect } from 'react'
+import { Playground } from 'docz'
+import { Bolt } from '@pismo/bolt-core'
+import { WorldFormat, Countrys, Format } from './WorldFormat'
+
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+
+# WorldFormat
+
+### Propriedades
+
+<Playground>
+    {
+        () => {
+            useEffect(() => {
+               teste()
+            }, [])
+
+            async function teste () {
+                const res = await WorldFormat[Countrys.BRAZIL].getStatesList()
+                const cities = await WorldFormat[Countrys.BRAZIL].getCitiesList(res[0])
+
+                console.log(res)
+                console.log(cities)
+            }
+
+            return (
+                <Bolt>
+                    hello
+                </Bolt>
+            )
+        }
+    }
+
+</Playground>
