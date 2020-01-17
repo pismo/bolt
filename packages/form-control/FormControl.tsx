@@ -32,8 +32,8 @@ function FormControl ({
   const [values, setValues] = useState(initialValue)
   const [errors, setErrors] = useState({})
 
-  const handleChange = e => {
-    let val = { ...values }
+  const handleChange = (e, update = {}) => {
+    let val = { ...values, ...update }
     if (get(errors, e.target.name)) {
       let err = { ...errors }
       unset(err, e.target.name)
