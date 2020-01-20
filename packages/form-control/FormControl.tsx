@@ -6,8 +6,12 @@ import { validate, isArray } from 'validate.js'
 
 const { useState } = React
 
+type InitialValue = {
+  [key: string]: any
+}
+
 interface IFormControl {
-  initialValue: { [key: string]: any }
+  initialValue: InitialValue
   validationSchema?: { [key: string]: any }
   onSubmit: (values: { [key: string]: any }) => void
   onChange?: (
@@ -29,10 +33,10 @@ function FormControl ({
   children,
   onChange
 }: IFormControl) {
-  const [values, setValues] = useState(initialValue)
+  const [values, setValues] = useState<InitialValue>(initialValue)
   const [errors, setErrors] = useState({})
 
-  const handleChange = (e, update = {}) => {
+  const handleChange = (e, update?: { [k in keyof InitialValue]?: any }) => {
     let val = { ...values, ...update }
     if (get(errors, e.target.name)) {
       let err = { ...errors }
