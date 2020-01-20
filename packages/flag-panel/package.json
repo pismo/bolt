@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-flag-panel",
-  "version": "1.4.4",
+  "version": "1.4.6",
   "description": "Bolt component flag-panel",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.5.0",
-    "@pismo/bolt-expansion-menu": "^1.4.3"
+    "@pismo/bolt-expansion-menu": "^1.4.5"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^1.4.3"
+    "@pismo/bolt-core": "^1.4.5"
   },
   "scripts": {
     "build": "tsc",
