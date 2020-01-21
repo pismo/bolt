@@ -20,7 +20,8 @@ export interface StateResult {
 
 export interface CitiesResult {
     id: number
-    name: string
+    name: string,
+    state: StateResult
   }
 
 export interface Error {
@@ -115,7 +116,7 @@ export const WorldFormat: WTFormat = {
                 return {error: {message: 'Invalid State'}}
               }
     
-            return res.map(({id, nome}) => ({id, name: nome}))
+            return res.map(({id, nome}) => ({id, name: nome, state}))
         }
         catch (err) {
             return {error: {message: err.message}}
@@ -141,6 +142,6 @@ export const WorldFormat: WTFormat = {
         state: ''
       }),
     getStatesList: async () => Promise.resolve([]),
-    getCitiesList: async (state: StateResult) => Promise.resolve([{name: state.name, id: state.id}])
+    getCitiesList: async (state: StateResult) => Promise.resolve([{name: state.name, id: state.id, state}])
   }
 }
