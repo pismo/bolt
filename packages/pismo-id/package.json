@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-pismo-id",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Bolt component pismo-id",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.2.1",
-    "@pismo/bolt-form-control": "^1.4.5",
+    "@pismo/bolt-form-control": "^1.4.6",
     "@pismo/bolt-snackbar": "^1.4.5",
     "@pismo/bolt-text-field": "^1.4.5"
   },
