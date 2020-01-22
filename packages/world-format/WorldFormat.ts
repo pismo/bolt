@@ -19,10 +19,10 @@ export interface StateResult {
 }
 
 export interface CitiesResult {
-    id: number
-    name: string,
-    state: StateResult
-  }
+  id: number
+  name: string
+  state: StateResult
+}
 
 export interface Error {
   error: { message: string }
@@ -96,31 +96,32 @@ export const WorldFormat: WTFormat = {
     getStatesList: async () => {
       try {
         const res = await fetch(
-            'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-          ).then(res => res.json().then(data => data))
-    
-          return res.map(({ nome, id, sigla }) => ({ name: nome, id, sigla }))
-      }
-      catch (err) {
-          return {error: {message: err.message}}
+          'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+        ).then(res => res.json().then(data => data))
+
+        return res.map(({ nome, id, sigla }) => ({ name: nome, id, sigla }))
+      } catch (err) {
+        return { error: { message: err.message } }
       }
     },
     getCitiesList: async (state: StateResult) => {
-        try {
-            const res = await fetch(
-                `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state.id}/municipios`
-              ).then(res => res.json())
-              .then(data => data)
+      try {
+        const res = await fetch(
+          `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${
+            state.id
+          }/municipios`
+        )
+          .then(res => res.json())
+          .then(data => data)
 
-              if(res.message) {
-                return {error: {message: 'Invalid State'}}
-              }
-    
-            return res.map(({id, nome}) => ({id, name: nome, state}))
+        if (res.message) {
+          return { error: { message: 'Invalid State' } }
         }
-        catch (err) {
-            return {error: {message: err.message}}
-        }
+
+        return res.map(({ id, nome }) => ({ id, name: nome, state }))
+      } catch (err) {
+        return { error: { message: err.message } }
+      }
     }
   },
   [Countrys.CHILE]: {
@@ -142,6 +143,7 @@ export const WorldFormat: WTFormat = {
         state: ''
       }),
     getStatesList: async () => Promise.resolve([]),
-    getCitiesList: async (state: StateResult) => Promise.resolve([{name: state.name, id: state.id, state}])
+    getCitiesList: async (state: StateResult) =>
+      Promise.resolve([{ name: state.name, id: state.id, state }])
   }
 }

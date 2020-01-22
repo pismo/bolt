@@ -34,5 +34,8 @@
     "build": "tsc",
     "test": "jest",
     "manual-publish": "npm publish"
+  },
+  "devDependencies": {
+    "@pismo/bolt-text-field": "^1.4.6"
   }
 }
