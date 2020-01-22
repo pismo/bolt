@@ -51,7 +51,10 @@ function TextField (props: Props) {
     if (props.onChange) {
       if (props.mask) {
         let val: string = e.target['inputmask'].unmaskedvalue()
-        props.onChange({ ...e, target: { ...e.target, name: e.target.name, value: val } })
+        props.onChange({
+          ...e,
+          target: { ...e.target, name: e.target.name, value: val }
+        })
       } else {
         props.onChange(e)
       }

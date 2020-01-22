@@ -73,7 +73,12 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
       >
         <ClickAwayListener onClickAway={toClose}>
           <Box width={1} height={1}>
-            <ApplicationToolbar {...toolbarProps} onClick={toOpen} full fullAnimation />
+            <ApplicationToolbar
+              {...toolbarProps}
+              onClick={toOpen}
+              full
+              fullAnimation
+            />
             <Box
               mt='15px'
               width={1}

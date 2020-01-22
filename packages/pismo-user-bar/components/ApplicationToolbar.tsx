@@ -82,7 +82,12 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   const animation = useSpring({
     width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,
     from: {
-      width: !full && (matches || contract) ? maxWidth : fullAnimation ? maxWidth : mobileMaxWidth
+      width:
+        !full && (matches || contract)
+          ? maxWidth
+          : fullAnimation
+          ? maxWidth
+          : mobileMaxWidth
     }
   })
 
