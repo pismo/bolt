@@ -29,7 +29,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
+    "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.2.1",
     "@pismo/bolt-form-control": "^1.5.0",
     "@pismo/bolt-snackbar": "^1.5.0",
