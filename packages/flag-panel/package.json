@@ -28,7 +28,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
+    "@material-ui/core": "^4.9.0",
     "@pismo/bolt-expansion-menu": "^1.5.0"
   },
   "devDependencies": {
