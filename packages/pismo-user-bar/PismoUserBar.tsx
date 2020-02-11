@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => {
       overflow: 'hidden',
       backgroundColor: extra ? extra['background'].main : 'transparent',
       color: extra
-        ? theme.palette.getContrastText(extra['background'].special)
+        ? extra.textField.defaultColor
         : '#fff'
     }
   }

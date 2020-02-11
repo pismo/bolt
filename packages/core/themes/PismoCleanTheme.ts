@@ -7,7 +7,8 @@ export const paletteExtra = {
     mainDark: '#CD3700'
   },
   secondary: {
-    main: '#3bb2dd'
+    main: '#2BA0A0',
+    mainDark: '#0C2C2C'
   },
   textField: {
     defaultColor: '#185858',
@@ -28,6 +29,7 @@ export const paletteExtra = {
     special: '#fff',
     main: '#fff',
     main20: '#E7F0EF',
+    main50: '#8DB7B3',
     special2: '#586374'
   }
 }
@@ -53,7 +55,7 @@ export const PismoCleanTheme = {
       main: paletteExtra.error.main
     },
     background: {
-      default: paletteExtra.textField.backgroundColor
+      default: paletteExtra.background.main
     }
   },
   overrides: {
@@ -68,6 +70,11 @@ export const PismoCleanTheme = {
         background: `linear-gradient(161.78deg, ${
           paletteExtra.primary.main
         } 9.17%, ${paletteExtra.primary.mainDark} 126.68%)`
+      },
+      containedSecondary: {
+        background: `linear-gradient(161.78deg, ${
+          paletteExtra.secondary.main
+        } 9.17%, ${paletteExtra.secondary.mainDark} 126.68%)`
       },
       contained: {
         '&$disabled': {
@@ -97,16 +104,18 @@ export const PismoCleanTheme = {
           boxShadow: 'none'
         },
         '&$error': {
-          backgroundColor: ColorJ(paletteExtra.error.main)
-            .lighten(0.7)
-            .hex(),
+          backgroundColor: '#fff',
           border: `1px  solid ${paletteExtra.error.main}`
         }
       },
       input: {
         padding: '15px 10px',
-        fontSize: '1rem',
-        lineHeight: '1.3rem',
+        fontSize: '1.3rem',
+        lineHeight: '1.4rem',
+
+        '&::placeholder': {
+          fontStyle: 'italic'
+        },
 
         '&$disabled': {
           color: ColorJ(paletteExtra.textField.defaultColor)
@@ -116,14 +125,13 @@ export const PismoCleanTheme = {
       },
 
       formControl: {
-        backgroundColor: paletteExtra.textField.backgroundColor,
-        border: `1px solid ${paletteExtra.textField.border}`,
-        borderRadius: '6px',
+        backgroundColor: '#fff',
+        borderBottom: `1px solid ${paletteExtra.background.main50}`,
 
         '&$disabled': {
-          border: `1px dashed ${paletteExtra.textField.border}`,
+          border: `1px dashed ${paletteExtra.background.main50}`,
           '&:hover': {
-            border: `1px dashed ${paletteExtra.textField.border}`
+            border: `1px dashed ${paletteExtra.background.main50}`
           }
         }
       }
@@ -132,7 +140,7 @@ export const PismoCleanTheme = {
     MuiInputLabel: {
       root: {
         color: paletteExtra.textField.defaultColor,
-        fontWeight: 'bold',
+        fontFamily: 'Lato',
 
         '&$focused': {
           color: paletteExtra.textField.defaultColor
@@ -175,9 +183,14 @@ export const PismoCleanTheme = {
     },
 
     MuiSelect: {
+      select: {
+        '&:focus': {
+          backgroundColor: '#fff'
+        }
+      },
       icon: {
         fontSize: '2rem',
-        color: paletteExtra.textField.defaultColor,
+        color: ColorJ(paletteExtra.textField.defaultColor).alpha(0.5).toString(),
         width: '36px',
         height: '36px',
         top: 'auto'
@@ -229,14 +242,10 @@ export const PismoCleanTheme = {
           minHeight: '0px',
           height: '53px',
           padding: '0px 10px',
-          '&:hover': {
-            backgroundColor: ColorJ(paletteExtra.background.main)
-              .lighten(0.5)
-              .hex(),
-            color: '#fff'
-          },
-          '&:hover .ExpansionMenu-expandMoreIcon': {
-            fill: '#fff'
+          backgroundColor: '#fff',
+          color: paletteExtra.textField.defaultColor,
+          '& .ExpansionMenu-expandMoreIcon': {
+            fill: ColorJ(paletteExtra.textField.defaultColor).alpha(0.5).toString()
           }
         }
       }
@@ -254,11 +263,10 @@ export const PismoCleanTheme = {
         width: '100%',
         padding: '6px 10px',
         '&.ExpansionMenu-menuItem': {
+          background: '#fff',
+          color: paletteExtra.textField.defaultColor,
           '&:hover': {
-            backgroundColor: ColorJ(paletteExtra.background.main)
-              .lighten(0.5)
-              .hex(),
-            color: '#fff'
+            backgroundColor: paletteExtra.background.main20
           }
         }
       }
@@ -266,17 +274,14 @@ export const PismoCleanTheme = {
 
     MuiList: {
       root: {
-        backgroundColor: paletteExtra.textField.backgroundSpecial
+        backgroundColor: paletteExtra.background.main
       }
     },
 
     MuiListItem: {
       button: {
         '&:hover': {
-          backgroundColor: ColorJ(paletteExtra.textField.backgroundSpecial)
-            .darken(0.2)
-            .hex()
-            .toString()
+          backgroundColor: paletteExtra.background.main20
         },
         '&$selected': {
           backgroundColor: paletteExtra.primary.main,
