@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.2.1",
+    "@material-ui/icons": "^4.9.1",
     "@pismo/bolt-form-control": "^1.5.1",
     "@pismo/bolt-snackbar": "^1.5.1",
     "@pismo/bolt-text-field": "^1.5.1"

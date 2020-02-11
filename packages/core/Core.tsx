@@ -10,8 +10,10 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import {
   PismoDefaultTheme,
   PismoDarkTheme,
+  PismoCleanTheme,
   paletteExtraDark,
-  paletteExtraDefault
+  paletteExtraDefault,
+  paletteExtraClean
 } from './themes'
 
 const WebFont = require('webfontloader')
@@ -34,6 +36,10 @@ const _darkTheme: Theme = mixin(
   responsiveFontSizes(createMuiTheme()),
   PismoDarkTheme
 )
+const _cleanTheme: Theme = mixin(
+  responsiveFontSizes(createMuiTheme()),
+  PismoCleanTheme
+)
 interface IThemeState {
   themes: { [key: string]: Theme }
   paletteExtra: { [key: string]: any }
@@ -44,9 +50,18 @@ interface IThemeState {
 }
 
 const initialThemeState: IThemeState = {
-  themes: { void: voidTheme, default: _defaultTheme, dark: _darkTheme },
-  paletteExtra: { default: paletteExtraDefault, dark: paletteExtraDark },
-  currentTheme: 'default',
+  themes: {
+    void: voidTheme,
+    default: _defaultTheme,
+    dark: _darkTheme,
+    clean: _cleanTheme
+  },
+  paletteExtra: {
+    default: paletteExtraDefault,
+    dark: paletteExtraDark,
+    clean: paletteExtraClean
+  },
+  currentTheme: 'clean',
   registerTheme: (name: string, theme: Theme) => ({ name, theme }),
   getThemes: () => [],
   getPalette: () => {}

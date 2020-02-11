@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme: Theme) => {
       backgroundColor: extra ? extra['background'].special : 'transparent',
       color: extra
         ? theme.palette.getContrastText(extra['background'].special)
-        : '#fff'
+        : '#fff',
+      boxShadow: 'unset'
     },
 
     appButtonContainer: {

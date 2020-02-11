@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.2.1"
+    "@material-ui/icons": "^4.9.1"
   },
   "scripts": {
     "build": "tsc",
