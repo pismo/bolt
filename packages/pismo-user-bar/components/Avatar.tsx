@@ -7,13 +7,13 @@ import * as initials from 'initials'
 
 const { Fragment } = React
 
-const useStyles = makeStyles((theme:Theme) => {
+const useStyles = makeStyles((theme: Theme) => {
   const extra = (theme.palette as any).extra
   return {
     avatar: {
-      border: `2px solid ${extra ? extra.textField.defaultColor: '#fff'}`,
+      border: `2px solid ${extra ? extra.textField.defaultColor : '#fff'}`,
       backgroundColor: extra ? extra.background.main50 : 'transparent',
-      color: extra ? extra.textField.defaultColor: '#fff'
+      color: extra ? extra.textField.defaultColor : '#fff'
     },
     badge: {
       minWidth: '12px',

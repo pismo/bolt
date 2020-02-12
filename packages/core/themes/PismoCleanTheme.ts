@@ -28,7 +28,9 @@ export const paletteExtra = {
   background: {
     special: '#fff',
     main: '#fff',
-    main20: '#E7F0EF',
+    main05: '#EAF1F1',
+    main10: '#DFEBEA',
+    main20: '#CBDEDC',
     main50: '#8DB7B3',
     special2: '#586374'
   }
@@ -190,7 +192,9 @@ export const PismoCleanTheme = {
       },
       icon: {
         fontSize: '2rem',
-        color: ColorJ(paletteExtra.textField.defaultColor).alpha(0.5).toString(),
+        color: ColorJ(paletteExtra.textField.defaultColor)
+          .alpha(0.5)
+          .toString(),
         width: '36px',
         height: '36px',
         top: 'auto'
@@ -245,7 +249,9 @@ export const PismoCleanTheme = {
           backgroundColor: '#fff',
           color: paletteExtra.textField.defaultColor,
           '& .ExpansionMenu-expandMoreIcon': {
-            fill: ColorJ(paletteExtra.textField.defaultColor).alpha(0.5).toString()
+            fill: ColorJ(paletteExtra.textField.defaultColor)
+              .alpha(0.5)
+              .toString()
           }
         }
       }
