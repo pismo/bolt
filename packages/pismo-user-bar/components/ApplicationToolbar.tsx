@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => {
   return {
     appBar: ({ full, contract }: any) => {
       const style = {
-        color: '#fff',
+        color: extra ? extra.textField.defaultColor : '#fff',
         overflow: 'hidden',
         backgroundColor: extra ? extra.background.special : null
       }
@@ -50,10 +50,12 @@ const useStyles = makeStyles((theme: Theme) => {
       width: '150px',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
-      textAlign: 'left'
+      textAlign: 'left',
+      fontWeight: 'bold'
     },
     email: {
-      opacity: 0.6
+      fontWeight: 'normal',
+      color: extra ? extra.background.main50 : '#fff'
     }
   }
 })

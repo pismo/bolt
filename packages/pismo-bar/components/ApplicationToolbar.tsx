@@ -5,22 +5,32 @@ import { useSpring, useTransition, animated } from 'react-spring'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { makeStyles, Theme } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
 
 import MenuIcon from '@material-ui/icons/Apps'
+import { PismoMarketplace } from '@pismo/bolt-core'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
 
 const AAppBar = animated(AppBar)
 const AToolbar = animated(Toolbar)
+
+const Logo = ({ name, ...props }) => {
+  switch (name) {
+    case 'marketplace':
+      return <PismoMarketplace {...props} />
+    default:
+      return <PismoMarketplace {...props} />
+  }
+}
 
 const useStyles = makeStyles((theme: Theme) => {
   const { extra } = theme.palette as any
   return {
     bar: {
       backgroundColor: extra ? extra['background'].special : 'transparent',
+      boxShadow: 'unset',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
       }
@@ -101,9 +111,13 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
               {contract ? null : (
                 <Hidden xsDown={full ? false : true}>
                   <Box ml='5px'>
-                    <Typography className={classes.title} variant='body1'>
+                    {/* <Typography className={classes.title} variant='body1'>
                       Pismo<span>{applications[current].name}</span>
-                    </Typography>
+                    </Typography> */}
+                    <Logo
+                      name={applications[current].name}
+                      style={{ width: '100%', height: '40px' }}
+                    />
                   </Box>
                 </Hidden>
               )}

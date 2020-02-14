@@ -6,33 +6,38 @@ import { makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import ButtonBase from '@material-ui/core/ButtonBase'
 
-import * as Color from 'color'
-
 import { ApplicationButtonProps } from './interfaces'
 
 const useStyles = makeStyles((theme: Theme) => {
   const { extra } = theme.palette as any
   return {
-    appButton: {
-      width: '100%',
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: ({ isSelected }: any) =>
-        isSelected && extra ? extra['background'].main : 'unset',
-      '&:hover': {
-        backgroundColor: ({ isSelected }: any) =>
+    appButton: ({ isSelected }: any) => {
+      return {
+        width: '100%',
+        borderRadius: theme.shape.borderRadius,
+        background:
           isSelected && extra
-            ? extra.background.main
-            : extra
-            ? Color(extra['background'].special)
-                .lighten(0.8)
-                .hex()
-            : 'transparent'
+            ? `linear-gradient(161.78deg, ${extra.primary.main} 9.17%, ${
+                extra.primary.mainDark
+              } 126.68%)`
+            : 'unset',
+        color: isSelected
+          ? '#fff'
+          : extra
+          ? extra.textField.defaultColor
+          : 'initial',
+        boxShadow: isSelected ? theme.shadows[4] : 'unset',
+        transition: 'box-shadow 0.5s',
+        '&:hover': {
+          boxShadow: theme.shadows[4],
+          transition: 'box-shadow 0.5s'
+        }
       }
     },
     appButtonIcon: {
       width: '48px',
       height: '48px',
-      backgroundColor: '#4F5A69',
+      backgroundColor: extra ? extra.background.main20 : 'fff',
       borderRadius: '50%'
     }
   }

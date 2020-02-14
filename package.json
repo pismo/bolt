@@ -61,9 +61,9 @@
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "template:component": "node ./scripts/createComponent",
     "readme:update": "node ./scripts/updateRootReadme",
-    "format:js": "prettier-standard '**/*.{json,js}'",
-    "format:mdx": "prettier-standard '**/*.mdx' --parser mdx",
-    "format:ts": "prettier-standard '**/*.{tsx,ts}' --parser typescript",
+    "format:js": "prettier-standard \"**/*.{json,js}\"",
+    "format:mdx": "prettier-standard \"**/*.mdx\" --parser mdx",
+    "format:ts": "prettier-standard \"**/*.{tsx,ts}\" --parser typescript",
     "format": "yarn format:js && yarn format:ts && yarn format:mdx",
     "docs:dev": "docz dev",
     "docs:build": "docz build"

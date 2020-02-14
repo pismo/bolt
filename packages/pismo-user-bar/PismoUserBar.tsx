@@ -26,9 +26,8 @@ const useStyles = makeStyles((theme: Theme) => {
       height: '100vh',
       overflow: 'hidden',
       backgroundColor: extra ? extra['background'].main : 'transparent',
-      color: extra
-        ? theme.palette.getContrastText(extra['background'].special)
-        : '#fff'
+      color: extra ? extra.textField.defaultColor : '#fff',
+      boxShadow: 'unset'
     }
   }
 })

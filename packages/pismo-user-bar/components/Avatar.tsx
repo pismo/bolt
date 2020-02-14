@@ -2,19 +2,23 @@ import * as React from 'react'
 
 import MAvatar from '@material-ui/core/Avatar'
 import Badge from '@material-ui/core/Badge'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, Theme } from '@material-ui/core/styles'
 import * as initials from 'initials'
 
 const { Fragment } = React
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme: Theme) => {
+  const extra = (theme.palette as any).extra
   return {
     avatar: {
-      border: `1px solid #4F5A69`
+      border: `2px solid ${extra ? extra.textField.defaultColor : '#fff'}`,
+      backgroundColor: extra ? extra.background.main50 : 'transparent',
+      color: extra ? extra.textField.defaultColor : '#fff'
     },
     badge: {
       minWidth: '12px',
-      height: '12px'
+      height: '12px',
+      backgroundColor: extra ? extra.primary.main : 'transparent'
     }
   }
 })
