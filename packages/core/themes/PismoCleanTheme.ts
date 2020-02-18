@@ -107,33 +107,32 @@ export const PismoCleanTheme = {
         },
         '&$error': {
           backgroundColor: '#fff',
-          border: `1px  solid ${paletteExtra.error.main}`
+          borderBottom: `1px  solid ${paletteExtra.error.main}`
         }
       },
       input: {
-        padding: '15px 10px',
-        fontSize: '1.3rem',
+        padding: '15px 10px 15px 0px',
+        fontSize: '1.4rem',
         lineHeight: '1.4rem',
+        fontWeight: 'bold',
 
         '&::placeholder': {
           fontStyle: 'italic'
         },
 
         '&$disabled': {
-          color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.5)
-            .string()
+          color: paletteExtra.textField.defaultColor
         }
       },
 
       formControl: {
         backgroundColor: '#fff',
-        borderBottom: `1px solid ${paletteExtra.background.main50}`,
+        borderBottom: 'unset',
 
         '&$disabled': {
-          border: `1px dashed ${paletteExtra.background.main50}`,
+          border: 'unset',
           '&:hover': {
-            border: `1px dashed ${paletteExtra.background.main50}`
+            border: 'unset'
           }
         }
       }
@@ -141,21 +140,20 @@ export const PismoCleanTheme = {
 
     MuiInputLabel: {
       root: {
-        color: paletteExtra.textField.defaultColor,
+        color: paletteExtra.background.main50,
         fontFamily: 'Lato',
+        fontWeight: 'bold',
 
         '&$focused': {
-          color: paletteExtra.textField.defaultColor
+          color: paletteExtra.background.main50
         },
 
         '&$error': {
-          color: paletteExtra.textField.defaultColor
+          color: paletteExtra.background.main50
         },
 
         '&$disabled': {
-          color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.3)
-            .string()
+          color: paletteExtra.background.main50
         }
       },
       shrink: {
@@ -165,21 +163,15 @@ export const PismoCleanTheme = {
 
     MuiFormHelperText: {
       root: {
-        color: ColorJ(paletteExtra.textField.defaultColor)
-          .fade(0.5)
-          .string(),
+        color: paletteExtra.background.main50,
 
         '&$disabled': {
-          color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.5)
-            .string()
+          color: paletteExtra.background.main50
         }
       },
       filled: {
         '&$disabled': {
-          color: ColorJ(paletteExtra.textField.defaultColor)
-            .fade(0.5)
-            .string()
+          color: paletteExtra.background.main50
         }
       }
     },
