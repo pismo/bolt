@@ -17,7 +17,7 @@ export const paletteExtra = {
     border: '#dddee1'
   },
   error: {
-    main: '#ea2d71'
+    main: '#F95E4D'
   },
   success: {
     main: green[600]
@@ -113,7 +113,7 @@ export const PismoCleanTheme = {
       input: {
         padding: '15px 10px 15px 0px',
         fontSize: '1.4rem',
-        lineHeight: '1.4rem',
+        lineHeight: '1.7rem',
         fontWeight: 'bold',
 
         '&::placeholder': {
