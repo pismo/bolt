@@ -36,6 +36,10 @@ function FormControl ({
   const [values, setValues] = useState<InitialValue>(initialValue)
   const [errors, setErrors] = useState({})
 
+  React.useEffect(() => {
+    setValues(initialValue)
+  }, [initialValue])
+
   const handleChange = (e, update?: { [k in keyof InitialValue]?: any }) => {
     let val = { ...values, ...update }
     if (get(errors, e.target.name)) {
