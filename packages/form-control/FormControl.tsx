@@ -19,6 +19,7 @@ interface IFormControl {
     values: { [key: string]: any }
   ) => void
   children: (props: childrenArgs) => JSX.Element
+  autoComplete?: boolean
 }
 type childrenArgs = {
   values: { [key: string]: any }
@@ -31,7 +32,8 @@ function FormControl ({
   validationSchema,
   onSubmit,
   children,
-  onChange
+  onChange,
+  autoComplete = true
 }: IFormControl) {
   const [values, setValues] = useState<InitialValue>(initialValue)
   const [errors, setErrors] = useState({})
@@ -73,7 +75,7 @@ function FormControl ({
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} autoComplete={autoComplete ? 'on' : 'off'}>
       {children({ values, errors, handleChange })}
     </form>
   )
