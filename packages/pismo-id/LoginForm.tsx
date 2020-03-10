@@ -107,7 +107,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <Box maxWidth='436px'>
-      <Card>
+      <Card elevation={6}>
         <CardContent>
           <Box width={1}>
             <Typography variant='h5'>{lang['login.title']}</Typography>
@@ -130,6 +130,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 <>
                   <Box width={1} mt='50px'>
                     <TextField
+                    id='emailOrCPF'
                       placeholder={lang['login.emailField']}
                       name='emailOrCPF'
                       value={emailOrCPF}
@@ -140,6 +141,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                   </Box>
                   <Box width={1} mt='20px'>
                     <TextField
+                    id='password'
                       type={showPassword ? 'text' : 'password'}
                       placeholder={lang['login.passwordField']}
                       name='password'

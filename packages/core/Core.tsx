@@ -1,20 +1,9 @@
 import * as React from 'react'
-import {
-  createMuiTheme,
-  responsiveFontSizes,
-  Theme
-} from '@material-ui/core/styles'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import {
-  PismoDefaultTheme,
-  PismoDarkTheme,
-  PismoCleanTheme,
-  paletteExtraDark,
-  paletteExtraDefault,
-  paletteExtraClean
-} from './themes'
+import { PismoCleanTheme, BoltTheme } from './themes'
 
 const WebFont = require('webfontloader')
 const { useContext, useReducer, useState, useEffect } = React
@@ -27,47 +16,31 @@ WebFont.load({
 
 const mixin = require('deepmerge')
 
-const voidTheme: Theme = responsiveFontSizes(createMuiTheme())
-const _defaultTheme: Theme = mixin(
-  responsiveFontSizes(createMuiTheme()),
-  PismoDefaultTheme
-)
-const _darkTheme: Theme = mixin(
-  responsiveFontSizes(createMuiTheme()),
-  PismoDarkTheme
-)
-const _cleanTheme: Theme = mixin(
+const _cleanTheme: BoltTheme = mixin(
   responsiveFontSizes(createMuiTheme()),
   PismoCleanTheme
 )
 interface IThemeState {
-  themes: { [key: string]: Theme }
-  paletteExtra: { [key: string]: any }
+  themes: { [key: string]: BoltTheme }
   currentTheme: string
-  registerTheme: (name: string, theme: Theme) => void
+  registerTheme: (name: string, theme: BoltTheme) => void
   getThemes: () => string[]
-  getPalette: () => any
 }
 
 const initialThemeState: IThemeState = {
   themes: {
-    void: voidTheme,
-    default: _defaultTheme,
-    dark: _darkTheme,
     clean: _cleanTheme
   },
-  paletteExtra: {
-    default: paletteExtraDefault,
-    dark: paletteExtraDark,
-    clean: paletteExtraClean
-  },
   currentTheme: 'clean',
-  registerTheme: (name: string, theme: Theme) => ({ name, theme }),
-  getThemes: () => [],
-  getPalette: () => {}
+  registerTheme: (name: string, theme: BoltTheme) => ({ name, theme }),
+  getThemes: () => []
 }
 
-export const Context: React.Context<any> = React.createContext(
+export interface BoltContextProps extends IThemeState {
+  changeTheme: (name: string) => void
+}
+
+export const Context: React.Context<BoltContextProps> = React.createContext(
   mixin({}, initialThemeState)
 )
 
@@ -96,7 +69,7 @@ export function Bolt ({ children }) {
     setTheme(state.themes[state.currentTheme])
   }, [state.currentTheme])
 
-  const registerTheme = (name: string, theme: Theme): void => {
+  const registerTheme = (name: string, theme: BoltTheme): void => {
     dispatch({ type: 'ADD', payload: { name, theme } })
   }
 
@@ -106,19 +79,14 @@ export function Bolt ({ children }) {
 
   const getThemes = (): string[] => Object.keys(state.themes)
 
-  const getPalette = (): any =>
-    state.paletteExtra[state.currentTheme]
-      ? state.paletteExtra[state.currentTheme]
-      : state.paletteExtra['default']
-
   return (
     <Context.Provider
       value={{
+        themes: state.themes,
         currentTheme: state.currentTheme,
         registerTheme,
         changeTheme,
-        getThemes,
-        getPalette
+        getThemes
       }}
     >
       <ThemeProvider theme={theme}>

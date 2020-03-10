@@ -23,12 +23,41 @@ import { TextField } from '@pismo/bolt-text-field'
 
 <Playground>
   <Bolt>
-    <TextField
-      label='name'
-      value='my text'
-      placeholder='Type text here'
-      helperText='escreva corretamente'
-    />
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <TextField
+          label='name'
+          value='my text'
+          placeholder='Type text here'
+          helperText='escreva corretamente'
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          label='name'
+          placeholder='Type text here'
+          helperText='escreva corretamente'
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          label='name'
+          value='my text'
+          placeholder='Type text here'
+          helperText='escreva corretamente'
+          error
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          label='name'
+          value='my text'
+          placeholder='Type text here'
+          helperText='escreva corretamente'
+          disabled
+        />
+      </Grid>
+    </Grid>
   </Bolt>
 </Playground>
 

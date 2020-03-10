@@ -5,8 +5,49 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MenuItem from '@material-ui/core/MenuItem'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 const { useState } = React
+
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
+  return {
+    expansionPanel: {
+      boxShadow: 'none',
+
+      '&$expanded': {
+        margin: 0
+      },
+
+      '&::before': {
+        all: 'unset'
+      }
+    },
+    sumary: {
+      maxHeight: 'auto',
+      minHeight: '0px',
+      height: '53px',
+      padding: '0px 10px',
+      backgroundColor: '#fff',
+      color: colors.text['50'],
+      '&.Mui-expanded': {
+        minHeight: '0px'
+      },
+      '&>.Mui-expanded': {
+        margin: '12px 0'
+      }
+    },
+    menuItem: {
+      background: '#fff',
+      color: colors.text['50'],
+      '&:hover': {
+        backgroundColor: colors.background['20']
+      }
+    }
+  }
+})
 interface ExpansionMenuProps {
   data: { [key: string]: any }[]
   getComponent: (item: { [key: string]: any }) => React.ReactNode
@@ -30,6 +71,8 @@ const ExpansionMenu: React.FC<ExpansionMenuProps> = ({
 }: ExpansionMenuProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
+  const classes = useStyles()
+
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
@@ -46,13 +89,17 @@ const ExpansionMenu: React.FC<ExpansionMenuProps> = ({
       expanded={isExpanded}
       square={true}
       onChange={toggleExpanded}
-      className={`ExpansionMenu ${expansionMenuClasses}`}
+      className={`${
+        classes.expansionPanel
+      } ${expansionMenuClasses} Bolt-ExpansionMenu`}
     >
       <ExpansionPanelSummary
-        className={`ExpansionMenu-summary ${sumaryClasses}`}
+        className={`${
+          classes.sumary
+        } ${sumaryClasses} Bolt-ExpansionMenu-summary`}
         expandIcon={
           <ExpandMoreIcon
-            className={`ExpansionMenu-expandMoreIcon ${expandMoreIconClasses}`}
+            className={`${expandMoreIconClasses} Bolt-ExpansionMenu-expandMoreIcon`}
           />
         }
       >
@@ -61,7 +108,9 @@ const ExpansionMenu: React.FC<ExpansionMenuProps> = ({
       <ExpansionPanelDetails>
         {data.map((item, index) => (
           <MenuItem
-            className={`ExpansionMenu-menuItem ${menuItemClasses}`}
+            className={`${
+              classes.menuItem
+            } ${menuItemClasses} BoltExpansionMenu-menuItem`}
             key={index}
             onClick={handleSelect(item)}
           >

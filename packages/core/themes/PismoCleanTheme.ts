@@ -1,41 +1,9 @@
-import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
 import { shadows } from '@material-ui/system'
 import * as ColorJ from 'color'
 
-interface Pallete {
-  0: string
-  5: string
-  10: string
-  15: string
-  20: string
-  25: string
-  30: string
-  35: string
-  40: string
-  45: string
-  50: string
-  55: string
-  60: string
-  65: string
-  70: string
-  75: string
-  80: string
-  85: string
-  90: string
-  95: string
-  100: string
-}
+import { PalleteColor, BoltTheme } from './ColorsProps'
 
-export interface PalleteColor {
-  text: Pallete
-  background: Pallete
-  error: Pallete
-  main: Pallete
-  backgroundMain: Pallete
-}
-
-export const colors: PalleteColor = {
+const colors: PalleteColor = {
   text: {
     0: '#E8EBEB',
     5: '#D2D8D8',
@@ -153,19 +121,22 @@ export const colors: PalleteColor = {
   }
 }
 
-export const paletteExtra = {}
-
-export interface BoltPallete extends PaletteOptions {
-  colors: PalleteColor
-}
-
-export interface BoltTheme extends ThemeOptions {
-  palette?: BoltPallete
-}
-
 export const PismoCleanTheme: BoltTheme = {
   typography: {
-    fontFamily: 'Lato'
+    fontFamily: 'Lato',
+    h1: { fontFamily: 'Lato' },
+    h2: { fontFamily: 'Lato' },
+    h3: { fontFamily: 'Lato' },
+    h4: { fontFamily: 'Lato' },
+    h5: { fontFamily: 'Lato' },
+    h6: { fontFamily: 'Lato' },
+    subtitle1: { fontFamily: 'Lato' },
+    subtitle2: { fontFamily: 'Lato' },
+    body1: { fontFamily: 'Lato' },
+    body2: { fontFamily: 'Lato' },
+    button: { fontFamily: 'Lato' },
+    caption: { fontFamily: 'Lato' },
+    overline: { fontFamily: 'Lato' }
   },
   palette: {
     colors,
@@ -184,288 +155,234 @@ export const PismoCleanTheme: BoltTheme = {
       main: colors.error['50']
     },
     background: {
-      default: colors.background['50']
+      default: '#fff'
     }
   },
   overrides: {
     MuiButton: {
       root: {
+        '--hover-bg': ColorJ('#000')
+          .alpha(0.1)
+          .toString(),
         textTransform: 'unset',
         width: '100%',
-        minHeight: '48px'
-      },
-      containedPrimary: {
-        background: `linear-gradient(172.56deg, ${colors.main['50']} -0.84%, ${
-          colors.backgroundMain['60']
-        } 141.1%)`,
-        boxShadow: shadows[4],
-        '&:hover': {
-          position: 'relative',
-          '&::after': {
-            position: 'absolute',
-            content: "' '",
-            width: '100%',
-            height: '100%',
-            background: ColorJ(colors.backgroundMain['70'])
-              .alpha(0.3)
-              .toString(),
-            transition: 'background 0.3s'
-          }
-        }
-      },
-      containedSecondary: {
-        '@global': {
-          '@keyframes secondaryHover': {
-            from: { background: 'transparent' },
-            to: {
-              background: ColorJ(colors.text['65'])
-                .alpha(0.2)
-                .toString()
-            }
-          },
-          '@keyframes secondaryOut': {
-            from: {
-              background: ColorJ(colors.text['65'])
-                .alpha(0.2)
-                .toString()
-            },
-            to: { background: 'transparent' }
-          }
-        },
-        position: 'relative',
-        background: `linear-gradient(179.85deg, ${
-          colors.background['45']
-        } -46.8%, ${colors.text['65']} 240.65%)`,
-        boxShadow: shadows[4],
+        minHeight: '48px',
         '&::after': {
           position: 'absolute',
           content: "' '",
           width: '100%',
           height: '100%',
           backgroundColor: 'transparent',
-          animation: '$secondaryOut 0.2s'
+          animation: '$onOut 0.2s'
         },
         '&:hover': {
           '&::after': {
-            animation: '$secondaryHover 0.3s',
-            background: ColorJ(colors.text['65'])
-              .alpha(0.2)
-              .toString()
+            animation: '$onHover 0.3s',
+            background: 'var(--hover-bg)'
+          }
+        },
+        '@global': {
+          '@keyframes onHover': {
+            from: { background: 'transparent' },
+            to: {
+              background: 'var(--hover-bg)'
+            }
+          },
+          '@keyframes onOut': {
+            from: {
+              background: 'var(--hover-bg)'
+            },
+            to: { background: 'transparent' }
+          }
+        }
+      },
+      contained: {
+        '&:hover': {
+          boxShadow: shadows[4]
+        },
+        '&$disabled': {
+          color: colors.background['50'],
+          background: 'unset',
+          backgroundColor: '#fff'
+        }
+      },
+      containedPrimary: {
+        background: `linear-gradient(172.56deg, ${colors.main['50']} -0.84%, ${
+          colors.backgroundMain['60']
+        } 141.1%)`,
+        boxShadow: shadows[4]
+      },
+      containedSecondary: {
+        position: 'relative',
+        background: `linear-gradient(179.85deg, ${
+          colors.background['45']
+        } -46.8%, ${colors.text['65']} 240.65%)`,
+        boxShadow: shadows[4]
+      }
+    },
+
+    MuiFormControl: {
+      root: {
+        width: '100%'
+      }
+    },
+
+    MuiInput: {
+      root: {
+        color: colors.text['50'],
+        '&$focused': {
+          boxShadow: 'none'
+        },
+        '&$error': {
+          backgroundColor: '#fff',
+          color: colors.error['50']
+        },
+      },
+      input: {
+        padding: '15px 10px 15px 0px',
+        fontSize: '1.4rem',
+        lineHeight: '1.7rem',
+        fontWeight: 'bold',
+
+        '&::placeholder': {
+          fontStyle: 'italic',
+          fontWeight: 'normal',
+          color: colors.background['50'],
+          opacity: 'unset'
+        },
+
+        '&$disabled': {
+          color: colors.text['50']
+        },
+      },
+
+      formControl: {
+        backgroundColor: '#fff',
+        borderBottom: 'unset',
+
+        '&$disabled': {
+          border: 'unset',
+          '&:hover': {
+            border: 'unset'
           }
         }
       }
-      //     contained: {
-      //       '&$disabled': {
-      //         color: paletteExtra.textField.defaultColor,
-      //         background: 'unset',
-      //         backgroundColor: '#fff',
-      //         boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.25)'
-      //       }
-      //     }
-    }
+    },
 
-    //   MuiFormControl: {
-    //     root: {
-    //       width: '100%',
+    MuiInputLabel: {
+      root: {
+        color: colors.background['50'],
+        fontFamily: 'Lato',
+        fontWeight: 'bold',
 
-    //       '&$error': {
-    //         backgroundColor: ColorJ(paletteExtra.error.main)
-    //           .alpha(0.5)
-    //           .toString()
-    //       }
-    //     }
-    //   },
+        '&$focused': {
+          color: colors.background['50']
+        },
 
-    //   MuiInput: {
-    //     root: {
-    //       '&$focused': {
-    //         boxShadow: 'none'
-    //       },
-    //       '&$error': {
-    //         backgroundColor: '#fff',
-    //         borderBottom: `1px  solid ${paletteExtra.error.main}`
-    //       }
-    //     },
-    //     input: {
-    //       padding: '15px 10px 15px 0px',
-    //       fontSize: '1.4rem',
-    //       lineHeight: '1.7rem',
-    //       fontWeight: 'bold',
+        '&$error': {
+          color: colors.error['30']
+        },
 
-    //       '&::placeholder': {
-    //         fontStyle: 'italic'
-    //       },
+        '&$disabled': {
+          color: colors.background['50']
+        }
+      },
+      shrink: {
+        transform: 'translate(0, -2.0px) scale(0.95)'
+      }
+    },
 
-    //       '&$disabled': {
-    //         color: paletteExtra.textField.defaultColor
-    //       }
-    //     },
+    MuiFormHelperText: {
+      root: {
+        color: colors.background['50'],
 
-    //     formControl: {
-    //       backgroundColor: '#fff',
-    //       borderBottom: 'unset',
+        '&$disabled': {
+          color: colors.background['50']
+        },
 
-    //       '&$disabled': {
-    //         border: 'unset',
-    //         '&:hover': {
-    //           border: 'unset'
-    //         }
-    //       }
-    //     }
-    //   },
+        '&$error': {
+          color: colors.error['30']
+        }
+      },
+      filled: {
+        '&$disabled': {
+          color: colors.background['50']
+        }
+      }
+    },
 
-    //   MuiInputLabel: {
-    //     root: {
-    //       color: paletteExtra.background.main50,
-    //       fontFamily: 'Lato',
-    //       fontWeight: 'bold',
+    MuiSelect: {
+      select: {
+        '&:focus': {
+          backgroundColor: '#fff'
+        }
+      },
+      icon: {
+        fontSize: '2rem',
+        color: colors.background['50'],
+        width: '36px',
+        height: '36px',
+        top: 'auto'
+      }
+    },
 
-    //       '&$focused': {
-    //         color: paletteExtra.background.main50
-    //       },
+      MuiSnackbarContent: {
+        root: {
+          borderRadius: '30px',
+          '&.error': {
+            backgroundColor: colors.error['40']
+          },
+          '&.success': {
+            backgroundColor: colors.background['50']
+          },
+          '&.warning': {
+            backgroundColor: colors.main['30']
+          },
+          '&.info': {
+            backgroundColor: '#fff',
+            color: colors.text['50'],            
+          },
 
-    //       '&$error': {
-    //         color: paletteExtra.background.main50
-    //       },
+          '& .success-icon': {
+            fill: '#fff'
+          },
+          '& .warning-icon': {
+            fill: '#fff'
+          },
+          '& .error-icon': {
+            fill: '#fff'
+          },
+        }
+      },
 
-    //       '&$disabled': {
-    //         color: paletteExtra.background.main50
-    //       }
-    //     },
-    //     shrink: {
-    //       transform: 'translate(0, -2.0px) scale(0.95)'
-    //     }
-    //   },
+    MuiExpansionPanelDetails: {
+      root: {
+        flexWrap: 'wrap',
+        padding: 'unset'
+      }
+    },
 
-    //   MuiFormHelperText: {
-    //     root: {
-    //       color: paletteExtra.background.main50,
+    MuiMenuItem: {
+      root: {
+        width: '100%',
+        padding: '6px 10px'
+      }
+    },
 
-    //       '&$disabled': {
-    //         color: paletteExtra.background.main50
-    //       }
-    //     },
-    //     filled: {
-    //       '&$disabled': {
-    //         color: paletteExtra.background.main50
-    //       }
-    //     }
-    //   },
-
-    //   MuiSelect: {
-    //     select: {
-    //       '&:focus': {
-    //         backgroundColor: '#fff'
-    //       }
-    //     },
-    //     icon: {
-    //       fontSize: '2rem',
-    //       color: ColorJ(paletteExtra.textField.defaultColor)
-    //         .alpha(0.5)
-    //         .toString(),
-    //       width: '36px',
-    //       height: '36px',
-    //       top: 'auto'
-    //     }
-    //   },
-
-    //   MuiSnackbarContent: {
-    //     root: {
-    //       borderRadius: '30px',
-    //       '&.error': {
-    //         backgroundColor: paletteExtra.error.main
-    //       },
-    //       '&.success': {
-    //         backgroundColor: paletteExtra.success.main
-    //       },
-    //       '&.warning': {
-    //         backgroundColor: paletteExtra.warning.main
-    //       },
-    //       '&.info': {
-    //         backgroundColor: paletteExtra.primary.main
-    //       }
-    //     }
-    //   },
-
-    //   MuiExpansionPanel: {
-    //     root: {
-    //       '&.ExpansionMenu': {
-    //         background: 'transparent',
-    //         boxShadow: 'none',
-    //         color: '#fff',
-    //         // borderBottom: `1px solid #fff`,
-
-    //         '&$expanded': {
-    //           margin: 0
-    //           // borderBottom: `1px solid ${paletteExtra.textField.defaultColor}`
-    //         },
-
-    //         '&::before': {
-    //           all: 'unset'
-    //         }
-    //       }
-    //     }
-    //   },
-
-    //   MuiExpansionPanelSummary: {
-    //     root: {
-    //       '&.ExpansionMenu-summary': {
-    //         maxHeight: 'auto',
-    //         minHeight: '0px',
-    //         height: '53px',
-    //         padding: '0px 10px',
-    //         backgroundColor: '#fff',
-    //         color: paletteExtra.textField.defaultColor,
-    //         '& .ExpansionMenu-expandMoreIcon': {
-    //           fill: ColorJ(paletteExtra.textField.defaultColor)
-    //             .alpha(0.5)
-    //             .toString()
-    //         }
-    //       }
-    //     }
-    //   },
-
-    //   MuiExpansionPanelDetails: {
-    //     root: {
-    //       flexWrap: 'wrap',
-    //       padding: 'unset'
-    //     }
-    //   },
-
-    //   MuiMenuItem: {
-    //     root: {
-    //       width: '100%',
-    //       padding: '6px 10px',
-    //       '&.ExpansionMenu-menuItem': {
-    //         background: '#fff',
-    //         color: paletteExtra.textField.defaultColor,
-    //         '&:hover': {
-    //           backgroundColor: paletteExtra.background.main20
-    //         }
-    //       }
-    //     }
-    //   },
-
-    //   MuiList: {
-    //     root: {
-    //       backgroundColor: paletteExtra.background.main
-    //     }
-    //   },
-
-    //   MuiListItem: {
-    //     button: {
-    //       '&:hover': {
-    //         backgroundColor: paletteExtra.background.main20
-    //       },
-    //       '&$selected': {
-    //         backgroundColor: paletteExtra.primary.main,
-    //         color: '#fff',
-    //         '&:hover': {
-    //           backgroundColor: paletteExtra.primary.main
-    //         }
-    //       }
-    //     }
-    //   },
+    MuiListItem: {
+      button: {
+        '&:hover': {
+          backgroundColor: colors.background['20']
+        },
+        '&$selected': {
+          backgroundColor: colors.main['50'],
+          color: '#fff',
+          '&:hover': {
+            backgroundColor: colors.main['50']
+          }
+        }
+      }
+    },
 
     //   MuiAppBar: {
     //     colorPrimary: {
@@ -479,12 +396,10 @@ export const PismoCleanTheme: BoltTheme = {
     //     }
     //   },
 
-    //   MuiSvgIcon: {
-    //     root: {
-    //       color: ColorJ(paletteExtra.textField.defaultColor)
-    //         .alpha(0.5)
-    //         .toString()
-    //     }
-    //   }
+    MuiSvgIcon: {
+      root: {
+        color: colors.background['50']
+      }
+    }
   }
 }
