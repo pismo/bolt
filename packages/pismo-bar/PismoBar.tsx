@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 import Box from '@material-ui/core/Box'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 import {
   PismoBarProps,
@@ -39,8 +41,8 @@ const applications: ApplicationsType = {
   }
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  const { extra } = theme.palette as any
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     drawer: {
       maxWidth,
@@ -50,10 +52,8 @@ const useStyles = makeStyles((theme: Theme) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: extra ? extra['background'].special : 'transparent',
-      color: extra
-        ? theme.palette.getContrastText(extra['background'].special)
-        : '#fff',
+      backgroundColor: '#fff',
+      color: colors.text['50'],
       boxShadow: 'unset'
     },
 
@@ -110,6 +110,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
         full={full}
       />
       <Drawer
+        className={`Bolt-PismoBar-drawer`}
         classes={{ root: classes.drawer, paper: `${classes.drawerPaper}` }}
         anchor={matches || contract ? 'left' : 'top'}
         open={isOpen}
@@ -117,7 +118,13 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
-        <Grid container spacing={2} className={classes.appButtonContainer}>
+        <Grid
+          container
+          spacing={2}
+          className={`${
+            classes.appButtonContainer
+          } Bolt-PismoBar-appButtonContainer`}
+        >
           {Object.keys(applications).map((k, index) => (
             <ApplicationButton
               data={applications[k]}

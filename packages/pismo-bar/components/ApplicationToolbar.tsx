@@ -6,12 +6,14 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Box from '@material-ui/core/Box'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
 
 import MenuIcon from '@material-ui/icons/Apps'
 import { PismoMarketplace } from '@pismo/bolt-core'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 const AAppBar = animated(AppBar)
 const AToolbar = animated(Toolbar)
@@ -25,11 +27,11 @@ const Logo = ({ name, ...props }) => {
   }
 }
 
-const useStyles = makeStyles((theme: Theme) => {
-  const { extra } = theme.palette as any
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     bar: {
-      backgroundColor: extra ? extra['background'].special : 'transparent',
+      backgroundColor: '#fff',
       boxShadow: 'unset',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
@@ -88,23 +90,27 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   })
 
   return (
-    <AAppBar className={classes.bar} {...AppBarProps} style={barState}>
+    <AAppBar
+      className={`${classes.bar} Bolt-PismoBar-bar`}
+      {...AppBarProps}
+      style={barState}
+    >
       {animatedContent.map(
         ({ item, key, props }) =>
           item === Boolean(contract) && (
             <AToolbar
               key={key}
-              className={classes.toolbar}
+              className={`${classes.toolbar} Bolt-PismoBar-toolbar`}
               {...ToolbarProps}
               style={props}
             >
               <IconButton
-                className={classes.iconButton}
+                className={`${classes.iconButton} Bolt-PismoBar-iconButton`}
                 onClick={onClick}
                 data-testid='mainButton'
               >
                 <MenuIcon
-                  className={classes.icon}
+                  className={`${classes.icon} Bolt-PismoBar-icon`}
                   data-testid={applications[current].name}
                 />
               </IconButton>

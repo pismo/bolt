@@ -3,22 +3,23 @@ import * as Croppie from 'croppie'
 
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined'
 import Typography from '@material-ui/core/Typography'
 import Slider from '@material-ui/core/Slider'
 
-import * as Color from 'color'
+import { BoltTheme } from '@pismo/bolt-core'
 
 const { useRef, useEffect, useState, Fragment } = React
 
-const useStyles = makeStyles((theme: Theme) => {
-  const extra = (theme.palette as any).extra
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     iconButton: {
       width: '156px',
       height: '156px',
       position: 'relative',
+      color: colors.text['50'],
       '&::before': {
         content: '" "',
         width: '100%',
@@ -28,29 +29,14 @@ const useStyles = makeStyles((theme: Theme) => {
         borderRadius: '50%',
         zIndex: -1
       },
-      backgroundColor: extra
-        ? Color(extra.background.main)
-            .fade(0.6)
-            .toString()
-        : 'transparent',
+      backgroundColor: colors.background['20'],
       '&:hover': {
-        backgroundColor: extra
-          ? Color(extra.background.main)
-              .fade(0.5)
-              .toString()
-          : 'transparent'
+        backgroundColor: colors.background['20']
       }
     },
     iconButtonLabel: {
       display: 'flex',
-      flexDirection: 'column',
-      '&>*': {
-        color: extra
-          ? Color(extra.textField.defaultColor)
-              .fade(0.5)
-              .toString()
-          : 'transparent'
-      }
+      flexDirection: 'column'
     },
     croppieContainer: {
       '& .cr-boundary': {
@@ -166,10 +152,11 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
       display='flex'
       flexDirection='column'
       alignItems='center'
+      className='Bolt-AvatarUpload'
     >
       {!image ? (
         <IconButton
-          className={classes.iconButton}
+          className={`${classes.iconButton} Bolt-AvatarUpload-IconButton`}
           classes={{ label: classes.iconButtonLabel }}
           onClick={uploadClicked}
           data-testid='upload-button'

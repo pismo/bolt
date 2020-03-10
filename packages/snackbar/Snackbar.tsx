@@ -34,7 +34,7 @@ const Content: React.FC<ContentProps> = React.forwardRef(
         className={variant}
         message={
           <Box display='flex'>
-            <Icon />
+            <Icon className={`${variant}-icon`} />
             <Box ml='10px'>{message}</Box>
           </Box>
         }

@@ -83,12 +83,13 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
       <Box
         width={1}
         height='100%'
-        bgcolor='#231d22'
+        bgcolor='#fff'
         display='flex'
         justifyContent='center'
         alignItems='center'
+        className={`Bolt-PismoID-loadingContainer`}
       >
-        <CircularProgress color='primary' />
+        <CircularProgress color='primary' className={`Bolt-PismoID-loading`} />
       </Box>
     )
   }
@@ -108,10 +109,11 @@ const PismoID: React.FC<PismoIDProps> = ({ children, auth }) => {
       <Box
         width={1}
         height='100%'
-        bgcolor='#231d22'
+        bgcolor='#fff'
         display='flex'
         justifyContent='center'
         alignItems='center'
+        className={`Bolt-PismoID-container`}
       >
         {mode === Modes.LOGIN && (
           <LoginForm
