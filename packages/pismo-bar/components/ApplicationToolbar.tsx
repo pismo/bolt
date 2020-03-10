@@ -28,7 +28,6 @@ const Logo = ({ name, ...props }) => {
 }
 
 const useStyles = makeStyles((theme: BoltTheme) => {
-  const colors = theme.palette.colors
   return {
     bar: {
       backgroundColor: '#fff',

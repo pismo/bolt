@@ -48,7 +48,7 @@
   "scripts": {
     "version": "node scripts/version.js",
     "lerna:dev": "concurrently \"yarn lerna:build:watch\"",
-    "lerna:build": "lerna run build --stream --parallel",
+    "lerna:build": "lerna run build --stream",
     "lerna:build:watch": "lerna run build --stream --parallel -- --watch",
     "lerna:build:clean": "lerna exec 'rm -rf dist' --stream --parallel",
     "lerna:publish": "yarn lerna:build && lerna version && yarn run version && lerna publish --conventional-commits",
