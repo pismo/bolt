@@ -2,6 +2,9 @@ import * as React from 'react'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+
+import * as DateFnsUtils from '@material-ui/pickers/adapter/date-fns'
 
 import { PismoCleanTheme, BoltTheme } from './themes'
 
@@ -91,7 +94,9 @@ export function Bolt ({ children }) {
     >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {children}
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          {children}
+        </MuiPickersUtilsProvider>
       </ThemeProvider>
     </Context.Provider>
   )

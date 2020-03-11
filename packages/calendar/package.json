@@ -1,7 +1,7 @@
 {
-  "name": "@pismo/bolt-core",
+  "name": "@pismo/bolt-calendar",
   "version": "2.0.0",
-  "description": "Bolt component core",
+  "description": "Bolt component calendar",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
   "license": "ISC",
@@ -23,11 +23,6 @@
   "bugs": {
     "url": "https://github.com/pismo/bolt/issues"
   },
-  "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "manual-publish": "npm publish"
-  },
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -36,12 +31,14 @@
     "@date-io/date-fns": "^2.4.0",
     "@material-ui/core": "^4.9.0",
     "@material-ui/pickers": "^4.0.0-alpha.3",
-    "@material-ui/styles": "^4.9.0",
-    "@material-ui/system": "^4.7.1",
-    "@types/color": "^3.0.0",
-    "color": "^3.1.2",
-    "date-fns": "^2.0.0-beta.5",
-    "deepmerge": "^3.3.0",
-    "webfontloader": "^1.6.28"
+    "date-fns": "^2.0.0-beta.5"
+  },
+  "devDependencies": {
+    "@pismo/bolt-core": "^2.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "manual-publish": "npm publish"
   }
 }
