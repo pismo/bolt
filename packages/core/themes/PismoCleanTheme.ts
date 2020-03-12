@@ -236,7 +236,7 @@ export const PismoCleanTheme: BoltTheme = {
         '&$error': {
           backgroundColor: '#fff',
           color: colors.error['50']
-        },
+        }
       },
       input: {
         padding: '15px 10px 15px 0px',
@@ -253,7 +253,7 @@ export const PismoCleanTheme: BoltTheme = {
 
         '&$disabled': {
           color: colors.text['50']
-        },
+        }
       },
 
       formControl: {
@@ -326,34 +326,34 @@ export const PismoCleanTheme: BoltTheme = {
       }
     },
 
-      MuiSnackbarContent: {
-        root: {
-          borderRadius: '30px',
-          '&.error': {
-            backgroundColor: colors.error['40']
-          },
-          '&.success': {
-            backgroundColor: colors.background['50']
-          },
-          '&.warning': {
-            backgroundColor: colors.main['30']
-          },
-          '&.info': {
-            backgroundColor: '#fff',
-            color: colors.text['50'],            
-          },
+    MuiSnackbarContent: {
+      root: {
+        borderRadius: '30px',
+        '&.error': {
+          backgroundColor: colors.error['40']
+        },
+        '&.success': {
+          backgroundColor: colors.background['50']
+        },
+        '&.warning': {
+          backgroundColor: colors.main['30']
+        },
+        '&.info': {
+          backgroundColor: '#fff',
+          color: colors.text['50']
+        },
 
-          '& .success-icon': {
-            fill: '#fff'
-          },
-          '& .warning-icon': {
-            fill: '#fff'
-          },
-          '& .error-icon': {
-            fill: '#fff'
-          },
+        '& .success-icon': {
+          fill: '#fff'
+        },
+        '& .warning-icon': {
+          fill: '#fff'
+        },
+        '& .error-icon': {
+          fill: '#fff'
         }
-      },
+      }
+    },
 
     MuiExpansionPanelDetails: {
       root: {

@@ -2,8 +2,12 @@
 'name': Calendar
 ---
 
+import { useState } from 'react'
 import { Playground } from 'docz'
 import { Calendar } from './Calendar'
+import { PickerUtilsProvider } from './PickerUtilsProvider'
+
+import { format } from 'date-fns'
 
 import { Bolt } from '@pismo/bolt-core'
 
@@ -11,10 +15,26 @@ import { Bolt } from '@pismo/bolt-core'
 
 <Playground>
   {() => {
+    const [startDate, setStartDate] = useState(new Date(2019, 9, 30))
+    const [endDate, setEndDate]= useState(new Date())
+    const formatstr = 'dd - MMM - yyyy'
+    const lang = 'pt'
+
+const changeRangeType = (currentRange) => {
+setCurrent(currentRange)
+}
+
     return (
       <Bolt>
-        <Calendar TextField={{value: '30/09/1983'}} />
+        <PickerUtilsProvider language={lang}>
+          <Calendar
+            TextFieldProps={{formatType: formatstr, language: lang}}
+            DatePickerProps={{ startDate, endDate, formatType: 'dd MMM yyyy' }}
+          />
+        </PickerUtilsProvider>
       </Bolt>
     )
-  }}
+
+}}
+
 </Playground>
