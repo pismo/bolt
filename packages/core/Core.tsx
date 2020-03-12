@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 
-import * as DateFnsUtils from '@material-ui/pickers/adapter/date-fns'
+import DateFnsUtils from '@material-ui/pickers/adapter/date-fns'
 
 import { PismoCleanTheme, BoltTheme } from './themes'
 
