@@ -130,7 +130,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 <>
                   <Box width={1} mt='50px'>
                     <TextField
-                    id='emailOrCPF'
+                      id='emailOrCPF'
                       placeholder={lang['login.emailField']}
                       name='emailOrCPF'
                       value={emailOrCPF}
@@ -141,7 +141,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                   </Box>
                   <Box width={1} mt='20px'>
                     <TextField
-                    id='password'
+                      id='password'
                       type={showPassword ? 'text' : 'password'}
                       placeholder={lang['login.passwordField']}
                       name='password'
