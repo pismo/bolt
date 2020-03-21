@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
   return {
     button: {
       width: '100%',
-      padding: '15px 0px',
+      padding: '8px 0px',
       flexDirection: 'column',
       boxShadow: ({ selected }: any) => (selected ? theme.shadows[4] : 'unset')
     },

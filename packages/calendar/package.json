@@ -31,13 +31,12 @@
     "@date-io/date-fns": "^2.4.0",
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/pickers": "^4.0.0-alpha.3",
     "@pismo/bolt-text-field": "^2.0.0",
-    "date-fns": "^2.0.0-beta.5"
+    "@pismo/bolt-core": "^2.0.0",
+    "date-fns": "^2.0.0-beta.5",
+    "react-perfect-scrollbar": "^1.5.8"
   },
-  "devDependencies": {
-    "@pismo/bolt-core": "^2.0.0"
-  },
+  "devDependencies": {},
   "scripts": {
     "build": "tsc",
     "test": "jest",

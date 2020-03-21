@@ -1,17 +1,18 @@
 import * as React from 'react'
 
-import { format, isSameDay } from 'date-fns'
+import { format, isSameDay, getMonth, getYear, compareDesc } from 'date-fns'
 
-import { DatePicker } from '@material-ui/pickers'
 import { makeStyles } from '@material-ui/core/styles'
-import DateRangeIcon from '@material-ui/icons/DateRange'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import IconButton from '@material-ui/core/IconButton'
+import Menu from '@material-ui/core/Menu'
+import Fade from '@material-ui/core/Fade'
 
-import { BoltTheme } from '@pismo/bolt-core'
-import { TextField } from '@pismo/bolt-text-field'
+import { FirstHeader } from './components/FirstHeader'
 
+import { DaysContainer } from './components/DaysContainer'
 import { RangeBar } from './components/RangeBar'
+import { SwitchBar } from './components/SwitchBar'
+import { MonthContainer } from './components/MonthContainer'
+import { YearContainer } from './components/YearContainer'
 
 import enLocale from 'date-fns/locale/en-US'
 import ptLocale from 'date-fns/locale/pt-BR'
@@ -23,71 +24,104 @@ const locale = {
   es: esLocale
 }
 
-const { Fragment, useState } = React
+const { Fragment, useState, useRef, useEffect } = React
 
-const useStyles = makeStyles((theme: BoltTheme) => {
+const useStyles = makeStyles(() => {
   return {
-    textField: {
-      color: theme.palette.colors.background['50'],
-      fontWeight: 'normal',
-      fontStyle: 'italic',
-      fontSize: '1rem',
-      '&.Mui-disabled': {
-        color: theme.palette.colors.background['50']
-      }
-    },
-    '@global': {
-      '.MuiPickersCalendarHeader-switchHeader': {
-        position: 'relative',
-        padding: '0px',
-        '&>div': {
-          width: '100%',
-          display: 'flex',
-          padding: '0px 15px'
-        }
-      },
-      '.MuiPickersCalendarHeader-monthTitleContainer': {
-        position: 'absolute',
-        justifyContent: 'center',
-        '&>.MuiPickersCalendarHeader-yearSelectionSwitcher': {
-          marginRight: 'unset'
-        }
-      },
-      '.MuiPickersCalendarHeader-iconButton': {
-        marginLeft: 'auto'
-      },
-      '.MuiPickersCalendarHeader-previousMonthButton': {
-        marginLeft: 'unset'
-      }
+    pickerContainer: {
+      width: '300px'
     }
   }
 })
 
-const Calendar: React.FC<any> = ({
-  TextFieldProps,
-  DatePickerProps: { startDate, endDate, formatType }
-}) => {
+export interface TextFieldProps {
+  formatType?: string
+  label?: string
+}
+
+export interface DatePickerProps {
+  startDate: Date
+  endDate?: Date
+  noRange?: boolean
+  onChange?: (result: { startDate: Date; endDate?: Date }) => void
+}
+
+export interface RangeBarProps {
+  formatType: string
+  startLabel?: string
+  endLabel?: string
+}
+
+export interface CalendarProps {
+  DatePickerProps: DatePickerProps
+  RangeBarProps: RangeBarProps
+  TextFieldProps?: TextFieldProps
+  language?: 'en' | 'es' | 'pt'
+}
+
+const Calendar: React.FC<CalendarProps> = ({
+  DatePickerProps,
+  RangeBarProps,
+  TextFieldProps = {},
+  language = 'en'
+}: CalendarProps) => {
   const classes = useStyles()
+
+  let { startDate, endDate, onChange, noRange } = DatePickerProps
+  let { formatType, startLabel, endLabel } = RangeBarProps
+
+  if (language.length < 2) language = 'en'
 
   const [isOpen, setIsOpen] = useState(false)
   const [_startDate, setStartDate] = useState(startDate)
-  const [_endDate, setEndDate] = useState(endDate)
-  const [_currentRange, setCurrentRange] = useState('')
+  const [_endDate, setEndDate] = useState(!noRange ? endDate : startDate)
+  const [currentRange, setCurrentRange] = useState('start')
+
+  const [monthList, setMonthList] = useState<string[]>([])
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(
+    getMonth(_startDate)
+  )
+
+  const [yearList, setYearList] = useState({})
+  const [currentYearIndex, setCurrentYearIndex] = useState(getYear(_startDate))
+
+  const [currentView, setCurrentView] = useState<'days' | 'months' | 'years'>(
+    'days'
+  )
 
   const isSameDate = isSameDay(_startDate, _endDate)
 
-  const [_currentDate, setCurrentDate] = useState(getCurrentDate(_currentRange))
+  const [headerElem, setHeaderElem] = useState(null)
+  const headerRef = useRef<any>()
 
-  console.log(_currentDate)
+  useEffect(() => {
+    const years = {}
+    Array(200)
+      .fill(null)
+      .map((_, i) => (years[1900 + i] = 1900 + i))
+    setYearList(years)
+  }, [])
+
+  useEffect(() => {
+    if (headerRef.current && !headerElem) setHeaderElem(headerRef.current)
+  }, [headerRef.current])
+
+  useEffect(() => {
+    setMonthList(
+      Array(12)
+        .fill(null)
+        .map((_, i) => locale[language].localize.month(i))
+    )
+  }, [language])
+
+  useEffect(() => {
+    if (onChange) onChange({ startDate: _startDate, endDate: _endDate })
+  }, [_startDate, _endDate])
 
   const getFormat = date =>
-    format(date, TextFieldProps.formatType, {
-      locale: locale[TextFieldProps.language || 'en']
+    format(date, TextFieldProps.formatType || 'dd - MMM - yyyy', {
+      locale: locale[language || 'en']
     })
-
-  function getCurrentDate (_range) {
-    return !isSameDate && _range === 'start' ? _startDate : _endDate
-  }
 
   const openCalendar = () => {
     setIsOpen(true)
@@ -97,70 +131,148 @@ const Calendar: React.FC<any> = ({
     setIsOpen(false)
   }
 
-  const changeRangeBar = (currentState: string) => {
-    // setCurrentRange(currentState)
-    setCurrentDate(getCurrentDate(currentState))
+  const changeRange = (name: string) => {
+    setCurrentRange(name)
+
+    let _date = name === 'start' ? _startDate : _endDate
+
+    changeMonth(getMonth(_date))
+    changeYear(getYear(_date))
   }
 
-  const renderDay = (startDate, endDate, currentRange, isSameDate) => (
-    day,
-    selectedData,
-    dayInCurrentMonth,
-    dayComponent
-  ) => {
-    // console.log('day...',day)
-    // console.log('selectedData...',selectedData)
-    // console.log('dayInCurrentMonth....', dayInCurrentMonth)
+  const changeDate = (selected: Date) => {
+    if (noRange) {
+      setStartDate(selected)
+      setEndDate(selected)
 
-    // console.log('.............................')
-    // console.log(selectedData)
-    // console.log(isSameDate)
-    return dayComponent
+      return
+    }
+
+    if (currentRange === 'start') {
+      if (compareDesc(selected, _endDate) >= 0) {
+        setStartDate(selected)
+      } else {
+        setStartDate(_endDate)
+        setEndDate(selected)
+      }
+    } else {
+      if (compareDesc(selected, _startDate) <= 0) {
+        setEndDate(selected)
+      } else {
+        setEndDate(_startDate)
+        setStartDate(selected)
+      }
+    }
+
+    changeMonth(getMonth(selected))
+    changeYear(getYear(selected))
+  }
+
+  const toggleMonth = () => {
+    setCurrentView(currentView !== 'months' ? 'months' : 'days')
+  }
+
+  const toggleYear = () => {
+    setCurrentView(currentView !== 'years' ? 'years' : 'days')
+  }
+
+  const changeMonth = (index: number) => {
+    setCurrentMonthIndex(index)
+  }
+
+  const changeYear = (year: number) => {
+    setCurrentYearIndex(year)
+  }
+
+  const onBack = () => {
+    let index = currentMonthIndex - 1
+    if (index < 0) {
+      index = monthList.length - 1
+      changeYear(currentYearIndex - 1)
+    }
+
+    changeMonth(index)
+  }
+
+  const onForward = () => {
+    let index = currentMonthIndex + 1
+    if (index >= monthList.length) {
+      index = 0
+      changeYear(currentYearIndex + 1)
+    }
+
+    changeMonth(index)
   }
 
   return (
     <Fragment>
-      <TextField
-        label='selecione a data'
+      <FirstHeader
+        label={TextFieldProps.label}
+        innerRef={headerRef}
         value={
           isSameDate
-            ? getFormat(endDate)
-            : `${getFormat(startDate)} / ${getFormat(endDate)}`
+            ? getFormat(_endDate)
+            : `${getFormat(_startDate)} / ${getFormat(_endDate)}`
         }
-        InputProps={{
-          classes: { input: classes.textField },
-          startAdornment: (
-            <InputAdornment position='start'>
-              <IconButton>
-                <DateRangeIcon />
-              </IconButton>
-            </InputAdornment>
-          ),
-          ...TextFieldProps.InputProps
-        }}
-        disabled
         onClick={openCalendar}
       />
-      <DatePicker
-        open={true}
+      <Menu
+        classes={{ paper: classes.pickerContainer }}
+        anchorEl={headerElem}
+        open={isOpen}
         onClose={closeCalendar}
-        value={_currentDate}
-        onChange={date => {}}
-        TextFieldComponent={() => <div />}
-        showToolbar
-        ToolbarComponent={() => (
+        TransitionComponent={Fade}
+        PaperProps={{
+          component: ({ children }) => (
+            <div data-testid='Calendar-paper'>{children}</div>
+          )
+        }}
+      >
+        {!noRange && (
           <RangeBar
-            startLabel='inicio'
-            endLabel='fim'
-            startDate={startDate}
-            endDate={endDate}
+            startDate={_startDate}
+            endDate={_endDate}
             formatType={formatType}
-            onChange={changeRangeBar}
-            initialRangeSelected={_currentRange}
+            initialRangeSelected={currentRange}
+            onChange={changeRange}
+            locale={locale[language]}
+            startLabel={startLabel}
+            endLabel={endLabel}
           />
         )}
-        renderDay={renderDay(_startDate, _endDate, _currentRange, isSameDate)}
-      />
+        <SwitchBar
+          currentMonth={monthList[currentMonthIndex]}
+          currentYear={`${currentYearIndex}`}
+          onFoward={onForward}
+          onBack={onBack}
+          onMonth={toggleMonth}
+          onYear={toggleYear}
+        />
+        {currentView === 'days' ? (
+          <DaysContainer
+            startDate={_startDate}
+            endDate={_endDate}
+            locale={locale[language]}
+            isSameDate={isSameDate}
+            current={currentRange}
+            onChange={changeDate}
+            currentMonth={currentMonthIndex}
+            currentYear={currentYearIndex}
+          />
+        ) : currentView === 'months' ? (
+          <MonthContainer
+            monthList={monthList}
+            currentMonth={currentMonthIndex}
+            onChange={changeMonth}
+          />
+        ) : currentView === 'years' ? (
+          <YearContainer
+            yearList={yearList}
+            currentYear={currentYearIndex}
+            onChange={changeYear}
+          />
+        ) : null}
+      </Menu>
     </Fragment>
   )
 }

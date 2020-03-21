@@ -2,25 +2,17 @@ import * as React from 'react'
 
 import { format } from 'date-fns'
 
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
 
 import { RangeBarButton } from './RangeBarButton'
 
 const { useState } = React
 
-const useStyles = makeStyles(() => {
-  return {
-    container: {
-      padding: '5px'
-    }
-  }
-})
-
 export interface RangeBarProps {
   startDate: Date
   endDate: Date
   formatType: string
+  locale: Locale
   startLabel?: string
   endLabel?: string
   initialRangeSelected?: string
@@ -33,11 +25,11 @@ const RangeBar: React.FC<RangeBarProps> = ({
   startDate,
   endDate,
   formatType,
+  locale,
   onChange,
   initialRangeSelected
 }: RangeBarProps) => {
-  const classes = useStyles()
-  const [selected, setSelected] = useState('')
+  const [selected, setSelected] = useState(initialRangeSelected)
 
   const clicked = (name: 'start' | 'end') => () => {
     setSelected(name)
@@ -46,24 +38,24 @@ const RangeBar: React.FC<RangeBarProps> = ({
   }
 
   return (
-    <Grid container spacing={2} className={classes.container}>
-      <Grid item xs={6}>
+    <Box px='5px' display='flex' width={1}>
+      <Box width={1 / 2}>
         <RangeBarButton
           label={startLabel}
-          date={format(startDate, formatType)}
+          date={format(startDate, formatType, { locale })}
           selected={selected === 'start'}
           onClick={clicked('start')}
         />
-      </Grid>
-      <Grid item xs={6}>
+      </Box>
+      <Box width={1 / 2}>
         <RangeBarButton
           label={endLabel}
-          date={format(endDate, formatType)}
+          date={format(endDate, formatType, { locale })}
           selected={selected === 'end'}
           onClick={clicked('end')}
         />
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   )
 }
 
