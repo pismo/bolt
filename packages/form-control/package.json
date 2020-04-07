@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-form-control",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Bolt component form-control",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -24,8 +24,8 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^2.0.0",
-    "@pismo/bolt-text-field": "^2.0.0"
+    "@pismo/bolt-core": "^2.1.0",
+    "@pismo/bolt-text-field": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
