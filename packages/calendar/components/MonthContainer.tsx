@@ -1,4 +1,4 @@
-import * as React from 'React'
+import * as React from 'react'
 
 import Box from '@material-ui/core/Box'
 import ButtonBase from '@material-ui/core/ButtonBase'
