@@ -217,16 +217,11 @@ const Calendar: React.FC<CalendarProps> = ({
         onClick={openCalendar}
       />
       <Menu
-        classes={{ paper: classes.pickerContainer }}
+        classes={{ paper: `${classes.pickerContainer} Calendar-paper` }}
         anchorEl={headerElem}
         open={isOpen}
         onClose={closeCalendar}
         TransitionComponent={Fade}
-        PaperProps={{
-          component: ({ children }) => (
-            <div data-testid='Calendar-paper'>{children}</div>
-          )
-        }}
       >
         {!noRange && (
           <RangeBar

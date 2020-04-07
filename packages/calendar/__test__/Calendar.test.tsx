@@ -149,7 +149,9 @@ describe('@pismo/bolt-calendar', () => {
 
     await waitForDomChange({ container: container.parentElement })
 
-    const paper = getByTestId(container.parentElement, 'Calendar-paper')
+    const paper = container.parentElement.getElementsByClassName(
+      'Calendar-paper'
+    )[0]
 
     expect(paper).toBeVisible()
   })
