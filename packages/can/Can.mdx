@@ -32,7 +32,7 @@ O componente **Can** pode ser usado para exibir (ou não) um outro componente de
 | userRoles | string[]                   |     true     | são as permissões do usuário, normalmente obtidas através de um login                                       |
 | children  | React.RactNode             |     true     | os componentes que serão exibidos caso as permissões sejam válidas                                          |
 | roles     | string[] = StaticCan.ROLES |    false     | as permissões necessárias para a validação atual, por default utiliza a variável estática _StaticCan.ROLES_ |
-| fallback  | () => React.ReactNode      |   React.FC   | null                                                                                                        | false | componente que será exibido caso as permissões não sejam válidas |
+| fallback  | () => React.ReactNode      |    false     | componente que será exibido caso as permissões não sejam válidas                                            |
 
 ```
 import { StaticCan, Can } from '@pismo/bolt-can'

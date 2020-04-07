@@ -3,6 +3,7 @@ import 'jest-dom/extend-expect'
 import * as React from 'react'
 
 import { AvatarUpload } from '../AvatarUpload'
+import { Bolt } from '@pismo/bolt-core'
 
 afterEach(cleanup)
 
@@ -11,11 +12,13 @@ describe('@pismo/bolt-avatar-upload', () => {
     const imgDone = jest.fn(() => console.log('teste'))
     const label = 'Change profile image'
     const { container, getByTestId } = render(
-      <AvatarUpload
-        buttonLabel={label}
-        imageUploaded={imgDone}
-        resultType='base64'
-      />
+      <Bolt>
+        <AvatarUpload
+          buttonLabel={label}
+          imageUploaded={imgDone}
+          resultType='base64'
+        />
+      </Bolt>
     )
     const uploadButton = getByTestId('upload-button')
     expect(container).toBeVisible()

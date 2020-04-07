@@ -10,6 +10,7 @@ import 'jest-dom/extend-expect'
 import * as React from 'react'
 
 import { ExpansionMenu } from '../ExpansionMenu'
+import { Bolt } from '@pismo/bolt-core'
 
 const { useState } = React
 
@@ -29,14 +30,16 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
   }
 
   return (
-    <ExpansionMenu
-      data={data}
-      getComponent={item => (
-        <div data-testid={item.description}>{item.description}</div>
-      )}
-      SumaryComponent={() => <div>Languages => {current.description}</div>}
-      onChange={handleChange}
-    />
+    <Bolt>
+      <ExpansionMenu
+        data={data}
+        getComponent={item => (
+          <div data-testid={item.description}>{item.description}</div>
+        )}
+        SumaryComponent={() => <div>Languages => {current.description}</div>}
+        onChange={handleChange}
+      />
+    </Bolt>
   )
 }
 

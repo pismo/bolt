@@ -12,6 +12,8 @@ import * as React from 'react'
 import { FlagPanel } from '../FlagPanel'
 import { FLAG } from '../flags'
 
+import { Bolt } from '@pismo/bolt-core'
+
 const { useState } = React
 
 afterEach(cleanup)
@@ -30,17 +32,21 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
   }
 
   return (
-    <FlagPanel
-      title='idioma'
-      data={data}
-      value={current}
-      onChange={handleChange}
-    />
+    <Bolt>
+      <FlagPanel
+        title='idioma'
+        data={data}
+        value={current}
+        onChange={handleChange}
+      />
+    </Bolt>
   )
 }
 
 describe('@pismo/bolt-flag-panel', () => {
   test('it should display the components correctly', () => {
+    expect(true).toBe(true)
+
     const { getByText } = render(<Component />)
 
     expect(getByText('idioma')).toBeDefined()
