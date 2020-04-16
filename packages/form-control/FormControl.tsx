@@ -4,7 +4,7 @@ import * as get from 'lodash.get'
 import * as unset from 'lodash.unset'
 import { validate, isArray } from 'validate.js'
 
-const { useState } = React
+const { useState, useCallback } = React
 
 type InitialValue = {
   [key: string]: any
@@ -42,17 +42,24 @@ function FormControl ({
     setValues(initialValue)
   }, [initialValue])
 
-  const handleChange = (e, update?: { [k in keyof InitialValue]?: any }) => {
-    let val = { ...values, ...update }
-    if (get(errors, e.target.name)) {
-      let err = { ...errors }
-      unset(err, e.target.name)
-      setErrors(err)
-    }
-    set(val, e.target.name, e.target.value)
-    if (onChange) onChange({ ...values }, { ...val })
-    setValues(val)
-  }
+  const handleChange = useCallback((
+    evt,
+    update?: { [k in keyof InitialValue]?: any }
+  ) => {
+    const e = {...evt}
+    setValues(_val => {
+      let val = { ..._val, ...update }
+      if (get(errors, e.target.name)) {
+        let err = { ...errors }
+        unset(err, e.target.name)
+        setErrors(err)
+      }
+      set(val, e.target.name, e.target.value)
+      if (onChange) onChange({ ..._val }, { ...val })
+
+      return val
+    })
+  }, [values])
 
   const handleSubmit = e => {
     e.preventDefault()
