@@ -15,7 +15,8 @@
     "sourceMap": true,
     "jsx": "react",
     "lib": ["es5", "es6", "esnext", "dom"],
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "**/*.test.ts"]
 }
