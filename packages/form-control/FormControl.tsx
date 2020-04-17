@@ -46,7 +46,7 @@ function FormControl ({
     evt,
     update?: { [k in keyof InitialValue]?: any }
   ) => {
-    const e = {...evt}
+    const e = { ...evt }
     setValues(_val => {
       let val = { ..._val, ...update }
       if (get(errors, e.target.name)) {

@@ -5,12 +5,11 @@ import Badge from '@material-ui/core/Badge'
 import { makeStyles } from '@material-ui/core/styles'
 import * as initials from 'initials'
 
-import {BoltTheme} from '@pismo/bolt-core'
+import { BoltTheme } from '@pismo/bolt-core'
 
 const { Fragment } = React
 
 const useStyles = makeStyles((theme: BoltTheme) => {
-  const extra = (theme.palette as any).extra
   const colors = theme.palette.colors
   return {
     avatar: {

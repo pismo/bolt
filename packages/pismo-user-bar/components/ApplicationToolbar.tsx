@@ -10,7 +10,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import { Avatar, AvatarProps } from './Avatar'
 
-import {BoltTheme} from '@pismo/bolt-core'
+import { BoltTheme } from '@pismo/bolt-core'
 
 const AToolbar = animated(Toolbar)
 
@@ -81,7 +81,9 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   fullAnimation = false
 }: ApplicationToolbarProps) => {
   const classes = useStyles({ full, contract })
-  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
+  const matches = useMediaQuery((theme: BoltTheme) =>
+    theme.breakpoints.down('xs')
+  )
 
   const animation = useSpring({
     width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,

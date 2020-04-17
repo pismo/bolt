@@ -6,7 +6,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
-import {BoltTheme} from '@pismo/bolt-core'
+import { BoltTheme } from '@pismo/bolt-core'
 
 import {
   ApplicationToolbar,
@@ -46,7 +46,9 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
 }: PismoUserBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const classes = useStyles({})
-  const matches = useMediaQuery((theme: BoltTheme) => theme.breakpoints.down('xs'))
+  const matches = useMediaQuery((theme: BoltTheme) =>
+    theme.breakpoints.down('xs')
+  )
 
   const toOpen = () => {
     setIsOpen(!isOpen)
