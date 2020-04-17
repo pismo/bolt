@@ -5,24 +5,26 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import ButtonBase from '@material-ui/core/ButtonBase'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import { Avatar, AvatarProps } from './Avatar'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 const AToolbar = animated(Toolbar)
 
 export const maxWidth = '240px'
 export const mobileMaxWidth = '68px'
 
-const useStyles = makeStyles((theme: Theme) => {
-  const extra: any = (theme.palette as any).extra
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     appBar: ({ full, contract }: any) => {
       const style = {
-        color: extra ? extra.textField.defaultColor : '#fff',
+        color: colors.text['50'],
         overflow: 'hidden',
-        backgroundColor: extra ? extra.background.special : null
+        backgroundColor: '#fff'
       }
 
       if (!full) {
@@ -55,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => {
     },
     email: {
       fontWeight: 'normal',
-      color: extra ? extra.background.main50 : '#fff'
+      color: colors.background['50']
     }
   }
 })
@@ -79,7 +81,9 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   fullAnimation = false
 }: ApplicationToolbarProps) => {
   const classes = useStyles({ full, contract })
-  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
+  const matches = useMediaQuery((theme: BoltTheme) =>
+    theme.breakpoints.down('xs')
+  )
 
   const animation = useSpring({
     width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,

@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 import Drawer from '@material-ui/core/Drawer'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 import {
   ApplicationToolbar,
@@ -14,8 +16,8 @@ import {
 
 const { Fragment, useState } = React
 
-const useStyles = makeStyles((theme: Theme) => {
-  const extra = (theme.palette as any).extra
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     drawer: {
       maxWidth,
@@ -25,8 +27,8 @@ const useStyles = makeStyles((theme: Theme) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: extra ? extra['background'].main : 'transparent',
-      color: extra ? extra.textField.defaultColor : '#fff',
+      backgroundColor: '#fff',
+      color: colors.text['50'],
       boxShadow: 'unset'
     }
   }
@@ -44,7 +46,9 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
 }: PismoUserBarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const classes = useStyles({})
-  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.down('xs'))
+  const matches = useMediaQuery((theme: BoltTheme) =>
+    theme.breakpoints.down('xs')
+  )
 
   const toOpen = () => {
     setIsOpen(!isOpen)

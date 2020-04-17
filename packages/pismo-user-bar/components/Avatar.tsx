@@ -2,23 +2,25 @@ import * as React from 'react'
 
 import MAvatar from '@material-ui/core/Avatar'
 import Badge from '@material-ui/core/Badge'
-import { makeStyles, Theme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import * as initials from 'initials'
+
+import { BoltTheme } from '@pismo/bolt-core'
 
 const { Fragment } = React
 
-const useStyles = makeStyles((theme: Theme) => {
-  const extra = (theme.palette as any).extra
+const useStyles = makeStyles((theme: BoltTheme) => {
+  const colors = theme.palette.colors
   return {
     avatar: {
-      border: `2px solid ${extra ? extra.textField.defaultColor : '#fff'}`,
-      backgroundColor: extra ? extra.background.main50 : 'transparent',
-      color: extra ? extra.textField.defaultColor : '#fff'
+      border: `2px solid ${colors.text['50']}`,
+      backgroundColor: colors.background['50'],
+      color: colors.text['50']
     },
     badge: {
       minWidth: '12px',
       height: '12px',
-      backgroundColor: extra ? extra.primary.main : 'transparent'
+      backgroundColor: colors.main['50']
     }
   }
 })
