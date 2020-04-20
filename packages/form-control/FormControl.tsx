@@ -14,6 +14,7 @@ interface IFormControl {
   initialValue: InitialValue
   validationSchema?: { [key: string]: any }
   onSubmit: (values: { [key: string]: any }) => void
+  onError?: (errors: { [key: string]: any }) => void
   onChange?: (
     prev: { [key: string]: any },
     values: { [key: string]: any }
@@ -33,6 +34,7 @@ function FormControl ({
   onSubmit,
   children,
   onChange,
+  onError,
   autoComplete = true
 }: IFormControl) {
   const [values, setValues] = useState<InitialValue>(initialValue)
@@ -74,6 +76,7 @@ function FormControl ({
         })
 
         setErrors(err)
+        if (onError) onError(err)
         return
       }
     }
