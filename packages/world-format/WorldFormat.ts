@@ -3,6 +3,12 @@ export enum Countrys {
   CHILE = 'chile'
 }
 
+export enum CurrencyCode {
+  BRAZIL = 'BRL',
+  CHILE = 'CLP',
+  US = 'USD'
+}
+
 export interface AddressFormat {
   postalCode: string
   addressLine1: string
@@ -95,60 +101,30 @@ export const WorldFormat: WTFormat = {
     },
     getStatesList: async () => {
       try {
-        let response = []
-        const key = `@pismo/bolt-world-format/stateList/${Countrys.BRAZIL}`
-        const local = localStorage.getItem(key)
+        const res = await fetch(
+          'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+        ).then(res => res.json().then(data => data))
 
-        if (!local) {
-          const res = await fetch(
-            'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-          ).then(res => res.json().then(data => data))
-
-          response = res.map(({ nome, id, sigla }) => ({
-            name: nome,
-            id,
-            sigla
-          }))
-
-          localStorage.setItem(key, JSON.stringify(response))
-        } else {
-          response = JSON.parse(local)
-        }
-
-        return response
+        return res.map(({ nome, id, sigla }) => ({ name: nome, id, sigla }))
       } catch (err) {
         return { error: { message: err.message } }
       }
     },
     getCitiesList: async (state: StateResult) => {
       try {
-        const key = `@pismo/bolt-world-format/citieslist/${Countrys.BRAZIL}/${
-          state.id
-        }`
-        const local = localStorage.getItem(key)
-        let response = []
+        const res = await fetch(
+          `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${
+            state.id
+          }/municipios`
+        )
+          .then(res => res.json())
+          .then(data => data)
 
-        if (!local) {
-          const res = await fetch(
-            `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${
-              state.id
-            }/municipios`
-          )
-            .then(res => res.json())
-            .then(data => data)
-
-          if (res.message) {
-            return { error: { message: 'Invalid State' } }
-          }
-
-          response = res.map(({ id, nome }) => ({ id, name: nome, state }))
-
-          localStorage.setItem(key, JSON.stringify(response))
-        } else {
-          response = JSON.parse(local)
+        if (res.message) {
+          return { error: { message: 'Invalid State' } }
         }
 
-        return response
+        return res.map(({ id, nome }) => ({ id, name: nome, state }))
       } catch (err) {
         return { error: { message: err.message } }
       }
