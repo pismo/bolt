@@ -3,6 +3,12 @@ export enum Countrys {
   CHILE = 'chile'
 }
 
+export enum CurrencyCode {
+  BRAZIL = 'BRL',
+  CHILE = 'CLP',
+  US = 'USD'
+}
+
 export interface AddressFormat {
   postalCode: string
   addressLine1: string
