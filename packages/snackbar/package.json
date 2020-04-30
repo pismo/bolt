@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-snackbar",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Bolt component snackbar",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -24,7 +24,7 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^2.1.2"
+    "@pismo/bolt-core": "^2.2.1"
   },
   "peerDependencies": {
     "react": "^16.8.6",
