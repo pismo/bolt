@@ -1,6 +1,8 @@
 {
-  "packages": ["packages/*"],
-  "version": "2.2.1",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "2.2.2",
   "npmClient": "npm",
   "useWorkspaces": true,
   "command": {
