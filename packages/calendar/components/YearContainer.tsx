@@ -68,26 +68,28 @@ const YearContainer: React.FC<YearContainerProps> = ({
 
   return (
     <Box className={classes.container} display='flex' width={1} height='300px'>
-      <List id='pismo-bolt-calendar-year-list' className={classes.nav} component='nav'>
-        
-          {Object.keys(yearList).map((el, index) => (
-            <ListItem
-              onClick={clicked(el)}
-              key={`${el}-${index}`}
-              button
-              id={`Bolt-Calendar-YearContainer-${el}`}
-            >
-              <ListItemText
-                classes={{
-                  primary: `${classes.textAlign} ${
-                    Number(el) === currentYear ? classes.selected : ''
-                  }`
-                }}
-                primary={el}
-              />
-            </ListItem>
-          ))}
-        
+      <List
+        id='pismo-bolt-calendar-year-list'
+        className={classes.nav}
+        component='nav'
+      >
+        {Object.keys(yearList).map((el, index) => (
+          <ListItem
+            onClick={clicked(el)}
+            key={`${el}-${index}`}
+            button
+            id={`Bolt-Calendar-YearContainer-${el}`}
+          >
+            <ListItemText
+              classes={{
+                primary: `${classes.textAlign} ${
+                  Number(el) === currentYear ? classes.selected : ''
+                }`
+              }}
+              primary={el}
+            />
+          </ListItem>
+        ))}
       </List>
     </Box>
   )
