@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-pismo-bar",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Bolt component pismo-bar",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.9.1",
-    "@pismo/bolt-core": "^2.2.1",
+    "@pismo/bolt-core": "^2.2.3",
     "color": "^3.1.2",
     "react-spring": "^8.0.27"
   },
