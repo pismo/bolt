@@ -31,7 +31,7 @@ const colors: PalleteColor = {
     0: '#F4F8F8',
     5: '#EAF1F1',
     10: '#DFEBEA',
-    15: '#D5E4E32',
+    15: '#D5E4E3',
     20: '#CBDEDC',
     25: '#C0D7D5',
     30: '#B6D1CE',
