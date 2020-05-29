@@ -1,6 +1,6 @@
 {
   "name": "bolt",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "private": true,
   "homepage": "https://bolt.pismolabs.io/",
   "devDependencies": {
