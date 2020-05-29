@@ -36,7 +36,7 @@ const Component: React.FC<{ change?: (value: any) => void }> = ({ change }) => {
         getComponent={item => (
           <div data-testid={item.description}>{item.description}</div>
         )}
-        SumaryComponent={() => <div>Languages => {current.description}</div>}
+        SumaryComponent={() => <div>Languages = {current.description}</div>}
         onChange={handleChange}
       />
     </Bolt>
@@ -47,7 +47,7 @@ describe('@pismo/bolt-expansion-menu', () => {
   test('it should display the components correctly', () => {
     const { getByText } = render(<Component />)
 
-    expect(getByText('Languages => Português')).toBeDefined()
+    expect(getByText('Languages = Português')).toBeDefined()
     expect(getByText('Português')).toBeDefined()
     expect(getByText('Inglês')).toBeDefined()
     expect(getByText('Espanhol')).toBeDefined()
