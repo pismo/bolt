@@ -1,0 +1,70 @@
+---
+'name': CurrencyInput
+---
+
+import { useState } from 'react'
+import { Playground } from 'docz'
+import { CurrencyInput } from './CurrencyInput'
+
+import Grid from '@material-ui/core/Grid'
+import MenuItem from '@material-ui/core/MenuItem'
+
+import { Bolt } from '@pismo/bolt-core'
+import { TextField } from '@pismo/bolt-text-field'
+import { CurrencyCode } from '@pismo/bolt-world-format'
+
+# CurrencyInput
+
+O componente **CurrencyInput** fornece um componente TextField formatado para valores monetários, pronto para trabalhar com diversos tipos de currency em diferentes idiomas.
+
+## Propriedades
+
+| **prop**       | **type**                                                                   | **required** |   **default**   | **desc**                                           |
+| -------------- | -------------------------------------------------------------------------- | :----------: | :-------------: | -------------------------------------------------- |
+| currency       | [CurrencyCode](/packages-world-format-world-format)                        |    false     | CurrencyCode.US | formato da moeda (currency)                        |
+| lang           | 'en' \| 'es' \| 'pt'                                                       |    false     |       en        | idioma da pagina - internacionalização (I18n)      |
+| initialValue   | number                                                                     |    false     |        0        | valor inicial do componente                        |
+| onChange       | (value: number) => void                                                    |    false     |      null       | evento disparado na mudança de valor do componente |
+| TextfieldProps | [StandardTextFieldProps](https://material-ui.com/pt/api/text-field/#props) |    false     |       {}        | propriedades aplicadas ao componente TextField     |
+
+## Exemplo
+
+<Playground>
+  {() => {
+    const [curr, setCurr] = useState(1)
+    const [lang, setLang] = useState(1)
+
+    const currencys = [CurrencyCode.BRAZIL, CurrencyCode.US, CurrencyCode.CHILE]
+    const languages = ['pt', 'en', 'es']
+
+    console.log(curr)
+
+    const changeCurr = (ev) => setCurr(ev.target.value)
+    const changeLang = (ev) => setLang(ev.target.value)
+    return (
+      <Bolt>
+        <Grid container spacing={3}>
+          <Grid item xs={4}>
+            <TextField label='Selecione a moeda' select value={curr} onChange={changeCurr}>
+            <MenuItem value={0}>Real - R$</MenuItem>
+            <MenuItem value={1}>Dólar US$</MenuItem>
+            <MenuItem value={2}>Chile CLP</MenuItem>
+            </TextField>
+          </Grid>
+          <Grid item xs={4}>
+            <TextField label='Selecione o idioma' select value={lang} onChange={changeLang}>
+            <MenuItem value={0}>Português</MenuItem>
+            <MenuItem value={1}>Inglês</MenuItem>
+            <MenuItem value={2}>Espanhol</MenuItem>
+            </TextField>
+          </Grid>
+          <Grid item xs={4}>
+            <CurrencyInput TextfieldProps={{label: 'valor'}} currency={currencys[curr]} lang={languages[lang]} initialValue={1000000} />
+          </Grid>
+        </Grid>
+      </Bolt>
+    )
+
+}}
+
+</Playground>
