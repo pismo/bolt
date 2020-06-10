@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme: BoltTheme) => ({
     '& .Pismo-Bolt-upload-dropzone': {
       width: '100%',
       height: '12rem',
-      border: `2px dashed ${theme.palette.colors.background['50']}`,
-      backgroundColor: theme.palette.colors.background['5'],
+      border: `2px dashed ${theme.palette.colors?.background['50']}`,
+      backgroundColor: theme.palette.colors?.background['5'],
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: BoltTheme) => ({
     },
 
     '& .Pismo-Bolt-upload-dropzone.Pismo-Bolt-upload-dropzone-active': {
-      backgroundColor: theme.palette.colors.background['20']
+      backgroundColor: theme.palette.colors?.background['20']
     }
   }
 }))
@@ -114,6 +114,7 @@ const Upload: React.FC<UploadProps> = ({
           className={`Pismo-Bolt-upload-dropzone ${
             activeDropzone ? 'Pismo-Bolt-upload-dropzone-active' : ''
           }`}
+          data-testid='dropzone'
         >
           <Box display='flex' alignItems='center' flexDirection='column'>
             <Box>
@@ -138,6 +139,7 @@ const Upload: React.FC<UploadProps> = ({
           variant='contained'
           color='secondary'
           htmlFor='Pismo-Bolt-upload-input-file'
+          data-testid='upload-button'
         >
           {buttonLabel}
         </Button>
