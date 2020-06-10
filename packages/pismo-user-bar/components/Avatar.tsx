@@ -51,7 +51,7 @@ const Avatar: React.FC<AvatarProps> = ({
         invisible={!notification}
       >
         <MAvatar className={classes.avatar} src={src}>
-          {initials(name).substring(0, 2)}
+          {(initials(name) as string).substring(0, 2)}
         </MAvatar>
       </Badge>
     </Fragment>
