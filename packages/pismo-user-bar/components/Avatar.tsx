@@ -3,7 +3,9 @@ import * as React from 'react'
 import MAvatar from '@material-ui/core/Avatar'
 import Badge from '@material-ui/core/Badge'
 import { makeStyles } from '@material-ui/core/styles'
-import initials from 'initials'
+import * as _initials from 'initials'
+
+const initials: any = _initials as any
 
 import { BoltTheme } from '@pismo/bolt-core'
 
