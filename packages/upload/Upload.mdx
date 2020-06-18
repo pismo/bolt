@@ -1,0 +1,145 @@
+---
+'name': Upload
+---
+
+import { useState } from 'react'
+import { Playground } from 'docz'
+import { Upload } from './Upload'
+
+import Box from '@material-ui/core/Box'
+import { makeStyles } from '@material-ui/core/styles'
+import ListItem from '@material-ui/core/ListItem'
+
+import { Bolt } from '@pismo/bolt-core'
+
+# Upload
+
+O componente _Upload_ fornece uma interface de usuário para fazer upload de um ou mais arquivos. A resposta é um [**FileList**](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList).
+
+### Propriedades
+
+| **prop**    |         **type**          | **default** | **desc**                                                                                                            |
+| ----------- | :-----------------------: | :---------: | ------------------------------------------------------------------------------------------------------------------- |
+| dropzone    |          boolean          |    true     | define a exibição do componente no modo dropzone, ou seja, uma área para arrastar e soltar os arquivos selecionados |
+| multiple    |          boolean          |    true     | Se _true_ aceita receber vários arquivos simultâneos                                                                |
+| accept      |          string           |     ''      | Tipos de arquivos válidos. [veja mais](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)         |
+| className   |          string           |     ''      | Classes css aplicadas ao elemento container                                                                         |
+| title       |          string           |     ''      | Título aplicado somente ao dropzone                                                                                 |
+| buttonLabel |      React.ReactNode      |  'upload'   | Label do botão quando o dropzone não estiver selecionado                                                            |
+| onChange    | (files: FileList) => void |  undefined  | Evento disparado ao adicionar arquivos para upload                                                                  |
+
+### Dropzone
+
+<Playground>
+  {() => {
+    const [result, setResult] = useState([])
+    console.log(result)
+    const handleChange = (files) => {
+      console.log(files)
+      setResult(Array.from(files))
+    }
+
+    return (
+      <Bolt>
+          <Upload
+            title='Arraste seus arquivos aqui'
+            onChange={handleChange}
+          />
+          <Box width={1} mt='20px'>
+          {
+            result.map(file => {
+              return <ListItem>{`name: ${file.name} - size: ${(file.size / 1000).toFixed(1)} Kb`}</ListItem>
+            })
+          }
+          </Box>
+      </Bolt>
+    )
+
+}}
+
+</Playground>
+
+### Button
+
+<Playground>
+  {() => {
+    const [result, setResult] = useState([])
+    console.log(result)
+    const handleChange = (files) => {
+      console.log(files)
+      setResult(Array.from(files))
+    }
+
+    return (
+      <Bolt>
+          <Upload
+            dropzone={false}
+            onChange={handleChange}
+          />
+          <Box width={1} mt='20px'>
+          {
+            result.map(file => {
+              return <ListItem>{`name: ${file.name} - size: ${(file.size / 1000).toFixed(1)} Kb`}</ListItem>
+            })
+          }
+          </Box>
+      </Bolt>
+    )
+
+}}
+
+</Playground>
+
+### Customização
+
+Os componentes oferecem as seguintes classes que podem ser sobrescritas:
+
+- Pismo-Bolt-upload-dropzone
+- Pismo-Bolt-upload-dropzone-active
+- Pismo-Bolt-upload-dropzone-icon
+- Pismo-Bolt-upload-dropzone-message
+- Pismo-Bolt-upload-button
+
+### Exemplo de Customização
+
+```
+import {makeStyles} from '@material-ui/core/styles'
+
+const useStyles = makeStyles(() => ({
+  container: {
+    width: '300px',
+
+    '& .Pismo-Bolt-upload-dropzone': {
+      border: '5px solid red'
+    }
+  }
+}))
+```
+
+<Playground>
+  {() => {
+
+    const useStyles = makeStyles(() => ({
+      container: {
+        width: '300px',
+
+        '& .Pismo-Bolt-upload-dropzone': {
+          border: '5px solid red'
+        }
+      }
+    }))
+
+    const classes = useStyles()
+
+    return (
+      <Bolt>
+          <Upload
+          className={classes.container}
+            title='Arraste seus arquivos aqui'
+          />
+      </Bolt>
+    )
+
+}}
+
+</Playground>
