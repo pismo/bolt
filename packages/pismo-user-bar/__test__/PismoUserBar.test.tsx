@@ -13,6 +13,8 @@ import { PismoUserBar } from '../PismoUserBar'
 
 afterEach(cleanup)
 
+jest.mock('initials', () => ({default: () => 'ab'}))
+
 describe('@pismo/bolt-pismo-user-bar', () => {
   test('it should display the bar', () => {
     const Component = () => {

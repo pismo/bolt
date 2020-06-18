@@ -3,7 +3,7 @@ import * as React from 'react'
 import MAvatar from '@material-ui/core/Avatar'
 import Badge from '@material-ui/core/Badge'
 import { makeStyles } from '@material-ui/core/styles'
-import * as initials from 'initials'
+import initials from 'initials'
 
 import { BoltTheme } from '@pismo/bolt-core'
 
