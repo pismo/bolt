@@ -9,6 +9,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { BoltTheme } from '@pismo/bolt-core'
 
+import * as Color from 'color'
+
 const { useState } = React
 
 const useStyles = makeStyles((theme: BoltTheme) => {
@@ -16,6 +18,10 @@ const useStyles = makeStyles((theme: BoltTheme) => {
   return {
     expansionPanel: {
       boxShadow: 'none',
+
+      '& .MuiExpansionPanelDetails-root': {
+        backgroundColor: theme.palette.background.default
+      },
 
       '&$expanded': {
         margin: 0
@@ -30,7 +36,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       minHeight: '0px',
       height: '53px',
       padding: '0px 10px',
-      backgroundColor: '#fff',
+      backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       '&.Mui-expanded': {
         minHeight: '0px'
@@ -40,10 +46,12 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       }
     },
     menuItem: {
-      background: '#fff',
+      background: theme.palette.background.default,
       color: colors.text['50'],
       '&:hover': {
-        backgroundColor: colors.background['20']
+        backgroundColor: Color(colors.text['50'])
+          .alpha(0.2)
+          .toString()
       }
     }
   }

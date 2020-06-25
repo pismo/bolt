@@ -30,7 +30,7 @@ const Logo = ({ name, ...props }) => {
 const useStyles = makeStyles((theme: BoltTheme) => {
   return {
     bar: {
-      backgroundColor: '#fff',
+      backgroundColor: theme.palette.background.default,
       boxShadow: 'unset',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
@@ -61,7 +61,14 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       padding: 0
     },
     icon: {
-      fontSize: '2.5rem'
+      fontSize: '2rem'
+    },
+    logo: {
+      width: '100%',
+      height: '40px',
+      '& .Pismo-Bolt-icons-logo-name,.Pismo-Bolt-icons-logo-app': {
+        fill: theme.palette.colors.text['50']
+      }
     }
   }
 })
@@ -121,7 +128,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
                     </Typography> */}
                     <Logo
                       name={applications[current].name}
-                      style={{ width: '100%', height: '40px' }}
+                      className={classes.logo}
                     />
                   </Box>
                 </Hidden>

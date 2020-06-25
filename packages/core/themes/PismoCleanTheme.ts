@@ -155,7 +155,8 @@ export const PismoCleanTheme: BoltTheme = {
       main: colors.error['50']
     },
     background: {
-      default: '#fff'
+      default: '#fff',
+      paper: '#fff'
     }
   },
   overrides: {

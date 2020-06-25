@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-core": "^2.4.0"
+    "@pismo/bolt-core": "^2.4.0",
+    "color": "^3.1.2"
   },
   "scripts": {
     "build": "tsc",

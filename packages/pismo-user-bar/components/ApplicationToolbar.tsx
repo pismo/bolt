@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       const style = {
         color: colors.text['50'],
         overflow: 'hidden',
-        backgroundColor: '#fff'
+        backgroundColor: theme.palette.background.default
       }
 
       if (!full) {

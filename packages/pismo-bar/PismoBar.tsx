@@ -6,7 +6,7 @@ import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-import { BoltTheme } from '@pismo/bolt-core'
+// import { BoltTheme } from '@pismo/bolt-core'
 
 import {
   PismoBarProps,
@@ -41,7 +41,7 @@ const applications: ApplicationsType = {
   }
 }
 
-const useStyles = makeStyles((theme: BoltTheme) => {
+const useStyles = makeStyles((theme: any) => {
   const colors = theme.palette.colors
   return {
     drawer: {
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: '#fff',
+      backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
     },

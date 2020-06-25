@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: '#fff',
+      backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
     }
