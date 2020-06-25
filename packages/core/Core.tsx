@@ -3,7 +3,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import { PismoCleanTheme, BoltTheme } from './themes'
+import { PismoCleanTheme, BoltTheme, PismoDarkTheme } from './themes'
 
 const WebFont = require('webfontloader')
 const { useContext, useReducer, useState, useEffect } = React
@@ -20,20 +20,32 @@ const _cleanTheme: BoltTheme = mixin(
   responsiveFontSizes(createMuiTheme()),
   PismoCleanTheme
 )
+
+const _darkTheme: BoltTheme = mixin(
+  responsiveFontSizes(createMuiTheme()),
+  PismoDarkTheme
+)
 interface IThemeState {
   themes: { [key: string]: BoltTheme }
   currentTheme: string
   registerTheme: (name: string, theme: BoltTheme) => void
   getThemes: () => string[]
+  getTheme: () => BoltTheme
 }
 
+const themes = {
+  clean: _cleanTheme,
+  dark: _darkTheme
+}
+
+const currentTheme = 'clean'
+
 const initialThemeState: IThemeState = {
-  themes: {
-    clean: _cleanTheme
-  },
-  currentTheme: 'clean',
+  themes,
+  currentTheme,
   registerTheme: (name: string, theme: BoltTheme) => ({ name, theme }),
-  getThemes: () => []
+  getThemes: () => [],
+  getTheme: () => themes[currentTheme]
 }
 
 export interface BoltContextProps extends IThemeState {
@@ -79,6 +91,8 @@ export function Bolt ({ children }) {
 
   const getThemes = (): string[] => Object.keys(state.themes)
 
+  const getTheme = () => state.themes[state.currentTheme]
+
   return (
     <Context.Provider
       value={{
@@ -86,7 +100,8 @@ export function Bolt ({ children }) {
         currentTheme: state.currentTheme,
         registerTheme,
         changeTheme,
-        getThemes
+        getThemes,
+        getTheme
       }}
     >
       <ThemeProvider theme={theme}>
