@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-world-format",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "Bolt component world-format",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -36,6 +36,6 @@
     "manual-publish": "npm publish"
   },
   "devDependencies": {
-    "@pismo/bolt-text-field": "^2.4.0"
+    "@pismo/bolt-text-field": "^2.5.0"
   }
 }

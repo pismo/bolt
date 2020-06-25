@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-avatar-upload",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "Bolt component avatar-upload",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-core": "^2.4.0",
+    "@pismo/bolt-core": "^2.5.0",
     "color": "^3.1.2",
     "croppie": "^2.6.4"
   },
