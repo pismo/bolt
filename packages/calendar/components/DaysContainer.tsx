@@ -136,7 +136,7 @@ const DaysContainer: React.FC<any> = ({
       }
     }
 
-    setWeeks(getWeekNames())
+    setWeeks(getWeekNames(locale, currentDate))
   }, [current, startDate, endDate])
 
   useEffect(() => {
@@ -222,16 +222,6 @@ const DaysContainer: React.FC<any> = ({
       }
     }
   }, [days])
-
-  function getWeekNames () {
-    return eachDayOfInterval({
-      start: startOfWeek(currentDate),
-      end: endOfWeek(currentDate)
-    }).reduce((a: Array<any>, d: Date) => {
-      a.push(format(d, 'E', { locale }))
-      return a
-    }, [])
-  }
 
   function getDays () {
     const date = new Date(currentYear, currentMonth)
@@ -337,6 +327,16 @@ const DaysContainer: React.FC<any> = ({
       </Box>
     </Box>
   )
+}
+
+export function getWeekNames (locale: Locale, date: Date, formating = 'E') {
+  return eachDayOfInterval({
+    start: startOfWeek(date),
+    end: endOfWeek(date)
+  }).reduce((a: Array<any>, d: Date) => {
+    a.push(format(d, formating, { locale }))
+    return a
+  }, [])
 }
 
 export { DaysContainer }
