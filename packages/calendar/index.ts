@@ -1,1 +1,2 @@
-export { Calendar } from './Calendar'
+export { Calendar, locale } from './Calendar'
+export { getWeekNames } from './components/DaysContainer'

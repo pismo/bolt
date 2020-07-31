@@ -18,7 +18,7 @@ import enLocale from 'date-fns/locale/en-US'
 import ptLocale from 'date-fns/locale/pt-BR'
 import esLocale from 'date-fns/locale/es'
 
-const locale = {
+export const locale = {
   en: enLocale,
   pt: ptLocale,
   es: esLocale
