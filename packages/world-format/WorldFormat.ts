@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export enum Countrys {
   BRAZIL = 'brazil',
   CHILE = 'chile'
@@ -69,19 +71,8 @@ export const WorldFormat: WTFormat = {
 
       try {
         const {
-          logradouro,
-          complemento,
-          bairro,
-          localidade,
-          uf,
-          erro
-        } = await fetch(`https://viacep.com.br/ws/${formated}/json/`).then(
-          res =>
-            res.json().then(data => {
-              console.log(data)
-              return data
-            })
-        )
+          data: { logradouro, complemento, bairro, localidade, uf, erro }
+        } = await axios.get(`https://viacep.com.br/ws/${formated}/json/`)
 
         if (erro) {
           return { error: { message: 'Postal Code Not Found' } }
@@ -106,9 +97,9 @@ export const WorldFormat: WTFormat = {
         const local = localStorage.getItem(key)
 
         if (!local) {
-          const res = await fetch(
+          const { data: res } = await axios.get(
             'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-          ).then(res => res.json().then(data => data))
+          )
 
           response = res.map(({ nome, id, sigla }) => ({
             name: nome,
@@ -135,13 +126,11 @@ export const WorldFormat: WTFormat = {
         let response = []
 
         if (!local) {
-          const res = await fetch(
+          const { data: res } = await axios.get(
             `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${
               state.id
             }/municipios`
           )
-            .then(res => res.json())
-            .then(data => data)
 
           if (res.message) {
             return { error: { message: 'Invalid State' } }
