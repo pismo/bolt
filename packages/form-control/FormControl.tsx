@@ -19,6 +19,7 @@ interface IFormControl {
     prev: { [key: string]: any },
     values: { [key: string]: any }
   ) => void
+  onValidation: (values: { [key: string]: any }) => { [key: string]: any }
   children: (props: childrenArgs) => JSX.Element
   autoComplete?: boolean
 }
@@ -35,6 +36,7 @@ function FormControl ({
   children,
   onChange,
   onError,
+  onValidation,
   autoComplete = true
 }: IFormControl) {
   const [values, setValues] = useState<InitialValue>(initialValue)
@@ -66,8 +68,10 @@ function FormControl ({
   const handleSubmit = e => {
     e.preventDefault()
 
-    if (validationSchema) {
-      const val = validate(values, validationSchema, { format: 'detailed' })
+    const schema = onValidation ? onValidation(values) : validationSchema
+
+    if (schema) {
+      const val = validate(values, schema, { format: 'detailed' })
 
       if (isArray(val)) {
         let err = { ...errors }

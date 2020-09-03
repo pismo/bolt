@@ -23,6 +23,7 @@ Inspirado no [Formik](https://jaredpalmer.com/formik/docs/overview) o component 
 | validationSchema | {[key: string]: any}                                                     |    false     | Objeto com o schema de validação                                                                                      |
 | onChange         | (prevValues: {[key: string]: any}, values: {[key: string]: any}) => void |    false     | Método executado na atualização dos valores (ao digitar), envia para a função o estado anterior e o estado atualizado |
 | onSubmit         | (values: {[key: string]: any}) => void                                   |     true     | Método executado ao clicar no submit. Se tiver o esquema de validação, só será executado se passar na validação       |
+| onValidation     | (values: {[key: string]: any}) => schema: {[key: string]: any}           |    false     | Método executado antes da validação, insere os valores como parâmetro e espera receber um schema de validação         |
 | children         | (props: childrenArgs) => JSX.Element                                     |     true     | Método passado como children, recebe os valores do formulário e deve retornar os componentes do formulário            |
 | autoComplete     | boolean                                                                  |    false     | Propriedade para ativar ou desativar o preenchimento automático do formulário pelo navegador (padrão true)            |
 
@@ -196,5 +197,103 @@ O **FormControl** aceita nested props conforme o exemplo a seguir:
             )
         }
     }
+
+</Playground>
+
+## Validação dinâmica
+
+<Playground>
+{
+    () => {
+        const FormComponent = () => {
+            const [success, setSuccess] = useState(false)
+
+            const schemaOne = {
+                name: {
+                    presence: {
+                        allowEmpty: false,
+                        message: 'Insira um nome'
+                    }
+                },
+                email: {
+                    email: {
+                        message: 'E-mail inválido'
+                    }
+                }
+            }
+
+            const shemaTwo = {
+                name: {
+                    presence: {
+                        allowEmpty: false,
+                        message: 'Insira um nome'
+                    }
+                },
+            }
+
+            const validationHandler = (values) => {
+                if(values.name === 'dog') {
+                    return schemaOne
+                }
+                else {
+                    return shemaTwo
+                }
+            }
+
+            return (
+                <FormControl
+                    initialValue={{name: '', email: ''}}
+                    onSubmit={() => setSuccess(true)}
+                    onValidation={validationHandler}
+                >
+                    {
+                        ({values: {name, email}, errors, handleChange}) => (
+                            <Grid container spacing={3}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        label='nome'
+                                        name='name'
+                                        placeholder='enter dog or cat'
+                                        value={name}
+                                        error={Boolean(errors.name)}
+                                        helperText={errors.name}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        label='e-mail'
+                                        name='email'
+                                        value={email}
+                                        error={Boolean(errors.email)}
+                                        helperText={errors.email}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Button type='submit' color='primary' variant='contained'>Submit</Button>
+                                </Grid>
+                                {
+                                    success ? (
+                                        <Grid item xs={12}>
+                                            <Typography variant='h5' color='primary'>Sucesso!!</Typography>
+                                        </Grid>
+                                    ) : null
+                                }
+                            </Grid>
+                        )
+                    }
+                </FormControl>
+            )
+        }
+
+        return (
+            <Bolt>
+                <FormComponent />
+            </Bolt>
+        )
+    }
+
+}
 
 </Playground>
