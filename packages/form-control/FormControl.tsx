@@ -19,7 +19,7 @@ interface IFormControl {
     prev: { [key: string]: any },
     values: { [key: string]: any }
   ) => void
-  onValidation: (values: { [key: string]: any }) => { [key: string]: any }
+  onValidation?: (values: { [key: string]: any }) => { [key: string]: any }
   children: (props: childrenArgs) => JSX.Element
   autoComplete?: boolean
 }
