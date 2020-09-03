@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-upload",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Bolt component upload",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.9.1",
-    "@pismo/bolt-core": "^2.5.0"
+    "@pismo/bolt-core": "^2.7.0"
   },
   "scripts": {
     "build": "tsc",
