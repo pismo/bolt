@@ -36,8 +36,6 @@ const PercentInput: React.FC<PercentageInputProps> = ({
   toggleScore = false
 }: any) => {
   const [value, setValue] = useState(initialValue)
-  const [init, setInit] = useState(false)
-  const [decimal, setDecimal] = useState('.')
 
   const intergerValue = item => {
     if (onChange) onChange(item)

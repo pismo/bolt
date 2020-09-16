@@ -1,7 +1,7 @@
 {
-  "name": "@pismo/bolt-percentage-input",
+  "name": "@pismo/bolt-percent-input",
   "version": "2.7.0",
-  "description": "Bolt component percentage-input",
+  "description": "Bolt component percent-input",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
   "license": "ISC",

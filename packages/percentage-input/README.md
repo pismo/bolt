@@ -1,3 +1,3 @@
-# PercentageInput
+# PercentInput
 
-Please check the documentation of PercentageInput component at [bolt-percentage-input](https://bolt.pismolabs.io/packages-core-components-percentage-input)
+Please check the documentation of PercentInput component at [bolt-percent-input](https://bolt.pismolabs.io/packages-core-components-percent-input)
