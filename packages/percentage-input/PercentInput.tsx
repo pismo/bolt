@@ -39,7 +39,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
 
   const intergerValue = item => {
     if (onChange) onChange(item)
-    setValue(format(item))
+    setValue(format(item, true))
   }
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
       return
     }
 
-    setValue(format(value))
+    setValue(format(value, false))
   }, [])
 
   const changeValue = e => {
@@ -77,15 +77,17 @@ const PercentInput: React.FC<PercentageInputProps> = ({
     }
 
     if (onChange) onChange(v)
-    setValue(format(v))
+    setValue(format(v, true))
   }
 
   const focusHandler = e => {
     cursorToRight(e.target)
   }
 
-  function format (num: number) {
-    let _percent, num_str
+  function format (num: number, numChange?: boolean) {
+    let _percent, num_str, literal
+
+    literal = numChange ? num / 100 : num
 
     num_str = new Intl.NumberFormat(translation[lang], {
       style: 'percent',
@@ -93,7 +95,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
       minimumIntegerDigits: 1,
       useGrouping: useGroup
     })
-      .formatToParts(num / 100)
+      .formatToParts(literal)
       .map(p => {
         switch (p.type) {
           case 'percentSign':
