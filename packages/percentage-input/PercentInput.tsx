@@ -38,7 +38,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
   const [value, setValue] = useState(initialValue)
 
   const intergerValue = item => {
-    if (onChange) onChange(item)
+    if (onChange) onChange(item / 100)
     setValue(format(item, true))
   }
 
@@ -76,7 +76,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
       return
     }
 
-    if (onChange) onChange(v)
+    if (onChange) onChange(v / 100)
     setValue(format(v, true))
   }
 
