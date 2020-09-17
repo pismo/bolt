@@ -28,7 +28,7 @@ export interface PercentageInputProps {
 const PercentInput: React.FC<PercentageInputProps> = ({
   onChange,
   lang = 'en',
-  initialValue,
+  initialValue = 0,
   TextfieldProps,
   maxInteger = 0,
   minInteger = 0,
@@ -54,7 +54,6 @@ const PercentInput: React.FC<PercentageInputProps> = ({
     }
 
     setValue(format(value))
-    setInit(true)
   }, [])
 
   const changeValue = e => {
@@ -86,9 +85,7 @@ const PercentInput: React.FC<PercentageInputProps> = ({
   }
 
   function format (num: number) {
-    let literal = '',
-      _percent,
-      num_str
+    let _percent, num_str
 
     num_str = new Intl.NumberFormat(translation[lang], {
       style: 'percent',
