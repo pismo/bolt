@@ -54,7 +54,7 @@ O componente **PercentInput** fornece um componente TextField formatado para val
             </TextField>
           </Grid>
           <Grid item xs={4}>
-            <PercentInput TextfieldProps={{label: 'valor'}} lang={languages[lang]} initialValue={1} />
+            <PercentInput TextfieldProps={{label: 'valor'}} minInteger={0.5} lang={languages[lang]} initialValue={0.6} />
           </Grid>
         </Grid>
       </Bolt>

@@ -37,19 +37,20 @@ const PercentInput: React.FC<PercentageInputProps> = ({
 }: any) => {
   const [value, setValue] = useState(initialValue)
 
-  const intergerValue = item => {
+  const intergerValue = (item: number, numChange: boolean) => {
     if (onChange) onChange(item / 100)
-    setValue(format(item, true))
+    setValue(format(item, numChange))
   }
 
   useEffect(() => {
-    if (maxInteger >= 1 && initialValue > maxInteger) {
-      intergerValue(maxInteger)
+    if (maxInteger >= 0.1 && initialValue > maxInteger) {
+      intergerValue(maxInteger, false)
       return
     }
 
-    if (minInteger >= 1 && initialValue < minInteger) {
-      intergerValue(minInteger)
+    if (minInteger >= 0.1 && minInteger > initialValue) {
+      console.log('dentro do min')
+      intergerValue(minInteger, false)
       return
     }
 
@@ -67,12 +68,12 @@ const PercentInput: React.FC<PercentageInputProps> = ({
       v_clear.slice(v_clear.length - 2)
 
     if (maxInteger >= 1 && v > maxInteger) {
-      intergerValue(maxInteger)
+      intergerValue(maxInteger, true)
       return
     }
 
     if (minInteger >= 1 && v < minInteger) {
-      intergerValue(minInteger)
+      intergerValue(minInteger, true)
       return
     }
 
@@ -85,9 +86,13 @@ const PercentInput: React.FC<PercentageInputProps> = ({
   }
 
   function format (num: number, numChange?: boolean) {
-    let _percent, num_str, literal
+    let _percent,
+      num_str,
+      literal = 0
 
     literal = numChange ? num / 100 : num
+
+    console.log(literal, 'teste literal')
 
     num_str = new Intl.NumberFormat(translation[lang], {
       style: 'percent',
