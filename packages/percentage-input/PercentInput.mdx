@@ -7,7 +7,6 @@ import { Playground } from 'docz'
 import { PercentInput } from './PercentInput'
 
 import Grid from '@material-ui/core/Grid'
-import MenuItem from '@material-ui/core/MenuItem'
 
 import { Bolt } from '@pismo/bolt-core'
 import { TextField } from '@pismo/bolt-text-field'
@@ -18,16 +17,15 @@ O componente **PercentInput** fornece um componente TextField formatado para val
 
 ## Propriedades
 
-| **prop**       | **type**                                                                   | **required** |   **default**   | **desc**                                                               |
-| -------------- | -------------------------------------------------------------------------- | :----------: | :-------------: | -----------------------------------------------------------------------|
-| lang           | 'en' \| 'es' \| 'pt'                                                       |    false     |       en        | idioma da pagina - internacionalização (I18n)                          |
-| initialValue   | number                                                                     |    false     |        0        | valor inicial do componente                                            |
-| onChange       | (value: number) => void                                                    |    false     |      null       | evento disparado na mudança de valor do componente                     |
-| TextfieldProps | [StandardTextFieldProps](https://material-ui.com/pt/api/text-field/#props) |    false     |       {}        | propriedades aplicadas ao componente TextField                         |
-| maxInteger     | number                                                                     |    false     |        0        | determina valor maximo                                                 |
-| minInteger     | number                                                                     |    false     |        0        | determina valor minimo                                                 |
-| useGroup       | boolean                                                                    |    false     |      false      | adiciona separador de milhar ('.')                                     | 
-| toggleScore    | boolean                                                                    |    false     |      false      | substitui virgula por ponto (* useGroup deve estar na condição false)  |
+| **prop**       | **type**                                                                   | **required** |   **default**   | **desc**                                                                         |
+| -------------- | -------------------------------------------------------------------------- | :----------: | :-------------: | ---------------------------------------------------------------------------------|
+| initialValue   | number                                                                     |    false     |        0        | valor inicial do componente                                                      |
+| onChange       | (value: number) => void                                                    |    false     |      null       | evento disparado na mudança de valor do componente                               |
+| TextfieldProps | [StandardTextFieldProps](https://material-ui.com/pt/api/text-field/#props) |    false     |       {}        | propriedades aplicadas ao componente TextField                                   |
+| maxInteger     | number                                                                     |    false     |        0        | determina valor maximo                                                           |
+| minInteger     | number                                                                     |    false     |        0        | determina valor minimo                                                           |
+| toggleScore    | boolean                                                                    |    false     |      false      | substitui ponto por vírgula (* hiddenDecimal deve estar na condição false)       |
+| hiddenDecimal  | boolean                                                                    |    false     |      false      | retira casas decimais padrao(.00) arredondando para cima ex: 0.5 igual a 100%    |
 
 
 
@@ -37,24 +35,14 @@ O componente **PercentInput** fornece um componente TextField formatado para val
 <Playground>
   {() => {
     const [curr, setCurr] = useState(0)
-    const [lang, setLang] = useState(0)
-
-    const languages = ['pt', 'en', 'es']
-
     const changeCurr = (ev) => setCurr(ev.target.value)
     const changeLang = (ev) => setLang(ev.target.value)
+
     return (
       <Bolt>
         <Grid container spacing={5}>
-          <Grid item xs={6}>
-            <TextField label='Selecione o idioma' select value={lang} onChange={changeLang}>
-            <MenuItem value={0}>Português</MenuItem>
-            <MenuItem value={1}>Inglês</MenuItem>
-            <MenuItem value={2}>Espanhol</MenuItem>
-            </TextField>
-          </Grid>
           <Grid item xs={4}>
-            <PercentInput TextfieldProps={{label: 'valor'}} minInteger={0.5} lang={languages[lang]} initialValue={0.6} />
+            <PercentInput TextfieldProps={{label: 'valor'}} initialValue={0.5} />
           </Grid>
         </Grid>
       </Bolt>

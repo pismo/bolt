@@ -6,149 +6,103 @@ import { TextField } from '@pismo/bolt-text-field'
 
 const { useEffect, useState } = React
 
-const translation = {
-  en: 'en-US',
-  es: 'es-ES',
-  pt: 'pt-BR'
-}
-
-export type Translation = 'en' | 'pt' | 'es'
-
 export interface PercentageInputProps {
-  lang?: Translation
   initialValue?: number
   maxInteger?: number
   minInteger?: number
-  useGroup?: boolean
   toggleScore?: boolean
+  hiddenDecimal?: boolean
   onChange?: (value: number) => void
   TextfieldProps?: StandardTextFieldProps
 }
 
 const PercentInput: React.FC<PercentageInputProps> = ({
   onChange,
-  lang = 'en',
   initialValue = 0,
   TextfieldProps,
   maxInteger = 0,
   minInteger = 0,
-  useGroup = false,
-  toggleScore = false
+  toggleScore = false,
+  hiddenDecimal = false
 }: any) => {
   const [value, setValue] = useState(initialValue)
 
-  const intergerValue = (item: number, numChange: boolean) => {
+  const intergerValue = (item: any, numChange?: boolean) => {
     if (onChange) onChange(item / 100)
     setValue(format(item, numChange))
   }
 
   useEffect(() => {
-    if (maxInteger >= 0.1 && initialValue > maxInteger) {
-      intergerValue(maxInteger, false)
-      return
-    }
-
-    if (minInteger >= 0.1 && minInteger > initialValue) {
-      console.log('dentro do min')
-      intergerValue(minInteger, false)
-      return
-    }
-
-    setValue(format(value, false))
-  }, [])
-
-  const changeValue = e => {
-    let v = e.target.value
-    v = v.replace(/[^\d\,\.]/g, '')
-
-    const v_clear = v.replace(/\D/g, '')
-    v =
-      v_clear.slice(0, v_clear.length - 2) +
-      '.' +
-      v_clear.slice(v_clear.length - 2)
-
-    if (maxInteger >= 1 && v > maxInteger) {
+    const valueInit = hiddenDecimal ? Math.round(initialValue) : initialValue
+    if (maxInteger >= 0.1 && valueInit > maxInteger) {
       intergerValue(maxInteger, true)
       return
     }
 
-    if (minInteger >= 1 && v < minInteger) {
+    if (minInteger >= 0.1 && minInteger > valueInit) {
       intergerValue(minInteger, true)
       return
     }
 
-    if (onChange) onChange(v / 100)
-    setValue(format(v, true))
-  }
+    setValue(format(valueInit, true))
+  }, [])
 
-  const focusHandler = e => {
-    cursorToRight(e.target)
-  }
+  const changeValue = e => {
+    let v = e.target.value,
+      integerMax = maxInteger * 100,
+      integerMin = minInteger * 100,
+      validNumber
 
-  function format (num: number, numChange?: boolean) {
-    let _percent,
-      num_str,
-      literal = 0
+    v = v.replace(/[^\d\,\.]/g, '')
 
-    literal = numChange ? num / 100 : num
+    const v_clear = v.replace(/\D/g, '')
 
-    console.log(literal, 'teste literal')
-
-    num_str = new Intl.NumberFormat(translation[lang], {
-      style: 'percent',
-      minimumFractionDigits: 2,
-      minimumIntegerDigits: 1,
-      useGrouping: useGroup
-    })
-      .formatToParts(literal)
-      .map(p => {
-        switch (p.type) {
-          case 'percentSign':
-            _percent = p.value
-            break
-          default:
-            return p.value
-        }
-      })
-      .join('')
-
-    if (toggleScore && !useGroup) {
-      return num_str.replace(',', '.') + _percent
+    if (!hiddenDecimal) {
+      v =
+        v_clear.slice(0, v_clear.length - 2) +
+        '.' +
+        v_clear.slice(v_clear.length - 2)
     }
 
-    return num_str + _percent
-  }
+    validNumber = v.split('.')[0] === '' ? Number(v) : v
 
-  function cursorToRight (target) {
-    if (target.createTextRange) {
-      const range = target.createTextRange()
-      range.move('character', target.value.length - 1)
-      range.select()
-    } else if (
-      target.selectionStart !== null ||
-      target.selectionStart !== undefined
-    ) {
-      target.focus()
-      target.setSelectionRange(0, target.value.length - 1)
-      target.selectionStart = target.selectionEnd = target.value.length - 1
-
-      setTimeout(
-        () =>
-          (target.selectionStart = target.selectionEnd =
-            target.value.length - 1),
-        0
-      )
+    if (integerMax > 0.0 && validNumber > integerMax) {
+      intergerValue(integerMax)
+      return
     }
+
+    if (integerMin > 0.0 && validNumber < integerMin) {
+      intergerValue(Number(integerMin))
+      return
+    }
+
+    if (onChange) onChange(validNumber / 100)
+
+    setValue(format(validNumber, false, e))
   }
 
-  return (
-    <TextField
-      {...TextfieldProps}
-      value={value}
-      onChange={changeValue}
-      onFocus={focusHandler}
-    />
-  )
+  function format (num: number, numInit?: boolean, changeEvent?: any) {
+    let _percent = '%',
+      literal
+
+    if (numInit) {
+      literal = hiddenDecimal ? (num * 100).toFixed() : (num * 100).toFixed(2)
+    } else {
+      literal = num
+    }
+
+    if (toggleScore && !hiddenDecimal) {
+      return literal.toString().replace('.', ',') + _percent
+    }
+
+    if (!numInit) {
+      changeEvent.target.setSelectionRange(literal.length, literal.length)
+    }
+
+    return literal + _percent
+  }
+
+  return <TextField {...TextfieldProps} value={value} onChange={changeValue} />
 }
 
 export { PercentInput }
