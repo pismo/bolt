@@ -30,7 +30,6 @@ describe('@pismo/bolt-percent-input', () => {
       <PercentInput
         initialValue={1}
         TextfieldProps={{ label: 'valor' }}
-        lang='pt'
         onChange={fn}
       />
     )
@@ -47,7 +46,6 @@ describe('@pismo/bolt-percent-input', () => {
     const { container } = render(
       <PercentInput
         initialValue={2}
-        lang='pt'
         onChange={fn}
         maxInteger={1}
         TextfieldProps={{ label: 'valor' }}
@@ -66,7 +64,6 @@ describe('@pismo/bolt-percent-input', () => {
     const { container } = render(
       <PercentInput
         initialValue={0.5}
-        lang='pt'
         onChange={fn}
         maxInteger={1}
         TextfieldProps={{ label: 'valor' }}
@@ -85,7 +82,6 @@ describe('@pismo/bolt-percent-input', () => {
     const { container } = render(
       <PercentInput
         initialValue={2}
-        lang='pt'
         onChange={fn}
         minInteger={1}
         TextfieldProps={{ label: 'valor' }}
@@ -104,7 +100,6 @@ describe('@pismo/bolt-percent-input', () => {
     const { container } = render(
       <PercentInput
         initialValue={0.5}
-        lang='pt'
         onChange={fn}
         minInteger={1}
         TextfieldProps={{ label: 'valor' }}
