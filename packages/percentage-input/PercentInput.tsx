@@ -26,45 +26,48 @@ const PercentInput: React.FC<PercentageInputProps> = ({
   hiddenDecimal = false
 }: any) => {
   const [value, setValue] = useState(initialValue)
+  const integerMax = maxInteger * 100
+  const integerMin = minInteger * 100
 
-  const intergerValue = (item: any, numChange?: boolean) => {
+  const intergerValue = (item: any) => {
     if (onChange) onChange(item / 100)
-    setValue(format(item, numChange))
+    setValue(format(item))
   }
 
   useEffect(() => {
-    const valueInit = hiddenDecimal ? Math.round(initialValue) : initialValue
-    if (maxInteger >= 0.1 && valueInit > maxInteger) {
-      intergerValue(maxInteger, true)
+    const valueInit = initialValue * 100
+
+    if (integerMax > 0.0 && valueInit > integerMax) {
+      intergerValue(integerMax)
       return
     }
 
-    if (minInteger >= 0.1 && minInteger > valueInit) {
-      intergerValue(minInteger, true)
+    if (integerMin > 0.1 && integerMin > valueInit) {
+      intergerValue(integerMin)
       return
     }
 
-    setValue(format(valueInit, true))
+    setValue(format(valueInit))
   }, [])
 
   const changeValue = e => {
     let v = e.target.value,
-      integerMax = maxInteger * 100,
-      integerMin = minInteger * 100,
       validNumber
 
     v = v.replace(/[^\d\,\.]/g, '')
-
     const v_clear = v.replace(/\D/g, '')
+    const match = toggleScore ? v.indexOf(',') : v.indexOf('.')
 
-    if (!hiddenDecimal) {
+    if (match > -1 && !hiddenDecimal) {
       v =
         v_clear.slice(0, v_clear.length - 2) +
         '.' +
         v_clear.slice(v_clear.length - 2)
+    } else {
+      v = v_clear
     }
 
-    validNumber = v.split('.')[0] === '' ? Number(v) : v
+    validNumber = Number(v)
 
     if (integerMax > 0.0 && validNumber > integerMax) {
       intergerValue(integerMax)
@@ -78,25 +81,15 @@ const PercentInput: React.FC<PercentageInputProps> = ({
 
     if (onChange) onChange(validNumber / 100)
 
-    setValue(format(validNumber, false, e))
+    setValue(format(validNumber))
   }
 
-  function format (num: number, numInit?: boolean, changeEvent?: any) {
+  function format (num: number) {
     let _percent = '%',
-      literal
-
-    if (numInit) {
-      literal = hiddenDecimal ? (num * 100).toFixed() : (num * 100).toFixed(2)
-    } else {
-      literal = num
-    }
+      literal = hiddenDecimal ? Math.round(num) : num.toFixed(2)
 
     if (toggleScore && !hiddenDecimal) {
-      return literal.toString().replace('.', ',') + _percent
-    }
-
-    if (!numInit) {
-      changeEvent.target.setSelectionRange(literal.length, literal.length)
+      return num.toFixed(2).replace('.', ',') + _percent
     }
 
     return literal + _percent
