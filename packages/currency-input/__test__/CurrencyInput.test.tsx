@@ -33,14 +33,14 @@ describe('@pismo/bolt-currency-input', () => {
       <CurrencyInput
         currency={CurrencyCode.BRAZIL}
         initialValue={1000}
-        lang='pt'
+        lang='en'
         onChange={fn}
       />
     )
 
     const input = container.getElementsByTagName('input')[0]
 
-    expect(input).toHaveAttribute('value', 'R$ 1,000.00')
+    expect(input).toHaveAttribute('value', 'R$1,000.00')
     expect(fn).toBeCalledTimes(1)
     expect(fn).toReturnWith(1000)
   })

@@ -1,0 +1,43 @@
+{
+  "name": "@pismo/bolt-percent-input",
+  "version": "2.7.0",
+  "description": "Bolt component percent-input",
+  "author": "Pismo <hello@pismo.io>",
+  "homepage": "https://github.com/pismo/bolt#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pismo/bolt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pismo/bolt/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.0",
+    "@pismo/bolt-text-field": "^2.7.0",
+    "@pismo/bolt-world-format": "^2.7.0"
+  },
+  "devDependencies": {
+    "@pismo/bolt-core": "^2.7.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "manual-publish": "npm publish"
+  }
+}
