@@ -50,6 +50,15 @@ const PercentInput: React.FC<PercentageInputProps> = ({
     setValue(format(valueInit))
   }, [])
 
+  const handleKeyPress = e => {
+    if (e.keyCode === 8 && e.target.selectionEnd === e.target.value.length) {
+      e.target.setSelectionRange(
+        e.target.value.length - 1,
+        e.target.value.length - 1
+      )
+    }
+  }
+
   const changeValue = e => {
     let v = e.target.value,
       validNumber
@@ -95,7 +104,14 @@ const PercentInput: React.FC<PercentageInputProps> = ({
     return literal + _percent
   }
 
-  return <TextField {...TextfieldProps} value={value} onChange={changeValue} />
+  return (
+    <TextField
+      {...TextfieldProps}
+      value={value}
+      onChange={changeValue}
+      onKeyDown={handleKeyPress}
+    />
+  )
 }
 
 export { PercentInput }
