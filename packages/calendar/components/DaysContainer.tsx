@@ -84,7 +84,17 @@ export interface DaysContainerProps {
   endDate?: Date
   isSameDate?: boolean
   current?: 'start' | 'end'
+  isSingle?: boolean
   onChange?: (selected: Date) => void
+  customDay?: (
+    day: number,
+    index: number,
+    currentDay: number[],
+    currentMonth: number,
+    currentYear: number,
+    currentDate: Date,
+    sameMonth: boolean
+  ) => React.ReactNode
 }
 
 const DaysContainer: React.FC<any> = ({
@@ -95,7 +105,9 @@ const DaysContainer: React.FC<any> = ({
   current,
   onChange,
   currentMonth,
-  currentYear
+  currentYear,
+  customDay,
+  isSingle = false
 }) => {
   const classes = useStyles()
 
@@ -152,9 +164,9 @@ const DaysContainer: React.FC<any> = ({
 
     if (
       !isSameMonth(currentDate, new Date(currentYear, currentMonth)) ||
-      isSameDate
+      isSameDate || isSingle
     )
-      return
+    return
 
     if (currentDay.length === 2 && sameMonth) {
       sqStart.style.display = 'block'
@@ -267,7 +279,17 @@ const DaysContainer: React.FC<any> = ({
       >
         {days &&
           days.map((d, index) => {
-            return (
+            return customDay ? (
+              customDay(
+                d,
+                index,
+                currentDay,
+                currentMonth,
+                currentYear,
+                currentDate,
+                sameMonth
+              )
+            ) : (
               <Box
                 className={classes.dayContainer}
                 key={`${String(d)}-${index}`}
