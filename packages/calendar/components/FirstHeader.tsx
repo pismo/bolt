@@ -11,7 +11,8 @@ import { InputProps } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: BoltTheme) => {
   return {
-    textField: {
+    textField: ({ w }: any) => ({
+      width: `${w + 2}ch`,
       cursor: 'pointer',
       color: theme.palette.colors.background['50'],
       fontWeight: 'normal',
@@ -19,8 +20,9 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       fontSize: '1rem',
       '&.Mui-disabled': {
         color: theme.palette.colors.background['50']
-      }
-    }
+      },
+      paddingRight: 0
+    })
   }
 })
 
@@ -39,7 +41,7 @@ const FirstHeader: React.FC<FirstHeaderProps> = ({
   innerRef,
   label
 }) => {
-  const classes = useStyles()
+  const classes = useStyles({ w: value.replace(/\s/g, '').length })
 
   return (
     <TextField

@@ -1,6 +1,16 @@
 import * as React from 'react'
 
-import { format, isSameDay, getMonth, getYear, compareDesc } from 'date-fns'
+import {
+  format,
+  isSameDay,
+  getMonth,
+  getYear,
+  compareDesc,
+  Duration,
+  add,
+  isEqual,
+  isWithinInterval
+} from 'date-fns'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Menu from '@material-ui/core/Menu'
@@ -43,6 +53,7 @@ export interface DatePickerProps {
   startDate: Date
   endDate?: Date
   noRange?: boolean
+  limitRange?: Duration
   onChange?: (result: { startDate: Date; endDate?: Date }) => void
 }
 
@@ -67,7 +78,7 @@ const Calendar: React.FC<CalendarProps> = ({
 }: CalendarProps) => {
   const classes = useStyles()
 
-  let { startDate, endDate, onChange, noRange } = DatePickerProps
+  let { startDate, endDate, onChange, noRange, limitRange } = DatePickerProps
   let { formatType, startLabel, endLabel } = RangeBarProps
 
   if (language.length < 2) language = 'en'
@@ -148,21 +159,32 @@ const Calendar: React.FC<CalendarProps> = ({
       return
     }
 
+    let _start = _startDate
+    let _end = _endDate
+
     if (currentRange === 'start') {
       if (compareDesc(selected, _endDate) >= 0) {
-        setStartDate(selected)
+        _start = selected
       } else {
-        setStartDate(_endDate)
-        setEndDate(selected)
+        _start = _endDate
+        _end = selected
       }
     } else {
       if (compareDesc(selected, _startDate) <= 0) {
-        setEndDate(selected)
+        _end = selected
       } else {
-        setEndDate(_startDate)
-        setStartDate(selected)
+        _end = _startDate
+        _start = selected
       }
     }
+
+    if (!isEqual(_start, _startDate)) setStartDate(_start)
+    if (limitRange) {
+      const limitEnd = add(_start, limitRange)
+      if (isWithinInterval(_end, { start: _start, end: limitEnd }))
+        setEndDate(_end)
+      else setEndDate(limitEnd)
+    } else setEndDate(_end)
 
     changeMonth(getMonth(selected))
     changeYear(getYear(selected))
@@ -253,6 +275,7 @@ const Calendar: React.FC<CalendarProps> = ({
             onChange={changeDate}
             currentMonth={currentMonthIndex}
             currentYear={currentYearIndex}
+            isSingle={noRange}
           />
         ) : currentView === 'months' ? (
           <MonthContainer
