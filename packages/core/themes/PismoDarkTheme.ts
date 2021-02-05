@@ -45,7 +45,7 @@ const colors: PalleteColor = {
     70: '#66687A',
     75: '#5D5F6F',
     80: '#545564',
-    85: '#A4AC59',
+    85: '#4A4C59',
     90: '#30313A',
     95: '#25262C',
     100: '#1C1C21'
@@ -162,6 +162,18 @@ export const PismoDarkTheme: BoltTheme = {
   },
   palette,
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '.MuiAutocomplete-root': {
+          height: '100%'
+        },
+        '.MuiAutocomplete-inputRoot .MuiAutocomplete-input': {
+          display: 'flex',
+          boxSizing: 'border-box',
+          height: '100%!important'
+        }
+      }
+    },
     MuiButton: {
       root: {
         '--hover-bg': ColorJ('#000')
@@ -226,7 +238,8 @@ export const PismoDarkTheme: BoltTheme = {
 
     MuiFormControl: {
       root: {
-        width: '100%'
+        width: '100%',
+        height: '100%'
       }
     },
 
@@ -242,7 +255,9 @@ export const PismoDarkTheme: BoltTheme = {
         }
       },
       input: {
-        padding: '15px 10px 15px 0px',
+        backgroundColor: colors.background['95'],
+        borderBottom: `1px solid ${colors.background['100']}`,
+        padding: '15px 10px 15px 10px',
         fontSize: '1.4rem',
         lineHeight: '1.7rem',
         fontWeight: 'bold',
@@ -262,6 +277,7 @@ export const PismoDarkTheme: BoltTheme = {
       formControl: {
         backgroundColor: palette.background.default,
         borderBottom: 'unset',
+        height: '100%',
 
         '&$disabled': {
           border: 'unset',
