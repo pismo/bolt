@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-text-field",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Bolt component text-field",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -24,7 +24,7 @@
     "url": "https://github.com/pismo/bolt/issues"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^2.7.0"
+    "@pismo/bolt-core": "^2.10.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",

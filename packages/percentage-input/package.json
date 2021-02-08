@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-percent-input",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Bolt component percent-input",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -29,11 +29,11 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-text-field": "^2.7.0",
-    "@pismo/bolt-world-format": "^2.7.0"
+    "@pismo/bolt-text-field": "^2.10.0",
+    "@pismo/bolt-world-format": "^2.10.0"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^2.7.0"
+    "@pismo/bolt-core": "^2.10.0"
   },
   "scripts": {
     "build": "tsc",
