@@ -164,9 +164,10 @@ const DaysContainer: React.FC<any> = ({
 
     if (
       !isSameMonth(currentDate, new Date(currentYear, currentMonth)) ||
-      isSameDate || isSingle
+      isSameDate ||
+      isSingle
     )
-    return
+      return
 
     if (currentDay.length === 2 && sameMonth) {
       sqStart.style.display = 'block'

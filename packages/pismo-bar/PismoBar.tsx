@@ -6,8 +6,6 @@ import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-// import { BoltTheme } from '@pismo/bolt-core'
-
 import {
   PismoBarProps,
   ApplicationsType,
@@ -52,13 +50,15 @@ const useStyles = makeStyles((theme: any) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
     },
-
     appButtonContainer: {
-      padding: '10px'
+      padding: '10px',
+      height: 'calc(100vh - 44px)'
+    },
+    highlight: {
+      backgroundColor: theme.palette.colors.background['0']
     }
   }
 })
@@ -118,23 +118,24 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
-        <Grid
-          container
-          spacing={2}
-          className={`${
-            classes.appButtonContainer
+        <Box
+          className={`${classes.appButtonContainer} ${
+            classes.highlight
           } Bolt-PismoBar-appButtonContainer`}
         >
-          {Object.keys(applications).map((k, index) => (
-            <ApplicationButton
-              data={applications[k]}
-              isSelected={k === current}
-              key={`${k}-${index}`}
-              onClick={appSelectedHandler}
-            />
-          ))}
-        </Grid>
-        <Box mt='auto'>
+          <Grid container spacing={2}>
+            {Object.keys(applications).map((k, index) => (
+              <ApplicationButton
+                data={applications[k]}
+                isSelected={k === current}
+                key={`${k}-${index}`}
+                onClick={appSelectedHandler}
+              />
+            ))}
+          </Grid>
+        </Box>
+
+        <Box>
           <ApplicationToolbar
             applications={applications}
             AppBarProps={AppBarProps}
