@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
+    },
+    highlight: {
+      backgroundColor: colors.background['0']
     }
   }
 })
@@ -75,7 +78,7 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
         data-testid='drawer'
       >
         <ClickAwayListener onClickAway={toClose}>
-          <Box width={1} height={1}>
+          <Box width={1} height={1} className={classes.highlight}>
             <ApplicationToolbar
               {...toolbarProps}
               onClick={toOpen}

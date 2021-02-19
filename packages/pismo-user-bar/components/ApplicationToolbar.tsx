@@ -23,8 +23,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     appBar: ({ full, contract }: any) => {
       const style = {
         color: colors.text['50'],
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.default
+        overflow: 'hidden'
       }
 
       if (!full) {
@@ -58,6 +57,9 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     email: {
       fontWeight: 'normal',
       color: colors.background['50']
+    },
+    highlight: {
+      backgroundColor: colors.background['0']
     }
   }
 })
@@ -104,7 +106,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   return (
     <ButtonBase onClick={clicked} data-testid='toolbar-button'>
       <AToolbar
-        className={classes.appBar}
+        className={`${classes.appBar} ${classes.highlight}`}
         data-testid='toolbar-container'
         style={animation}
       >
