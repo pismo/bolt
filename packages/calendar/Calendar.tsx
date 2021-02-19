@@ -190,19 +190,23 @@ const Calendar: React.FC<CalendarProps> = ({
     changeYear(getYear(selected))
   }
 
-  const toggleMonth = () => {
+  const toggleMonth = (isClose?: Boolean) => {
+    if (isClose) return setCurrentView('days')
     setCurrentView(currentView !== 'months' ? 'months' : 'days')
   }
 
-  const toggleYear = () => {
+  const toggleYear = (isClose?: Boolean) => {
+    if (isClose) return setCurrentView('days')
     setCurrentView(currentView !== 'years' ? 'years' : 'days')
   }
 
   const changeMonth = (index: number) => {
+    toggleMonth(true)
     setCurrentMonthIndex(index)
   }
 
   const changeYear = (year: number) => {
+    toggleYear(true)
     setCurrentYearIndex(year)
   }
 
@@ -258,8 +262,10 @@ const Calendar: React.FC<CalendarProps> = ({
           />
         )}
         <SwitchBar
+          noRange={noRange}
           currentMonth={monthList[currentMonthIndex]}
           currentYear={`${currentYearIndex}`}
+          currentView={currentView}
           onFoward={onForward}
           onBack={onBack}
           onMonth={toggleMonth}
@@ -279,12 +285,14 @@ const Calendar: React.FC<CalendarProps> = ({
           />
         ) : currentView === 'months' ? (
           <MonthContainer
+            onClose={() => toggleMonth(true)}
             monthList={monthList}
             currentMonth={currentMonthIndex}
             onChange={changeMonth}
           />
         ) : currentView === 'years' ? (
           <YearContainer
+            onClose={() => toggleYear(true)}
             yearList={yearList}
             currentYear={currentYearIndex}
             onChange={changeYear}

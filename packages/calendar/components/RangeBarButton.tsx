@@ -8,11 +8,38 @@ import { BoltTheme } from '@pismo/bolt-core'
 
 const useStyles = makeStyles((theme: BoltTheme) => {
   return {
-    button: {
-      width: '100%',
-      padding: '8px 0px',
-      flexDirection: 'column',
-      boxShadow: ({ selected }: any) => (selected ? theme.shadows[4] : 'unset')
+    button: ({ selected }: any) => {
+      const _default = {
+        width: '100%',
+        padding: '8px 0px',
+        flexDirection: 'column',
+        position: 'relative',
+        borderRadius: '4px 4px 0px 0px',
+        '&::after': {
+          all: 'unset'
+        }
+      }
+
+      let sel = {}
+
+      if (selected) {
+        sel = {
+          border: `2px solid ${theme.palette.colors.background['50']}`,
+          borderBottom: 'none',
+
+          '&::after': {
+            content: '" "',
+            display: 'block',
+            width: '100%',
+            height: '4px',
+            position: 'absolute',
+            backgroundColor: theme.palette.background.paper,
+            bottom: '-3px'
+          }
+        }
+      }
+
+      return { ..._default, ...sel }
     },
     label: {
       color: theme.palette.colors.background['50'],

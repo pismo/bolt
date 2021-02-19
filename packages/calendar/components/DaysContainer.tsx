@@ -11,7 +11,9 @@ import {
   getDate,
   getMonth,
   isSameMonth,
-  lastDayOfWeek
+  lastDayOfWeek,
+  sub,
+  add
 } from 'date-fns'
 
 import Box from '@material-ui/core/Box'
@@ -38,7 +40,15 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       color: colors.text['50'],
       width: `${size}px`,
       height: `${size}px`,
-      padding: 0
+      padding: 0,
+
+      '&:hover': {
+        backgroundColor: ({ current }: any) =>
+          current !== 'end'
+            ? colors.background['20']
+            : colors.backgroundMain['20'],
+        mixBlendMode: 'multiply'
+      }
     },
     dayText: {
       fontWeight: 'bold'
@@ -109,7 +119,7 @@ const DaysContainer: React.FC<any> = ({
   customDay,
   isSingle = false
 }) => {
-  const classes = useStyles()
+  const classes = useStyles({ current })
 
   const [weeks, setWeeks] = useState(null)
   const [days, setDays] = useState(null)
@@ -164,9 +174,10 @@ const DaysContainer: React.FC<any> = ({
 
     if (
       !isSameMonth(currentDate, new Date(currentYear, currentMonth)) ||
-      isSameDate || isSingle
+      isSameDate ||
+      isSingle
     )
-    return
+      return
 
     if (currentDay.length === 2 && sameMonth) {
       sqStart.style.display = 'block'
@@ -180,7 +191,9 @@ const DaysContainer: React.FC<any> = ({
     }
 
     const startDateNum = getDate(startDate)
-    const startDif = lastDayOfWeek(startDate)
+    let startDif = lastDayOfWeek(startDate)
+
+    if (!isSameMonth(startDate, startDif)) startDif = sub(startDif, { days: 7 })
     const startDifNum = getDate(startDif)
 
     const elemStart = document.getElementById(
@@ -210,7 +223,9 @@ const DaysContainer: React.FC<any> = ({
       sqEnd.style.display = 'block'
 
       const endDateNum = getDate(endDate)
-      const endDif = startOfWeek(endDate)
+      let endDif = startOfWeek(endDate)
+
+      if (!isSameMonth(endDate, endDif)) endDif = add(endDif, { days: 7 })
       const endDifNum = getDate(endDif)
 
       const elemEnd = document.getElementById(`Bolt-Calendar-day-${endDateNum}`)
@@ -227,7 +242,7 @@ const DaysContainer: React.FC<any> = ({
           endElemBounds.width / 2 -
           endElemDifBounds.x +
           10}px`
-        sqEnd.style.top = `${endElemDif.offsetTop}px`
+        sqEnd.style.top = `${elemEnd.offsetTop}px`
         sqEnd.style.left = `${endElemDif.offsetLeft - 10}px`
       } else {
         sqEnd.style.display = 'none'
