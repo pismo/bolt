@@ -14,6 +14,8 @@ import {
 import { ApplicationToolbar } from './components/ApplicationToolbar'
 import { ApplicationButton } from './components/ApplicationButton'
 
+import { Context } from '@pismo/bolt-core'
+
 const { Fragment, useState } = React
 
 const applications: ApplicationsType = {
@@ -57,8 +59,11 @@ const useStyles = makeStyles((theme: any) => {
       padding: '10px',
       height: 'calc(100vh - 44px)'
     },
-    highlight: {
+    darken: {
       backgroundColor: theme.palette.colors.background['0']
+    },
+    lighten: {
+      backgroundColor: theme.palette.colors.background['100']
     }
   }
 })
@@ -98,6 +103,8 @@ const PismoBar: React.FC<PismoBarProps> = ({
     }
   }
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <Fragment>
       <ApplicationToolbar
@@ -120,7 +127,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
       >
         <Box
           className={`${classes.appButtonContainer} ${
-            classes.highlight
+            currentTheme === 'clean' ? classes.darken : classes.lighten
           } Bolt-PismoBar-appButtonContainer`}
         >
           <Grid container spacing={2}>

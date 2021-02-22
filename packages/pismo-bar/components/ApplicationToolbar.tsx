@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Apps'
 import { PismoMarketplace } from '@pismo/bolt-core'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
 
-import { BoltTheme } from '@pismo/bolt-core'
+import { BoltTheme, Context } from '@pismo/bolt-core'
 
 const AAppBar = animated(AppBar)
 const AToolbar = animated(Toolbar)
@@ -69,8 +69,11 @@ const useStyles = makeStyles((theme: BoltTheme) => {
         fill: theme.palette.colors.text['50']
       }
     },
-    highlight: {
+    darken: {
       backgroundColor: theme.palette.colors.background['0']
+    },
+    lighten: {
+      backgroundColor: theme.palette.colors.background['100']
     }
   }
 })
@@ -97,9 +100,13 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
     config: { duration: 500 }
   })
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <AAppBar
-      className={`${classes.bar} ${classes.highlight} Bolt-PismoBar-bar`}
+      className={`${classes.bar} ${
+        currentTheme === 'clean' ? classes.darken : classes.lighten
+      } Bolt-PismoBar-bar`}
       {...AppBarProps}
       style={barState}
     >
