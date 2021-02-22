@@ -155,7 +155,7 @@ export const PismoCleanTheme: BoltTheme = {
       main: colors.error['50']
     },
     background: {
-      default: '#fff',
+      default: colors.background['0'],
       paper: '#fff'
     }
   },
@@ -400,19 +400,6 @@ export const PismoCleanTheme: BoltTheme = {
         }
       }
     },
-
-    //   MuiAppBar: {
-    //     colorPrimary: {
-    //       backgroundColor: paletteExtra.background.main
-    //     }
-    //   },
-
-    //   MuiAvatar: {
-    //     colorDefault: {
-    //       backgroundColor: paletteExtra.textField.defaultColor
-    //     }
-    //   },
-
     MuiSvgIcon: {
       root: {
         color: colors.background['50']
