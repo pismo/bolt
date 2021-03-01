@@ -6,8 +6,6 @@ import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-// import { BoltTheme } from '@pismo/bolt-core'
-
 import {
   PismoBarProps,
   ApplicationsType,
@@ -15,6 +13,8 @@ import {
 } from './components/interfaces'
 import { ApplicationToolbar } from './components/ApplicationToolbar'
 import { ApplicationButton } from './components/ApplicationButton'
+
+import { Context } from '@pismo/bolt-core'
 
 const { Fragment, useState } = React
 
@@ -52,13 +52,18 @@ const useStyles = makeStyles((theme: any) => {
       maxWidth,
       height: '100vh',
       overflow: 'hidden',
-      backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
     },
-
     appButtonContainer: {
-      padding: '10px'
+      padding: '10px',
+      height: 'calc(100vh - 44px)'
+    },
+    darken: {
+      backgroundColor: theme.palette.colors.background['0']
+    },
+    lighten: {
+      backgroundColor: theme.palette.colors.background['100']
     }
   }
 })
@@ -98,6 +103,8 @@ const PismoBar: React.FC<PismoBarProps> = ({
     }
   }
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <Fragment>
       <ApplicationToolbar
@@ -118,23 +125,24 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
-        <Grid
-          container
-          spacing={2}
-          className={`${
-            classes.appButtonContainer
+        <Box
+          className={`${classes.appButtonContainer} ${
+            currentTheme === 'clean' ? classes.darken : classes.lighten
           } Bolt-PismoBar-appButtonContainer`}
         >
-          {Object.keys(applications).map((k, index) => (
-            <ApplicationButton
-              data={applications[k]}
-              isSelected={k === current}
-              key={`${k}-${index}`}
-              onClick={appSelectedHandler}
-            />
-          ))}
-        </Grid>
-        <Box mt='auto'>
+          <Grid container spacing={2}>
+            {Object.keys(applications).map((k, index) => (
+              <ApplicationButton
+                data={applications[k]}
+                isSelected={k === current}
+                key={`${k}-${index}`}
+                onClick={appSelectedHandler}
+              />
+            ))}
+          </Grid>
+        </Box>
+
+        <Box>
           <ApplicationToolbar
             applications={applications}
             AppBarProps={AppBarProps}

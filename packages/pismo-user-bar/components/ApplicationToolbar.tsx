@@ -10,7 +10,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import { Avatar, AvatarProps } from './Avatar'
 
-import { BoltTheme } from '@pismo/bolt-core'
+import { BoltTheme, Context } from '@pismo/bolt-core'
 
 const AToolbar = animated(Toolbar)
 
@@ -23,8 +23,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     appBar: ({ full, contract }: any) => {
       const style = {
         color: colors.text['50'],
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.default
+        overflow: 'hidden'
       }
 
       if (!full) {
@@ -58,6 +57,12 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     email: {
       fontWeight: 'normal',
       color: colors.background['50']
+    },
+    darken: {
+      backgroundColor: colors.background['0']
+    },
+    lighten: {
+      backgroundColor: colors.background['100']
     }
   }
 })
@@ -101,10 +106,14 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
     if (onClick) onClick()
   }
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <ButtonBase onClick={clicked} data-testid='toolbar-button'>
       <AToolbar
-        className={classes.appBar}
+        className={`${classes.appBar} ${
+          currentTheme === 'clean' ? classes.darken : classes.lighten
+        }`}
         data-testid='toolbar-container'
         style={animation}
       >

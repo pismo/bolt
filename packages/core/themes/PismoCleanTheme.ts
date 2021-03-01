@@ -242,7 +242,7 @@ export const PismoCleanTheme: BoltTheme = {
     },
 
     MuiInput: {
-      root: {        
+      root: {
         color: colors.text['50'],
         '&$focused': {
           boxShadow: 'none'
@@ -250,7 +250,7 @@ export const PismoCleanTheme: BoltTheme = {
         '&$error': {
           backgroundColor: '#fff',
           color: colors.error['50']
-        },        
+        }
       },
       input: {
         backgroundColor: colors.background['5'],
@@ -258,7 +258,7 @@ export const PismoCleanTheme: BoltTheme = {
         padding: '15px 10px 15px 10px',
         fontSize: '1.4rem',
         lineHeight: '1.7rem',
-        fontWeight: 'bold',        
+        fontWeight: 'bold',
 
         '&::placeholder': {
           fontStyle: 'italic',
