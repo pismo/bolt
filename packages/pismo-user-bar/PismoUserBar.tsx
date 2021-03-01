@@ -6,7 +6,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
-import { BoltTheme } from '@pismo/bolt-core'
+import { BoltTheme, Context } from '@pismo/bolt-core'
 
 import {
   ApplicationToolbar,
@@ -30,6 +30,12 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       backgroundColor: theme.palette.background.default,
       color: colors.text['50'],
       boxShadow: 'unset'
+    },
+    darken: {
+      backgroundColor: colors.background['0']
+    },
+    lighten: {
+      backgroundColor: colors.background['100']
     }
   }
 })
@@ -58,6 +64,8 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
     setIsOpen(false)
   }
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <Fragment>
       <ApplicationToolbar
@@ -75,7 +83,13 @@ const PismoUserBar: React.FC<PismoUserBarProps> = ({
         data-testid='drawer'
       >
         <ClickAwayListener onClickAway={toClose}>
-          <Box width={1} height={1}>
+          <Box
+            width={1}
+            height={1}
+            className={
+              currentTheme === 'clean' ? classes.darken : classes.lighten
+            }
+          >
             <ApplicationToolbar
               {...toolbarProps}
               onClick={toOpen}

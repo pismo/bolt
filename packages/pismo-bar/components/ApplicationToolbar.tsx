@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Apps'
 import { PismoMarketplace } from '@pismo/bolt-core'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
 
-import { BoltTheme } from '@pismo/bolt-core'
+import { BoltTheme, Context } from '@pismo/bolt-core'
 
 const AAppBar = animated(AppBar)
 const AToolbar = animated(Toolbar)
@@ -30,7 +30,6 @@ const Logo = ({ name, ...props }) => {
 const useStyles = makeStyles((theme: BoltTheme) => {
   return {
     bar: {
-      backgroundColor: theme.palette.background.default,
       boxShadow: 'unset',
       [theme.breakpoints.down('xs')]: {
         maxWidth: ({ full }: any) => (!full ? mobileMaxWidth : maxWidth)
@@ -69,6 +68,12 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       '& .Pismo-Bolt-icons-logo-name,.Pismo-Bolt-icons-logo-app': {
         fill: theme.palette.colors.text['50']
       }
+    },
+    darken: {
+      backgroundColor: theme.palette.colors.background['0']
+    },
+    lighten: {
+      backgroundColor: theme.palette.colors.background['100']
     }
   }
 })
@@ -95,9 +100,13 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
     config: { duration: 500 }
   })
 
+  const { currentTheme } = React.useContext(Context)
+
   return (
     <AAppBar
-      className={`${classes.bar} Bolt-PismoBar-bar`}
+      className={`${classes.bar} ${
+        currentTheme === 'clean' ? classes.darken : classes.lighten
+      } Bolt-PismoBar-bar`}
       {...AppBarProps}
       style={barState}
     >
@@ -123,9 +132,6 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
               {contract ? null : (
                 <Hidden xsDown={full ? false : true}>
                   <Box ml='5px'>
-                    {/* <Typography className={classes.title} variant='body1'>
-                      Pismo<span>{applications[current].name}</span>
-                    </Typography> */}
                     <Logo
                       name={applications[current].name}
                       className={classes.logo}
