@@ -371,7 +371,11 @@ export function getWeekNames (locale: Locale, date: Date, formating = 'iii') {
     start: startOfWeek(date),
     end: endOfWeek(date)
   }).reduce((a: Array<any>, d: Date) => {
-    a.push(format(d, formating, { locale }))
+    a.push(
+      formating === 'iiii'
+        ? format(d, formating, { locale }).substr(0, 3)
+        : format(d, formating, { locale })
+    )
     return a
   }, [])
 }
