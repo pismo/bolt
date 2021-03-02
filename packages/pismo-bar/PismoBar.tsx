@@ -5,6 +5,9 @@ import { makeStyles, Theme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import Fab from '@material-ui/core/Fab'
+
+import CloseIcon from '@material-ui/icons/Close'
 
 import {
   PismoBarProps,
@@ -58,6 +61,18 @@ const useStyles = makeStyles((theme: any) => {
     appButtonContainer: {
       padding: '10px',
       height: 'calc(100vh - 44px)'
+    },
+
+    closeButton: {
+      minHeight: '0px',
+      width: '36px',
+      height: '36px',
+      '&:hover': {
+        backgroundColor: colors.background['60']
+      },
+      '& svg': {
+        color: '#fff'
+      }
     },
     darken: {
       backgroundColor: theme.palette.colors.background['0']
@@ -125,6 +140,16 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
+        <Box textAlign='center' py='15px'>
+          <Fab
+            variant='round'
+            color='secondary'
+            className={classes.closeButton}
+            onClick={toClose}
+          >
+            <CloseIcon />
+          </Fab>
+        </Box>
         <Box
           className={`${classes.appButtonContainer} ${
             currentTheme === 'clean' ? classes.darken : classes.lighten
