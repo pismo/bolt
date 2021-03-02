@@ -366,7 +366,7 @@ const DaysContainer: React.FC<any> = ({
   )
 }
 
-export function getWeekNames (locale: Locale, date: Date, formating = 'E') {
+export function getWeekNames (locale: Locale, date: Date, formating = 'iii') {
   return eachDayOfInterval({
     start: startOfWeek(date),
     end: endOfWeek(date)
