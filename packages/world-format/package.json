@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-world-format",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "Bolt component world-format",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -37,6 +37,6 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-text-field": "^2.10.0"
+    "@pismo/bolt-text-field": "^2.11.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-calendar",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "Bolt component calendar",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -31,8 +31,8 @@
     "@date-io/date-fns": "^2.4.0",
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.9.1",
-    "@pismo/bolt-core": "^2.10.0",
-    "@pismo/bolt-text-field": "^2.10.0",
+    "@pismo/bolt-core": "^2.11.0",
+    "@pismo/bolt-text-field": "^2.11.0",
     "date-fns": "^2.16.1"
   },
   "scripts": {
