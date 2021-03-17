@@ -1,0 +1,50 @@
+---
+name: Modal
+---
+
+import { Playground } from 'docz'
+import {Modal} from '../../dist/js/bolt'
+import '../../dist/css/bolt-css.css'
+
+# Modal
+
+<Playground>
+  {    
+    () => {
+      const [mod, setMod] = React.useState(null)
+      const ref = React.useRef()
+      const closebt = React.useRef()
+      React.useEffect(() => {
+        if(ref.current && !mod){
+          setMod(new Modal(ref.current))
+        }
+        if(mod && closebt.current){
+          mod.onClose = closeModal
+          closebt.current.addEventListener('click', closeModal)
+        }
+        return () => {
+          if(mod) {
+            mod.destroy()
+          }
+        }
+      }, [ref.current, closebt.current, mod])
+      const openModal = () => {
+        if(mod){
+          mod.isOpen=true
+        }
+      }
+      const closeModal = () => {
+        if(mod){
+          mod.isOpen=false
+        }
+      }
+      return <>
+        <div className='tw-flex'><button className='btn btn-secondary' onClick={openModal}>abrir modal</button></div>
+        <div ref={ref} className='tw-flex tw-flex-col'>
+          teste
+          <button ref={closebt} className='btn btn-primary tw-mt-4' >fechar</button>
+        </div>
+      </>
+    }
+  }
+</Playground>

@@ -3,7 +3,6 @@
 **/**/.DS_Store
 **/**/node_modules/
 **/**/package-lock.json
-**/**/dist/
 **/**/yarn-error.log
 **/**/npm-debug.log
 **/**/lerna-debug.log
@@ -11,5 +10,8 @@
 **/**/.storybook
 **/**/.docz
 **/**/yarn.json
+**/**/*.zip
 build/
 .idea/
+dist/css/*
+!dist/css/bolt-css.css
