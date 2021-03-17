@@ -1,1 +1,0 @@
-export { TableItem } from './TableItem'
