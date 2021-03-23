@@ -1,17 +1,41 @@
-**/**/.vscode/
-**/**/.cache/
-**/**/.DS_Store
-**/**/node_modules/
-**/**/package-lock.json
-**/**/yarn-error.log
-**/**/npm-debug.log
-**/**/lerna-debug.log
-**/**/coverage
-**/**/.storybook
-**/**/.docz
-**/**/yarn.json
-**/**/*.zip
-build/
+### Docz ###
+.docz
+
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+### vscode ###
+.vscode
+*.code-workspace
+
+### yarn ###
+
+.yarn
+
+
+.cache
+.DS_Store
+yarn-error.log
+npm-debug.log
+
+coverage
+*.zip
 .idea/
+*.mp4
+
 dist/css/*
 !dist/css/bolt-css.css
+
+bolt-docs

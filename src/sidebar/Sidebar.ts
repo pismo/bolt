@@ -1,121 +1,143 @@
 export interface SidebarButton {
-  label: string
-  level: 1 | 2
-  icon?: string
-  name?: string
+  label: string;
+  level: 1 | 2;
+  icon?: string;
+  name?: string;
 }
 
 export interface IHeader {
-  icon: string
-  label: string
+  icon: string;
+  label: string;
 }
 
 export interface SidebarProps {
-  container: HTMLElement
-  header: IHeader
-  content: SidebarButton[]
-  footerLabel: string,
-  onSelected?: (selected:HTMLElement) => void
+  container: HTMLElement;
+  header: IHeader;
+  content: SidebarButton[];
+  footerLabel: string;
+  onSelected?: (selected: HTMLElement) => void;
 }
 
 export interface ISidebar {
-  destroy: () => void
+  destroy: () => void;
 }
 
 class Sidebar implements ISidebar {
-  #_container
-  #_header
-  #_content
-  #_footer
-  #_contentList:{[key: string]: HTMLElement}  = {}
-  #_onSelected = (selected:HTMLElement) => {}
+  #_container: HTMLElement;
 
-  constructor({container, header, content, footerLabel, onSelected}: SidebarProps) {
-    if(onSelected) this.#_onSelected = onSelected
+  #_header: HTMLElement;
 
-    this.#_initialize(container, header, content, footerLabel)
+  #_content: HTMLElement;
+
+  #_footer: HTMLElement;
+
+  #_contentList: { [key: string]: HTMLElement } = {};
+
+  #_onSelected?: (selected: HTMLElement) => void;
+
+  constructor({
+    container,
+    header,
+    content,
+    footerLabel,
+    onSelected,
+  }: SidebarProps) {
+    this.#_onSelected = onSelected;
+
+    this.#_container = container;
+    this.#_container.dataset.testid = "sidebar";
+    this.#_header = document.createElement("div");
+    this.#_header.dataset.testid = "header";
+    this.#_content = document.createElement("div");
+    this.#_content.dataset.testid = "content";
+    this.#_footer = document.createElement("div");
+    this.#_footer.dataset.testid = "footer";
+
+    this.#_initialize(container, header, content, footerLabel);
   }
 
-  #_initialize  = (container: HTMLElement, header: IHeader, content: SidebarButton[], footerLabel: string) => {
-    this.#_container = container
-    this.#_container.classList.add('sidebar')
+  #_initialize = (
+    container: HTMLElement,
+    header: IHeader,
+    content: SidebarButton[],
+    footerLabel: string
+  ): void => {
+    this.#_container.classList.add("sidebar");
 
-    this.#_header = document.createElement('div')
-    this.#_header.classList.add('sidebar-btn', 'sidebar-btn-l0')
+    this.#_header.classList.add("sidebar-btn", "sidebar-btn-l0");
 
-    this.#_content = document.createElement('div')
-    this.#_content.classList.add('sidebar-content')
+    this.#_content.classList.add("sidebar-content");
 
-    this.#_footer = document.createElement('div')
-    this.#_footer.classList.add('sidebar-btn-footnote')
+    this.#_footer.classList.add("sidebar-btn-footnote");
 
-    this.#_container.appendChild(this.#_header)
-    this.#_container.appendChild(this.#_content)
-    this.#_container.appendChild(this.#_footer)
+    this.#_container.appendChild(this.#_header);
+    this.#_container.appendChild(this.#_content);
+    this.#_container.appendChild(this.#_footer);
 
-    const h_icon = document.createElement('span')
-    const h_label = document.createElement('p')
-    h_icon.classList.add(`i-${header.icon}`, 'sidebar-btn-icon')
-    h_label.classList.add('sidebar-btn-label')
-    h_label.innerText = header.label
+    const hIcon = document.createElement("span");
+    const hLabel = document.createElement("p");
+    hIcon.classList.add(`i-${header.icon}`, "sidebar-btn-icon");
+    hLabel.classList.add("sidebar-btn-label");
+    hLabel.innerText = header.label;
 
-    this.#_header.appendChild(h_icon)
-    this.#_header.appendChild(h_label)
+    this.#_header.appendChild(hIcon);
+    this.#_header.appendChild(hLabel);
 
-    content.map((el, i) => {
-      const id = `${i}-${el.level}-${el.label}`
-      const child = document.createElement('button')
-      child.id = id
-      child.name = el.name ||  ''
-      child.classList.add('sidebar-btn', `sidebar-btn-l${el.level}`)
-      this.#_contentList[id] = child
-      let icon
-      if(el.icon) {
-        icon = document.createElement('span')
-        icon.classList.add(`i-${el.icon}`, 'sidebar-btn-icon')
-        child.appendChild(icon)
+    content.forEach((el, i) => {
+      const id = `${i}-${el.level}-${el.label}`;
+      const child: HTMLElement & { name: string } = document.createElement(
+        "button"
+      );
+      child.id = id;
+      child.name = el.name || "";
+      child.classList.add("sidebar-btn", `sidebar-btn-l${el.level}`);
+      this.#_contentList[id] = child;
+      let icon: HTMLElement;
+      if (el.icon) {
+        icon = document.createElement("span");
+        icon.classList.add(`i-${el.icon}`, "sidebar-btn-icon");
+        child.appendChild(icon);
       }
 
-      const label = document.createElement('p')
-      label.classList.add('sidebar-btn-label')
-      label.innerText = el.label
+      const label = document.createElement("p");
+      label.classList.add("sidebar-btn-label");
+      label.innerText = el.label;
 
-      child.appendChild(label)
-      child.addEventListener('click', this.#_clickHandler)
+      child.appendChild(label);
+      child.addEventListener("click", this.#_clickHandler);
 
-      this.#_content.appendChild(child)
-    })
+      this.#_content.appendChild(child);
+    });
 
-    const f_label = document.createElement('p')
-    f_label.classList.add('sidebar-btn-label')
-    f_label.innerText = footerLabel
+    const fLabel = document.createElement("p");
+    fLabel.classList.add("sidebar-btn-label");
+    fLabel.innerText = footerLabel;
 
-    this.#_footer.appendChild(f_label)
-  }
+    this.#_footer.appendChild(fLabel);
+  };
 
-  #_clickHandler = (e) => {
-    const target = e.currentTarget
+  #_clickHandler = (e: MouseEvent): void => {
+    const target: HTMLElement = e.currentTarget as HTMLElement;
 
-    Object.values(this.#_contentList).map((el: HTMLElement) => el.classList.remove('selected'))
-    target.classList.add('selected')
-    
-    this.#_onSelected(target)
-  }
+    Object.values(this.#_contentList).map((el: HTMLElement) =>
+      el.classList.remove("selected")
+    );
+    target.classList.add("selected");
 
-  destroy = () => {
-    this.#_container.removeChild(this.#_header)
-    this.#_container.removeChild(this.#_content)
-    this.#_container.removeChild(this.#_footer)
+    if (this.#_onSelected) this.#_onSelected(target);
+  };
 
-    Object.values(this.#_contentList).map(el => el.removeEventListener('click', this.#_clickHandler))
+  destroy = (): void => {
+    this.#_container.removeChild(this.#_header);
+    this.#_container.removeChild(this.#_content);
+    this.#_container.removeChild(this.#_footer);
 
-    this.#_contentList = {}
-    this.#_header = null
-    this.#_content = null
-    this.#_footer = null
+    Object.values(this.#_contentList).map((el) =>
+      el.removeEventListener("click", this.#_clickHandler)
+    );
 
-    this.#_container = null
-  }
+    this.#_contentList = {};
+  };
 }
 
-export {Sidebar}
+export { Sidebar };
