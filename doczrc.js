@@ -7,5 +7,6 @@ export default {
   dest: "/bolt-docs",
   themeConfig: {
     initialColorMode: "dark",
+    showPlaygroundEditor: false,
   },
 };

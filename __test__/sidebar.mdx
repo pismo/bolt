@@ -2,43 +2,48 @@
 name: Sidebar
 ---
 
-import {useState, useRef, useEffect} from 'react'
-import { Playground } from 'docz'
-import '../dist/css/bolt-css.css'
-import {Sidebar} from '../dist/js/bolt'
+import { useState, useRef, useEffect } from "react";
+import { Playground } from "docz";
+import "../dist/css/bolt-css.css";
+import { Sidebar } from "../dist/js/bolt";
 
 # Sidebar
 
 <Playground>
-  {
-    () => {
-      const [sidebar, setSidebar] = useState(null)
-      const [selected, setSelected] = useState('')
-      const sidebarRef = useRef()
-      useEffect(() => {
-        if(sidebarRef.current && !sidebar){
-          setSidebar(new Sidebar({
+  {() => {
+    const [sidebar, setSidebar] = useState(null);
+    const [selected, setSelected] = useState("");
+    const sidebarRef = useRef();
+    useEffect(() => {
+      if (sidebarRef.current && !sidebar) {
+        setSidebar(
+          new Sidebar({
             container: sidebarRef.current,
-            header: {icon: 'bars', label: 'App Name'},
+            header: { icon: "bars", label: "App Name" },
             content: [
-              {icon: 'accounts', level: 1, label: 'First Level', name: 'titulo'},
-              {level: 2, label: 'Second Level', name: 'category 1'},
-              {level: 2, label: 'Second Level', name: 'category 2'},
+              {
+                icon: "accounts",
+                level: 1,
+                label: "First Level",
+                name: "titulo",
+              },
+              { level: 2, label: "Second Level", name: "category 1" },
+              { level: 2, label: "Second Level", name: "category 2" },
             ],
-            footerLabel: 'v1.3.4',
+            footerLabel: "v1.3.4",
             onSelected: handlerSelected,
-          }))
-        }
-      }, [sidebarRef.current, sidebar])
-      const handlerSelected = (selected) => {
-        setSelected(selected.name)
+          })
+        );
       }
-      return (
-        <div className='tw-flex tw-h-screen'>
-          <div ref={sidebarRef}></div>
-          <div data-testid='result'>{selected}</div>
-        </div>
-      )
-    }
-  }
+    }, [sidebarRef.current, sidebar]);
+    const handlerSelected = (selected) => {
+      setSelected(selected.name);
+    };
+    return (
+      <div className="tw-flex tw-h-screen">
+        <div ref={sidebarRef}></div>
+        <div data-testid="result">{selected}</div>
+      </div>
+    );
+  }}
 </Playground>

@@ -1,0 +1,322 @@
+---
+name: Colors
+---
+
+import { Playground } from "docz";
+import "../../dist/css/bolt-css.css";
+
+# Cores
+
+O style system da Pismo fornece um conjunto de cores para manter a identidade visual da empresa. As cores estão inseridas no tema do bolt, a seguir exemplos de utilização:
+
+Para mudar a cor de um background ou de um texto, você adicionará uma classe com a sintaxe **bg-** para o caso de um background ou **text-** para cor do texto, seguido do prefixo da cor, **orange-**, por exemplo, e por ultimo a tonalidade, **light**.
+
+`bg-orange-light` ou `text-orange-light`
+
+## Primary colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div className="tw-bg-gray" style={style.box}></div>
+          <p className="tw-text-white">gray</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-95" style={style.box}></div>
+          <p className="tw-text-white">gray-95</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-90" style={style.box}></div>
+          <p className="tw-text-white">gray-90</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-75" style={style.box}></div>
+          <p className="tw-text-white">gray-75</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-50" style={style.box}></div>
+          <p className="tw-text-white">gray-50</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-25" style={style.box}></div>
+          <p className="tw-text-white">gray-25</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-gray-10" style={style.box}></div>
+          <p className="tw-text-white">gray-10</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Secondary colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div className="tw-bg-orange" style={style.box}></div>
+          <p className="tw-text-white">orange</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-orange-dark" style={style.box}></div>
+          <p className="tw-text-white">orange-dark</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-orange-light" style={style.box}></div>
+          <p className="tw-text-white">orange-light</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-green" style={style.box}></div>
+          <p className="tw-text-white">green</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-green-dark" style={style.box}></div>
+          <p className="tw-text-white">green-dark</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-green-darker" style={style.box}></div>
+          <p className="tw-text-white">green-darker</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-green-light" style={style.box}></div>
+          <p className="tw-text-white">green-light</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Accent colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div className="tw-bg-accent" style={style.box}></div>
+          <p className="tw-text-white">accent</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-accent-dark" style={style.box}></div>
+          <p className="tw-text-white">accent-dark</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-accent-light" style={style.box}></div>
+          <p className="tw-text-white">accent-light</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-accent-lighter" style={style.box}></div>
+          <p className="tw-text-white">accent-lighter</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Alert colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div className="tw-bg-alert" style={style.box}></div>
+          <p className="tw-text-white">alert</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-alert-dark" style={style.box}></div>
+          <p className="tw-text-white">alert-dark</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-alert-light" style={style.box}></div>
+          <p className="tw-text-white">alert-light</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Neutral & Basic colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div className="tw-bg-cream" style={style.box}></div>
+          <p className="tw-text-white">cream</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-black" style={style.box}></div>
+          <p className="tw-text-white">black</p>
+        </div>
+        <div style={style.container}>
+          <div className="tw-bg-white" style={style.box}></div>
+          <p className="tw-text-white">white</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Text colors
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        "& p": {
+          color: "white",
+        },
+      },
+      box: {
+        width: "30px",
+        height: "30px",
+        border: "1px solid white",
+        borderRadius: "4px",
+        backgroundColor: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        "& h1": {
+          fontFamily: "Lato",
+          fontWeight: "bolder",
+        },
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-2">
+        <div style={style.container}>
+          <div style={style.box}>
+            <h1 className="tw-text-black">T</h1>
+          </div>
+          <p>black</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box}>
+            <h1 className="tw-text-black-75">T</h1>
+          </div>
+          <p>black-75</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box}>
+            <h1 className="tw-text-black-50">T</h1>
+          </div>
+          <p>black-50</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box}>
+            <h1 className="tw-text-black-25">T</h1>
+          </div>
+          <p>black-25</p>
+        </div>
+        <div style={style.container}>
+          <div style={{ ...style.box, backgroundColor: "black" }}>
+            <h1 className="tw-text-white">T</h1>
+          </div>
+          <p>white</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>

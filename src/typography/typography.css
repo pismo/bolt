@@ -1,64 +1,71 @@
-.h1, .h2, .h3, .h4, .h5, .h6, .body1, .body2, .body3, .body4, .body5 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.body1,
+.body2,
+.body3,
+.body4,
+.body5 {
   @apply tw-font-sans tw-font-bold;
 }
 
-.body1, .body2, .body3, .body4, .body5 {
+.body1,
+.body2,
+.body3,
+.body4,
+.body5 {
   @apply sm:tw-font-normal;
 }
 
-.h1, .h2 {
-  @apply
-  tw-text-4xl
+.h1,
+.h2 {
+  @apply tw-text-4xl
   sm:tw-text-6xl;
 }
 
 .h3 {
-  @apply
-  tw-text-2xl
+  @apply tw-text-2xl
   sm:tw-text-5xl;
 }
 
 .h4 {
-  @apply
-  tw-text-2xl
+  @apply tw-text-2xl
   sm:tw-text-4xl;
 }
 
-.h5, .h6 {
-  @apply
-  tw-text-xl
+.h5,
+.h6 {
+  @apply tw-text-xl
   sm:tw-text-2xl;
 }
 
-.body1{
-  @apply
-  tw-text-xl
+.body1 {
+  @apply tw-text-xl
   sm:tw-text-2xl;
 }
 
 .body2 {
-  @apply
-  tw-text-base
+  @apply tw-text-base
   sm:tw-text-xl;
 }
 
 .body3 {
-  @apply
-  tw-text-sm
+  @apply tw-text-sm
   sm:tw-text-base;
 }
 
-.body4, .body5 {
-  @apply
-  tw-text-xs;
+.body4,
+.body5 {
+  @apply tw-text-xs;
 }
 
 .body4 {
-  @apply
-  sm:tw-text-sm;
+  @apply sm:tw-text-sm;
 }
 
 .body5 {
-  @apply
-  sm:tw-text-xs;
+  @apply sm:tw-text-xs;
 }

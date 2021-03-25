@@ -19,6 +19,18 @@ import '@pismo/bolt/dist/css/bolt-css.css'
 import {Sidebar} from '@pismo/bolt'
 ```
 
+> Devido ao tamanho da biblioteca css adicione o plugin **postcss-purge** conforme descrito abaixo:
+>
+> ```json
+> npm i @fullhuman/postcss-purgecss -D
+>
+>/* package.json */
+>"scripts": {
+>  "postbuild": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
+>}
+>```
+> substitua o *build/static* pela pasta de build do seu projeto
+
 > Acesse a documentação para mais detalhes da utilização de cada componente
 
 <br/>

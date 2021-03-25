@@ -55,7 +55,12 @@ module.exports = {
         black: colors.black,
       },
       textColor: {
-        black: colors.black,
+        black: {
+          DEFAULT: colors.black,
+          75: "#616161",
+          50: "#838192",
+          25: "#bcbacb",
+        },
       },
       ringColor: {
         gray: colors.gray,
@@ -69,6 +74,7 @@ module.exports = {
       textColor: ["disabled"],
       cursor: ["disabled"],
       ringColor: ["hover"],
+      ringWidth: ["hover"],
       transitionProperty: ["hover"],
       transitionDuration: ["hover"],
       borderStyle: ["focus"],

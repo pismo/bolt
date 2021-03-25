@@ -18,6 +18,10 @@ export interface SidebarProps {
   onSelected?: (selected: HTMLElement) => void;
 }
 
+export interface ISidebarConstructor {
+  new (props: SidebarProps): ISidebar;
+}
+
 export interface ISidebar {
   destroy: () => void;
 }
@@ -35,13 +39,7 @@ class Sidebar implements ISidebar {
 
   #_onSelected?: (selected: HTMLElement) => void;
 
-  constructor({
-    container,
-    header,
-    content,
-    footerLabel,
-    onSelected,
-  }: SidebarProps) {
+  constructor({ container, header, content, footerLabel, onSelected }: SidebarProps) {
     this.#_onSelected = onSelected;
 
     this.#_container = container;
@@ -56,12 +54,7 @@ class Sidebar implements ISidebar {
     this.#_initialize(container, header, content, footerLabel);
   }
 
-  #_initialize = (
-    container: HTMLElement,
-    header: IHeader,
-    content: SidebarButton[],
-    footerLabel: string
-  ): void => {
+  #_initialize = (container: HTMLElement, header: IHeader, content: SidebarButton[], footerLabel: string): void => {
     this.#_container.classList.add("sidebar");
 
     this.#_header.classList.add("sidebar-btn", "sidebar-btn-l0");
@@ -85,9 +78,7 @@ class Sidebar implements ISidebar {
 
     content.forEach((el, i) => {
       const id = `${i}-${el.level}-${el.label}`;
-      const child: HTMLElement & { name: string } = document.createElement(
-        "button"
-      );
+      const child: HTMLElement & { name: string } = document.createElement("button");
       child.id = id;
       child.name = el.name || "";
       child.classList.add("sidebar-btn", `sidebar-btn-l${el.level}`);
@@ -119,9 +110,7 @@ class Sidebar implements ISidebar {
   #_clickHandler = (e: MouseEvent): void => {
     const target: HTMLElement = e.currentTarget as HTMLElement;
 
-    Object.values(this.#_contentList).map((el: HTMLElement) =>
-      el.classList.remove("selected")
-    );
+    Object.values(this.#_contentList).map((el: HTMLElement) => el.classList.remove("selected"));
     target.classList.add("selected");
 
     if (this.#_onSelected) this.#_onSelected(target);
@@ -132,9 +121,7 @@ class Sidebar implements ISidebar {
     this.#_container.removeChild(this.#_content);
     this.#_container.removeChild(this.#_footer);
 
-    Object.values(this.#_contentList).map((el) =>
-      el.removeEventListener("click", this.#_clickHandler)
-    );
+    Object.values(this.#_contentList).map((el) => el.removeEventListener("click", this.#_clickHandler));
 
     this.#_contentList = {};
   };

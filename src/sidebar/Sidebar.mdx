@@ -2,48 +2,97 @@
 name: Sidebar
 ---
 
-import {useState, useRef, useEffect} from 'react'
-import { Playground } from 'docz'
-import '../../dist/css/bolt-css.css'
-import {Sidebar} from '../../dist/js/bolt'
-
+import { useState, useRef, useEffect } from "react";
+import { Playground, Props } from "docz";
+import "../../dist/css/bolt-css.css";
+import { Sidebar } from "../../dist/js/bolt";
 
 # Sidebar JS
 
+O componente Sidebar monta uma barra lateral com itens de menu formatados segundo o design system da Pismo.
+
+<br />
+
+## propriedades
+
+```typescript
+// propriedades aplicadas ao Header da sidebar
+export interface IHeader {
+  icon: string; // classes do ícone ex. para i-bars -> bars
+  label: string; // texto do botão
+}
+
+// propriedades aplicadas aos botões
+export interface SidebarButton {
+  label: string; // texto do botão
+  level: 1 | 2; // nível do botão
+  icon?: string; // classes do ícone ex. para i-bars -> bars
+  name?: string; // name adicionado ao elemento para manipulação posterior
+}
+
+// propriedades requeridas no construtor
+export interface SidebarProps {
+  container: HTMLElement; // elemento HTML onde será construído a sidebar
+  header: IHeader; // header da sidebar
+  content: SidebarButton[]; // Array de botões que iræ compor o conteudo da sidebar
+  footerLabel: string; // texto do footer da sidebar
+  onSelected?: (selected: HTMLElement) => void; // evento disparado quando um botão é selecionado, envia o html do botão como argumento
+}
+
+// construtor, deve receber SidebarProps
+export interface ISidebarConstructor {
+  new (props: SidebarProps): ISidebar;
+}
+
+export interface ISidebar {
+  destroy: () => void; // método público, remove todos os elementos da página
+}
+```
+
+<br />
+<br />
+
+## Exemplo
+
+<br />
+
 <Playground>
-  {
-    () => {
-      const [sidebar, setSidebar] = useState(null)
-      const sidebarRef = useRef()
-      useEffect(() => {
-        if(sidebarRef.current && !sidebar){
-          setSidebar(new Sidebar({
+  {() => {
+    const [sidebar, setSidebar] = useState(null);
+    const sidebarRef = useRef();
+    useEffect(() => {
+      if (sidebarRef.current && !sidebar) {
+        setSidebar(
+          new Sidebar({
             container: sidebarRef.current,
-            header: {icon: 'bars', label: 'App Name'},
+            header: { icon: "bars", label: "App Name" },
             content: [
-              {icon: 'accounts', level: 1, label: 'First Level'},
-              {level: 2, label: 'Second Level'},
-              {level: 2, label: 'Second Level'},
-              {icon: 'bag', level: 1, label: 'First Level'},
-              {level: 2, label: 'Second Level'},
-              {level: 2, label: 'Second Level'},
-              {level: 2, label: 'Second Level'},
-              {icon: 'umbrella', level: 1, label: 'First Level'},
-              {level: 2, label: 'Second Level'},
-              {level: 2, label: 'Second Level'},
-              {icon: 'luggage', level: 1, label: 'First Level'},
-              {level: 2, label: 'Second Level'},
-              {level: 2, label: 'Second Level'},
+              { icon: "accounts", level: 1, label: "First Level" },
+              { level: 2, label: "Second Level" },
+              { level: 2, label: "Second Level" },
+              { icon: "bag", level: 1, label: "First Level" },
+              { level: 2, label: "Second Level" },
+              { level: 2, label: "Second Level" },
+              { level: 2, label: "Second Level" },
+              { icon: "umbrella", level: 1, label: "First Level" },
+              { level: 2, label: "Second Level" },
+              { level: 2, label: "Second Level" },
+              { icon: "luggage", level: 1, label: "First Level" },
+              { level: 2, label: "Second Level" },
+              { level: 2, label: "Second Level" },
             ],
-            footerLabel: 'v1.3.4'
-          }))
-        }
-      }, [sidebarRef.current, sidebar])    
-      return (
-        <div className='tw-flex tw-h-screen'>
-          <div ref={sidebarRef}></div>
-        </div>
-      )
-    }
-  }
+            footerLabel: "v1.3.4",
+          })
+        );
+      }
+      return () => {
+        if (sidebar) sidebar.destroy();
+      };
+    }, [sidebarRef.current, sidebar]);
+    return (
+      <div className="tw-flex tw-h-screen">
+        <div ref={sidebarRef}></div>
+      </div>
+    );
+  }}
 </Playground>

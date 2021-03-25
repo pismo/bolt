@@ -46,9 +46,7 @@ describe("Sidebar", () => {
                 });
               });
           });
-        cy.get("[data-testid=footer]")
-          .should("be.visible")
-          .should("have.text", "v1.3.4");
+        cy.get("[data-testid=footer]").should("be.visible").should("have.text", "v1.3.4");
       });
   });
 

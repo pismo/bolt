@@ -14,9 +14,7 @@ const splitSemVer = currentVersion.split(/\.|-/);
 
 const major = `${Number(splitSemVer[0]) + 1}.0.0`;
 const minor = `${splitSemVer[0]}.${Number(splitSemVer[1]) + 1}.0`;
-const patch = `${splitSemVer[0]}.${splitSemVer[1]}.${
-  Number(splitSemVer[2]) + 1
-}`;
+const patch = `${splitSemVer[0]}.${splitSemVer[1]}.${Number(splitSemVer[2]) + 1}`;
 
 let alpha = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-alpha`;
 let beta = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-beta`;
@@ -56,20 +54,17 @@ const list = {
       },
     ]);
 
-    exec(
-      `yarn standard-version --release-as ${list[answers.version]}`,
-      (error, stdout, stderr) => {
-        if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-        }
-        if (stderr) {
-          console.log(`stderr: ${stderr}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
+    exec(`yarn standard-version --release-as ${list[answers.version]}`, (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return;
       }
-    );
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    });
   } catch (err) {
     console.log(err);
   }
