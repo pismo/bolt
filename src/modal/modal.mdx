@@ -2,9 +2,9 @@
 name: Modal
 ---
 
-import { Playground } from "docz";
-import { Modal } from "../../dist/js/bolt";
-import "../../dist/css/bolt-css.css";
+import { Playground } from 'docz';
+import { Modal } from '../../dist/js/bolt';
+import '../../dist/css/bolt-css.css';
 
 # Modal
 
@@ -51,7 +51,7 @@ export interface IModal {
       }
       if (mod && closebt.current) {
         mod.onClose = closeModal;
-        closebt.current.addEventListener("click", closeModal);
+        closebt.current.addEventListener('click', closeModal);
       }
       return () => {
         if (mod) {

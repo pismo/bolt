@@ -1,18 +1,18 @@
 @font-face {
-  font-family: "bolt-icons";
-  src: url("../assets/fonts/bolt-icons.eot?fwiprc");
-  src: url("../assets/fonts/bolt-icons.eot?fwiprc#iefix") format("embedded-opentype"),
-    url("../assets/fonts/bolt-icons.ttf?fwiprc") format("truetype"),
-    url("../assets/fonts/bolt-icons.woff?fwiprc") format("woff");
+  font-family: 'bolt-icons';
+  src: url('../assets/fonts/bolt-icons.eot?fwiprc');
+  src: url('../assets/fonts/bolt-icons.eot?fwiprc#iefix') format('embedded-opentype'),
+    url('../assets/fonts/bolt-icons.ttf?fwiprc') format('truetype'),
+    url('../assets/fonts/bolt-icons.woff?fwiprc') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="i-"],
-[class*=" i-"] {
+[class^='i-'],
+[class*=' i-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "bolt-icons" !important;
+  font-family: 'bolt-icons' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -30,200 +30,200 @@
 }
 
 .i-bars:before {
-  content: "\e900";
+  content: '\e900';
 }
 
 .i-accounts:before {
-  content: "\e902";
+  content: '\e902';
   color: rgb(0, 0, 0);
 }
 
 .i-accounts::after {
-  content: "\e903";
+  content: '\e903';
   margin-left: -1em;
 }
 .i-bag:before {
-  content: "\e901";
+  content: '\e901';
 }
 
 .i-box:before {
-  content: "\e905";
+  content: '\e905';
 }
 
 .i-umbrella:before {
-  content: "\e906";
+  content: '\e906';
 }
 
 .i-luggage:before {
-  content: "\e907";
+  content: '\e907';
 }
 
 .i-home:before {
-  content: "\e908";
+  content: '\e908';
 }
 
 .i-layout:before {
-  content: "\e909";
+  content: '\e909';
 }
 
 .i-folder:before {
-  content: "\e90a";
+  content: '\e90a';
 }
 
 .i-statements:before {
-  content: "\e90b";
+  content: '\e90b';
 }
 
 .i-cards:before {
-  content: "\e90c";
+  content: '\e90c';
 }
 
 .i-cards:after {
-  content: "\e90d";
+  content: '\e90d';
   color: #000;
   margin-left: -1em;
 }
 
 .i-clock:before {
-  content: "\e90e";
+  content: '\e90e';
 }
 
 .i-edit:before {
-  content: "\e90f";
+  content: '\e90f';
 }
 
 .i-search:before {
-  content: "\e904";
+  content: '\e904';
 }
 
 .i-calendar:before {
-  content: "\e910";
+  content: '\e910';
 }
 
 .i-close:before {
-  content: "\e911";
+  content: '\e911';
 }
 
 .i-settings-bar:before {
-  content: "\e912";
+  content: '\e912';
 }
 
 .i-notifications:before {
-  content: "\e913";
+  content: '\e913';
 }
 
 .i-chevron-down:before {
-  content: "\e914";
+  content: '\e914';
 }
 
 .i-chevron-up:before {
-  content: "\e915";
+  content: '\e915';
 }
 
 .i-chevron-left:before {
-  content: "\e916";
+  content: '\e916';
 }
 
 .i-chevron-right:before {
-  content: "\e917";
+  content: '\e917';
 }
 
 .i-arrow-down:before {
-  content: "\e918";
+  content: '\e918';
 }
 
 .i-arrow-up:before {
-  content: "\e919";
+  content: '\e919';
 }
 
 .i-arrow-left:before {
-  content: "\e91a";
+  content: '\e91a';
 }
 
 .i-arrow-right:before {
-  content: "\e91b";
+  content: '\e91b';
 }
 
 .i-share:before {
-  content: "\e91c";
+  content: '\e91c';
 }
 
 .i-lock:before {
-  content: "\e91d";
+  content: '\e91d';
 }
 
 .i-mail:before {
-  content: "\e91e";
+  content: '\e91e';
 }
 
 .i-money-in:before {
-  content: "\e91f";
+  content: '\e91f';
 }
 
 .i-money-out:before {
-  content: "\e920";
+  content: '\e920';
 }
 
 .i-filt-text:before {
-  content: "\e921";
+  content: '\e921';
 }
 
 .i-check:before {
-  content: "\e922";
+  content: '\e922';
 }
 
 .i-alert-circle:before {
-  content: "\e923";
+  content: '\e923';
 }
 
 .i-money:before {
-  content: "\e924";
+  content: '\e924';
 }
 
 .i-dialog-help:before {
-  content: "\e925";
+  content: '\e925';
 }
 
 .i-dialog-canceled:before {
-  content: "\e926";
+  content: '\e926';
 }
 
 .i-dialog:before {
-  content: "\e927";
+  content: '\e927';
 }
 
 .i-menu:before {
-  content: "\e928";
+  content: '\e928';
 }
 
 .i-bar-chart:before {
-  content: "\e929";
+  content: '\e929';
 }
 
 .i-navigation:before {
-  content: "\e92a";
+  content: '\e92a';
 }
 
 .i-map-pin:before {
-  content: "\e92b";
+  content: '\e92b';
 }
 
 .i-eye:before {
-  content: "\e92c";
+  content: '\e92c';
 }
 
 .i-eye-off:before {
-  content: "\e92d";
+  content: '\e92d';
 }
 
 .i-settings:before {
-  content: "\e92e";
+  content: '\e92e';
 }
 
 .i-glob:before {
-  content: "\e92f";
+  content: '\e92f';
 }
 
 .i-thumbs-up:before {
-  content: "\e930";
+  content: '\e930';
 }

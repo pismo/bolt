@@ -1,21 +1,21 @@
-import resolve from "@rollup/plugin-node-resolve";
-import eslint from "@rollup/plugin-eslint";
-import esbuild from "rollup-plugin-esbuild";
-import commonjs from "@rollup/plugin-commonjs";
-import dts from "rollup-plugin-dts";
+import resolve from '@rollup/plugin-node-resolve';
+import eslint from '@rollup/plugin-eslint';
+import esbuild from 'rollup-plugin-esbuild';
+import commonjs from '@rollup/plugin-commonjs';
+import dts from 'rollup-plugin-dts';
 
 export default [
   {
-    input: "src/index.ts",
+    input: 'src/index.ts',
     output: [
       {
-        file: "dist/js/bolt.js",
-        format: "cjs",
+        file: 'dist/js/bolt.js',
+        format: 'cjs',
         sourcemap: true,
       },
       {
-        file: "dist/js/bolt.mjs",
-        format: "es",
+        file: 'dist/js/bolt.mjs',
+        format: 'es',
         sourcemap: true,
       },
     ],
@@ -24,7 +24,7 @@ export default [
         fix: true,
       }),
       esbuild({
-        minify: process.env.NODE_ENV === "production",
+        minify: process.env.NODE_ENV === 'production',
         sourceMap: true,
       }),
       resolve(),
@@ -32,11 +32,11 @@ export default [
     ],
   },
   {
-    input: "src/index.ts",
+    input: 'src/index.ts',
     output: [
       {
-        file: "dist/js/bolt.d.ts",
-        format: "es",
+        file: 'dist/js/bolt.d.ts',
+        format: 'es',
       },
     ],
     plugins: [resolve(), dts()],

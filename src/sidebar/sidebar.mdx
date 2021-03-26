@@ -2,10 +2,10 @@
 name: Sidebar
 ---
 
-import { useState, useRef, useEffect } from "react";
-import { Playground, Props } from "docz";
-import "../../dist/css/bolt-css.css";
-import { Sidebar } from "../../dist/js/bolt";
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Sidebar } from '../../dist/js/bolt';
 
 # Sidebar JS
 
@@ -65,23 +65,23 @@ export interface ISidebar {
         setSidebar(
           new Sidebar({
             container: sidebarRef.current,
-            header: { icon: "bars", label: "App Name" },
+            header: { icon: 'bars', label: 'App Name' },
             content: [
-              { icon: "accounts", level: 1, label: "First Level" },
-              { level: 2, label: "Second Level" },
-              { level: 2, label: "Second Level" },
-              { icon: "bag", level: 1, label: "First Level" },
-              { level: 2, label: "Second Level" },
-              { level: 2, label: "Second Level" },
-              { level: 2, label: "Second Level" },
-              { icon: "umbrella", level: 1, label: "First Level" },
-              { level: 2, label: "Second Level" },
-              { level: 2, label: "Second Level" },
-              { icon: "luggage", level: 1, label: "First Level" },
-              { level: 2, label: "Second Level" },
-              { level: 2, label: "Second Level" },
+              { icon: 'accounts', level: 1, label: 'First Level' },
+              { level: 2, label: 'Second Level' },
+              { level: 2, label: 'Second Level' },
+              { icon: 'bag', level: 1, label: 'First Level' },
+              { level: 2, label: 'Second Level' },
+              { level: 2, label: 'Second Level' },
+              { level: 2, label: 'Second Level' },
+              { icon: 'umbrella', level: 1, label: 'First Level' },
+              { level: 2, label: 'Second Level' },
+              { level: 2, label: 'Second Level' },
+              { icon: 'luggage', level: 1, label: 'First Level' },
+              { level: 2, label: 'Second Level' },
+              { level: 2, label: 'Second Level' },
             ],
-            footerLabel: "v1.3.4",
+            footerLabel: 'v1.3.4',
           })
         );
       }
