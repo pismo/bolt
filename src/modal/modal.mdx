@@ -2,49 +2,87 @@
 name: Modal
 ---
 
-import { Playground } from 'docz'
-import {Modal} from '../../dist/js/bolt'
-import '../../dist/css/bolt-css.css'
+import { Playground } from "docz";
+import { Modal } from "../../dist/js/bolt";
+import "../../dist/css/bolt-css.css";
 
 # Modal
 
+O componente modal aplica funcionalidades de entrada e saída a um determinado elemento. Após o conteúdo ser construído, deve-se enviar para o contrutor o HTML
+desse conteúdo.
+
+## Propriedades
+
+```typescript
+// construtor, deve receber o HTML do conteúdo do modal
+export interface IModalConstructor {
+  new (modalContent: HTMLElement): IModal;
+}
+
+export interface IModal {
+  isOpen: boolean; // get/ set - define e informa se o modal está aberto ou fechado
+
+  // onClose: função a ser executada quando ocorre uma intenção de fechar o modal,
+  // clicando na parte escura. o modal não fecha de forma automatizada, é necessário
+  // implementar essa função utilizando a propriedade isOpen para fechar o modal
+  onClose?: () => void;
+
+  onStartOpen?: () => void; // função a ser executada no inicio da animação de abertura
+  onEndOpen?: () => void; // função a ser executada quando a animação de abertura termina ou é interrompida
+  onStartClose?: () => void; // função a ser executada no início da animação de saída
+  onEndClose?: () => void; // função a ser executada quando a animação de saída termina ou é interrompida
+
+  readonly destroy: () => void; // função que permite remover/ desmontar o componente do HTML
+}
+```
+
+## Exemplo
+
+<br />
+
 <Playground>
-  {    
-    () => {
-      const [mod, setMod] = React.useState(null)
-      const ref = React.useRef()
-      const closebt = React.useRef()
-      React.useEffect(() => {
-        if(ref.current && !mod){
-          setMod(new Modal(ref.current))
-        }
-        if(mod && closebt.current){
-          mod.onClose = closeModal
-          closebt.current.addEventListener('click', closeModal)
-        }
-        return () => {
-          if(mod) {
-            mod.destroy()
-          }
-        }
-      }, [ref.current, closebt.current, mod])
-      const openModal = () => {
-        if(mod){
-          mod.isOpen=true
-        }
+  {() => {
+    const [mod, setMod] = React.useState(null);
+    const ref = React.useRef();
+    const closebt = React.useRef();
+    React.useEffect(() => {
+      if (ref.current && !mod) {
+        setMod(new Modal(ref.current));
       }
-      const closeModal = () => {
-        if(mod){
-          mod.isOpen=false
-        }
+      if (mod && closebt.current) {
+        mod.onClose = closeModal;
+        closebt.current.addEventListener("click", closeModal);
       }
-      return <>
-        <div className='tw-flex'><button className='btn btn-secondary' onClick={openModal}>abrir modal</button></div>
-        <div ref={ref} className='tw-flex tw-flex-col'>
+      return () => {
+        if (mod) {
+          mod.destroy();
+        }
+      };
+    }, [ref.current, closebt.current, mod]);
+    const openModal = () => {
+      if (mod) {
+        mod.isOpen = true;
+      }
+    };
+    const closeModal = () => {
+      if (mod) {
+        mod.isOpen = false;
+      }
+    };
+    return (
+      <>
+        <div className="tw-flex">
+          <button className="btn btn-secondary" onClick={openModal}>
+            abrir modal
+          </button>
+        </div>
+        <div ref={ref} className="tw-flex tw-flex-col">
           teste
-          <button ref={closebt} className='btn btn-primary tw-mt-4' >fechar</button>
+          <button ref={closebt} className="btn btn-primary tw-mt-4">
+            fechar
+          </button>
         </div>
       </>
-    }
-  }
+    );
+  }}
 </Playground>

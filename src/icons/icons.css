@@ -1,17 +1,18 @@
 @font-face {
-  font-family: 'bolt-icons';
-  src:  url('../assets/fonts/bolt-icons.eot?fwiprc');
-  src:  url('../assets/fonts/bolt-icons.eot?fwiprc#iefix') format('embedded-opentype'),
-    url('../assets/fonts/bolt-icons.ttf?fwiprc') format('truetype'),
-    url('../assets/fonts/bolt-icons.woff?fwiprc') format('woff');
+  font-family: "bolt-icons";
+  src: url("../assets/fonts/bolt-icons.eot?fwiprc");
+  src: url("../assets/fonts/bolt-icons.eot?fwiprc#iefix") format("embedded-opentype"),
+    url("../assets/fonts/bolt-icons.ttf?fwiprc") format("truetype"),
+    url("../assets/fonts/bolt-icons.woff?fwiprc") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="i-"], [class*=" i-"] {
+[class^="i-"],
+[class*=" i-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'bolt-icons' !important;
+  font-family: "bolt-icons" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -23,8 +24,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @apply
-  tw-flex
+  @apply tw-flex
   tw-justify-center
   tw-items-center;
 }
@@ -46,7 +46,7 @@
   content: "\e901";
 }
 
-.i-box:before{
+.i-box:before {
   content: "\e905";
 }
 

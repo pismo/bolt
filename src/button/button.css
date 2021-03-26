@@ -1,6 +1,5 @@
- .btn {
-  @apply 
-  tw-rounded 
+.btn {
+  @apply tw-rounded 
   tw-p-2   
   tw-bg-gray-25
   tw-cursor-pointer
@@ -24,34 +23,30 @@
   min-width: 100px;
 }
 
-.btn-primary{
-  @apply
-  tw-bg-accent 
+.btn-primary {
+  @apply tw-bg-accent 
   tw-text-white
   hover:tw-bg-accent-light
   focus:tw-bg-accent-light;
 }
 
-.btn-secondary{
-  @apply
-  tw-bg-orange
+.btn-secondary {
+  @apply tw-bg-orange
   tw-text-gray
   hover:tw-bg-orange-light
   focus:tw-bg-orange-light;
 }
 
-.btn-flat{
-  @apply
-  tw-bg-white
+.btn-flat {
+  @apply tw-bg-white
   tw-text-black
   tw-underline
   hover:tw-bg-gray-10
   focus:tw-bg-gray-10;
 }
 
-.btn-outline{
-  @apply
-  tw-bg-white
+.btn-outline {
+  @apply tw-bg-white
   tw-text-gray
   tw-ring-2
   tw-ring-gray-90
@@ -59,4 +54,17 @@
   hover:tw-bg-transparent
   focus:tw-bg-transparent;
   background-color: transparent;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-flat:disabled,
+.btn-outline:disabled {
+  @apply hover:tw-bg-gray-25
+  hover:tw-text-gray-75
+  hover:tw-ring-0;
+}
+
+.btn-outline:disabled {
+  @apply hover:tw-ring-gray-90 hover:tw-ring-2;
 }
