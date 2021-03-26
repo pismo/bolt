@@ -24,21 +24,21 @@ describe('Sidebar', () => {
           .should('be.visible')
           .should('have.text', 'App Name')
           .within(() => {
-            cy.get('span').should('have.class', 'i-bars');
+            cy.get('span').should('have.class', 'tw-i-bars');
           });
         cy.get('[data-testid=content]')
           .should('be.visible')
           .within(($content) => {
             expect($content.children()).have.length(3);
 
-            cy.get('.sidebar-btn-l1')
+            cy.get('.tw-sidebar-btn-l1')
               .should('have.length', 1)
               .should('have.text', 'First Level')
               .within(() => {
-                cy.get('span').should('have.class', 'i-accounts');
+                cy.get('span').should('have.class', 'tw-i-accounts');
               });
 
-            cy.get('.sidebar-btn-l2')
+            cy.get('.tw-sidebar-btn-l2')
               .should('have.length', 2)
               .then(($bts) => {
                 $bts.each((i, el) => {
@@ -52,8 +52,8 @@ describe('Sidebar', () => {
 
   it('should have the right behavior', () => {
     cy.get('[data-testid=content]').within(() => {
-      cy.get('.sidebar-btn-l1').as('btn1');
-      cy.get('.sidebar-btn-l2').then(($btns) => {
+      cy.get('.tw-sidebar-btn-l1').as('btn1');
+      cy.get('.tw-sidebar-btn-l2').then(($btns) => {
         cy.wrap($btns[0]).as('btn2');
         cy.wrap($btns[1]).as('btn3');
       });

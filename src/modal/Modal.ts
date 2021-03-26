@@ -65,14 +65,14 @@ class Modal implements IModal {
     this.#_container.style.display = 'none';
     this.#_backdrop.style.display = 'none';
 
-    this.#_container.classList.add('modal');
-    this.#_container.classList.add('modal-close');
+    this.#_container.classList.add('tw-modal');
+    this.#_container.classList.add('tw-modal-close');
 
-    this.#_backdrop.classList.add('modal-backdrop');
-    this.#_backdrop.classList.add('modal-backdrop-close');
+    this.#_backdrop.classList.add('tw-modal-backdrop');
+    this.#_backdrop.classList.add('tw-modal-backdrop-close');
     this.#_backdrop.addEventListener('click', this.#handleClose);
 
-    this.#_modalContent.classList.add('modal-content');
+    this.#_modalContent.classList.add('tw-modal-content');
 
     setTimeout(() => {
       this.#_container.style.removeProperty('display');
@@ -86,11 +86,11 @@ class Modal implements IModal {
     this.#_container.addEventListener('transitioncancel', this.#endAnimationOpen);
     this.#_container.addEventListener('transitionend', this.#endAnimationOpen);
 
-    this.#_backdrop.classList.remove('modal-backdrop-close');
-    this.#_backdrop.classList.add('modal-backdrop-open');
+    this.#_backdrop.classList.remove('tw-modal-backdrop-close');
+    this.#_backdrop.classList.add('tw-modal-backdrop-open');
 
-    this.#_container.classList.remove('modal-close');
-    this.#_container.classList.add('modal-open');
+    this.#_container.classList.remove('tw-modal-close');
+    this.#_container.classList.add('tw-modal-open');
   };
 
   #close = (): void => {
@@ -98,11 +98,11 @@ class Modal implements IModal {
     this.#_backdrop.addEventListener('transitioncancel', this.#endAnimationClose);
     this.#_backdrop.addEventListener('transitionend', this.#endAnimationClose);
 
-    this.#_backdrop.classList.remove('modal-backdrop-open');
-    this.#_backdrop.classList.add('modal-backdrop-close');
+    this.#_backdrop.classList.remove('tw-modal-backdrop-open');
+    this.#_backdrop.classList.add('tw-modal-backdrop-close');
 
-    this.#_container.classList.remove('modal-open');
-    this.#_container.classList.add('modal-close');
+    this.#_container.classList.remove('tw-modal-open');
+    this.#_container.classList.add('tw-modal-close');
   };
 
   #removeAnimationEvent = (): void => {

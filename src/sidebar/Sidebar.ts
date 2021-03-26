@@ -55,13 +55,13 @@ class Sidebar implements ISidebar {
   }
 
   #_initialize = (container: HTMLElement, header: IHeader, content: SidebarButton[], footerLabel: string): void => {
-    this.#_container.classList.add('sidebar');
+    this.#_container.classList.add('tw-sidebar');
 
-    this.#_header.classList.add('sidebar-btn', 'sidebar-btn-l0');
+    this.#_header.classList.add('tw-sidebar-btn', 'tw-sidebar-btn-l0');
 
-    this.#_content.classList.add('sidebar-content');
+    this.#_content.classList.add('tw-sidebar-content');
 
-    this.#_footer.classList.add('sidebar-btn-footnote');
+    this.#_footer.classList.add('tw-sidebar-btn-footnote');
 
     this.#_container.appendChild(this.#_header);
     this.#_container.appendChild(this.#_content);
@@ -69,8 +69,8 @@ class Sidebar implements ISidebar {
 
     const hIcon = document.createElement('span');
     const hLabel = document.createElement('p');
-    hIcon.classList.add(`i-${header.icon}`, 'sidebar-btn-icon');
-    hLabel.classList.add('sidebar-btn-label');
+    hIcon.classList.add(`tw-i-${header.icon}`, 'tw-sidebar-btn-icon');
+    hLabel.classList.add('tw-sidebar-btn-label');
     hLabel.innerText = header.label;
 
     this.#_header.appendChild(hIcon);
@@ -81,17 +81,17 @@ class Sidebar implements ISidebar {
       const child: HTMLElement & { name: string } = document.createElement('button');
       child.id = id;
       child.name = el.name || '';
-      child.classList.add('sidebar-btn', `sidebar-btn-l${el.level}`);
+      child.classList.add('tw-sidebar-btn', `tw-sidebar-btn-l${el.level}`);
       this.#_contentList[id] = child;
       let icon: HTMLElement;
       if (el.icon) {
         icon = document.createElement('span');
-        icon.classList.add(`i-${el.icon}`, 'sidebar-btn-icon');
+        icon.classList.add(`tw-i-${el.icon}`, 'tw-sidebar-btn-icon');
         child.appendChild(icon);
       }
 
       const label = document.createElement('p');
-      label.classList.add('sidebar-btn-label');
+      label.classList.add('tw-sidebar-btn-label');
       label.innerText = el.label;
 
       child.appendChild(label);
@@ -101,7 +101,7 @@ class Sidebar implements ISidebar {
     });
 
     const fLabel = document.createElement('p');
-    fLabel.classList.add('sidebar-btn-label');
+    fLabel.classList.add('tw-sidebar-btn-label');
     fLabel.innerText = footerLabel;
 
     this.#_footer.appendChild(fLabel);
