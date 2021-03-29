@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.3](https://github.com/pismo/bolt/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2021-03-29)
+
+
+### Bug Fixes
+
+* tw prefix added ([a1894cf](https://github.com/pismo/bolt/commit/a1894cfca5ee08f4a64beab2bf578a6b58c766ca))
+
 ## [3.0.0-alpha.2](https://github.com/pismo/bolt/compare/v2.10.0...v3.0.0-alpha.2) (2021-03-26)
 
 
