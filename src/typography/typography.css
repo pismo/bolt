@@ -1,71 +1,71 @@
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-.body1,
-.body2,
-.body3,
-.body4,
-.body5 {
+.tw-h1,
+.tw-h2,
+.tw-h3,
+.tw-h4,
+.tw-h5,
+.tw-h6,
+.tw-body1,
+.tw-body2,
+.tw-body3,
+.tw-body4,
+.tw-body5 {
   @apply tw-font-sans tw-font-bold;
 }
 
-.body1,
-.body2,
-.body3,
-.body4,
-.body5 {
+.tw-body1,
+.tw-body2,
+.tw-body3,
+.tw-body4,
+.tw-body5 {
   @apply sm:tw-font-normal;
 }
 
-.h1,
-.h2 {
+.tw-h1,
+.tw-h2 {
   @apply tw-text-4xl
   sm:tw-text-6xl;
 }
 
-.h3 {
+.tw-h3 {
   @apply tw-text-2xl
   sm:tw-text-5xl;
 }
 
-.h4 {
+.tw-h4 {
   @apply tw-text-2xl
   sm:tw-text-4xl;
 }
 
-.h5,
-.h6 {
+.tw-h5,
+.tw-h6 {
   @apply tw-text-xl
   sm:tw-text-2xl;
 }
 
-.body1 {
+.tw-body1 {
   @apply tw-text-xl
   sm:tw-text-2xl;
 }
 
-.body2 {
+.tw-body2 {
   @apply tw-text-base
   sm:tw-text-xl;
 }
 
-.body3 {
+.tw-body3 {
   @apply tw-text-sm
   sm:tw-text-base;
 }
 
-.body4,
-.body5 {
+.tw-body4,
+.tw-body5 {
   @apply tw-text-xs;
 }
 
-.body4 {
+.tw-body4 {
   @apply sm:tw-text-sm;
 }
 
-.body5 {
+.tw-body5 {
   @apply sm:tw-text-xs;
 }

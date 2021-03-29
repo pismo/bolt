@@ -1,4 +1,4 @@
-.btn {
+.tw-btn {
   @apply tw-rounded 
   tw-p-2   
   tw-bg-gray-25
@@ -23,21 +23,21 @@
   min-width: 100px;
 }
 
-.btn-primary {
+.tw-btn-primary {
   @apply tw-bg-accent 
   tw-text-white
   hover:tw-bg-accent-light
   focus:tw-bg-accent-light;
 }
 
-.btn-secondary {
+.tw-btn-secondary {
   @apply tw-bg-orange
   tw-text-gray
   hover:tw-bg-orange-light
   focus:tw-bg-orange-light;
 }
 
-.btn-flat {
+.tw-btn-flat {
   @apply tw-bg-white
   tw-text-black
   tw-underline
@@ -45,7 +45,7 @@
   focus:tw-bg-gray-10;
 }
 
-.btn-outline {
+.tw-btn-outline {
   @apply tw-bg-white
   tw-text-gray
   tw-ring-2
@@ -56,15 +56,15 @@
   background-color: transparent;
 }
 
-.btn-primary:disabled,
-.btn-secondary:disabled,
-.btn-flat:disabled,
-.btn-outline:disabled {
+.tw-btn-primary:disabled,
+.tw-btn-secondary:disabled,
+.tw-btn-flat:disabled,
+.tw-btn-outline:disabled {
   @apply hover:tw-bg-gray-25
   hover:tw-text-gray-75
   hover:tw-ring-0;
 }
 
-.btn-outline:disabled {
+.tw-btn-outline:disabled {
   @apply hover:tw-ring-gray-90 hover:tw-ring-2;
 }

@@ -1,4 +1,4 @@
-.modal {
+.tw-modal {
   @apply tw-fixed
   tw-flex
   tw-z-50;
@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
 }
 
-.modal-backdrop {
+.tw-modal-backdrop {
   @apply tw-fixed
   tw-inset-0
   tw-bg-gray
@@ -15,33 +15,33 @@
   tw-opacity-90;
 }
 
-.modal-content {
+.tw-modal-content {
   @apply tw-p-16
   tw-bg-cream
   tw-rounded
   tw-text-gray;
 }
 
-.modal-backdrop-close {
+.tw-modal-backdrop-close {
   @apply tw-opacity-0
   tw-invisible
   tw-transition-all;
 }
 
-.modal-backdrop-open {
+.tw-modal-backdrop-open {
   @apply tw-opacity-100
   tw-visible
   tw-transition-all
   tw-duration-300;
 }
 
-.modal-close {
+.tw-modal-close {
   @apply tw-invisible
   tw-transition-all;
   transform: translate(-50%, -50%) scale(0, 0);
 }
 
-.modal-open {
+.tw-modal-open {
   @apply tw-visible
   tw-transition-all
   tw-duration-500;

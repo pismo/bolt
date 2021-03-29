@@ -2,12 +2,12 @@
 @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access,
 @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-floating-promises, no-console
 */
-const inquirer = require("inquirer");
-const fs = require("fs-extra");
-const path = require("path");
-const { exec } = require("child_process");
+const inquirer = require('inquirer');
+const fs = require('fs-extra');
+const path = require('path');
+const { exec } = require('child_process');
 
-const pkg = fs.readJSONSync(path.join(__dirname, "../package.json"));
+const pkg = fs.readJSONSync(path.join(__dirname, '../package.json'));
 const currentVersion = pkg.version;
 
 const splitSemVer = currentVersion.split(/\.|-/);
@@ -20,17 +20,17 @@ let alpha = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-alpha`;
 let beta = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-beta`;
 
 if (splitSemVer.length >= 4) {
-  if (splitSemVer[3] === "alpha") {
+  if (splitSemVer[3] === 'alpha') {
     alpha = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-alpha.${
-      splitSemVer.length === 5 ? Number(splitSemVer[4]) + 1 : "1"
+      splitSemVer.length === 5 ? Number(splitSemVer[4]) + 1 : '1'
     }`;
     beta = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-beta`;
   }
 
-  if (splitSemVer[3] === "beta") {
+  if (splitSemVer[3] === 'beta') {
     alpha = `${Number(splitSemVer[0]) + 1}.0.0-alpha`;
     beta = `${splitSemVer[0]}.${splitSemVer[1]}.${splitSemVer[2]}-beta.${
-      splitSemVer.length === 5 ? Number(splitSemVer[4]) + 1 : "1"
+      splitSemVer.length === 5 ? Number(splitSemVer[4]) + 1 : '1'
     }`;
   }
 }
@@ -47,9 +47,9 @@ const list = {
   try {
     const answers = await inquirer.prompt([
       {
-        type: "list",
-        name: "version",
-        message: "choice the next version",
+        type: 'list',
+        name: 'version',
+        message: 'choice the next version',
         choices: Object.keys(list),
       },
     ]);

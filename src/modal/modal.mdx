@@ -2,9 +2,9 @@
 name: Modal
 ---
 
-import { Playground } from "docz";
-import { Modal } from "../../dist/js/bolt";
-import "../../dist/css/bolt-css.css";
+import { Playground } from 'docz';
+import { Modal } from '../../dist/js/bolt';
+import '../../dist/css/bolt-css.css';
 
 # Modal
 
@@ -51,7 +51,7 @@ export interface IModal {
       }
       if (mod && closebt.current) {
         mod.onClose = closeModal;
-        closebt.current.addEventListener("click", closeModal);
+        closebt.current.addEventListener('click', closeModal);
       }
       return () => {
         if (mod) {
@@ -72,13 +72,13 @@ export interface IModal {
     return (
       <>
         <div className="tw-flex">
-          <button className="btn btn-secondary" onClick={openModal}>
+          <button className="tw-btn tw-btn-secondary" onClick={openModal}>
             abrir modal
           </button>
         </div>
         <div ref={ref} className="tw-flex tw-flex-col">
           teste
-          <button ref={closebt} className="btn btn-primary tw-mt-4">
+          <button ref={closebt} className="tw-btn tw-btn-primary tw-mt-4">
             fechar
           </button>
         </div>
