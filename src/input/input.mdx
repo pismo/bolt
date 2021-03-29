@@ -1,0 +1,42 @@
+---
+name: Input
+---
+
+import { useRef, useEffect, useState } from 'react';
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Input } from '../../dist/js/bolt.js';
+
+# Icons
+
+<Playground>
+  {() => {
+    const [name, setName] = useState();
+    const [isError, setIsError] = useState(false);
+    const [value, setValue] = useState('');
+    const nameRef = useRef();
+    useEffect(() => {
+      setTimeout(() => {
+        console.log('timeout');
+        setIsError(true);
+      }, 5000);
+      setTimeout(() => {
+        console.log('change value');
+        setValue('testando');
+      }, 10000);
+    }, []);
+    useEffect(() => {
+      if (nameRef.current && !name) {
+        setName(new Input(nameRef.current));
+      }
+      return () => {
+        if (name) name.destroy();
+      };
+    }, [nameRef.current, name]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={nameRef} data-error={isError} data-value={value} />
+      </div>
+    );
+  }}
+</Playground>

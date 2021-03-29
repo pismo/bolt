@@ -52,4 +52,10 @@ declare class Modal implements IModal {
     readonly destroy: () => void;
 }
 
-export { IHeader, IModal, IModalConstructor, ISidebar, ISidebarConstructor, Modal, Sidebar, SidebarButton, SidebarProps };
+declare class Input {
+    #private;
+    constructor(ref: HTMLElement);
+    destroy: () => void;
+}
+
+export { IHeader, IModal, IModalConstructor, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };
