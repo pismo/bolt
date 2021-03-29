@@ -119,7 +119,6 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
         data-testid='toolbar-container'
         style={animation}
       >
-        {/*<Avatar name={name} notification={notification} src={src} />*/}
         {IconApplication()}
         {(matches && !full) || contract ? null : (
           <Box ml='10px' flexDirection='column'>
