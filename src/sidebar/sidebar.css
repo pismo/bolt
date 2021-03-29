@@ -82,9 +82,13 @@
   background-color: black;
 }
 
+.tw-sidebar-btn-l1,
+.tw-sidebar-btn-l2 {
+  @apply tw-text-white;
+}
+
 .tw-sidebar-btn-l1 {
-  @apply tw-text-white
-  tw-bg-gray;
+  @apply tw-bg-gray;
 }
 
 .tw-sidebar-btn-l2 {
