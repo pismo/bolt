@@ -8,6 +8,7 @@ export interface PismoBarProps {
   appSelected?: ({ url: string }) => void
   full?: boolean
   contract?: boolean
+  Icon?: React.ReactNode | React.FC | string
   onClick?: () => void
 }
 

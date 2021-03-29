@@ -5,13 +5,13 @@ import { useSpring, useTransition, animated } from 'react-spring'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
-
-import MenuIcon from '@material-ui/icons/Apps'
 import { PismoMarketplace } from '@pismo/bolt-core'
 import { ApplicationToolbarProps, maxWidth, mobileMaxWidth } from './interfaces'
+import Typography from '@material-ui/core/Typography'
 
 import { BoltTheme, Context } from '@pismo/bolt-core'
 
@@ -57,7 +57,10 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       }
     },
     iconButton: {
-      padding: 0
+      padding: 0,
+      '& svg': {
+        fill: '#000'
+      }
     },
     icon: {
       fontSize: '2rem'
@@ -66,7 +69,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       width: '100%',
       height: '40px',
       '& .Pismo-Bolt-icons-logo-name,.Pismo-Bolt-icons-logo-app': {
-        fill: theme.palette.colors.text['50']
+        fill: '#1A1A22'
       }
     },
     darken: {
@@ -74,6 +77,11 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     },
     lighten: {
       backgroundColor: theme.palette.colors.background['100']
+    },
+    titlePismoBar: {
+      color: '#1A1A22',
+      fontSize: '16px',
+      fontWeight: 700
     }
   }
 })
@@ -126,16 +134,27 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
               >
                 <MenuIcon
                   className={`${classes.icon} Bolt-PismoBar-icon`}
-                  data-testid={applications[current].name}
+                  data-testid={
+                    applications[current] ? applications[current].name : current
+                  }
                 />
               </IconButton>
               {contract ? null : (
                 <Hidden xsDown={full ? false : true}>
                   <Box ml='5px'>
-                    <Logo
-                      name={applications[current].name}
-                      className={classes.logo}
-                    />
+                    {applications[current] ? (
+                      <Logo
+                        name={applications[current].name}
+                        className={classes.logo}
+                      />
+                    ) : (
+                      <Typography
+                        variant='h2'
+                        className={classes.titlePismoBar}
+                      >
+                        {current}
+                      </Typography>
+                    )}
                   </Box>
                 </Hidden>
               )}

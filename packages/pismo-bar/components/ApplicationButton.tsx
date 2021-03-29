@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
               colors.backgroundMain['60']
             } 126.68%)`
           : 'unset',
-        color: isSelected ? '#fff' : colors.text['50'],
+        color: isSelected ? '#1A1A22' : colors.text['50'],
         boxShadow: isSelected ? theme.shadows[4] : 'unset',
         transition: 'box-shadow 0.5s',
         '&:hover': {

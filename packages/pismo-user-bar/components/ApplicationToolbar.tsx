@@ -8,8 +8,6 @@ import ButtonBase from '@material-ui/core/ButtonBase'
 import { makeStyles } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-import { Avatar, AvatarProps } from './Avatar'
-
 import { BoltTheme, Context } from '@pismo/bolt-core'
 
 const AToolbar = animated(Toolbar)
@@ -56,7 +54,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     },
     email: {
       fontWeight: 'normal',
-      color: colors.background['50']
+      color: colors.background['100']
     },
     darken: {
       backgroundColor: colors.background['0']
@@ -67,19 +65,19 @@ const useStyles = makeStyles((theme: BoltTheme) => {
   }
 })
 
-export interface ApplicationToolbarProps extends AvatarProps {
+export interface ApplicationToolbarProps {
+  name: string
   email: string
+  Icon?: React.ReactNode | React.FC | string
   full?: boolean
   fullAnimation?: boolean
   contract?: boolean
   onClick?: () => void
 }
-
 const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   name,
-  notification,
-  src,
   email,
+  Icon,
   onClick,
   contract = false,
   full = false,
@@ -90,6 +88,10 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
     theme.breakpoints.down('xs')
   )
 
+  const IconApplication = (): React.ReactNode | React.FC | string => {
+    if (Icon && typeof Icon === 'string') return <img src={Icon} alt={name} />
+    return Icon
+  }
   const animation = useSpring({
     width: !full && (matches || contract) ? mobileMaxWidth : maxWidth,
     from: {
@@ -117,7 +119,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
         data-testid='toolbar-container'
         style={animation}
       >
-        <Avatar name={name} notification={notification} src={src} />
+        {IconApplication()}
         {(matches && !full) || contract ? null : (
           <Box ml='10px' flexDirection='column'>
             <Typography variant='body1' className={`${classes.text}`}>

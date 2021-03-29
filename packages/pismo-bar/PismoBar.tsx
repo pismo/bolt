@@ -140,7 +140,13 @@ const PismoBar: React.FC<PismoBarProps> = ({
         ModalProps={{ hideBackdrop: true }}
         data-testid='drawer'
       >
-        <Box textAlign='center' py='15px' className={currentTheme === 'clean' ? classes.darken : classes.lighten}>
+        <Box
+          textAlign='center'
+          py='15px'
+          className={
+            currentTheme === 'clean' ? classes.darken : classes.lighten
+          }
+        >
           <Fab
             variant='round'
             color='secondary'
