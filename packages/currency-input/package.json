@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-currency-input",
-  "version": "2.11.1",
+  "version": "2.12.0",
   "description": "Bolt component currency-input",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -29,11 +29,11 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-text-field": "^2.11.0",
-    "@pismo/bolt-world-format": "^2.11.0"
+    "@pismo/bolt-text-field": "^2.12.0",
+    "@pismo/bolt-world-format": "^2.12.0"
   },
   "devDependencies": {
-    "@pismo/bolt-core": "^2.11.0"
+    "@pismo/bolt-core": "^2.12.0"
   },
   "scripts": {
     "build": "tsc",
