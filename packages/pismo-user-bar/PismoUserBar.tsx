@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       height: '100vh',
       overflow: 'hidden',
       backgroundColor: theme.palette.background.default,
-      color: colors.text['50'],
+      color: colors.text['0'],
       boxShadow: 'unset'
     },
     darken: {

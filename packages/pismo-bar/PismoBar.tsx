@@ -67,8 +67,9 @@ const useStyles = makeStyles((theme: any) => {
       minHeight: '0px',
       width: '36px',
       height: '36px',
+      background: '#C0C0C0',
       '&:hover': {
-        backgroundColor: colors.background['60']
+        backgroundColor: '#FBFBFB'
       },
       '& svg': {
         color: '#fff'
@@ -79,6 +80,9 @@ const useStyles = makeStyles((theme: any) => {
     },
     lighten: {
       backgroundColor: theme.palette.colors.background['100']
+    },
+    iconClose: {
+      fill: colors.text[10]
     }
   }
 })
@@ -153,7 +157,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
             className={classes.closeButton}
             onClick={toClose}
           >
-            <CloseIcon />
+            <CloseIcon className={classes.iconClose} />
           </Fab>
         </Box>
         <Box

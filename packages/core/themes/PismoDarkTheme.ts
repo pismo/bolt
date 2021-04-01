@@ -7,7 +7,7 @@ const colors: PalleteColor = {
   text: {
     0: '#FFFFFF',
     5: '#FFFFFF',
-    10: '#FFFFFF',
+    10: '#000',
     15: '#FFFFFF',
     20: '#FFFFFF',
     25: '#FFFFFF',
