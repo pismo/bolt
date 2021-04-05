@@ -1,0 +1,31 @@
+---
+name: Input
+---
+
+import { useState, useEffect, useRef } from 'react';
+import { Playground } from 'docz';
+import { Input } from '../dist/js/bolt';
+import '../dist/css/bolt-css.css';
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        window.inputobj = input;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-testid="input-test"></div>
+      </div>
+    );
+  }}
+</Playground>

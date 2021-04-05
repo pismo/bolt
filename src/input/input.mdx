@@ -7,36 +7,482 @@ import { Playground } from 'docz';
 import '../../dist/css/bolt-css.css';
 import { Input } from '../../dist/js/bolt.js';
 
-# Icons
+# Input
+
+O componente Imput é um componente composto que permite trabalhar com inputs de texto e numéricos, além de permitir adicionar ícones e oferecer formas de manipular
+seu comportamento.
+
+## Texto simples
+
+<br />
 
 <Playground>
   {() => {
-    const [name, setName] = useState();
-    const [isError, setIsError] = useState(false);
-    const [value, setValue] = useState('');
-    const nameRef = useRef();
+    const [input, setInput] = useState();
+    const inputRef = useRef();
     useEffect(() => {
-      setTimeout(() => {
-        console.log('timeout');
-        setIsError(true);
-      }, 5000);
-      setTimeout(() => {
-        console.log('change value');
-        setValue('testando');
-      }, 10000);
-    }, []);
-    useEffect(() => {
-      if (nameRef.current && !name) {
-        setName(new Input(nameRef.current));
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
       }
       return () => {
-        if (name) name.destroy();
+        if (input) input.destroy();
       };
-    }, [nameRef.current, name]);
+    }, [inputRef.current, input]);
     return (
       <div className="tw-flex tw-gap-4 tw-flex-wrap">
-        <div ref={nameRef} data-error={isError} data-value={value} />
+        <div ref={inputRef} data-label="nome"></div>
       </div>
     );
   }}
 </Playground>
+
+<br />
+<br />
+
+## Disabled
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="nome" data-disabled={true} data-value="Disabled"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Manipulando o valor
+
+<br />
+
+Em alguns casos pode ser necessário manipular o valor de entrada. O componente Input fornece o método onChange para ser implementado. Esse método é chamado a cada mudança
+no valor do input.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const [value, setValue] = useState('digite um texto');
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        input.onChange = handleChange;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    const handleChange = (e) => {
+      setValue(e.target.value);
+    };
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap tw-items-center">
+        <div ref={inputRef} data-label="nome"></div>
+        <p className="tw-body2 tw-ml-2 tw-text-alert-dark">{value}</p>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Helper Text
+
+<br />
+
+Em alguns casos pode ser necessário a adição de um texto de auxílio, ou mesmo a informação de uma validação incorreta. Pode-se usar a propriedade helpertext para esses casos.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="nome" data-helpertext="nome completo"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Manipulação de validação
+
+<br />
+
+Para informar o usuário de uma falha na validação do campo, pode-se usar a propriedade error, em conjunto com a propriedade helpertext.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const [value, setValue] = useState('');
+    const [error, setError] = useState(null);
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        input.onChange = handleChange;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    const handleChange = (e) => {
+      setError(null);
+      setValue(e.target.value);
+    };
+    const clickHandle = () => {
+      setError('Por favor, digite seu nome.');
+    };
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap tw-items-center">
+        <div
+          ref={inputRef}
+          data-label="nome"
+          data-error={Boolean(error)}
+          data-helpertext={Boolean(error) ? error : ''}
+        ></div>
+        <button className="tw-btn tw-btn-primary" onClick={clickHandle}>
+          add error
+        </button>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Clear Text
+
+<br />
+
+O Input disponibiliza um botão para limpar rapidamente o valor do campo. Pode ser habilitado pela propriedade clearicon.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="nome" data-clearicon={true}></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Start Icon
+
+<br />
+
+É possível adicionar um ícone no inicio do input utilizando a propriedade starticon.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="e-mail" data-clearicon={true} data-starticon="mail"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## End Icon
+
+<br />
+
+É possível adicionar um ícone no final do input utilizando a propriedade endicon.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="Configuração" data-endicon="settings"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Manipulando eventos dos ícones
+
+<br />
+
+Em alguns casos é necessário manipular os eventos dos ícones, para isso o Input disponibiliza os métodos onStartIconclick e onEndIconClick.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const [showPass, setShowPass] = useState(false);
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        input.onEndIconClick = showHandle;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    const showHandle = () => {
+      setShowPass((old) => !old);
+    };
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div
+          ref={inputRef}
+          data-label="password"
+          data-endicon={!showPass ? 'eye' : 'eye-off'}
+          data-type={!showPass ? 'password' : 'text'}
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Type text
+
+<br />
+
+O Input permite alguns tipos diferentes de dados. Por padrão inicia com o tipo text. O tipo text ainda permite configurar a propriedade maxlength
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const [count, setCount] = useState(0);
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        input.onChange = handleChange;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    const handleChange = (e) => {
+      setCount(e.target.value.length);
+    };
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="message" data-maxlength={10} data-helpertext={`${count} / 10`}></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Type password
+
+<br />
+
+O tipo password permite que o campo de texto fique escondido.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="password" data-type="password" data-value="123456" data-endicon="lock"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Type number
+
+<br />
+
+O tipo number permite somente dados numéricos e permite configurar as propriedades max, min e step
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const [degrees, setDegrees] = useState(60);
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      if (input) {
+        input.onChange = handleChange;
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    const handleChange = (e) => {
+      setDegrees(e.target.value);
+    };
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap tw-items-center">
+        <div
+          ref={inputRef}
+          data-label="graus"
+          data-type="number"
+          data-starticon="clock"
+          data-min={60}
+          data-max={180}
+          data-step={15}
+          data-value={60}
+        ></div>
+        <div className="tw-w-48 tw-h-48 tw-bg-alert tw-ml-8" style={{ transform: `rotate(${degrees}deg)` }}></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Propriedades
+
+<br />
+
+```typescript
+// entradas válidas através do elemento data
+// ex: <div data-name='name' data-label='nome' data-value='Fulano' data-clearicon={true} />
+export interface IInputDataset {
+  name?: string;
+  label?: string;
+  type?: string;
+  helpertext?: string;
+  starticon?: string;
+  endicon?: string;
+  clearicon?: string;
+  error?: boolean;
+  disabled?: boolean;
+  max?: number;
+  maxlength?: number;
+  min?: number;
+  step?: number;
+  value?: string;
+}
+
+export interface IRef extends HTMLElement {
+  dataset: Partial<Record<keyof IInputDataset, string>>;
+}
+
+//construtor - deve receber um elemento HTML com as propriedades de IInputDataset
+export interface IInputConstructor {
+  new (ref: IRef): IInput;
+}
+
+export interface IInput {
+  readonly destroy: () => void; // método para desmontar o componente
+  readonly focus: () => void; // método para dar foco no input
+  readonly blur: () => void; // método para tirar o foco do input
+
+  onChange?: (ev: InputEvent) => void; // método executado no evento onChange
+  onFocus?: (ev: InputEvent) => void; // método executado quando o componente tiver foco
+  onBlur?: (ev: InputEvent) => void; // método executado quando o componente perder o foco
+  onStartIconClick?: (ev: MouseEvent) => void; // método executado quando clicar no starticon
+  onEndIconClick?: (ev: MouseEvent) => void; // método executado quando clicar no endicon
+}
+```

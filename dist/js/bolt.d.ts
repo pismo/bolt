@@ -52,10 +52,49 @@ declare class Modal implements IModal {
     readonly destroy: () => void;
 }
 
-declare class Input {
+interface IInputDataset {
+    name?: string;
+    label?: string;
+    type?: string;
+    helpertext?: string;
+    starticon?: string;
+    endicon?: string;
+    clearicon?: string;
+    error?: boolean;
+    disabled?: boolean;
+    max?: number;
+    maxlength?: number;
+    min?: number;
+    step?: number;
+    value?: string;
+}
+interface IRef extends HTMLElement {
+    dataset: Partial<Record<keyof IInputDataset, string>>;
+}
+interface IInputConstructor {
+    new (ref: IRef): IInput;
+}
+interface IInput {
+    readonly destroy: () => void;
+    readonly focus: () => void;
+    readonly blur: () => void;
+    onChange?: (ev: InputEvent) => void;
+    onFocus?: (ev: InputEvent) => void;
+    onBlur?: (ev: InputEvent) => void;
+    onStartIconClick?: (ev: MouseEvent) => void;
+    onEndIconClick?: (ev: MouseEvent) => void;
+}
+declare class Input implements IInput {
     #private;
-    constructor(ref: HTMLElement);
-    destroy: () => void;
+    onChange?: (ev: InputEvent) => void;
+    onFocus?: (ev: InputEvent) => void;
+    onBlur?: (ev: InputEvent) => void;
+    onStartIconClick?: (ev: Event) => void;
+    onEndIconClick?: (ev: Event) => void;
+    constructor(ref: IRef);
+    readonly focus: () => void;
+    readonly blur: () => void;
+    readonly destroy: () => void;
 }
 
-export { IHeader, IModal, IModalConstructor, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };
+export { IHeader, IInput, IInputConstructor, IInputDataset, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };

@@ -1,3 +1,95 @@
+.tw-input-container {
+  @apply tw-flex
+  tw-flex-col;
+}
+
+.tw-input-containerInput {
+  @apply tw-w-full
+  tw-flex
+  tw-items-center
+  tw-relative
+  tw-box-border;
+}
+
+.tw-input,
+.tw-input-label,
+.tw-input-helperText {
+  @apply tw-font-sans
+  tw-text-black
+  tw-body3;
+}
+
 .tw-input {
-  @apply tw-text-black;
+  @apply tw-py-3
+  tw-px-2.5
+  tw-rounded
+  tw-w-full
+  tw-bg-gray-10
+  focus:tw-ring-2
+  focus:tw-ring-accent-dark
+  focus:tw-outline-none
+  focus:tw-text-accent-dark
+  disabled:tw-text-black-50;
+  min-width: 64px;
+}
+
+.tw-input-error {
+  @apply tw-text-alert-dark
+  tw-ring-2
+  tw-ring-alert-dark
+  focus:tw-ring-2
+  focus:tw-ring-alert-dark
+  focus:tw-text-alert-dark;
+}
+
+.tw-input-startIcon-padding {
+  @apply tw-pl-11;
+}
+
+.tw-input-endIcon-single-padding {
+  @apply tw-pr-11;
+}
+
+.tw-input-endIcon-double-padding {
+  padding-right: 4.5rem;
+}
+
+.tw-input-icon {
+  @apply tw-body1
+  tw-text-black
+  tw-absolute
+  tw-cursor-pointer;
+}
+
+.tw-input-startIcon {
+  @apply tw-input-icon
+  tw-left-2.5;
+}
+
+.tw-input-endIcon {
+  @apply tw-input-icon
+  tw-right-2.5
+  tw-flex
+  tw-gap-2;
+}
+
+.tw-input-clearIcon {
+  opacity: 0.3;
+  transition: opacity 0.5s;
+}
+
+.tw-input-clearIcon-visible {
+  opacity: 1;
+}
+
+.tw-input-clearIcon:hover {
+  @apply tw-input-clearIcon-visible;
+}
+
+.tw-input-focus {
+  @apply tw-text-accent-dark;
+}
+
+.tw-input-element-error {
+  @apply tw-text-alert-dark;
 }
