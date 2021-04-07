@@ -82,7 +82,7 @@ const colors: PalleteColor = {
     25: '#FFB773',
     30: '#FFAB5C',
     35: '#FF9F45',
-    40: '#FFA945',
+    40: '#FF932E',
     45: '#FF8717',
     50: '#FF7C00',
     55: '#E87100',
