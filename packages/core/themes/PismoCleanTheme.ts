@@ -25,7 +25,7 @@ const colors: PalleteColor = {
     85: '#051010',
     90: '#040C0C',
     95: '#030808',
-    100: '#1A1A22'
+    100: '#020404'
   },
   background: {
     0: '#F4F8F8',
@@ -82,9 +82,9 @@ const colors: PalleteColor = {
     25: '#FFB773',
     30: '#FFAB5C',
     35: '#FF9F45',
-    40: '#FF932E',
+    40: '#FFA945',
     45: '#FF8717',
-    50: '#FFA945',
+    50: '#FF7C00',
     55: '#E87100',
     60: '#D16600',
     65: '#BA5B00',
@@ -221,11 +221,11 @@ export const PismoCleanTheme: BoltTheme = {
         }
       },
       containedPrimary: {
-        color: colors.text['100'],
-        backgroundColor: colors.main['50'],
+        color: '#1A1A22',
+        backgroundColor: '#FFA945',
         boxShadow: shadows[4],
         '&:hover': {
-          backgroundColor: colors.main['50']
+          backgroundColor: '#FFA945'
         }
       },
       containedSecondary: {
