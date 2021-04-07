@@ -25,7 +25,7 @@ const colors: PalleteColor = {
     85: '#051010',
     90: '#040C0C',
     95: '#030808',
-    100: '#020404'
+    100: '#1A1A22'
   },
   background: {
     0: '#F4F8F8',
@@ -84,7 +84,7 @@ const colors: PalleteColor = {
     35: '#FF9F45',
     40: '#FF932E',
     45: '#FF8717',
-    50: '#FF7C00',
+    50: '#FFA945',
     55: '#E87100',
     60: '#D16600',
     65: '#BA5B00',
@@ -180,6 +180,7 @@ export const PismoCleanTheme: BoltTheme = {
         textTransform: 'unset',
         width: '100%',
         minHeight: '48px',
+        borderRadius: '6px',
         '&::after': {
           position: 'absolute',
           content: "' '",
@@ -220,17 +221,20 @@ export const PismoCleanTheme: BoltTheme = {
         }
       },
       containedPrimary: {
-        background: `linear-gradient(172.56deg, ${colors.main['50']} -0.84%, ${
-          colors.backgroundMain['60']
-        } 141.1%)`,
-        boxShadow: shadows[4]
+        color: colors.text['100'],
+        backgroundColor: colors.main['50'],
+        boxShadow: shadows[4],
+        '&:hover': {
+          backgroundColor: colors.main['50']
+        }
       },
       containedSecondary: {
         position: 'relative',
-        background: `linear-gradient(179.85deg, ${
-          colors.background['45']
-        } -46.8%, ${colors.text['65']} 240.65%)`,
-        boxShadow: shadows[4]
+        backgroundColor: colors.background['60'],
+        boxShadow: shadows[4],
+        '&:hover': {
+          backgroundColor: colors.background['60']
+        }
       }
     },
 
