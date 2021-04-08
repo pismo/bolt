@@ -57,13 +57,11 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       }
     },
     iconButton: {
-      padding: 0,
-      '& svg': {
-        fill: '#000'
-      }
+      padding: 0
     },
     icon: {
-      fontSize: '2rem'
+      fontSize: '2rem',
+      fill: '#000'
     },
     logo: {
       width: '100%',
@@ -93,7 +91,8 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   onClick,
   applications,
   full,
-  contract
+  contract,
+  app
 }: ApplicationToolbarProps) => {
   const classes = useStyles({ full, contract })
 
@@ -109,6 +108,35 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   })
 
   const { currentTheme } = React.useContext(Context)
+
+  const appIcon = status => {
+    let icon
+    if (status) {
+      return (
+        <IconButton
+          className={`${classes.iconButton} Bolt-PismoBar-iconButton`}
+          onClick={onClick}
+          data-testid='mainButton'
+        >
+          <MenuIcon
+            className={`${classes.icon} Bolt-PismoBar-icon`}
+            data-testid={
+              applications[current] ? applications[current].name : current
+            }
+          />
+        </IconButton>
+      )
+    } else {
+      return (
+        <MenuIcon
+          className={`${classes.icon} Bolt-PismoBar-icon`}
+          data-testid={
+            applications[current] ? applications[current].name : current
+          }
+        />
+      )
+    }
+  }
 
   return (
     <AAppBar
@@ -127,18 +155,7 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
               {...ToolbarProps}
               style={props}
             >
-              <IconButton
-                className={`${classes.iconButton} Bolt-PismoBar-iconButton`}
-                onClick={onClick}
-                data-testid='mainButton'
-              >
-                <MenuIcon
-                  className={`${classes.icon} Bolt-PismoBar-icon`}
-                  data-testid={
-                    applications[current] ? applications[current].name : current
-                  }
-                />
-              </IconButton>
+              {appIcon(app)}
               {contract ? null : (
                 <Hidden xsDown={full ? false : true}>
                   <Box ml='5px'>
