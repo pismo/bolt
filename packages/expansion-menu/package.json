@@ -1,6 +1,6 @@
 {
   "name": "@pismo/bolt-expansion-menu",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "description": "Bolt component expansion-menu",
   "author": "Pismo <hello@pismo.io>",
   "homepage": "https://github.com/pismo/bolt#readme",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
-    "@pismo/bolt-core": "^2.12.0",
+    "@pismo/bolt-core": "^2.13.0",
     "color": "^3.1.2"
   },
   "scripts": {
