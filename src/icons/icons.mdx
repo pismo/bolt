@@ -8,53 +8,65 @@ import '../../dist/css/bolt-css.css';
 # Icons
 
 <Playground>
-  <div className="tw-flex tw-gap-4 tw-flex-wrap">
-    <div className="tw-i-bars tw-text-4xl"></div>
-    <div className="tw-i-accounts tw-text-4xl"></div>
-    <div className="tw-i-bag tw-text-4xl"></div>
-    <div className="tw-i-box tw-text-4xl"></div>
-    <div className="tw-i-umbrella tw-text-4xl"></div>
-    <div className="tw-i-luggage tw-text-4xl"></div>
-    <div className="tw-i-home tw-text-4xl"></div>
-    <div className="tw-i-layout tw-text-4xl"></div>
-    <div className="tw-i-folder tw-text-4xl"></div>
-    <div className="tw-i-statements tw-text-4xl"></div>
-    <div className="tw-i-cards tw-text-4xl"></div>
-    <div className="tw-i-clock tw-text-4xl"></div>
-    <div className="tw-i-edit tw-text-4xl"></div>
-    <div className="tw-i-search tw-text-4xl"></div>
-    <div className="tw-i-calendar tw-text-4xl"></div>
-    <div className="tw-i-close tw-text-4xl"></div>
-    <div className="tw-i-settings-bar tw-text-4xl"></div>
-    <div className="tw-i-notifications tw-text-4xl"></div>
-    <div className="tw-i-chevron-down tw-text-4xl"></div>
-    <div className="tw-i-chevron-up tw-text-4xl"></div>
-    <div className="tw-i-chevron-left tw-text-4xl"></div>
-    <div className="tw-i-chevron-right tw-text-4xl"></div>
-    <div className="tw-i-arrow-down tw-text-4xl"></div>
-    <div className="tw-i-arrow-up tw-text-4xl"></div>
-    <div className="tw-i-arrow-left tw-text-4xl"></div>
-    <div className="tw-i-arrow-right tw-text-4xl"></div>
-    <div className="tw-i-share tw-text-4xl"></div>
-    <div className="tw-i-lock tw-text-4xl"></div>
-    <div className="tw-i-mail tw-text-4xl"></div>
-    <div className="tw-i-money-in tw-text-4xl"></div>
-    <div className="tw-i-money-out tw-text-4xl"></div>
-    <div className="tw-i-file-text tw-text-4xl"></div>
-    <div className="tw-i-check tw-text-4xl"></div>
-    <div className="tw-i-alert-circle tw-text-4xl"></div>
-    <div className="tw-i-money tw-text-4xl"></div>
-    <div className="tw-i-dialog-help tw-text-4xl"></div>
-    <div className="tw-i-dialog-canceled tw-text-4xl"></div>
-    <div className="tw-i-dialog tw-text-4xl"></div>
-    <div className="tw-i-menu tw-text-4xl"></div>
-    <div className="tw-i-bar-chart tw-text-4xl"></div>
-    <div className="tw-i-navigation tw-text-4xl"></div>
-    <div className="tw-i-map-pin tw-text-4xl"></div>
-    <div className="tw-i-eye tw-text-4xl"></div>
-    <div className="tw-i-eye-off tw-text-4xl"></div>
-    <div className="tw-i-settings tw-text-4xl"></div>
-    <div className="tw-i-glob tw-text-4xl"></div>
-    <div className="tw-i-thumbs-up tw-text-4xl"></div>
-  </div>
+  {() => {
+    const iconsNames = [
+      'bars',
+      'accounts',
+      'bag',
+      'box',
+      'umbrella',
+      'luggage',
+      'home',
+      'layout',
+      'folder',
+      'statements',
+      'cards',
+      'clock',
+      'edit',
+      'search',
+      'calendar',
+      'close',
+      'settings-bar',
+      'notifications',
+      'chevron-down',
+      'chevron-up',
+      'chevron-left',
+      'chevron-right',
+      'arrow-down',
+      'arrow-up',
+      'arrow-left',
+      'arrow-right',
+      'share',
+      'lock',
+      'mail',
+      'money-in',
+      'money-out',
+      'file-text',
+      'check',
+      'alert-circle',
+      'money',
+      'dialog-help',
+      'dialog-canceled',
+      'dialog',
+      'menu',
+      'bar-chart',
+      'navigation',
+      'map-pin',
+      'eye',
+      'eye-off',
+      'settings',
+      'glob',
+      'thumbs-up',
+    ];
+    return (
+      <div className="tw-grid tw-grid-cols-2 sm:tw-grid-cols-3 md:tw-grid-cols-5 tw-gap-4">
+        {iconsNames.map((name) => (
+          <div className="tw-flex tw-flex-col tw-items-center">
+            <div className={`tw-i-${name} tw-text-4xl`}></div>
+            <p className="tw-body2">{`tw-i-${name}`}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }}
 </Playground>
