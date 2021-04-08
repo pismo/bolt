@@ -180,6 +180,7 @@ export const PismoCleanTheme: BoltTheme = {
         textTransform: 'unset',
         width: '100%',
         minHeight: '48px',
+        borderRadius: '6px',
         '&::after': {
           position: 'absolute',
           content: "' '",
@@ -220,17 +221,20 @@ export const PismoCleanTheme: BoltTheme = {
         }
       },
       containedPrimary: {
-        background: `linear-gradient(172.56deg, ${colors.main['50']} -0.84%, ${
-          colors.backgroundMain['60']
-        } 141.1%)`,
-        boxShadow: shadows[4]
+        color: '#1A1A22',
+        backgroundColor: '#FFA945',
+        boxShadow: shadows[4],
+        '&:hover': {
+          backgroundColor: '#FFA945'
+        }
       },
       containedSecondary: {
         position: 'relative',
-        background: `linear-gradient(179.85deg, ${
-          colors.background['45']
-        } -46.8%, ${colors.text['65']} 240.65%)`,
-        boxShadow: shadows[4]
+        backgroundColor: colors.background['60'],
+        boxShadow: shadows[4],
+        '&:hover': {
+          backgroundColor: colors.background['60']
+        }
       }
     },
 

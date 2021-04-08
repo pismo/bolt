@@ -9,6 +9,7 @@ export interface PismoBarProps {
   full?: boolean
   contract?: boolean
   Icon?: React.ReactNode | React.FC | string
+  statusApp?: boolean
   onClick?: () => void
 }
 
@@ -31,6 +32,7 @@ export interface ApplicationsType {
 export interface ApplicationToolbarProps extends PismoBarProps {
   onClick?: () => void
   applications: ApplicationsType
+  app?: boolean
 }
 
 export interface ApplicationButtonProps {
