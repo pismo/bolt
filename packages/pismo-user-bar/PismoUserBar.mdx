@@ -6,7 +6,6 @@ import { Fragment, useState } from 'react'
 import { Playground } from 'docz'
 import { PismoUserBar } from './PismoUserBar'
 import { Bolt } from '@pismo/bolt-core'
-import SettingIcon from './assets/settings.svg'
 
 # PismoUserBar
 
@@ -34,7 +33,10 @@ set(!isOpen)
 
     return (
       <Bolt>
-        <PismoUserBar name='Klovke Isro' email='a.b@company.com' Icon={SettingIcon} >teste</PismoUserBar>
+        <div>
+          <PismoUserBar name='Klovke Isro' email='a.b@company.com' >teste</PismoUserBar>
+        </div>
+        
       </Bolt>
     )
 

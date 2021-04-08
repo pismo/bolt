@@ -5,9 +5,9 @@ import { PalleteColor, BoltTheme } from './ColorsProps'
 
 const colors: PalleteColor = {
   text: {
-    0: '#E8EBEB',
-    5: '#D2D8D8',
-    10: '#BCC5C5',
+    0: '#1A1A22',
+    5: '#525061',
+    10: '#000',
     15: '#A6B2B2',
     20: '#909F9F',
     25: '#7A8B8B',

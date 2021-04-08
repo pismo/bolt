@@ -61,13 +61,13 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     },
     icon: {
       fontSize: '2rem',
-      fill: '#000'
+      fill: theme.palette.colors.text['0']
     },
     logo: {
       width: '100%',
       height: '40px',
       '& .Pismo-Bolt-icons-logo-name,.Pismo-Bolt-icons-logo-app': {
-        fill: '#1A1A22'
+        fill: theme.palette.colors.text['0']
       }
     },
     darken: {
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
       backgroundColor: theme.palette.colors.background['100']
     },
     titlePismoBar: {
-      color: '#1A1A22',
+      color: theme.palette.colors.text['0'],
       fontSize: '16px',
       fontWeight: 700
     }

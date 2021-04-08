@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: BoltTheme) => {
               colors.backgroundMain['60']
             } 126.68%)`
           : 'unset',
-        color: isSelected ? '#1A1A22' : colors.text['50'],
+        color: isSelected ? colors.text['0'] : colors.text['50'],
         boxShadow: isSelected ? theme.shadows[4] : 'unset',
         transition: 'box-shadow 0.5s',
         '&:hover': {
@@ -34,8 +34,11 @@ const useStyles = makeStyles((theme: BoltTheme) => {
     appButtonIcon: {
       width: '48px',
       height: '48px',
-      backgroundColor: colors.background['30'],
+      backgroundColor: '#C0C0C0',
       borderRadius: '50%'
+    },
+    txt: {
+      color: colors.text['0']
     }
   }
 })
@@ -72,7 +75,9 @@ const ApplicationButton: React.FC<ApplicationButtonProps> = ({
             } Bolt-PismoBar-ApplicationButton-icon`}
             mb='8px'
           />
-          <Typography variant='body1'>{data.name}</Typography>
+          <Typography variant='body1' className={classes.txt}>
+            {data.name}
+          </Typography>
         </Box>
       </ButtonBase>
     </Grid>
