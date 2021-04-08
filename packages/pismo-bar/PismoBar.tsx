@@ -90,6 +90,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
   appSelected,
   contract,
   full,
+  statusApp = false,
   onClick
 }: PismoBarProps) => {
   const classes = useStyles({})
@@ -129,6 +130,7 @@ const PismoBar: React.FC<PismoBarProps> = ({
         current={current}
         onClick={toOpen}
         contract={contract}
+        app={statusApp}
         full={full}
       />
       <Drawer
