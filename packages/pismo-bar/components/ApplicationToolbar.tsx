@@ -110,7 +110,6 @@ const ApplicationToolbar: React.FC<ApplicationToolbarProps> = ({
   const { currentTheme } = React.useContext(Context)
 
   const appIcon = status => {
-    let icon
     if (status) {
       return (
         <IconButton
