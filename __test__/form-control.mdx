@@ -1,0 +1,156 @@
+---
+name: Form Control
+---
+
+import { useRef, useEffect, useState } from 'react';
+import { Playground } from 'docz';
+import '../dist/css/bolt-css.css';
+import { FormControl } from '../dist/js/bolt.js';
+
+<Playground>
+  {() => {
+    const [formControl, setFormControl] = useState(null);
+    const [passVisible, setPassVisible] = useState(false);
+    const [pass2Visible, setPass2Visible] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const refForm = useRef();
+    useEffect(() => {
+      if (refForm.current && !formControl) {
+        setFormControl(
+          new FormControl({
+            form: refForm.current,
+            initialValues: { name: '', email: '', pass: '', pass2: '' },
+            validationSchema: {
+              name: { presence: { allowEmpty: false } },
+              email: { email: true },
+              pass: { presence: { allowEmpty: false } },
+              pass2: { presence: { allowEmpty: false }, equality: 'pass' },
+            },
+            autoController: true,
+            events: {
+              pass: {
+                onEndIconClick: handleIconClick('pass'),
+              },
+              pass2: {
+                onEndIconClick: handleIconClick('pass2'),
+              },
+            },
+          })
+        );
+      }
+      if (formControl) {
+        formControl.onSubmit = submitHandle;
+        window.formControl = formControl;
+      }
+      return () => {
+        if (formControl) formControl.destroy();
+      };
+    }, [refForm.current, formControl]);
+    const handleIconClick = (name) => () => {
+      if (name === 'pass') setPassVisible((old) => !old);
+      else setPass2Visible((old) => !old);
+    };
+    const submitHandle = () => {
+      setSuccess(true);
+      if (formControl) formControl.cleanFields();
+    };
+    return (
+      <form ref={refForm} className="tw-flex tw-gap-4 tw-flex-col" data-testid="complete-form">
+        <bolt-input data-name="name" data-label="nome" class="tw-w-full"></bolt-input>
+        <bolt-input data-name="email" data-label="e-mail" class="tw-w-full"></bolt-input>
+        <div className="tw-flex tw-w-full tw-gap-4">
+          <bolt-input
+            data-name="pass"
+            data-label="password"
+            data-type={passVisible ? 'text' : 'password'}
+            data-endicon={passVisible ? 'eye-off' : 'eye'}
+            class="tw-w-1/2"
+          ></bolt-input>
+          <bolt-input
+            data-name="pass2"
+            data-label="confirmação"
+            data-type={pass2Visible ? 'text' : 'password'}
+            data-endicon={pass2Visible ? 'eye-off' : 'eye'}
+            class="tw-w-1/2"
+          ></bolt-input>
+        </div>
+        <div className="tw-flex tw-gap-4 tw-items-center">
+          <button type="submit" className="tw-btn tw-btn-primary">
+            enviar
+          </button>
+          <p className="tw-body2" data-testid="result">
+            {success ? 'formulário enviado com sucesso' : ''}
+          </p>
+        </div>
+      </form>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Multiplos schemas
+
+<br />
+
+<Playground>
+  {() => {
+    const [formControl, setFormControl] = useState(null);
+    const [success, setSuccess] = useState(false);
+    const refForm = useRef();
+    useEffect(() => {
+      if (refForm.current && !formControl) {
+        setFormControl(
+          new FormControl({
+            form: refForm.current,
+            initialValues: { question: '', cat: '', dog: '' },
+            autoController: true,
+          })
+        );
+      }
+      if (formControl) {
+        formControl.onValidation = validationHandler;
+        formControl.onSubmit = submitHandle;
+      }
+      return () => {
+        if (formControl) formControl.destroy();
+      };
+    }, [refForm.current, formControl]);
+    const validationHandler = (values) => {
+      const schema = {
+        question: { presence: { allowEmpty: false, message: 'responda cat ou dog' } },
+      };
+      if (values.question === 'cat')
+        return {
+          ...schema,
+          cat: { presence: { allowEmpty: false, message: 'qual o nome do gato?' } },
+        };
+      if (values.question === 'dog')
+        return {
+          ...schema,
+          dog: { presence: { allowEmpty: false, message: 'qual o nome do cachorro?' } },
+        };
+      return schema;
+    };
+    const submitHandle = () => {
+      setSuccess(true);
+      if (formControl) formControl.cleanFields();
+    };
+    return (
+      <form ref={refForm} className="tw-flex tw-gap-4 tw-flex-col" data-testid="schemas">
+        <bolt-input data-name="question" data-label="digite cat ou dog" class="tw-w-full"></bolt-input>
+        <div className="tw-flex tw-w-full tw-gap-4">
+          <bolt-input data-name="cat" data-label="nome do gato" class="tw-w-1/2"></bolt-input>
+          <bolt-input data-name="dog" data-label="nome do cachorro" class="tw-w-1/2"></bolt-input>
+        </div>
+        <div className="tw-flex tw-gap-4 tw-items-center">
+          <button type="submit" className="tw-btn tw-btn-primary">
+            enviar
+          </button>
+          <p className="tw-body2">{success ? 'formulário enviado com sucesso' : ''}</p>
+        </div>
+      </form>
+    );
+  }}
+</Playground>

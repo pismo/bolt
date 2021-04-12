@@ -1,0 +1,284 @@
+---
+name: Form Control
+---
+
+import { useRef, useEffect, useState } from 'react';
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { FormControl } from '../../dist/js/bolt.js';
+
+# FormControl
+
+O componente **FormControl** traz algumas ferramentas para facilitar a construção e validação de formulários.
+Para validação é utilizado internamente a biblioteca [**Validation.js**](https://validatejs.org/).
+
+O **FormControl** instancia de forma automatizada o componente [**Input**](/src-input-input). É requerido utilizar a tag **`<bolt-input />`** para identificar o componente.
+Também é requerido ter um **button** do tipo **submit** para enviar o formulário.
+
+Pode-se escolher o controle de erro de forma automatizada ou manual. A forma automatizada (padrão) vai definir a propriedade error do elemento inválido para `true` e
+definir o helptext com o texto da _message_ do _validationSchema_
+
+Optando pela forma manual deve setar a propriedade _autoController_ para `false` e fazer a mamipulação personalizada auxiliado pelos eventos fornecidos.
+
+Também é possível manipular eventos para cada input de forma individual através da propriedade _events_
+
+> \* O **FormControl** registra e manipula os inputs através da propriedade **data-name**. Portanto, é obrigatório a definição desta propriedade para cada elemento.
+>
+> \* O react não reconhece a tag personalizada como componente. Portanto para adicionar uma classe no componente `<bolt-input />`, deve-se usar a propriedade **class** ao invés de **className**
+
+<br />
+
+## Propriedades
+
+```typescript
+// propriedades requeridas pelo construtor
+export interface FormControlProps {
+  form: HTMLFormElement; // elemento form do html passado como referência
+  initialValues: { [prop: string]: any }; // valores iniciais. É obrigatório, mesmo que os valores sejam vazios
+  validationSchema?: { [prop: string]: any }; // schema de validação com base na lib validate.js
+  autoController?: boolean; // se false o controle do formulário deve ser feito manualmente através de eventos - default true
+  events?: { [name: string]: Omit<IInput, 'destroy' | 'focus' | 'blur'> }; // eventos do inputs de forma individual
+}
+
+// construtor recebe FormControlProps como argumento
+export interface IFormControlConstructor {
+  new (props: FormControlProps): IFormControl;
+}
+
+export interface IFormControl {
+  readonly values: { [name: string]: any }; // getter dos valores dos inputs
+  readonly errors: { [name: string]: string }; // getter dos erros
+  readonly cleanFields: () => void; // limpa todos os campos
+  readonly fieldsToInitials: () => void; // reseta os inputs para o initialValues
+  readonly destroy: () => void; // remove todos os eventos e htmls criados
+
+  onValidation?: (values) => { [k: string]: any }; // executado antes da validação, passa os valores atuais como argumento e deve retornar o schema para a validação
+  onChange?: (target: { name: string; value: string }, values: { [prop: string]: any }) => void; // disparado a cada mudança no input
+  onError?: (errors: { [k: string]: string }) => void; // disparado se a validação falhar, passa como argumento os erros atuais
+  onSubmit?: (values: { [k: string]: any }) => void; // disparado se passar na validação passa como argumento os valores atuais
+}
+```
+
+## Exemplo completo
+
+<br />
+
+<Playground>
+  {() => {
+    const [formControl, setFormControl] = useState(null);
+    const [passVisible, setPassVisible] = useState(false);
+    const [pass2Visible, setPass2Visible] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const refForm = useRef();
+    useEffect(() => {
+      if (refForm.current && !formControl) {
+        setFormControl(
+          new FormControl({
+            form: refForm.current,
+            initialValues: { name: '', email: '', pass: '', pass2: '' },
+            validationSchema: {
+              name: { presence: { allowEmpty: false } },
+              email: { email: true },
+              pass: { presence: { allowEmpty: false } },
+              pass2: { presence: { allowEmpty: false }, equality: 'pass' },
+            },
+            autoController: true,
+            events: {
+              pass: {
+                onEndIconClick: handleIconClick('pass'),
+              },
+              pass2: {
+                onEndIconClick: handleIconClick('pass2'),
+              },
+            },
+          })
+        );
+      }
+      if (formControl) {
+        formControl.onSubmit = submitHandle;
+      }
+      return () => {
+        if (formControl) formControl.destroy();
+      };
+    }, [refForm.current, formControl]);
+    const handleIconClick = (name) => () => {
+      if (name === 'pass') setPassVisible((old) => !old);
+      else setPass2Visible((old) => !old);
+    };
+    const submitHandle = () => {
+      setSuccess(true);
+      if (formControl) formControl.cleanFields();
+    };
+    return (
+      <form ref={refForm} className="tw-flex tw-gap-4 tw-flex-col">
+        <bolt-input data-name="name" data-label="nome" class="tw-w-full"></bolt-input>
+        <bolt-input data-name="email" data-label="e-mail" class="tw-w-full"></bolt-input>
+        <div className="tw-flex tw-w-full tw-gap-4">
+          <bolt-input
+            data-name="pass"
+            data-label="password"
+            data-type={passVisible ? 'text' : 'password'}
+            data-endicon={passVisible ? 'eye-off' : 'eye'}
+            class="tw-w-1/2"
+          ></bolt-input>
+          <bolt-input
+            data-name="pass2"
+            data-label="confirmação"
+            data-type={pass2Visible ? 'text' : 'password'}
+            data-endicon={pass2Visible ? 'eye-off' : 'eye'}
+            class="tw-w-1/2"
+          ></bolt-input>
+        </div>
+        <div className="tw-flex tw-gap-4 tw-items-center">
+          <button type="submit" className="tw-btn tw-btn-primary">
+            enviar
+          </button>
+          <p className="tw-body2">{success ? 'formulário enviado com sucesso' : ''}</p>
+        </div>
+      </form>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Multiplos Schemas
+
+<br />
+
+Através do evento onValidation é possível modificar o schema de validação. Esse evento é disparado antes da validação e passa como argumento os valores atuais dos campos e
+deve retornar o schema pelo qual será feita a validação, ou seja, você pode mudar o schema com base nas informações dos valores já preenchidos. Se o método onValidation
+for definido, a propriedade onValidation será ignorada. Se não for adicionada nenhum schema, o evento onSubmit será disparado sem validação.
+
+<br />
+
+<Playground>
+  {() => {
+    const [formControl, setFormControl] = useState(null);
+    const [success, setSuccess] = useState(false);
+    const refForm = useRef();
+    useEffect(() => {
+      if (refForm.current && !formControl) {
+        setFormControl(
+          new FormControl({
+            form: refForm.current,
+            initialValues: { question: '', cat: '', dog: '' },
+            autoController: true,
+          })
+        );
+      }
+      if (formControl) {
+        formControl.onValidation = validationHandler;
+        formControl.onSubmit = submitHandle;
+      }
+      return () => {
+        if (formControl) formControl.destroy();
+      };
+    }, [refForm.current, formControl]);
+    const validationHandler = (values) => {
+      const schema = {
+        question: { presence: { allowEmpty: false, message: 'responda cat ou dog' } },
+      };
+      if (values.question === 'cat')
+        return {
+          ...schema,
+          cat: { presence: { allowEmpty: false, message: 'qual o nome do gato?' } },
+        };
+      if (values.question === 'dog')
+        return {
+          ...schema,
+          dog: { presence: { allowEmpty: false, message: 'qual o nome do cachorro?' } },
+        };
+      return schema;
+    };
+    const submitHandle = () => {
+      setSuccess(true);
+      if (formControl) formControl.cleanFields();
+    };
+    return (
+      <form ref={refForm} className="tw-flex tw-gap-4 tw-flex-col">
+        <bolt-input data-name="question" data-label="digite cat ou dog" class="tw-w-full"></bolt-input>
+        <div className="tw-flex tw-w-full tw-gap-4">
+          <bolt-input data-name="cat" data-label="nome do gato" class="tw-w-1/2"></bolt-input>
+          <bolt-input data-name="dog" data-label="nome do cachorro" class="tw-w-1/2"></bolt-input>
+        </div>
+        <div className="tw-flex tw-gap-4 tw-items-center">
+          <button type="submit" className="tw-btn tw-btn-primary">
+            enviar
+          </button>
+          <p className="tw-body2">{success ? 'formulário enviado com sucesso' : ''}</p>
+        </div>
+      </form>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Eventos individuais
+
+<br />
+
+É possível tratar os evento de cada input de forma individual através da propriedade **events**.
+
+<br />
+
+<Playground>
+  {() => {
+    const [formControl, setFormControl] = useState(null);
+    const [passVisible, setPassVisible] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const refForm = useRef();
+    useEffect(() => {
+      if (refForm.current && !formControl) {
+        setFormControl(
+          new FormControl({
+            form: refForm.current,
+            initialValues: { pass: '' },
+            autoController: true,
+            validationSchema: {
+              pass: { presence: { allowEmpty: false, message: 'digite a sua senha' } },
+            },
+            events: {
+              pass: {
+                onEndIconClick: handleIconClick,
+              },
+            },
+          })
+        );
+      }
+      if (formControl) {
+        formControl.onSubmit = submitHandle;
+      }
+      return () => {
+        if (formControl) formControl.destroy();
+      };
+    }, [refForm.current, formControl]);
+    const handleIconClick = () => {
+      setPassVisible((old) => !old);
+    };
+    const submitHandle = () => {
+      setSuccess(true);
+      if (formControl) formControl.cleanFields();
+    };
+    return (
+      <form ref={refForm} className="tw-flex tw-gap-4 tw-flex-col">
+        <bolt-input
+          data-name="pass"
+          data-label="senha"
+          data-type={passVisible ? 'text' : 'password'}
+          data-endicon={passVisible ? 'eye-off' : 'eye'}
+          class="tw-w-1/2"
+        ></bolt-input>
+        <div className="tw-flex tw-gap-4 tw-items-center">
+          <button type="submit" className="tw-btn tw-btn-primary">
+            enviar
+          </button>
+          <p className="tw-body2">{success ? 'formulário enviado com sucesso' : ''}</p>
+        </div>
+      </form>
+    );
+  }}
+</Playground>
