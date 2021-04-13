@@ -97,4 +97,75 @@ declare class Input implements IInput {
     readonly destroy: () => void;
 }
 
-export { IHeader, IInput, IInputConstructor, IInputDataset, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };
+interface FormControlProps {
+    form: HTMLFormElement;
+    initialValues: {
+        [prop: string]: any;
+    };
+    validationSchema?: {
+        [prop: string]: any;
+    };
+    autoController?: boolean;
+    events?: {
+        [name: string]: Omit<IInput, 'destroy' | 'focus' | 'blur'>;
+    };
+}
+interface IFormControlConstructor {
+    new (props: FormControlProps): IFormControl;
+}
+interface IFormControl {
+    readonly values: {
+        [name: string]: any;
+    };
+    readonly errors: {
+        [name: string]: string;
+    };
+    readonly cleanFields: () => void;
+    readonly fieldsToInitials: () => void;
+    readonly destroy: () => void;
+    onValidation?: (values: any) => {
+        [k: string]: any;
+    };
+    onChange?: (target: {
+        name: string;
+        value: string;
+    }, values: {
+        [prop: string]: any;
+    }) => void;
+    onError?: (errors: {
+        [k: string]: string;
+    }) => void;
+    onSubmit?: (values: {
+        [k: string]: any;
+    }) => void;
+}
+declare class FormControl implements IFormControl {
+    #private;
+    onValidation?: (values: any) => {
+        [k: string]: any;
+    };
+    onChange?: (target: {
+        name: string;
+        value: string;
+    }, values: {
+        [prop: string]: any;
+    }) => void;
+    onError?: (errors: {
+        [k: string]: string;
+    }) => void;
+    onSubmit?: (values: {
+        [k: string]: any;
+    }) => void;
+    constructor({ form, initialValues, validationSchema, autoController, events }: FormControlProps);
+    get values(): {
+        [prop: string]: any;
+    };
+    get errors(): {
+        [prop: string]: string;
+    };
+    readonly cleanFields: () => void;
+    readonly fieldsToInitials: () => void;
+    readonly destroy: () => void;
+}
+
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };

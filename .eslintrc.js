@@ -44,5 +44,7 @@ module.exports = {
       },
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
