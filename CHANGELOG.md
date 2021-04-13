@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/pismo/bolt/compare/v3.0.0-alpha.3...v3.1.0) (2021-04-13)
+
+
+### Features
+
+* **formcontrol:** formcontrol added ([8738837](https://github.com/pismo/bolt/commit/873883735bb9e5a6914c334b4ad4d9f9fe3569e1))
+* **input:** input component added ([a3b3352](https://github.com/pismo/bolt/commit/a3b3352d479311db75df021ec40ae0b47332fddb))
+
+
+### Bug Fixes
+
+* menu level2 color ([a9bc219](https://github.com/pismo/bolt/commit/a9bc219baec3e7f6108ea55c3b1b5a4e1f656979))
+
 ## [3.0.0-alpha.4](https://github.com/pismo/bolt/compare/v2.10.0...v3.0.0-alpha.4) (2021-03-29)
 
 
