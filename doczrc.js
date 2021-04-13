@@ -6,7 +6,6 @@ export default {
   files: process.env.TEST === 'true' ? test : docs,
   dest: '/bolt-docs',
   themeConfig: {
-    initialColorMode: 'dark',
     showPlaygroundEditor: false,
   },
 };
