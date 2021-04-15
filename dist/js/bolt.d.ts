@@ -1,3 +1,5 @@
+declare const iconsNames: string[];
+
 interface SidebarButton {
     label: string;
     level: 1 | 2;
@@ -168,4 +170,4 @@ declare class FormControl implements IFormControl {
     readonly destroy: () => void;
 }
 
-export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps };
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, Modal, Sidebar, SidebarButton, SidebarProps, iconsNames };
