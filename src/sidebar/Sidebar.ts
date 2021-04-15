@@ -76,12 +76,14 @@ class Sidebar implements ISidebar {
     this.#_header.appendChild(hIcon);
     this.#_header.appendChild(hLabel);
 
+    const levels = ['tw-sidebar-btn-l0', 'tw-sidebar-btn-l1', 'tw-sidebar-btn-l2'];
+
     content.forEach((el, i) => {
       const id = `${i}-${el.level}-${el.label}`;
       const child: HTMLElement & { name: string } = document.createElement('button');
       child.id = id;
       child.name = el.name || '';
-      child.classList.add('tw-sidebar-btn', `tw-sidebar-btn-l${el.level}`);
+      child.classList.add('tw-sidebar-btn', levels[el.level]);
       this.#_contentList[id] = child;
       let icon: HTMLElement;
       if (el.icon) {
