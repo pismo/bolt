@@ -77,6 +77,7 @@ class Sidebar implements ISidebar {
     const hIcon = document.createElement('span');
     const hLabel = document.createElement('p');
     hIcon.classList.add(`tw-i-${header.icon}`, 'tw-sidebar-btn-icon');
+
     hLabel.classList.add(`${activeMove ? 'tw-hide' : ''}`, 'tw-sidebar-btn-label');
     hLabel.innerText = header.label;
 
@@ -101,7 +102,8 @@ class Sidebar implements ISidebar {
       const child: HTMLElement & { name: string } = document.createElement('button');
       child.id = id;
       child.name = el.name || '';
-      child.classList.add(`${el.level === 2 && activeMove ? 'tw-hide' : ''}`, 'tw-sidebar-btn', levels[el.level]);
+
+      child.classList.add(`${el.level === 2 && activeMove && 'tw-hide'}`, 'tw-sidebar-btn', levels[el.level]);
       this.#_contentList[id] = child;
       let icon: HTMLElement;
       if (el.icon) {
