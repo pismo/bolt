@@ -110,10 +110,16 @@
   tw-w-full
   tw-h-14
   tw-bg-gray
-  tw-flex
   tw-justify-items-center
-  tw-items-center;
+  tw-items-center
+  tw-px-7
+  tw-flex;
   border-top-width: 1px;
+}
+
+.tw-grow-sidebar .tw-sidebar-btn-footnote {
+  @apply tw-justify-items-center
+  tw-px-0;
 }
 
 .tw-sidebar-btn-footnote .tw-sidebar-btn-label {
@@ -138,16 +144,24 @@
 
 .tw-btn-expand {
   position: absolute;
-  top: 46%;
+  top: 48.45%;
   right: -11px;
   z-index: 6;
-  border-radius: 8px;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
   background: #dbdae2;
 }
 
 .tw-i-chevron-right:before,
 .tw-i-chevron-left:before {
   color: #000;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.tw-i-chevron-left:before {
+  margin-left: -1px;
 }
 
 .tw-version {
@@ -155,6 +169,14 @@
   tw-left-0
   tw-body4
   tw-w-full
-  tw-text-center
+  tw-text-left
   sm:tw-font-normal;
+  transition: width 0.5s;
+  height: 24px;
+}
+
+.tw-grow-sidebar .tw-version {
+  @apply tw-text-center
+  tw-justify-items-center
+  tw-px-0;
 }
