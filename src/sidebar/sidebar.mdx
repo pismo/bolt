@@ -37,6 +37,7 @@ export interface SidebarProps {
   content: SidebarButton[]; // Array de botões que iræ compor o conteudo da sidebar
   footerLabel: string; // texto do footer da sidebar
   onSelected?: (selected: HTMLElement) => void; // evento disparado quando um botão é selecionado, envia o html do botão como argumento
+  enableMoviment?: boolean; // (Padrao true - menu fechado) ativa botao que permite menu expandir
 }
 
 // construtor, deve receber SidebarProps
