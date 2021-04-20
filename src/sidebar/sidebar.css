@@ -8,11 +8,12 @@
   tw-h-full;
   border-right: 1px solid #525061;
   transition: width 0.5s;
+  position: relative;
 }
 
 .tw-sidebar-content {
-  position: relative;
   @apply tw-h-full;
+  overflow-y: auto;
 }
 
 .tw-sidebar-content::-webkit-scrollbar-track {
@@ -117,7 +118,7 @@
   border-top-width: 1px;
 }
 
-.tw-grow-sidebar .tw-sidebar-btn-footnote {
+.tw-sidebar.tw-sidebar-grow .tw-sidebar-btn-footnote {
   @apply tw-justify-items-center
   tw-px-0;
 }
@@ -128,21 +129,21 @@
   tw-left-0;
 }
 
-.tw-hide {
+.tw-sidebar .tw-sidebar-hide {
   display: none;
   transition: width 0.5s;
 }
 
-.tw-grow-sidebar {
+.tw-sidebar.tw-sidebar-grow {
   width: 5rem;
 }
 
-.tw-grow-sidebar .tw-sidebar-btn.selected:after {
+.tw-sidebar .tw-sidebar-btn.selected:after {
   background: none;
   transition: width 0.5s;
 }
 
-.tw-btn-expand {
+.tw-sidebar .tw-sidebar-expand-btn {
   position: absolute;
   top: 48.45%;
   right: -11px;
@@ -153,18 +154,18 @@
   background: #dbdae2;
 }
 
-.tw-i-chevron-right:before,
-.tw-i-chevron-left:before {
+.tw-sidebar .tw-i-chevron-right:before,
+.tw-sidebar .tw-i-chevron-left:before {
   color: #000;
   margin-top: 2px;
   margin-left: 2px;
 }
 
-.tw-i-chevron-left:before {
+.tw-sidebar .tw-i-chevron-left:before {
   margin-left: -1px;
 }
 
-.tw-version {
+.tw-sidebar .tw-version {
   @apply tw-text-gray-75
   tw-left-0
   tw-body4
@@ -175,7 +176,7 @@
   height: 24px;
 }
 
-.tw-grow-sidebar .tw-version {
+.tw-sidebar.tw-sidebar-grow .tw-version {
   @apply tw-text-center
   tw-justify-items-center
   tw-px-0;

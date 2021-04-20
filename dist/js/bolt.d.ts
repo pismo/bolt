@@ -15,7 +15,7 @@ interface SidebarProps {
     header: IHeader;
     content: SidebarButton[];
     footerLabel: string;
-    enableMoviment: boolean;
+    enableMotion: boolean;
     onSelected?: (selected: HTMLElement) => void;
 }
 interface ISidebarConstructor {
@@ -26,7 +26,7 @@ interface ISidebar {
 }
 declare class Sidebar implements ISidebar {
     #private;
-    constructor({ container, header, content, footerLabel, onSelected, enableMoviment }: SidebarProps);
+    constructor({ container, header, content, footerLabel, onSelected, enableMotion }: SidebarProps);
     destroy: () => void;
 }
 
