@@ -15,7 +15,7 @@ export interface SidebarProps {
   header: IHeader;
   content: SidebarButton[];
   footerLabel: string;
-  enableMoviment: boolean;
+  enableMotion: boolean;
   onSelected?: (selected: HTMLElement) => void;
 }
 
@@ -40,7 +40,7 @@ class Sidebar implements ISidebar {
 
   #_onSelected?: (selected: HTMLElement) => void;
 
-  constructor({ container, header, content, footerLabel, onSelected, enableMoviment = true }: SidebarProps) {
+  constructor({ container, header, content, footerLabel, onSelected, enableMotion = true }: SidebarProps) {
     this.#_onSelected = onSelected;
 
     this.#_container = container;
@@ -52,7 +52,7 @@ class Sidebar implements ISidebar {
     this.#_footer = document.createElement('div');
     this.#_footer.dataset.testid = 'footer';
 
-    this.#_initialize(container, header, content, footerLabel, enableMoviment);
+    this.#_initialize(container, header, content, footerLabel, enableMotion);
   }
 
   #_initialize = (
@@ -60,9 +60,9 @@ class Sidebar implements ISidebar {
     header: IHeader,
     content: SidebarButton[],
     footerLabel: string,
-    enableMoviment: boolean
+    enableMotion: boolean
   ): void => {
-    this.#_container.classList.add(`${enableMoviment ? 'tw-sidebar-grow' : ''}`, 'tw-sidebar');
+    this.#_container.classList.add(`${enableMotion ? 'tw-sidebar-grow' : ''}`, 'tw-sidebar');
 
     this.#_header.classList.add('tw-sidebar-btn', 'tw-sidebar-btn-l0');
 
@@ -74,7 +74,7 @@ class Sidebar implements ISidebar {
     this.#_container.appendChild(this.#_content);
     this.#_container.appendChild(this.#_footer);
 
-    if (enableMoviment) {
+    if (enableMotion) {
       const expandContentIcon = document.createElement('div');
       expandContentIcon.classList.add('tw-sidebar-expand-btn');
       const expandIcon = document.createElement('span');
@@ -89,7 +89,7 @@ class Sidebar implements ISidebar {
     const hLabel = document.createElement('p');
     hIcon.classList.add(`tw-i-${header.icon}`, 'tw-sidebar-btn-icon');
 
-    hLabel.classList.add(`${enableMoviment ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
+    hLabel.classList.add(`${enableMotion ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
     hLabel.innerText = header.label;
 
     this.#_header.appendChild(hIcon);
@@ -103,7 +103,7 @@ class Sidebar implements ISidebar {
       child.id = id;
       child.name = el.name || '';
 
-      const active = !!(el.level === 2 && enableMoviment);
+      const active = !!(el.level === 2 && enableMotion);
 
       child.classList.add(`${active && 'tw-sidebar-hide'}`, 'tw-sidebar-btn', levels[el.level]);
       this.#_contentList[id] = child;
@@ -115,7 +115,7 @@ class Sidebar implements ISidebar {
       }
 
       const label = document.createElement('p');
-      label.classList.add(`${enableMoviment ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
+      label.classList.add(`${enableMotion ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
       label.innerText = el.label;
 
       child.appendChild(label);
