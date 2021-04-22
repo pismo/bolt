@@ -4,7 +4,7 @@
   "homepage": "https://bolt.pismolabs.io/",
   "style": "dist/css/bolt-css.css",
   "main": "dist/js/bolt.js",
-  "module": "dist/bolt.mjs",
+  "module": "dist/bolt.mjs.js",
   "typings": "dist/bolt.d.ts",
   "license": "ISC",
   "files": ["dist/*"],

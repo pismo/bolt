@@ -54,17 +54,20 @@ const list = {
       },
     ]);
 
-    exec(`yarn standard-version --release-as ${list[answers.version]}`, (error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+    exec(
+      `cross-env HUSKY_SKIP_HOOKS=1 yarn standard-version --release-as ${list[answers.version]}`,
+      (error, stdout, stderr) => {
+        if (error) {
+          console.log(`error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.log(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
       }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
+    );
   } catch (err) {
     console.log(err);
   }
