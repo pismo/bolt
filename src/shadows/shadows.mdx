@@ -1,0 +1,69 @@
+---
+name: Shadows
+---
+
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+
+# Shadows
+
+O style guide da Pismo dispõe de 5 níveis de box-shadow. Pode ser adicionado chamando o prefixo `tw-shadows-` + deph, on o deph 0 é sem sombra e deph 5 é a maior.
+
+<br />
+
+<Playground>
+  {() => {
+    const style = {
+      container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& p': {
+          color: 'white',
+        },
+      },
+      box: {
+        width: '100px',
+        height: '100px',
+        border: '1px solid white',
+        borderRadius: '4px',
+        backgroundColor: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& h1': {
+          fontFamily: 'Lato',
+          fontWeight: 'bolder',
+        },
+      },
+    };
+    return (
+      <div className="tw-flex tw-gap-5 tw-flex-wrap">
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-0"></div>
+          <p>none</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-1"></div>
+          <p>deph-1</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-2"></div>
+          <p>deph-2</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-3"></div>
+          <p>deph-3</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-4"></div>
+          <p>deph-4</p>
+        </div>
+        <div style={style.container}>
+          <div style={style.box} className="tw-shadows-5"></div>
+          <p>deph-5</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>

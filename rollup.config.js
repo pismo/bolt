@@ -14,7 +14,7 @@ export default [
         sourcemap: true,
       },
       {
-        file: 'dist/js/bolt.mjs',
+        file: 'dist/js/bolt.mjs.js',
         format: 'es',
         sourcemap: true,
       },

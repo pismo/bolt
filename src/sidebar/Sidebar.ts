@@ -105,7 +105,7 @@ class Sidebar implements ISidebar {
 
       const active = !!(el.level === 2 && enableMotion);
 
-      child.classList.add(`${active && 'tw-sidebar-hide'}`, 'tw-sidebar-btn', levels[el.level]);
+      child.classList.add(`${active ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn', levels[el.level]);
       this.#_contentList[id] = child;
       let icon: HTMLElement;
       if (el.icon) {
