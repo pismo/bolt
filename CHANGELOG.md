@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/pismo/bolt/compare/v3.1.1...v3.2.0) (2021-04-23)
+
+
+### Features
+
+* merge com master ([2ba5a21](https://github.com/pismo/bolt/commit/2ba5a218132ae8351e8bd3b2f288f4b1a0608317))
+* motion creation menu ([4c7734f](https://github.com/pismo/bolt/commit/4c7734fcf757ab76c1fd54dc83b2d635e918fa8c))
+* shadows ([230df63](https://github.com/pismo/bolt/commit/230df635fafeca2757d6bde7a77767339b1470c9))
+
+
+### Bug Fixes
+
+* alignment correction and code improvements ([2bfe29c](https://github.com/pismo/bolt/commit/2bfe29cc4a59d45f767b22241d9d29dc0d7a12bd))
+* best variable name ([4dc58fa](https://github.com/pismo/bolt/commit/4dc58faece814c2945c1236a75d5e189bc42e3e1))
+* standardizing Code ([70a70c4](https://github.com/pismo/bolt/commit/70a70c4756206b0985176c4059047a927556b6d7))
+
 ### [3.1.2](https://github.com/pismo/bolt/compare/v3.1.1...v3.1.2) (2021-04-19)
 
 
