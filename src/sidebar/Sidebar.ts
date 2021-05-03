@@ -1,8 +1,12 @@
+export interface ISidebarDataset {
+  open?: boolean;
+}
 export interface SidebarButton {
   label: string;
   level: 1 | 2;
   icon?: string;
   name?: string;
+  selected?: boolean;
 }
 
 export interface IHeader {
@@ -10,12 +14,15 @@ export interface IHeader {
   label: string;
 }
 
+export interface ISidebarContainer extends HTMLElement {
+  dataset: Partial<Record<keyof ISidebarDataset, string>>;
+}
+
 export interface SidebarProps {
   container: HTMLElement;
   header: IHeader;
   content: SidebarButton[];
   footerLabel: string;
-  enableMotion: boolean;
   onSelected?: (selected: HTMLElement) => void;
 }
 
@@ -40,56 +47,34 @@ class Sidebar implements ISidebar {
 
   #_onSelected?: (selected: HTMLElement) => void;
 
-  constructor({ container, header, content, footerLabel, onSelected, enableMotion = true }: SidebarProps) {
+  constructor({ container, header, content, footerLabel, onSelected }: SidebarProps) {
     this.#_onSelected = onSelected;
 
     this.#_container = container;
+    this.#_container.classList.add('tw-sidebar');
     this.#_container.dataset.testid = 'sidebar';
+
     this.#_header = document.createElement('div');
-    this.#_header.dataset.testid = 'header';
-    this.#_content = document.createElement('div');
-    this.#_content.dataset.testid = 'content';
-    this.#_footer = document.createElement('div');
-    this.#_footer.dataset.testid = 'footer';
-
-    this.#_initialize(container, header, content, footerLabel, enableMotion);
-  }
-
-  #_initialize = (
-    container: HTMLElement,
-    header: IHeader,
-    content: SidebarButton[],
-    footerLabel: string,
-    enableMotion: boolean
-  ): void => {
-    this.#_container.classList.add(`${enableMotion ? 'tw-sidebar-grow' : ''}`, 'tw-sidebar');
-
     this.#_header.classList.add('tw-sidebar-btn', 'tw-sidebar-btn-l0');
+    this.#_header.dataset.testid = 'header';
 
+    this.#_content = document.createElement('nav');
     this.#_content.classList.add('tw-sidebar-content');
+    this.#_content.dataset.testid = 'content';
 
+    this.#_footer = document.createElement('div');
     this.#_footer.classList.add('tw-sidebar-btn-footnote');
+    this.#_footer.dataset.testid = 'footer';
 
     this.#_container.appendChild(this.#_header);
     this.#_container.appendChild(this.#_content);
     this.#_container.appendChild(this.#_footer);
 
-    if (enableMotion) {
-      const expandContentIcon = document.createElement('div');
-      expandContentIcon.classList.add('tw-sidebar-expand-btn');
-      const expandIcon = document.createElement('span');
-      expandIcon.classList.add('tw-i-chevron-right');
-      expandContentIcon.appendChild(expandIcon);
-
-      this.#_container.appendChild(expandContentIcon);
-      expandContentIcon.addEventListener('click', this.#_clickExpandMenu);
-    }
-
     const hIcon = document.createElement('span');
     const hLabel = document.createElement('p');
     hIcon.classList.add(`tw-i-${header.icon}`, 'tw-sidebar-btn-icon');
 
-    hLabel.classList.add(`${enableMotion ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
+    hLabel.classList.add('tw-sidebar-btn-label');
     hLabel.innerText = header.label;
 
     this.#_header.appendChild(hIcon);
@@ -102,10 +87,7 @@ class Sidebar implements ISidebar {
       const child: HTMLElement & { name: string } = document.createElement('button');
       child.id = id;
       child.name = el.name || '';
-
-      const active = !!(el.level === 2 && enableMotion);
-
-      child.classList.add(`${active ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn', levels[el.level]);
+      child.classList.add('tw-sidebar-btn', levels[el.level]);
       this.#_contentList[id] = child;
       let icon: HTMLElement;
       if (el.icon) {
@@ -113,23 +95,20 @@ class Sidebar implements ISidebar {
         icon.classList.add(`tw-i-${el.icon}`, 'tw-sidebar-btn-icon');
         child.appendChild(icon);
       }
-
       const label = document.createElement('p');
-      label.classList.add(`${enableMotion ? 'tw-sidebar-hide' : ''}`, 'tw-sidebar-btn-label');
+      label.classList.add('tw-sidebar-btn-label');
       label.innerText = el.label;
-
       child.appendChild(label);
       child.addEventListener('click', this.#_clickHandler);
-
       this.#_content.appendChild(child);
     });
 
     const fLabel = document.createElement('p');
-    fLabel.classList.add('tw-version');
+    fLabel.classList.add('tw-sidebar-btn-label');
     fLabel.innerText = footerLabel;
 
     this.#_footer.appendChild(fLabel);
-  };
+  }
 
   #_clickHandler = (e: MouseEvent): void => {
     const target: HTMLElement = e.currentTarget as HTMLElement;
@@ -138,28 +117,6 @@ class Sidebar implements ISidebar {
     target.classList.add('selected');
 
     if (this.#_onSelected) this.#_onSelected(target);
-  };
-
-  #_findItems = (item: NodeListOf<Element>): void => {
-    item.forEach((res) => res.classList.toggle('tw-sidebar-hide'));
-  };
-
-  #_removeClass = (): void => {
-    this.#_content.querySelector('.tw-sidebar-expand-btn span')?.classList.remove('tw-i-chevron-right');
-    this.#_content.querySelector('.tw-sidebar-expand-btn span')?.classList.remove('tw-i-chevron-left');
-  };
-
-  #_clickExpandMenu = (): void => {
-    const active = this.#_container.classList.contains('tw-sidebar-grow');
-    this.#_removeClass();
-
-    document
-      .querySelector('.tw-sidebar-expand-btn span')
-      ?.classList.add(`${active ? 'tw-i-chevron-left' : 'tw-i-chevron-right'}`);
-
-    this.#_container.classList.toggle('tw-sidebar-grow');
-    this.#_findItems(this.#_container.querySelectorAll('.tw-sidebar-btn-label'));
-    this.#_findItems(this.#_container.querySelectorAll('.tw-sidebar-btn-l2'));
   };
 
   destroy = (): void => {

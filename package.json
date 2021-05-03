@@ -7,9 +7,7 @@
   "module": "dist/bolt.mjs.js",
   "typings": "dist/bolt.d.ts",
   "license": "ISC",
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
   "publishConfig": {
     "access": "public"
   },
@@ -49,6 +47,7 @@
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",
     "postcss-url": "^10.1.1",
+    "postcss-color-function": "^4.1.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

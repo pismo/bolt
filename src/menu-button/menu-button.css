@@ -1,0 +1,115 @@
+.tw-menu-btn {
+  @apply tw-w-full
+  tw-relative
+  tw-flex
+  tw-items-center
+  tw-text-gray-10
+  tw-bg-gray
+  tw-cursor-pointer
+  tw-overflow-hidden;
+  transition: width 0.5s, height 0.5s;
+}
+
+.tw-menu-btn:before {
+  content: ' ';
+  left: 0;
+  @apply tw-absolute
+  tw-w-full
+  tw-h-full
+  tw-z-0;
+}
+
+.tw-menu-btn span {
+  @apply tw-z-10;
+}
+
+.tw-menu-btn-icon {
+  @apply tw-text-2xl
+  tw-mx-6;
+}
+
+.tw-menu-btn-selected {
+  @apply tw-text-accent-light;
+}
+
+.tw-menu-btn-noicon {
+  padding-left: 4.5rem;
+}
+
+.tw-menu-btn-first,
+.tw-menu-btn-header {
+  @apply tw-body2;
+  height: 3.75rem;
+}
+
+.tw-menu-btn-first.tw-menu-btn-selected:before {
+  @apply tw-border-l-2
+  tw-border-accent-light;
+}
+
+.tw-menu-btn-second,
+.tw-menu-btn-footnote {
+  @apply tw-body3;
+  height: 3rem;
+}
+
+.tw-menu-btn-header,
+.tw-menu-btn-footnote {
+  @apply tw-text-gray-75
+  tw-select-none
+  tw-cursor-auto
+  focus:tw-outline-none;
+}
+
+.tw-menu-btn-footnote {
+  @apply tw-body4
+  tw-pl-6
+  tw-border-t-2
+  tw-border-gray-90;
+}
+
+.tw-menu-btn-header:before {
+  background-color: color(black a(20%));
+  transition: backgroun-color 0.3s;
+}
+
+.tw-menu-btn-first:focus,
+.tw-menu-btn-second:focus,
+.tw-menu-btn-secondary:focus {
+  @apply tw-border-t-2
+  tw-border-b-2
+  tw-border-accent-dark
+  tw-border-solid
+  tw-outline-none;
+}
+
+.tw-menu-btn-first:hover::before,
+.tw-menu-btn-first:focus::before,
+.tw-menu-btn-second:hover::before,
+.tw-menu-btn-second:focus::before {
+  background-color: color(black a(60%));
+  transition: background-color 0.3s;
+}
+
+.tw-menu-btn-collapsed {
+  width: 4.5rem;
+  transition: width 0.5s, height 0.5s;
+}
+
+.tw-menu-btn-second.tw-menu-btn-collapsed {
+  height: 0;
+}
+
+.tw-menu-btn-secondary {
+  @apply tw-pl-6
+  tw-bg-gray-95
+  tw-body3;
+  height: 3.375rem;
+}
+
+.tw-menu-btn-secondary:hover::before,
+.tw-menu-btn-secondary:focus::before,
+.tw-menu-btn-secondary.tw-menu-btn-selected::before {
+  background-color: color(#16161e a(40%));
+  transition: background-color 0.3s;
+}
