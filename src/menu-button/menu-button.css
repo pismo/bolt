@@ -40,6 +40,7 @@
 .tw-menu-btn-header {
   @apply tw-body2;
   height: 3.75rem;
+  min-height: 3.75rem;
 }
 
 .tw-menu-btn-first.tw-menu-btn-selected:before {
@@ -51,6 +52,7 @@
 .tw-menu-btn-footnote {
   @apply tw-body3;
   height: 3rem;
+  min-height: 3rem;
 }
 
 .tw-menu-btn-header,
@@ -98,6 +100,7 @@
 
 .tw-menu-btn-second.tw-menu-btn-collapsed {
   height: 0;
+  min-height: 0;
 }
 
 .tw-menu-btn-secondary {
@@ -105,6 +108,7 @@
   tw-bg-gray-95
   tw-body3;
   height: 3.375rem;
+  min-height: 3.375rem;
 }
 
 .tw-menu-btn-secondary:hover::before,
