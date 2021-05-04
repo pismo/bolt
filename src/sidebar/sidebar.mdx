@@ -68,7 +68,7 @@ export interface ISidebar {
             container: sidebarRef.current,
             header: { icon: 'bars', label: 'App Name' },
             content: [
-              { icon: 'accounts', level: 1, label: 'First Level' },
+              { icon: 'accounts', level: 1, label: 'First Level', selected: true },
               { level: 2, label: 'Second Level' },
               { level: 2, label: 'Second Level' },
               { icon: 'bag', level: 1, label: 'First Level' },
@@ -92,7 +92,7 @@ export interface ISidebar {
     }, [sidebarRef.current, sidebar]);
     return (
       <div className="tw-flex tw-h-screen">
-        <div ref={sidebarRef}></div>
+        <div ref={sidebarRef} data-open={false}></div>
       </div>
     );
   }}

@@ -1,0 +1,243 @@
+---
+name: MenuButton
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { MenuButton } from '../../dist/js/bolt';
+
+# MenuButton
+
+O componente MenuButton essencialmente faz parte da composição do menu do design system da Pismo. Apesar disso,
+pode também ser usado individualmente.
+
+<br />
+
+## Propriedades
+
+```typescript
+export interface MenuButtonProps {
+  container: HTMLElement; // elemento onde será inserido o botão, pode usar o mesmo container para multiplas instancias
+  level: 'first' | 'second' | 'header' | 'footnote'; // tipo do botão
+  label: string; // texto do botão
+  variant?: 'primary' | 'secondary'; // cor do botão - default primary
+  icon?: string; // nome do ícone do botão sem prefixo exemplo: 'money'
+}
+
+//construtor - tem como parâmetro o objeto props do tipo MenuButtonsProps
+export interface IMenuButtonConstructor {
+  new (props: MenuButtonProps): IMenuButton;
+}
+
+export interface IMenuButton {
+  selected: boolean; // retorna o estado de seleção do botão, default - false, se passar o valor true o botão é selecionado
+  collapsed: boolean; // retorna o estado colapsado do botão, default - false, se passar o valor true o botão se contrai
+  readonly destroy: () => void; // método para desmontar o componente
+
+  onClick?: (e: MouseEvent) => void; // evento disparado ao click do botão
+  onStartTransition?: () => void; // evento disparado quando inicia a animação abrindo ou fechando
+  onEndTransition?: () => void; // evento disparado quando termina ou é cancelada a animação abrindo ou fechando
+}
+```
+
+<br />
+
+## Primary
+
+<br />
+
+<Playground>
+  {() => {
+    const [container, setContainer] = useState(null);
+    const [second, setSecond] = useState(null);
+    const [header, setHeader] = useState(null);
+    const [footnote, setFootnote] = useState(null);
+    const containerRef = useRef();
+    const secondRef = useRef();
+    const headerRef = useRef();
+    const footnoteRef = useRef();
+    useEffect(() => {
+      if (containerRef.current && !container) {
+        setContainer(
+          new MenuButton({ container: containerRef.current, label: 'Programs', level: 'first', icon: 'money' })
+        );
+      }
+      if (container) {
+        container.onClick = handlerSelected;
+      }
+    }, [containerRef.current, container]);
+    useEffect(() => {
+      if (secondRef.current && !second) {
+        setSecond(new MenuButton({ container: secondRef.current, label: 'Default', level: 'second' }));
+      }
+    }, [secondRef.current, second]);
+    useEffect(() => {
+      if (headerRef.current && !header) {
+        setHeader(new MenuButton({ container: headerRef.current, label: 'Customer', level: 'header' }));
+      }
+    }, [headerRef.current, header]);
+    useEffect(() => {
+      if (footnoteRef.current && !footnote) {
+        setFootnote(new MenuButton({ container: footnoteRef.current, label: 'v1.3.0', level: 'footnote' }));
+      }
+    }, [footnoteRef.current, footnote]);
+    const handlerSelected = () => {
+      if (container) container.selected = !container.selected;
+    };
+    return (
+      <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-6">
+        <div className="tw-flex tw-flex-col tw-gap-6">
+          <p className="tw-body3 tw-text-gray-75">First-level</p>
+          <div ref={containerRef}></div>
+        </div>
+        <div className="tw-flex tw-flex-col tw-gap-6">
+          <p className="tw-body3 tw-text-gray-75">Second-level</p>
+          <div ref={secondRef}></div>
+        </div>
+        <div className="tw-flex tw-flex-col tw-gap-6">
+          <p className="tw-body3 tw-text-gray-75">Header</p>
+          <div ref={headerRef}></div>
+        </div>
+        <div className="tw-flex tw-flex-col tw-gap-6">
+          <p className="tw-body3 tw-text-gray-75">Footnote</p>
+          <div ref={footnoteRef}></div>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Scondary
+
+> A variant **secondary** possui apenas o level **first**
+
+<br />
+
+<Playground>
+  {() => {
+    const [container, setContainer] = useState(null);
+    const containerRef = useRef();
+    useEffect(() => {
+      if (containerRef.current && !container) {
+        setContainer(
+          new MenuButton({ container: containerRef.current, label: 'Programs', level: 'first', variant: 'secondary' })
+        );
+      }
+      if (container) {
+        container.onClick = handlerSelected;
+      }
+    }, [containerRef.current, container]);
+    const handlerSelected = () => {
+      if (container) container.selected = !container.selected;
+    };
+    const handlerToggler = () => {
+      if (container) container.colapsed = !container.colapsed;
+    };
+    return (
+      <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-6">
+        <div className="tw-flex tw-flex-col tw-gap-6">
+          <p className="tw-body3 tw-text-gray-75">First-level</p>
+          <div ref={containerRef}></div>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Colapsed
+
+O botão possui o estado colapsed e normal. No estado normal (default), o botão aparece no tamanho cheio, sendo possível visualizar o ícone (se houver) e o label.
+No estado colapsed o botão aparece com a forma contraida, somente com o espaço do ícone (se houver).
+
+> No modo colapsed não é exibido o botão de level _second_
+
+<br />
+
+<Playground>
+  {() => {
+    const [container, setContainer] = useState(null);
+    const [second, setSecond] = useState(null);
+    const [header, setHeader] = useState(null);
+    const [footnote, setFootnote] = useState(null);
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const containerRef = useRef();
+    const secondRef = useRef();
+    const headerRef = useRef();
+    const footnoteRef = useRef();
+    useEffect(() => {
+      if (containerRef.current && !container) {
+        setContainer(
+          new MenuButton({ container: containerRef.current, label: 'Programs', level: 'first', icon: 'money' })
+        );
+      }
+      if (container) {
+        container.onClick = handlerSelected;
+      }
+    }, [containerRef.current, container]);
+    useEffect(() => {
+      if (secondRef.current && !second) {
+        setSecond(new MenuButton({ container: secondRef.current, label: 'Default', level: 'second' }));
+      }
+    }, [secondRef.current, second]);
+    useEffect(() => {
+      if (headerRef.current && !header) {
+        setHeader(new MenuButton({ container: headerRef.current, label: 'Customer', level: 'header' }));
+      }
+    }, [headerRef.current, header]);
+    useEffect(() => {
+      if (footnoteRef.current && !footnote) {
+        setFootnote(new MenuButton({ container: footnoteRef.current, label: 'v1.3.0', level: 'footnote' }));
+      }
+    }, [footnoteRef.current, footnote]);
+    useEffect(() => {
+      if (container && second && header && footnote) {
+        container.collapsed = isCollapsed;
+        second.collapsed = isCollapsed;
+        header.collapsed = isCollapsed;
+        footnote.collapsed = isCollapsed;
+      }
+    }, [isCollapsed, container, second, header, footnote]);
+    const handlerSelected = () => {
+      if (container) container.selected = !container.selected;
+    };
+    const toggleColapsed = () => {
+      setIsCollapsed((old) => !old);
+    };
+    return (
+      <>
+        <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-6">
+          <div className="tw-flex tw-flex-col tw-gap-6">
+            <p className="tw-body3 tw-text-gray-75">First-level</p>
+            <div ref={containerRef}></div>
+          </div>
+          <div className="tw-flex tw-flex-col tw-gap-6">
+            <p className="tw-body3 tw-text-gray-75">Second-level</p>
+            <div ref={secondRef}></div>
+          </div>
+          <div className="tw-flex tw-flex-col tw-gap-6">
+            <p className="tw-body3 tw-text-gray-75">Header</p>
+            <div ref={headerRef}></div>
+          </div>
+          <div className="tw-flex tw-flex-col tw-gap-6">
+            <p className="tw-body3 tw-text-gray-75">Footnote</p>
+            <div ref={footnoteRef}></div>
+          </div>
+        </div>
+        <div className="tw-flex tw-w-full tw-mt-6 tw-justify-center">
+          <div className="tw-flex">
+            <button className="tw-btn tw-btn-primary" onClick={toggleColapsed}>
+              {isCollapsed ? 'normal' : 'collapsed'}
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }}
+</Playground>

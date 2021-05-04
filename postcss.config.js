@@ -2,6 +2,7 @@
 module.exports = {
   plugins: [
     require('postcss-import'),
+    require('postcss-color-function'),
     require('postcss-url')({
       url: 'inline',
     }),
