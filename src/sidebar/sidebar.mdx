@@ -18,26 +18,21 @@ O componente Sidebar monta uma barra lateral com itens de menu formatados segund
 ```typescript
 // propriedades aplicadas ao Header da sidebar
 export interface IHeader {
-  icon: string; // classes do ícone ex. para i-bars -> bars
   label: string; // texto do botão
 }
 
 // propriedades aplicadas aos botões
-export interface SidebarButton {
-  label: string; // texto do botão
-  level: 1 | 2; // nível do botão
-  icon?: string; // classes do ícone ex. para i-bars -> bars
-  name?: string; // name adicionado ao elemento para manipulação posterior
+export interface SidebarButton extends MenuButtonProps {
+  id: number | string; // esse id é devolvido no evento onSelected
+  selected?: boolean; // indica que o elemento estará selecionado no inicio
 }
 
 // propriedades requeridas no construtor
 export interface SidebarProps {
   container: HTMLElement; // elemento HTML onde será construído a sidebar
   header: IHeader; // header da sidebar
-  content: SidebarButton[]; // Array de botões que iræ compor o conteudo da sidebar
+  content: SidebarButton[]; // Array de botões que irá compor o conteudo da sidebar
   footerLabel: string; // texto do footer da sidebar
-  onSelected?: (selected: HTMLElement) => void; // evento disparado quando um botão é selecionado, envia o html do botão como argumento
-  enableMotion?: boolean; // (Padrao true - menu fechado) ativa botao que permite menu expandir
 }
 
 // construtor, deve receber SidebarProps
@@ -46,7 +41,10 @@ export interface ISidebarConstructor {
 }
 
 export interface ISidebar {
+  collapsed: boolean; // retorna o estado da sidebar, default - false, se passar o valor true a sidebar se contrai
   destroy: () => void; // método público, remove todos os elementos da página
+
+  onSelected?: (id: number | string) => void; // evento disparado quando um botão é selecionado, envia o id do elemento como argumento
 }
 ```
 
@@ -60,39 +58,42 @@ export interface ISidebar {
 <Playground>
   {() => {
     const [sidebar, setSidebar] = useState(null);
+    const [currentPage, setCurrentPage] = useState('/statement');
     const sidebarRef = useRef();
     useEffect(() => {
       if (sidebarRef.current && !sidebar) {
         setSidebar(
           new Sidebar({
             container: sidebarRef.current,
-            header: { icon: 'bars', label: 'App Name' },
+            header: { icon: 'bars', label: 'CustomerApp' },
             content: [
-              { icon: 'accounts', level: 1, label: 'First Level', selected: true },
-              { level: 2, label: 'Second Level' },
-              { level: 2, label: 'Second Level' },
-              { icon: 'bag', level: 1, label: 'First Level' },
-              { level: 2, label: 'Second Level' },
-              { level: 2, label: 'Second Level' },
-              { level: 2, label: 'Second Level' },
-              { icon: 'umbrella', level: 1, label: 'First Level' },
-              { level: 2, label: 'Second Level' },
-              { level: 2, label: 'Second Level' },
-              { icon: 'luggage', level: 1, label: 'First Level' },
-              { level: 2, label: 'Second Level' },
-              { level: 2, label: 'Second Level' },
+              { icon: 'money', level: 'first', label: 'Statement', selected: true, id: '/statement' },
+              { icon: 'accounts', level: 'first', label: 'Profile', id: '/profile' },
+              { icon: 'cards', level: 'first', label: 'Cards', id: '/cards' },
+              { icon: 'calendar', level: 'first', label: 'Activity', id: '/activity' },
+              { icon: 'edit', level: 'first', label: 'Notes', id: '/notes' },
             ],
-            footerLabel: 'v1.3.4',
+            footerLabel: 'v1.6.0',
           })
         );
+      }
+      if (sidebar) {
+        sidebar.onSelected = handleSelected;
       }
       return () => {
         if (sidebar) sidebar.destroy();
       };
     }, [sidebarRef.current, sidebar]);
+    const handleSelected = (id) => {
+      setCurrentPage(id);
+    };
     return (
       <div className="tw-flex tw-h-screen">
         <div ref={sidebarRef} data-open={false}></div>
+        <div className="tw-flex tw-flex-col tw-p-6">
+          <p className="tw-body3">Página selecionada:</p>
+          <h3 className="tw-h4 tw-mt-6">{currentPage}</h3>
+        </div>
       </div>
     );
   }}

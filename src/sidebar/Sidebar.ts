@@ -1,21 +1,12 @@
-export interface ISidebarDataset {
-  open?: boolean;
-}
-export interface SidebarButton {
-  label: string;
-  level: 1 | 2;
-  icon?: string;
-  name?: string;
+import { MenuButton, MenuButtonProps } from '../menu-button/MenuButton';
+
+export interface SidebarButton extends MenuButtonProps {
+  id: number | string;
   selected?: boolean;
 }
 
 export interface IHeader {
-  icon: string;
   label: string;
-}
-
-export interface ISidebarContainer extends HTMLElement {
-  dataset: Partial<Record<keyof ISidebarDataset, string>>;
 }
 
 export interface SidebarProps {
@@ -23,7 +14,6 @@ export interface SidebarProps {
   header: IHeader;
   content: SidebarButton[];
   footerLabel: string;
-  onSelected?: (selected: HTMLElement) => void;
 }
 
 export interface ISidebarConstructor {
@@ -31,104 +21,132 @@ export interface ISidebarConstructor {
 }
 
 export interface ISidebar {
+  collapsed: boolean;
   destroy: () => void;
+
+  onSelected?: (id: number | string) => void;
 }
-
 class Sidebar implements ISidebar {
-  #_container: HTMLElement;
+  #container: HTMLElement;
 
-  #_header: HTMLElement;
+  #header: MenuButton;
 
-  #_content: HTMLElement;
+  #content: HTMLElement;
 
-  #_footer: HTMLElement;
+  #contentItems: MenuButton[] = [];
 
-  #_contentList: { [key: string]: HTMLElement } = {};
+  #footer: MenuButton;
 
-  #_onSelected?: (selected: HTMLElement) => void;
+  #collapsedContainer: HTMLElement;
 
-  constructor({ container, header, content, footerLabel, onSelected }: SidebarProps) {
-    this.#_onSelected = onSelected;
+  #collapsedButton: HTMLButtonElement;
 
-    this.#_container = container;
-    this.#_container.classList.add('tw-sidebar');
-    this.#_container.dataset.testid = 'sidebar';
+  #collapsedIcon: HTMLElement;
 
-    this.#_header = document.createElement('div');
-    this.#_header.classList.add('tw-sidebar-btn', 'tw-sidebar-btn-l0');
-    this.#_header.dataset.testid = 'header';
+  #isCollapsed = false;
 
-    this.#_content = document.createElement('nav');
-    this.#_content.classList.add('tw-sidebar-content');
-    this.#_content.dataset.testid = 'content';
+  onSelected?: (id: number | string) => void;
 
-    this.#_footer = document.createElement('div');
-    this.#_footer.classList.add('tw-sidebar-btn-footnote');
-    this.#_footer.dataset.testid = 'footer';
+  constructor({ container, header, content, footerLabel }: SidebarProps) {
+    this.#container = container;
+    this.#container.classList.add('tw-sidebar');
 
-    this.#_container.appendChild(this.#_header);
-    this.#_container.appendChild(this.#_content);
-    this.#_container.appendChild(this.#_footer);
-
-    const hIcon = document.createElement('span');
-    const hLabel = document.createElement('p');
-    hIcon.classList.add(`tw-i-${header.icon}`, 'tw-sidebar-btn-icon');
-
-    hLabel.classList.add('tw-sidebar-btn-label');
-    hLabel.innerText = header.label;
-
-    this.#_header.appendChild(hIcon);
-    this.#_header.appendChild(hLabel);
-
-    const levels = ['tw-sidebar-btn-l0', 'tw-sidebar-btn-l1', 'tw-sidebar-btn-l2'];
-
-    content.forEach((el, i) => {
-      const id = `${i}-${el.level}-${el.label}`;
-      const child: HTMLElement & { name: string } = document.createElement('button');
-      child.id = id;
-      child.name = el.name || '';
-      child.classList.add('tw-sidebar-btn', levels[el.level]);
-      this.#_contentList[id] = child;
-      let icon: HTMLElement;
-      if (el.icon) {
-        icon = document.createElement('span');
-        icon.classList.add(`tw-i-${el.icon}`, 'tw-sidebar-btn-icon');
-        child.appendChild(icon);
-      }
-      const label = document.createElement('p');
-      label.classList.add('tw-sidebar-btn-label');
-      label.innerText = el.label;
-      child.appendChild(label);
-      child.addEventListener('click', this.#_clickHandler);
-      this.#_content.appendChild(child);
+    this.#header = new MenuButton({
+      container: this.#container,
+      label: header.label,
+      level: 'header',
     });
 
-    const fLabel = document.createElement('p');
-    fLabel.classList.add('tw-sidebar-btn-label');
-    fLabel.innerText = footerLabel;
+    this.#content = document.createElement('nav');
+    this.#content.classList.add('tw-scrollbar', 'tw-sidebar-content');
+    content.forEach((item) => {
+      const menuItem = new MenuButton({
+        container: this.#content,
+        level: item.level,
+        label: item.label,
+        icon: item.icon,
+      });
+      menuItem.selected = Boolean(item.selected);
+      menuItem.onClick = this.#clickHandler({ item: menuItem, id: item.id });
+      this.#contentItems.push(menuItem);
+    });
 
-    this.#_footer.appendChild(fLabel);
+    this.#container.appendChild(this.#content);
+
+    this.#footer = new MenuButton({ container: this.#container, level: 'footnote', label: footerLabel });
+
+    this.#collapsedContainer = document.createElement('div');
+    this.#collapsedContainer.classList.add('tw-sidebar-collapsed');
+
+    this.#collapsedButton = document.createElement('button');
+    this.#collapsedButton.classList.add('tw-sidebar-collapsed-btn');
+
+    this.#collapsedIcon = document.createElement('div');
+    this.#collapsedIcon.classList.add('tw-i-chevron-left');
+
+    this.#collapsedButton.appendChild(this.#collapsedIcon);
+
+    this.#collapsedContainer.appendChild(this.#collapsedButton);
+
+    this.#container.appendChild(this.#collapsedContainer);
+
+    this.#collapsedButton.addEventListener('click', this.#onCollapsedClick);
   }
 
-  #_clickHandler = (e: MouseEvent): void => {
-    const target: HTMLElement = e.currentTarget as HTMLElement;
+  get collapsed(): boolean {
+    return this.#isCollapsed;
+  }
 
-    Object.values(this.#_contentList).map((el: HTMLElement) => el.classList.remove('selected'));
-    target.classList.add('selected');
+  set collapsed(value: boolean) {
+    if (value) {
+      this.#container.classList.add('tw-sidebar-collapsed');
+      this.#collapsedIcon.classList.remove('tw-i-chevron-left');
+      this.#collapsedIcon.classList.add('tw-i-chevron-right');
+    } else {
+      this.#container.classList.remove('tw-sidebar-collapsed');
+      this.#collapsedIcon.classList.remove('tw-i-chevron-right');
+      this.#collapsedIcon.classList.add('tw-i-chevron-left');
+    }
 
-    if (this.#_onSelected) this.#_onSelected(target);
+    this.#contentItems.forEach((item) => {
+      const curItem = item;
+      curItem.collapsed = value;
+    });
+
+    this.#header.collapsed = value;
+    this.#footer.collapsed = value;
+
+    this.#isCollapsed = value;
+  }
+
+  #onCollapsedClick = (): void => {
+    this.collapsed = !this.collapsed;
+  };
+
+  #clickHandler = (selected: { item: MenuButton; id: number | string }) => (): void => {
+    const { item, id } = selected;
+    this.#contentItems.forEach((elem) => {
+      const currItem = elem;
+      currItem.selected = false;
+    });
+
+    item.selected = true;
+
+    if (this.onSelected) this.onSelected(id);
   };
 
   destroy = (): void => {
-    this.#_container.removeChild(this.#_header);
-    this.#_container.removeChild(this.#_content);
-    this.#_container.removeChild(this.#_footer);
+    this.#container.removeChild(this.#content);
+    this.#header.destroy();
+    this.#footer.destroy();
 
-    Object.values(this.#_contentList).map((el) => {
-      return el.removeEventListener('click', this.#_clickHandler);
+    this.#contentItems.forEach((item) => {
+      item.destroy();
     });
 
-    this.#_contentList = {};
+    this.#container.removeChild(this.#collapsedContainer);
+
+    this.#collapsedButton.removeEventListener('click', this.#onCollapsedClick);
   };
 }
 
