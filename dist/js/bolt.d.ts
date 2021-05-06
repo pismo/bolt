@@ -1,38 +1,63 @@
 declare const iconsNames: string[];
 
-interface ISidebarDataset {
-    open?: boolean;
-}
-interface SidebarButton {
+interface MenuButtonProps {
+    container: HTMLElement;
+    level: 'first' | 'second' | 'header' | 'footnote';
     label: string;
-    level: 1 | 2;
+    variant?: 'primary' | 'secondary';
     icon?: string;
-    name?: string;
+}
+interface IMenuButtonConstructor {
+    new (props: MenuButtonProps): IMenuButton;
+}
+interface IMenuButton {
+    selected: boolean;
+    collapsed: boolean;
+    readonly destroy: () => void;
+    onClick?: (e: MouseEvent) => void;
+    onStartTransition?: () => void;
+    onEndTransition?: () => void;
+}
+declare class MenuButton implements IMenuButton {
+    #private;
+    onClick?: (e: MouseEvent) => void;
+    onStartTransition?: () => void;
+    onEndTransition?: () => void;
+    constructor({ container, level, icon, label, variant }: MenuButtonProps);
+    get selected(): boolean;
+    set selected(value: boolean);
+    get collapsed(): boolean;
+    set collapsed(value: boolean);
+    destroy: () => void;
+}
+
+interface SidebarButton extends MenuButtonProps {
+    id: number | string;
     selected?: boolean;
 }
 interface IHeader {
-    icon: string;
     label: string;
-}
-interface ISidebarContainer extends HTMLElement {
-    dataset: Partial<Record<keyof ISidebarDataset, string>>;
 }
 interface SidebarProps {
     container: HTMLElement;
     header: IHeader;
     content: SidebarButton[];
     footerLabel: string;
-    onSelected?: (selected: HTMLElement) => void;
 }
 interface ISidebarConstructor {
     new (props: SidebarProps): ISidebar;
 }
 interface ISidebar {
+    collapsed: boolean;
     destroy: () => void;
+    onSelected?: (id: number | string) => void;
 }
 declare class Sidebar implements ISidebar {
     #private;
-    constructor({ container, header, content, footerLabel, onSelected }: SidebarProps);
+    onSelected?: (id: number | string) => void;
+    constructor({ container, header, content, footerLabel }: SidebarProps);
+    get collapsed(): boolean;
+    set collapsed(value: boolean);
     destroy: () => void;
 }
 
@@ -177,35 +202,4 @@ declare class FormControl implements IFormControl {
     readonly destroy: () => void;
 }
 
-interface MenuButtonProps {
-    container: HTMLElement;
-    level: 'first' | 'second' | 'header' | 'footnote';
-    label: string;
-    variant?: 'primary' | 'secondary';
-    icon?: string;
-}
-interface IMenuButtonConstructor {
-    new (props: MenuButtonProps): IMenuButton;
-}
-interface IMenuButton {
-    selected: boolean;
-    collapsed: boolean;
-    readonly destroy: () => void;
-    onClick?: (e: MouseEvent) => void;
-    onStartTransition?: () => void;
-    onEndTransition?: () => void;
-}
-declare class MenuButton implements IMenuButton {
-    #private;
-    onClick?: (e: MouseEvent) => void;
-    onStartTransition?: () => void;
-    onEndTransition?: () => void;
-    constructor({ container, level, icon, label, variant }: MenuButtonProps);
-    get selected(): boolean;
-    set selected(value: boolean);
-    get collapsed(): boolean;
-    set collapsed(value: boolean);
-    destroy: () => void;
-}
-
-export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenuButton, IMenuButtonConstructor, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISidebarContainer, ISidebarDataset, Input, MenuButton, MenuButtonProps, Modal, Sidebar, SidebarButton, SidebarProps, iconsNames };
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenuButton, IMenuButtonConstructor, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, MenuButton, MenuButtonProps, Modal, Sidebar, SidebarButton, SidebarProps, iconsNames };

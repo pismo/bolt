@@ -4,6 +4,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import './scroll-bar/scroll-bar.css';
 @import './button/button.css';
 @import './modal/modal.css';
 @import './typography/typography.css';
