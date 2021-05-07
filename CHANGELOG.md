@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/pismo/bolt/compare/v3.2.0...v3.3.0) (2021-05-07)
+
+
+### Features
+
+* **menu-button:** menu-button added ([8f0fab9](https://github.com/pismo/bolt/commit/8f0fab959143ca7ea02e89de51920a65e6af2c38))
+* **sidebar:** new sidebar ([0351a1e](https://github.com/pismo/bolt/commit/0351a1ed4e634faf3668bd7d51c2d245f66f1324))
+
+
+### Bug Fixes
+
+* **menu-button:** force height ([46c3863](https://github.com/pismo/bolt/commit/46c38633fd0108e297bcf2b74cc1e69e617e95a2))
+
 ## [3.2.0](https://github.com/pismo/bolt/compare/v3.1.1...v3.2.0) (2021-04-23)
 
 
