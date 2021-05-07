@@ -9,15 +9,7 @@
 .tw-body3,
 .tw-body4,
 .tw-body5 {
-  @apply tw-font-sans tw-font-bold;
-}
-
-.tw-body1,
-.tw-body2,
-.tw-body3,
-.tw-body4,
-.tw-body5 {
-  @apply sm:tw-font-normal;
+  @apply tw-font-sans;
 }
 
 .tw-h1,
