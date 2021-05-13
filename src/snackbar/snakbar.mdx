@@ -1,0 +1,97 @@
+---
+name: Snackbar
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Snackbar } from '../../dist/js/bolt';
+
+# Snackbar
+
+## Propriedades
+
+```typescript
+export interface SnackbarProps {
+  autoClose?: boolean; //indica se a snackbar vai fechar sozinha depois de um tempo determinado - default = true
+  timeToClose?: number; // tempo em milisegundos para a snackbar fechar, quando autoClose = true - default = 6000
+}
+
+export interface ISnackbarConstructor {
+  new (props?: SnackbarProps): ISnackbar;
+}
+
+export type VariantType = 'success' | 'error'; // variantes da snackbar, indica o padrão de cor
+
+export interface ISnackbar {
+  label: string; //texto da snackbar
+  variant: VariantType; //variantes da snackbar
+  open: boolean; //indica se a snackbar está aberta ou fechada, se passar algum valor, a snackbar abre/true ou fecha/false - defaulr = false
+  readonly destroy: () => void; //método público, remove todos os elementos da página
+
+  onClose?: () => void; //disparado quando a snackbar tem intensão de fechar
+  onOpen?: () => void; //disparado quando termina a animação de abrir
+  onClosed?: () => void; //disparado quando termina a animação de fechar
+}
+```
+
+> Nota: a snackbar não fecha de forma automatizada, apenas indica que tem intenção de fechar, através do evento onClose. Ou seja,
+> deve-se implementar essa função setando a propriedade **open** para false. Esse evento é disparado quando termina o tempo do autoClose (se true),
+> quando clica na área fora da snackbar, ou quando clica no botão fechar. Consulte o exemplo a seguir:
+
+<Playground>
+  {() => {
+    const [snackbar, setSnackbar] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    //
+    useEffect(() => {
+      if (!snackbar) {
+        setSnackbar(new Snackbar());
+      }
+      //
+      if (snackbar) {
+        snackbar.onClose = onClose;
+      }
+      //
+      return () => {
+        if (snackbar) snackbar.destroy();
+      };
+    }, [snackbar]);
+    //
+    useEffect(() => {
+      if (snackbar) {
+        snackbar.open = isOpen;
+      }
+    }, [snackbar, isOpen]);
+    //
+    onOpen = (type) => () => {
+      if (snackbar) {
+        switch (type) {
+          case 'success':
+            snackbar.label = 'Dados enviados com sucesso.';
+            break;
+          case 'error':
+            snackbar.label = 'Falha no envio.';
+            break;
+        }
+        //
+        snackbar.variant = type;
+      }
+      setIsOpen(true);
+    };
+    //
+    onClose = () => {
+      setIsOpen(false);
+    };
+    return (
+      <div className="tw-flex">
+        <button className="tw-btn tw-btn-primary" onClick={onOpen('success')}>
+          success
+        </button>
+        <button className="tw-btn tw-btn-secondary tw-ml-4" onClick={onOpen('error')}>
+          error
+        </button>
+      </div>
+    );
+  }}
+</Playground>
