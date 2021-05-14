@@ -11,30 +11,30 @@ Os botões são disponibilizados por uma classes principal: **btn** e outra clas
 A classe pode ser adicionada em qualquer elemento, mas é recomendado ser adicionada ao elemento button, assim garante as funcionalidades de _focus_ e _disabled_
 
 <Playground>
-  <div className="tw-flex tw-gap-3">
+  <div className="tw-flex tw-gap-3 tw-items-end">
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn">clique aqui</button>
-      <p className="tw-body1">base</p>
+      <p className="tw-body3">base</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn tw-btn-primary">clique aqui</button>
-      <p className="tw-body1">primary</p>
+      <p className="tw-body3">primary</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn tw-btn-secondary">clique aqui</button>
-      <p className="tw-body1">secondary</p>
+      <p className="tw-body3">secondary</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn tw-btn-flat">clique aqui</button>
-      <p className="tw-body1">flat</p>
+      <p className="tw-body3">flat</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center tw-bg-white tw-p-1 tw-rounded">
       <button className="tw-btn tw-btn-flat">clique aqui</button>
-      <p className="tw-body1 tw-text-black">flat bg claro</p>
+      <p className="tw-body3 tw-text-black">flat bg claro</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center tw-bg-white tw-p-1 tw-rounded">
       <button className="tw-btn tw-btn-outline">clique aqui</button>
-      <p className="tw-body1 tw-text-black">outline bg claro</p>
+      <p className="tw-body3 tw-text-black">outline bg claro</p>
     </div>
   </div>
 </Playground>
@@ -50,13 +50,47 @@ A classe pode ser adicionada em qualquer elemento, mas é recomendado ser adicio
   <div className="tw-flex tw-gap-3">
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn tw-btn-primary">clique aqui</button>
-      <p className="tw-body1">normal</p>
+      <p className="tw-body3">normal</p>
     </div>
     <div className="tw-flex tw-flex-col tw-items-center">
       <button className="tw-btn tw-btn-primary" disabled>
         clique aqui
       </button>
-      <p className="tw-body1">disabled</p>
+      <p className="tw-body3">disabled</p>
+    </div>
+  </div>
+</Playground>
+
+<br />
+<br />
+
+## Base/ Rounded
+
+<br />
+
+<Playground>
+  <div className="tw-flex tw-gap-3 tw-items-end">
+    <div className="tw-flex tw-flex-col tw-items-center">
+      <button className="tw-btn">
+        <span className="tw-i-close"></span>
+      </button>
+      <p className="tw-body3">base</p>
+    </div>
+    <div className="tw-flex tw-flex-col tw-items-center">
+      <button className="tw-btn tw-btn-primary tw-btn-rounded">
+        <span className="tw-i-settings"></span>
+      </button>
+      <p className="tw-body3">rounded</p>
+    </div>
+    <div className="tw-flex tw-flex-col tw-items-center">
+      <button className="tw-btn tw-btn-secondary tw-btn-rounded">clique aqui</button>
+      <p className="tw-body3">rounded</p>
+    </div>
+    <div className="tw-flex tw-flex-col tw-items-center">
+      <button className="tw-btn tw-btn-clean tw-btn-rounded">
+        <span className="tw-i-close"></span>
+      </button>
+      <p className="tw-body3">clean</p>
     </div>
   </div>
 </Playground>
