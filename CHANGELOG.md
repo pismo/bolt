@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/pismo/bolt/compare/v3.3.0...v3.4.0) (2021-05-14)
+
+
+### Features
+
+* **button:** new kinds of buttons added ([c834cbd](https://github.com/pismo/bolt/commit/c834cbd45db46fd561e1ca451296dd48151ef828))
+* color variables ([2acde95](https://github.com/pismo/bolt/commit/2acde95fd5c591246f6cfcfc6a013fb2231b4bc1))
+* snackbar added ([5cf023c](https://github.com/pismo/bolt/commit/5cf023c9d3a2feeb77f07aab3fbe931667d9ff75))
+
+
+### Bug Fixes
+
+* **sidebar:** sidebar button extends fixed ([636a3a1](https://github.com/pismo/bolt/commit/636a3a19f0543c8ba06e3b042ed5a460ae7caf36))
+
 ## [3.3.0](https://github.com/pismo/bolt/compare/v3.2.0...v3.3.0) (2021-05-07)
 
 
