@@ -9,8 +9,7 @@
   font-display: block;
 }
 
-[class^='tw-i-'],
-[class*=' tw-i-'] {
+.tw-icon-style {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'bolt-icons' !important;
   speak: never;
@@ -23,10 +22,14 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+[class^='tw-i-'],
+[class*=' tw-i-'] {
   @apply tw-flex
   tw-justify-center
-  tw-items-center;
+  tw-items-center
+  tw-icon-style;
 }
 
 .tw-i-bars:before {

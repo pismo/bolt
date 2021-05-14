@@ -1,0 +1,32 @@
+---
+name: List Item
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+
+# List Item
+
+<Playground>
+  {() => {
+    const [lang, setLang] = useState('');
+    //
+    const handleSelect = (language) => () => {
+      setLang(language);
+    };
+    return (
+      <div className="tw-flex tw-flex-col">
+        <div className={`tw-listitem ${lang === 'en' ? 'tw-listitem-selected' : ''}`} onClick={handleSelect('en')}>
+          English
+        </div>
+        <div className={`tw-listitem ${lang === 'pt' ? 'tw-listitem-selected' : ''}`} onClick={handleSelect('pt')}>
+          Protuguese
+        </div>
+        <div className={`tw-listitem ${lang === 'es' ? 'tw-listitem-selected' : ''}`} onClick={handleSelect('es')}>
+          Spanish
+        </div>
+      </div>
+    );
+  }}
+</Playground>

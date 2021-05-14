@@ -80,6 +80,7 @@ module.exports = {
       borderStyle: ['focus'],
       borderWidth: ['focus'],
       borderColor: ['focus'],
+      fontWeight: ['hover'],
     },
   },
   plugins: [],

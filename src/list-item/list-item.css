@@ -1,0 +1,36 @@
+.tw-listitem {
+  @apply tw-flex
+  tw-py-4
+  tw-px-3
+  tw-border-gray-10
+  tw-border-b
+  tw-w-full
+  tw-body3
+  tw-text-gray-75
+  tw-cursor-pointer
+  tw-transition-colors
+  tw-duration-300
+  hover:tw-bg-gray-10
+  hover:tw-font-bold
+  hover:tw-text-gray
+  hover:tw-transition-colors
+  hover:tw-duration-300;
+}
+
+.tw-listitem:last-child {
+  border-bottom: none;
+}
+
+.tw-listitem.tw-listitem-selected {
+  @apply tw-bg-gray-10
+  tw-font-bold
+  tw-text-gray;
+}
+
+.tw-listitem.tw-listitem-selected::after {
+  @apply tw-icon-style
+  tw-body2
+  tw-ml-auto;
+
+  content: '\e922';
+}
