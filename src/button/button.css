@@ -1,6 +1,6 @@
 .tw-btn {
-  @apply tw-rounded 
-  tw-p-2   
+  @apply tw-rounded
+  tw-p-2
   tw-bg-gray-25
   tw-cursor-pointer
   tw-text-base
@@ -19,12 +19,18 @@
   focus:tw-ring-accent-dark
   focus:tw-outline-none
   focus:tw-bg-gray-10;
+}
 
-  min-width: 100px;
+.tw-btn-rounded {
+  @apply tw-rounded-full;
+}
+
+.tw-btn-clean {
+  @apply tw-bg-transparent;
 }
 
 .tw-btn-primary {
-  @apply tw-bg-accent 
+  @apply tw-bg-accent
   tw-text-white
   hover:tw-bg-accent-light
   focus:tw-bg-accent-light;
