@@ -202,4 +202,36 @@ declare class FormControl implements IFormControl {
     readonly destroy: () => void;
 }
 
-export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenuButton, IMenuButtonConstructor, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, Input, MenuButton, MenuButtonProps, Modal, Sidebar, SidebarButton, SidebarProps, iconsNames };
+interface SnackbarProps {
+    autoClose?: boolean;
+    timeToClose?: number;
+}
+interface ISnackbarConstructor {
+    new (props?: SnackbarProps): ISnackbar;
+}
+declare type VariantType = 'success' | 'error';
+interface ISnackbar {
+    label: string;
+    variant: VariantType;
+    open: boolean;
+    readonly destroy: () => void;
+    onClose?: () => void;
+    onOpen?: () => void;
+    onClosed?: () => void;
+}
+declare class Snackbar implements ISnackbar {
+    #private;
+    onClose?: () => void;
+    onOpen?: () => void;
+    onClosed?: () => void;
+    constructor(props?: SnackbarProps);
+    get label(): string;
+    set label(value: string);
+    get variant(): VariantType;
+    set variant(value: VariantType);
+    get open(): boolean;
+    set open(value: boolean);
+    readonly destroy: () => void;
+}
+
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenuButton, IMenuButtonConstructor, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISnackbar, ISnackbarConstructor, Input, MenuButton, MenuButtonProps, Modal, Sidebar, SidebarButton, SidebarProps, Snackbar, SnackbarProps, VariantType, iconsNames };

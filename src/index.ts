@@ -4,3 +4,4 @@ export * from './modal/Modal';
 export * from './input/Input';
 export * from './form-control/FormControl';
 export * from './menu-button/MenuButton';
+export * from './snackbar/Snackbar';

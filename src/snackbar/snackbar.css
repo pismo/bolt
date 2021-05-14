@@ -1,0 +1,73 @@
+@keyframes tw-snackbar-open {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.tw-snackbar {
+  @apply tw-fixed
+  tw-left-0
+  tw-right-0
+  tw-top-0
+  tw-bottom-0
+  tw-flex
+  tw-items-start
+  tw-justify-center;
+  z-index: 10000;
+}
+
+.tw-snackbar-background {
+  @apply tw-relative
+  tw-w-full
+  tw-h-full;
+}
+
+.tw-snackbar-message {
+  @apply tw-absolute
+  tw-p-4
+  tw-rounded
+  tw-bg-gray-50
+  tw-shadows-1
+  tw-flex
+  tw-body3
+  tw-items-center;
+  max-width: 90%;
+  margin-top: 5rem;
+  animation-duration: 0.3s;
+  animation-name: tw-snackbar-open;
+}
+
+.tw-snackbar-message-label {
+  @apply tw-font-bold
+  tw-mr-4;
+}
+
+.tw-snackbar-message-success {
+  @apply tw-bg-green
+  tw-text-black;
+}
+
+.tw-snackbar-message-error {
+  @apply tw-bg-alert
+  tw-text-white;
+}
+
+.tw-snackbar-closed {
+  display: none;
+}
+
+.tw-snackbar-closing .tw-snackbar-message,
+.tw-snackbar-closed .tw-snackbar-message {
+  opacity: 0;
+  transform: translateY(-2rem);
+  transition: transform 0.2s, opacity 0.3s;
+}
