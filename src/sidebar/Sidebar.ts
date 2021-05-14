@@ -1,6 +1,6 @@
 import { MenuButton, MenuButtonProps } from '../menu-button/MenuButton';
 
-export interface SidebarButton extends MenuButtonProps {
+export interface SidebarButton extends Omit<MenuButtonProps, 'container'> {
   id: number | string;
   selected?: boolean;
 }

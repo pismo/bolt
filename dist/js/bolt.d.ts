@@ -31,7 +31,7 @@ declare class MenuButton implements IMenuButton {
     destroy: () => void;
 }
 
-interface SidebarButton extends MenuButtonProps {
+interface SidebarButton extends Omit<MenuButtonProps, 'container'> {
     id: number | string;
     selected?: boolean;
 }
