@@ -1,0 +1,60 @@
+@keyframes tw-menu-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tw-menu-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.tw-menu {
+  @apply tw-bg-white
+  tw-shadows-4;
+  animation-duration: 0.3s;
+  animation-name: tw-menu-fade-in;
+}
+
+.tw-menu .tw-menu-arrow,
+.tw-menu .tw-menu-arrow:before {
+  @apply tw-absolute
+  tw-w-10
+  tw-h-10
+  tw-bg-white;
+  z-index: -1;
+}
+
+.tw-menu .tw-menu-arrow {
+  visibility: hidden;
+}
+
+.tw-menu .tw-menu-arrow:before {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+.tw-menu .tw-listitem {
+  z-index: 1;
+}
+
+.tw-menu.tw-menu-closed {
+  display: none;
+}
+
+.tw-menu.tw-menu-closed,
+.tw-menu.tw-menu-closing {
+  opacity: 0;
+  animation-duration: 0.2s;
+  animation-name: tw-menu-fade-out;
+}
