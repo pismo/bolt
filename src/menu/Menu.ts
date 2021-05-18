@@ -4,9 +4,10 @@ import offset from '@popperjs/core/lib/modifiers/offset';
 import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow';
 
 export interface IMenuContent {
-  label: string;
+  label: string | { first: string; second: string };
   id: string | number;
   selected?: boolean;
+  disabled?: boolean;
 }
 
 export interface MenuProps {
@@ -62,7 +63,26 @@ class Menu implements IMenu {
       const item = document.createElement('div');
       item.classList.add('tw-listitem');
       if (bt.selected) item.classList.add('tw-listitem-selected');
-      item.innerText = bt.label;
+      if (typeof bt.label === 'string') {
+        item.innerText = bt.label;
+      } else {
+        const l1 = document.createElement('h3');
+        l1.classList.add('tw-listitem-first');
+        l1.innerText = bt.label.first;
+
+        const l2 = document.createElement('p');
+        l2.classList.add('tw-listitem-second');
+        l2.innerText = bt.label.second;
+
+        item.classList.add('tw-listitem-multi');
+        item.appendChild(l1);
+        item.appendChild(l2);
+      }
+
+      if (bt.disabled) {
+        item.classList.add('tw-listitem-disabled');
+      }
+
       item.id = String(bt.id);
       item.addEventListener('click', this.#handleSelected);
       this.#listItems[bt.id] = item;

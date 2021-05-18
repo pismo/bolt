@@ -389,9 +389,13 @@ declare type VirtualElement = {
 };
 
 interface IMenuContent {
-    label: string;
+    label: string | {
+        first: string;
+        second: string;
+    };
     id: string | number;
     selected?: boolean;
+    disabled?: boolean;
 }
 interface MenuProps {
     ref: HTMLElement;
