@@ -1,0 +1,95 @@
+---
+name: Topbar
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Topbar } from '../../dist/js/bolt';
+
+# Topbar
+
+## Propriedades
+
+```typescript
+export interface ITopbarLangMenu extends IMenuContent {
+  short: string; // no botão de idiomas deve aparecer uma abreviação do idioma
+}
+
+export interface ITopbarUserMenu {
+  menu: IMenuContent[]; // menu que será exibido ao clicar no avatar
+  user?: { email: string; name?: string }; // informações para compor o avatar
+}
+
+export interface TopbarProps {
+  container: HTMLElement; // referência que será o container da topbar
+  title: string; // título da topbar
+  langMenu: ITopbarLangMenu[]; // referente ao menu de idiomas
+  userMenu: ITopbarUserMenu; // referente ao menu do usuario
+  backButton?: boolean; // botão voltar
+}
+
+export interface ITopbarConstructor {
+  new (props: TopbarProps): ITopbar;
+}
+
+export interface ITopbar {
+  readonly destroy: () => void; // destroi todos os elementos
+
+  onLangSelected?: (id: string | number) => void; // evento disparado quando um item no menu de idiomas é selecionado
+  onUserSelected?: (id: string | number) => void; // evento disparado quando um item no menu do usuário é selecionado
+  onBack?: () => void; // disparado quando clica no botão de voltar
+}
+```
+
+<Playground>
+  {() => {
+    const [topbar, setTopbar] = useState(null);
+    const topbarRef = useRef();
+    //
+    useEffect(() => {
+      if (topbarRef.current && !topbar) {
+        setTopbar(
+          new Topbar({
+            container: topbarRef.current,
+            backButton: true,
+            title: 'Page title',
+            langMenu: [
+              { id: 'en', label: 'Inglês', short: 'en', selected: true },
+              { id: 'pt', label: 'Português', short: 'pt' },
+              { id: 'es', label: 'Espanhol', short: 'es' },
+            ],
+            userMenu: {
+              user: {
+                name: 'Andy Harris',
+                email: 'and@gmail.com',
+              },
+              menu: [
+                {
+                  id: 'user',
+                  label: {
+                    first: 'Andy Harris',
+                    second: 'and@gmail',
+                  },
+                  disabled: true,
+                },
+                { id: '/reset', label: 'Reset Password' },
+                { id: '/logout', label: 'Logout' },
+              ],
+            },
+          })
+        );
+      }
+      //
+      return () => {
+        if (topbar) topbar.destroy();
+      };
+    }, [topbarRef.current, topbar]);
+    //
+    return (
+      <div className="tw-flex">
+        <div ref={topbarRef} />
+      </div>
+    );
+  }}
+</Playground>
