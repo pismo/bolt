@@ -23,18 +23,20 @@
   tw-shadows-4;
   animation-duration: 0.3s;
   animation-name: tw-menu-fade-in;
+  z-index: 10000;
 }
 
 .tw-menu .tw-menu-arrow,
 .tw-menu .tw-menu-arrow:before {
   @apply tw-absolute
-  tw-w-10
-  tw-h-10
+  tw-w-5
+  tw-h-5
   tw-bg-white;
   z-index: -1;
 }
 
 .tw-menu .tw-menu-arrow {
+  top: -5px;
   visibility: hidden;
 }
 
