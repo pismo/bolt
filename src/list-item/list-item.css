@@ -21,6 +21,10 @@
   border-bottom: none;
 }
 
+.tw-listitem-multi {
+  @apply tw-flex-col;
+}
+
 .tw-listitem.tw-listitem-selected {
   @apply tw-bg-gray-10
   tw-font-bold
@@ -33,4 +37,18 @@
   tw-ml-auto;
 
   content: '\e922';
+}
+
+.tw-listitem-first {
+  @apply tw-font-bold
+  tw-text-black;
+}
+
+.tw-listitem-second {
+  @apply tw-body4;
+}
+
+.tw-listitem-disabled {
+  @apply tw-select-none
+  tw-pointer-events-none;
 }
