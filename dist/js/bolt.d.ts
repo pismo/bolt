@@ -234,4 +234,188 @@ declare class Snackbar implements ISnackbar {
     readonly destroy: () => void;
 }
 
-export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenuButton, IMenuButtonConstructor, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISnackbar, ISnackbarConstructor, Input, MenuButton, MenuButtonProps, Modal, Sidebar, SidebarButton, SidebarProps, Snackbar, SnackbarProps, VariantType, iconsNames };
+declare const top: "top";
+declare const bottom: "bottom";
+declare const right: "right";
+declare const left: "left";
+declare type BasePlacement = typeof top | typeof bottom | typeof right | typeof left;
+declare type VariationPlacement = "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end";
+declare type AutoPlacement = "auto" | "auto-start" | "auto-end";
+declare type Placement = AutoPlacement | BasePlacement | VariationPlacement;
+declare const beforeRead: "beforeRead";
+declare const read: "read";
+declare const afterRead: "afterRead";
+declare const beforeMain: "beforeMain";
+declare const main: "main";
+declare const afterMain: "afterMain";
+declare const beforeWrite: "beforeWrite";
+declare const write: "write";
+declare const afterWrite: "afterWrite";
+declare type ModifierPhases = typeof beforeRead | typeof read | typeof afterRead | typeof beforeMain | typeof main | typeof afterMain | typeof beforeWrite | typeof write | typeof afterWrite;
+
+declare type Obj = {
+    [key: string]: any;
+};
+declare type VisualViewport = EventTarget & {
+    width: number;
+    height: number;
+    offsetLeft: number;
+    offsetTop: number;
+    scale: number;
+};
+declare type Window = {
+    innerHeight: number;
+    offsetHeight: number;
+    innerWidth: number;
+    offsetWidth: number;
+    pageXOffset: number;
+    pageYOffset: number;
+    getComputedStyle: typeof getComputedStyle;
+    addEventListener(type: any, listener: any, optionsOrUseCapture?: any): void;
+    removeEventListener(type: any, listener: any, optionsOrUseCapture?: any): void;
+    Element: Element;
+    HTMLElement: HTMLElement;
+    Node: Node;
+    toString(): "[object Window]";
+    devicePixelRatio: number;
+    visualViewport?: VisualViewport;
+    ShadowRoot: ShadowRoot;
+};
+declare type Rect = {
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+};
+declare type Offsets = {
+    y: number;
+    x: number;
+};
+declare type PositioningStrategy = "absolute" | "fixed";
+declare type StateRects = {
+    reference: Rect;
+    popper: Rect;
+};
+declare type OffsetData = {
+    [key in Placement]?: Offsets;
+};
+declare type State = {
+    elements: {
+        reference: Element | VirtualElement;
+        popper: HTMLElement;
+        arrow?: HTMLElement;
+    };
+    options: OptionsGeneric<any>;
+    placement: Placement;
+    strategy: PositioningStrategy;
+    orderedModifiers: Array<Modifier<any, any>>;
+    rects: StateRects;
+    scrollParents: {
+        reference: Array<Element | Window | VisualViewport>;
+        popper: Array<Element | Window | VisualViewport>;
+    };
+    styles: {
+        [key: string]: Partial<CSSStyleDeclaration>;
+    };
+    attributes: {
+        [key: string]: {
+            [key: string]: string | boolean;
+        };
+    };
+    modifiersData: {
+        arrow?: {
+            x?: number;
+            y?: number;
+            centerOffset: number;
+        };
+        hide?: {
+            isReferenceHidden: boolean;
+            hasPopperEscaped: boolean;
+            referenceClippingOffsets: SideObject;
+            popperEscapeOffsets: SideObject;
+        };
+        offset?: OffsetData;
+        preventOverflow?: Offsets;
+        popperOffsets?: Offsets;
+        [key: string]: any;
+    };
+    reset: boolean;
+};
+declare type Instance = {
+    state: State;
+    destroy: () => void;
+    forceUpdate: () => void;
+    update: () => Promise<Partial<State>>;
+    setOptions: (options: Partial<OptionsGeneric<any>>) => Promise<Partial<State>>;
+};
+declare type ModifierArguments<Options extends Obj> = {
+    state: State;
+    instance: Instance;
+    options: Partial<Options>;
+    name: string;
+};
+declare type Modifier<Name, Options> = {
+    name: Name;
+    enabled: boolean;
+    phase: ModifierPhases;
+    requires?: Array<string>;
+    requiresIfExists?: Array<string>;
+    fn: (arg0: ModifierArguments<Options>) => State | void;
+    effect?: (arg0: ModifierArguments<Options>) => (() => void) | void;
+    options?: Partial<Options>;
+    data?: Obj;
+};
+declare type Options = {
+    placement: Placement;
+    modifiers: Array<Partial<Modifier<any, any>>>;
+    strategy: PositioningStrategy;
+    onFirstUpdate?: (arg0: Partial<State>) => void;
+};
+declare type OptionsGeneric<TModifier> = {
+    placement: Placement;
+    modifiers: Array<TModifier>;
+    strategy: PositioningStrategy;
+    onFirstUpdate?: (arg0: Partial<State>) => void;
+};
+declare type SideObject = {
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+};
+declare type VirtualElement = {
+    getBoundingClientRect: () => ClientRect | DOMRect;
+    contextElement?: Element;
+};
+
+interface IMenuContent {
+    label: string;
+    id: string | number;
+    selected?: boolean;
+}
+interface MenuProps {
+    ref: HTMLElement;
+    content: IMenuContent[];
+    classes: string[];
+    popperOptions?: Partial<Options>;
+}
+interface IMenuConstructor {
+    new (props?: MenuProps): IMenu;
+}
+interface IMenu {
+    open: boolean;
+    readonly destroy: () => void;
+    onClose?: () => void;
+    onSelected?: (id: string | number) => void;
+}
+declare class Menu implements IMenu {
+    #private;
+    onSelected?: (id: string | number) => void;
+    onClose?: () => void;
+    constructor({ ref, content, classes, popperOptions }: MenuProps);
+    get open(): boolean;
+    set open(value: boolean);
+    destroy(): void;
+}
+
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenu, IMenuButton, IMenuButtonConstructor, IMenuConstructor, IMenuContent, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISnackbar, ISnackbarConstructor, Input, Menu, MenuButton, MenuButtonProps, MenuProps, Modal, Sidebar, SidebarButton, SidebarProps, Snackbar, SnackbarProps, VariantType, iconsNames };
