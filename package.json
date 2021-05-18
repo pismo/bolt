@@ -84,7 +84,7 @@
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "yarn build && yarn format && git add . && yarn test"
+      "pre-commit": "yarn build && yarn format && git add ."
     }
   },
   "config": {

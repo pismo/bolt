@@ -17,9 +17,10 @@ A classe menu utiliza a biblioteca popper para manipular o posicionamento dos ob
 
 ```typescript
 export interface IMenuContent {
-  label: string; // texto do botão
+  label: string | { first: string; second: string }; // texto do botão
   id: string | number; // id do elemento - será passado como argumento para o evento onSlected
   selected?: boolean; // se o botão deve iniciar selecionado - default = false
+  disabled?: boolean; // se true o botão não recebe interações do usuário
 }
 
 // Propriedades do construtor
@@ -64,6 +65,7 @@ export interface IMenu {
               { label: 'inglês', id: 'en' },
               { label: 'português', selected: true, id: 'pt' },
               { label: 'espanhol', id: 'es' },
+              { label: { first: 'Andy Harris', second: 'and@gmail.com' }, id: 'name', disabled: true },
             ],
             classes: ['tw-w-52'],
           })
