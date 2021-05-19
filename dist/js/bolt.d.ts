@@ -422,4 +422,39 @@ declare class Menu implements IMenu {
     destroy(): void;
 }
 
-export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenu, IMenuButton, IMenuButtonConstructor, IMenuConstructor, IMenuContent, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISnackbar, ISnackbarConstructor, Input, Menu, MenuButton, MenuButtonProps, MenuProps, Modal, Sidebar, SidebarButton, SidebarProps, Snackbar, SnackbarProps, VariantType, iconsNames };
+interface ITopbarLangMenu extends IMenuContent {
+    short: string;
+}
+interface ITopbarUserMenu {
+    menu: IMenuContent[];
+    user?: {
+        email: string;
+        name?: string;
+    };
+}
+interface TopbarProps {
+    container: HTMLElement;
+    title: string;
+    langMenu?: ITopbarLangMenu[];
+    userMenu?: ITopbarUserMenu;
+    backButton?: boolean;
+}
+interface ITopbarConstructor {
+    new (props: TopbarProps): ITopbar;
+}
+interface ITopbar {
+    readonly destroy: () => void;
+    onLangSelected?: (id: string | number) => void;
+    onUserSelected?: (id: string | number) => void;
+    onBack?: () => void;
+}
+declare class Topbar implements ITopbar {
+    #private;
+    onLangSelected?: (id: string | number) => void;
+    onUserSelected?: (id: string | number) => void;
+    onBack?: () => void;
+    constructor({ container, backButton, title, langMenu, userMenu }: TopbarProps);
+    destroy(): void;
+}
+
+export { FormControl, FormControlProps, IFormControl, IFormControlConstructor, IHeader, IInput, IInputConstructor, IInputDataset, IMenu, IMenuButton, IMenuButtonConstructor, IMenuConstructor, IMenuContent, IModal, IModalConstructor, IRef, ISidebar, ISidebarConstructor, ISnackbar, ISnackbarConstructor, ITopbar, ITopbarConstructor, ITopbarLangMenu, ITopbarUserMenu, Input, Menu, MenuButton, MenuButtonProps, MenuProps, Modal, Sidebar, SidebarButton, SidebarProps, Snackbar, SnackbarProps, Topbar, TopbarProps, VariantType, iconsNames };

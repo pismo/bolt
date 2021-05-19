@@ -7,16 +7,15 @@
   "module": "dist/js/bolt.mjs.js",
   "typings": "dist/js/bolt.d.ts",
   "license": "ISC",
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "tslib": "^2.1.0",
     "validate.js": "^0.13.1",
-    "@popperjs/core": "^2.9.2"
+    "@popperjs/core": "^2.9.2",
+    "initials": "^3.1.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",

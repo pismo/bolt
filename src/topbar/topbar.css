@@ -1,0 +1,30 @@
+.tw-topbar {
+  @apply tw-flex
+  tw-w-full
+  tw-items-center
+  tw-bg-gray-10
+  tw-p-4;
+  height: 3.75rem;
+}
+
+.tw-topbar-backbtn {
+  @apply tw-mr-4;
+}
+
+.tw-topbar-title {
+  @apply tw-body2
+  tw-text-gray;
+}
+
+.tw-topbar-menucontainer {
+  @apply tw-flex
+  tw-items-center
+  tw-ml-auto;
+}
+
+.tw-topbar-avatar {
+  @apply tw-ml-4
+  tw-w-10;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
