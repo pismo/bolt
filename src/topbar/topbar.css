@@ -23,5 +23,8 @@
 }
 
 .tw-topbar-avatar {
-  @apply tw-ml-4;
+  @apply tw-ml-4
+  tw-w-10;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
 }

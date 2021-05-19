@@ -110,11 +110,11 @@ class Topbar implements ITopbar {
     this.#langMenu.onSelected = this.#langSelected;
 
     this.#avatarButton = document.createElement('button');
-    this.#avatarButton.classList.add('tw-btn', 'tw-btn-rounded', 'tw-topbar-avatar');
+    this.#avatarButton.classList.add('tw-btn', 'tw-topbar-avatar');
 
     if (userMenu.user) {
       const avatarText = document.createElement('p');
-      avatarText.innerText = initials(userMenu.user.name || userMenu.user.email) as string;
+      avatarText.innerText = (initials(userMenu.user.name || userMenu.user.email) as string).toUpperCase();
 
       this.#avatarButton.appendChild(avatarText);
     } else {
