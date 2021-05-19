@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/pismo/bolt/compare/v3.5.0...v3.6.0) (2021-05-19)
+
+
+### Features
+
+* **topbar:** menus opcionais ([1111ac7](https://github.com/pismo/bolt/commit/1111ac71b58f3079a97eabf26c335fce12f30173))
+* **topbar:** topbar added ([f86352d](https://github.com/pismo/bolt/commit/f86352d26c04b9945869360578acba0241028eb3))
+
+
+### Bug Fixes
+
+* **menu:** position and depth fixed ([9837a21](https://github.com/pismo/bolt/commit/9837a21791f9d7112537d876df2de92befaacaca))
+* **topbar:** avatar aspect-ratio ([8dc3a46](https://github.com/pismo/bolt/commit/8dc3a46b82899fd2b69b9012b351d7c443d09a60))
+
 ## [3.5.0](https://github.com/pismo/bolt/compare/v3.4.0...v3.5.0) (2021-05-18)
 
 
