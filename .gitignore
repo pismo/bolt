@@ -37,7 +37,6 @@ coverage
 cypress/screenshots
 cypress/videos
 
-dist/css/*
-!dist/css/bolt-css.css
+dist
 
 bolt-docs
