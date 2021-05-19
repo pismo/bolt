@@ -33,6 +33,7 @@ export interface SidebarProps {
   header: IHeader; // header da sidebar
   content: SidebarButton[]; // Array de botões que irá compor o conteudo da sidebar
   footerLabel: string; // texto do footer da sidebar
+  autoCollapsed?: boolean; // se false a sidebar apenas dispara o evento onCollapsed - default = true
 }
 
 // construtor, deve receber SidebarProps
@@ -45,6 +46,7 @@ export interface ISidebar {
   destroy: () => void; // método público, remove todos os elementos da página
 
   onSelected?: (id: number | string) => void; // evento disparado quando um botão é selecionado, envia o id do elemento como argumento
+  onCollapsed?: () => void; // evento disparado quando clicado no botão de collapse
 }
 ```
 

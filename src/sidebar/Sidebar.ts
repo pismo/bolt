@@ -14,6 +14,8 @@ export interface SidebarProps {
   header: IHeader;
   content: SidebarButton[];
   footerLabel: string;
+  autoCollapsed?: boolean;
+  startCollapsed?: boolean;
 }
 
 export interface ISidebarConstructor {
@@ -25,6 +27,7 @@ export interface ISidebar {
   destroy: () => void;
 
   onSelected?: (id: number | string) => void;
+  onCollapsed?: () => void;
 }
 class Sidebar implements ISidebar {
   #container: HTMLElement;
@@ -45,9 +48,14 @@ class Sidebar implements ISidebar {
 
   #isCollapsed = false;
 
+  #autoCollapsed: boolean;
+
   onSelected?: (id: number | string) => void;
 
-  constructor({ container, header, content, footerLabel }: SidebarProps) {
+  onCollapsed?: () => void;
+
+  constructor({ container, header, content, footerLabel, autoCollapsed = true, startCollapsed = false }: SidebarProps) {
+    this.#autoCollapsed = autoCollapsed;
     this.#container = container;
     this.#container.classList.add('tw-sidebar');
 
@@ -91,6 +99,8 @@ class Sidebar implements ISidebar {
     this.#container.appendChild(this.#collapsedContainer);
 
     this.#collapsedButton.addEventListener('click', this.#onCollapsedClick);
+
+    this.collapsed = startCollapsed;
   }
 
   get collapsed(): boolean {
@@ -120,7 +130,8 @@ class Sidebar implements ISidebar {
   }
 
   #onCollapsedClick = (): void => {
-    this.collapsed = !this.collapsed;
+    if (this.#autoCollapsed) this.collapsed = !this.collapsed;
+    if (this.onCollapsed) this.onCollapsed();
   };
 
   #clickHandler = (selected: { item: MenuButton; id: number | string }) => (): void => {
