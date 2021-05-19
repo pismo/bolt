@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/pismo/bolt/compare/v3.6.0...v3.7.0) (2021-05-19)
+
+
+### Features
+
+* **sidebar:** some improvements ([c88b8d2](https://github.com/pismo/bolt/commit/c88b8d236ef2cbdc65226c2badb4a9b2c28c74d8))
+
+
+### Bug Fixes
+
+* remove dist folder ([4cede29](https://github.com/pismo/bolt/commit/4cede295731e272a93a44529d9e743c5655dec8c))
+* remove dist part 2 ([6f6e700](https://github.com/pismo/bolt/commit/6f6e70009c3a1b6154e028370a4fb460e1270be0))
+
 ## [3.6.0](https://github.com/pismo/bolt/compare/v3.5.0...v3.6.0) (2021-05-19)
 
 
