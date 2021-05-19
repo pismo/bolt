@@ -13,8 +13,8 @@ export interface ITopbarUserMenu {
 export interface TopbarProps {
   container: HTMLElement;
   title: string;
-  langMenu: ITopbarLangMenu[];
-  userMenu: ITopbarUserMenu;
+  langMenu?: ITopbarLangMenu[];
+  userMenu?: ITopbarUserMenu;
   backButton?: boolean;
 }
 
@@ -37,17 +37,17 @@ class Topbar implements ITopbar {
 
   #menuContainer: HTMLElement;
 
-  #langButton: HTMLButtonElement;
+  #langButton?: HTMLButtonElement;
 
-  #langMenu: IMenu;
+  #langMenu?: IMenu;
 
   #langMenuList: { [k: string]: ITopbarLangMenu } = {};
 
-  #langShort: HTMLElement;
+  #langShort?: HTMLElement;
 
-  #avatarButton: HTMLButtonElement;
+  #avatarButton?: HTMLButtonElement;
 
-  #avatarMenu: IMenu;
+  #avatarMenu?: IMenu;
 
   #backButton?: HTMLElement;
 
@@ -81,82 +81,87 @@ class Topbar implements ITopbar {
     this.#menuContainer = document.createElement('div');
     this.#menuContainer.classList.add('tw-topbar-menucontainer');
 
-    this.#langButton = document.createElement('button');
-    this.#langButton.classList.add('tw-btn', 'tw-btn-clean', 'tw-items-center');
+    if (langMenu) {
+      this.#langButton = document.createElement('button');
+      this.#langButton.classList.add('tw-btn', 'tw-btn-clean', 'tw-items-center');
 
-    this.#langShort = document.createElement('p');
-    this.#langShort.classList.add('tw-body3', 'tw-text-gray', 'tw-font-bold');
+      this.#langShort = document.createElement('p');
+      this.#langShort.classList.add('tw-body3', 'tw-text-gray', 'tw-font-bold');
 
-    langMenu.forEach((item) => {
-      if (item.selected) this.#langShort.innerText = item.short.toUpperCase();
+      langMenu.forEach((item) => {
+        if (item.selected && this.#langShort) this.#langShort.innerText = item.short.toUpperCase();
 
-      this.#langMenuList[item.id] = item;
-    });
+        this.#langMenuList[item.id] = item;
+      });
 
-    const worldIcon = document.createElement('div');
-    worldIcon.classList.add('tw-i-glob', 'tw-text-2xl', 'tw-text-gray', 'tw-ml-2');
+      const worldIcon = document.createElement('div');
+      worldIcon.classList.add('tw-i-glob', 'tw-text-2xl', 'tw-text-gray', 'tw-ml-2');
 
-    this.#langButton.appendChild(this.#langShort);
-    this.#langButton.appendChild(worldIcon);
-    this.#langButton.addEventListener('click', this.#openLangMenu);
+      this.#langButton.appendChild(this.#langShort);
+      this.#langButton.appendChild(worldIcon);
+      this.#langButton.addEventListener('click', this.#openLangMenu);
 
-    this.#langMenu = new Menu({
-      ref: this.#langButton,
-      content: langMenu,
-      classes: ['tw-w-52'],
-      popperOptions: { placement: 'bottom-end' },
-    });
-    this.#langMenu.onClose = this.#closeMenu;
-    this.#langMenu.onSelected = this.#langSelected;
+      this.#langMenu = new Menu({
+        ref: this.#langButton,
+        content: langMenu,
+        classes: ['tw-w-52'],
+        popperOptions: { placement: 'bottom-end' },
+      });
+      this.#langMenu.onClose = this.#closeMenu;
+      this.#langMenu.onSelected = this.#langSelected;
 
-    this.#avatarButton = document.createElement('button');
-    this.#avatarButton.classList.add('tw-btn', 'tw-topbar-avatar');
-
-    if (userMenu.user) {
-      const avatarText = document.createElement('p');
-      avatarText.innerText = (initials(userMenu.user.name || userMenu.user.email) as string).toUpperCase();
-
-      this.#avatarButton.appendChild(avatarText);
-    } else {
-      const avatarIcon = document.createElement('div');
-      avatarIcon.classList.add('tw-i-accounts', 'tw-text-gray', 'tw-text-xl');
-
-      this.#avatarButton.appendChild(avatarIcon);
+      this.#menuContainer.appendChild(this.#langButton);
     }
 
-    this.#avatarButton.addEventListener('click', this.#openAvatarMenu);
+    if (userMenu) {
+      this.#avatarButton = document.createElement('button');
+      this.#avatarButton.classList.add('tw-btn', 'tw-topbar-avatar');
 
-    this.#avatarMenu = new Menu({
-      ref: this.#avatarButton,
-      content: userMenu.menu,
-      classes: ['tw-w-52'],
-      popperOptions: { placement: 'bottom-end' },
-    });
-    this.#avatarMenu.onClose = this.#closeMenu;
-    this.#avatarMenu.onSelected = this.#userSelected;
+      if (userMenu.user) {
+        const avatarText = document.createElement('p');
+        avatarText.innerText = (initials(userMenu.user.name || userMenu.user.email) as string).toUpperCase();
 
-    this.#menuContainer.appendChild(this.#langButton);
-    this.#menuContainer.appendChild(this.#avatarButton);
+        this.#avatarButton.appendChild(avatarText);
+      } else {
+        const avatarIcon = document.createElement('div');
+        avatarIcon.classList.add('tw-i-accounts', 'tw-text-gray', 'tw-text-xl');
+
+        this.#avatarButton.appendChild(avatarIcon);
+      }
+
+      this.#avatarButton.addEventListener('click', this.#openAvatarMenu);
+
+      this.#avatarMenu = new Menu({
+        ref: this.#avatarButton,
+        content: userMenu.menu,
+        classes: ['tw-w-52'],
+        popperOptions: { placement: 'bottom-end' },
+      });
+      this.#avatarMenu.onClose = this.#closeMenu;
+      this.#avatarMenu.onSelected = this.#userSelected;
+
+      this.#menuContainer.appendChild(this.#avatarButton);
+    }
 
     this.#container.appendChild(this.#title);
     this.#container.appendChild(this.#menuContainer);
   }
 
   #openLangMenu = (): void => {
-    this.#langMenu.open = true;
+    if (this.#langMenu) this.#langMenu.open = true;
   };
 
   #openAvatarMenu = (): void => {
-    this.#avatarMenu.open = true;
+    if (this.#avatarMenu) this.#avatarMenu.open = true;
   };
 
   #closeMenu = (): void => {
-    this.#langMenu.open = false;
-    this.#avatarMenu.open = false;
+    if (this.#langMenu) this.#langMenu.open = false;
+    if (this.#avatarMenu) this.#avatarMenu.open = false;
   };
 
   #langSelected = (id: string | number): void => {
-    this.#langShort.innerText = this.#langMenuList[id].short.toUpperCase();
+    if (this.#langShort) this.#langShort.innerText = this.#langMenuList[id].short.toUpperCase();
 
     if (this.onLangSelected) this.onLangSelected(id);
   };
@@ -170,12 +175,12 @@ class Topbar implements ITopbar {
   };
 
   destroy(): void {
-    this.#langMenu.destroy();
-    this.#avatarMenu.destroy();
+    if (this.#langMenu) this.#langMenu.destroy();
+    if (this.#avatarMenu) this.#avatarMenu.destroy();
 
-    this.#avatarButton.removeEventListener('click', this.#openAvatarMenu);
+    if (this.#avatarButton) this.#avatarButton.removeEventListener('click', this.#openAvatarMenu);
     if (this.#backButton) this.#backButton.removeEventListener('click', this.#clickBackHandle);
-    this.#langButton.removeEventListener('click', this.#openLangMenu);
+    if (this.#langButton) this.#langButton.removeEventListener('click', this.#openLangMenu);
 
     while (this.#container.children.length > 0) this.#container.removeChild(this.#container.children[0]);
   }

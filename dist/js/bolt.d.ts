@@ -435,8 +435,8 @@ interface ITopbarUserMenu {
 interface TopbarProps {
     container: HTMLElement;
     title: string;
-    langMenu: ITopbarLangMenu[];
-    userMenu: ITopbarUserMenu;
+    langMenu?: ITopbarLangMenu[];
+    userMenu?: ITopbarUserMenu;
     backButton?: boolean;
 }
 interface ITopbarConstructor {
