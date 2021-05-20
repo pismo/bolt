@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.8.0](https://github.com/pismo/bolt/compare/v3.7.0...v3.8.0) (2021-05-20)
+
+
+### Features
+
+* **icons:** new icons ([ce7d112](https://github.com/pismo/bolt/commit/ce7d112f1d99acdef7733d4ccf05cad65fd4fb6c))
+
 ## [3.7.0](https://github.com/pismo/bolt/compare/v3.6.0...v3.7.0) (2021-05-19)
 
 
