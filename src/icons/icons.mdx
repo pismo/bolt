@@ -4,66 +4,34 @@ name: Icons
 
 import { Playground } from 'docz';
 import '../../dist/css/bolt-css.css';
+import { iconsNames } from '../../dist/js/bolt';
 
 # Icons
 
+> Nota: ícones multicores, como é o caso dos cartões, são divididos em partes. Então sua composição segue o padrão a seguir:
+
+```jsx
+<div className="tw-i-master">
+  <span className="path1" />
+  <span className="path2" />
+  <span className="path3" />
+  <span className="path4" />
+</div>
+```
+
 <Playground>
   {() => {
-    const iconsNames = [
-      'bars',
-      'accounts',
-      'bag',
-      'box',
-      'umbrella',
-      'luggage',
-      'home',
-      'layout',
-      'folder',
-      'statements',
-      'cards',
-      'clock',
-      'edit',
-      'search',
-      'calendar',
-      'close',
-      'settings-bar',
-      'notifications',
-      'chevron-down',
-      'chevron-up',
-      'chevron-left',
-      'chevron-right',
-      'arrow-down',
-      'arrow-up',
-      'arrow-left',
-      'arrow-right',
-      'share',
-      'lock',
-      'mail',
-      'money-in',
-      'money-out',
-      'file-text',
-      'check',
-      'alert-circle',
-      'money',
-      'dialog-help',
-      'dialog-canceled',
-      'dialog',
-      'menu',
-      'bar-chart',
-      'navigation',
-      'map-pin',
-      'eye',
-      'eye-off',
-      'settings',
-      'glob',
-      'thumbs-up',
-    ];
     return (
       <div className="tw-grid tw-grid-cols-2 sm:tw-grid-cols-3 md:tw-grid-cols-5 tw-gap-4">
         {iconsNames.map((name) => (
           <div className="tw-flex tw-flex-col tw-items-center">
-            <div className={`tw-i-${name} tw-text-4xl`}></div>
-            <p className="tw-body2">{`tw-i-${name}`}</p>
+            <div className={`${name} tw-text-4xl`}>
+              <span className="path1"></span>
+              <span className="path2"></span>
+              <span className="path3"></span>
+              <span className="path4"></span>
+            </div>
+            <p className="tw-body2">{`${name}`}</p>
           </div>
         ))}
       </div>
