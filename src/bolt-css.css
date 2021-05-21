@@ -5,14 +5,14 @@
 @import 'tailwindcss/utilities';
 
 @import './colors/colors.css';
+@import './icons/icons.css';
+@import './typography/typography.css';
+@import './shadows/shadows.css';
 @import './scroll-bar/scroll-bar.css';
 @import './button/button.css';
 @import './modal/modal.css';
-@import './typography/typography.css';
-@import './icons/icons.css';
 @import './sidebar/sidebar.css';
 @import './input/input.css';
-@import './shadows/shadows.css';
 @import './menu-button/menu-button.css';
 @import './snackbar/snackbar.css';
 @import './list-item/list-item.css';
