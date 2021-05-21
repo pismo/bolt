@@ -36,7 +36,7 @@
   tw-body2
   tw-ml-auto;
 
-  content: '\e922';
+  content: var(--tw-icon-code-check);
 }
 
 .tw-listitem-first {
