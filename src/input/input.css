@@ -42,18 +42,6 @@
   focus:tw-text-alert-dark;
 }
 
-.tw-input-startIcon-padding {
-  @apply tw-pl-11;
-}
-
-.tw-input-endIcon-single-padding {
-  @apply tw-pr-11;
-}
-
-.tw-input-endIcon-double-padding {
-  padding-right: 4.5rem;
-}
-
 .tw-input-icon {
   @apply tw-body1
   tw-text-black
@@ -92,4 +80,35 @@
 
 .tw-input-element-error {
   @apply tw-text-alert-dark;
+}
+
+.tw-input-container.tw-input-readonly {
+  @apply tw-pointer-events-none
+  tw-select-none;
+}
+
+.tw-input-container.tw-input-readonly .tw-input-label {
+  @apply tw-body3
+  tw-text-gray-75;
+}
+
+.tw-input-container.tw-input-readonly .tw-input {
+  @apply tw-font-bold
+  tw-px-0
+  tw-bg-transparent;
+}
+
+.tw-input-container.tw-input-readonly .tw-input-startIcon-padding,
+.tw-input-startIcon-padding {
+  @apply tw-pl-11;
+}
+
+.tw-input-container.tw-input-readonly .tw-input-endIcon-single-padding,
+.tw-input-endIcon-single-padding {
+  @apply tw-pr-11;
+}
+
+.tw-input-container.tw-input-readonly .tw-input-endIcon-double-padding,
+.tw-input-endIcon-double-padding {
+  padding-right: 4.5rem;
 }

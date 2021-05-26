@@ -13,6 +13,7 @@ export interface IInputDataset {
   min?: number;
   step?: number;
   value?: string;
+  readonly?: boolean;
 }
 
 export interface IRef extends HTMLElement {
@@ -203,6 +204,13 @@ class Input implements IInput {
         break;
       case 'type':
         if (this.#validTypes.includes(String(options.type))) this.#input.setAttribute('type', options.type as string);
+        break;
+      case 'readonly':
+        if (options.readonly) {
+          this.#container.classList.add('tw-input-readonly');
+        } else {
+          this.#container.classList.remove('tw-input-readonly');
+        }
         break;
       default:
         if (this.#validAttr.includes(key)) this.#input.setAttribute(key, options[key]);
