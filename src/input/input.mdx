@@ -441,6 +441,37 @@ O tipo number permite somente dados numéricos e permite configurar as proprieda
 <br />
 <br />
 
+## Read only
+
+<br />
+
+O modo readonly remove a interatividade do usuário e adiciona uma formatação específica de acordo com o design system da Pismo.
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div ref={inputRef} data-label="Type" data-value="Checking Account" data-readonly></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
 ## Propriedades
 
 <br />
@@ -463,6 +494,7 @@ export interface IInputDataset {
   min?: number;
   step?: number;
   value?: string;
+  readonly?: string;
 }
 
 export interface IRef extends HTMLElement {
