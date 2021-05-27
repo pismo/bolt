@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.10.0](https://github.com/pismo/bolt/compare/v3.9.0...v3.10.0) (2021-05-27)
+
+
+### Features
+
+* **input:** readonly input mode ([c6428ee](https://github.com/pismo/bolt/commit/c6428ee82cbf0fbb0dfc0bd90a2d35d1febcce76))
+
 ## [3.9.0](https://github.com/pismo/bolt/compare/v3.8.0...v3.9.0) (2021-05-21)
 
 
