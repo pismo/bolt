@@ -1,0 +1,23 @@
+.tw-divider {
+  @apply tw-relative
+  tw-w-full
+  tw-flex
+  tw-justify-center
+  tw-items-center;
+  min-height: 1px;
+}
+
+.tw-divider:before {
+  content: '';
+  height: 1px;
+  z-index: 0;
+  @apply tw-w-full
+  tw-bg-gray-50
+  tw-absolute;
+}
+
+.tw-divider p {
+  @apply tw-p-3
+  tw-bg-cream;
+  z-index: 1;
+}
