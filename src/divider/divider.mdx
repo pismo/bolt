@@ -1,0 +1,44 @@
+---
+name: Divider
+---
+
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+
+# Divider
+
+<br />
+<br />
+
+## Padrão
+
+<br />
+
+<Playground>
+  {() => {
+    return (
+      <div className="tw-flex tw-w-full tw-h-16 tw-items-center">
+        <div className="tw-divider"></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Texto
+
+<br />
+
+<Playground>
+  {() => {
+    return (
+      <div className="tw-flex tw-w-full tw-h-16 tw-items-center">
+        <div className="tw-divider">
+          <p className="tw-body3 tw-font-bold">Due dates</p>
+        </div>
+      </div>
+    );
+  }}
+</Playground>
