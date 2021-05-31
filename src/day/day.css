@@ -39,3 +39,7 @@
   @apply tw-font-bold
   tw-text-black;
 }
+
+.tw-day.tw-day-active .tw-day-extratext {
+  @apply tw-text-gray-50;
+}
