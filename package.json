@@ -7,9 +7,7 @@
   "module": "dist/js/bolt.mjs.js",
   "typings": "dist/js/bolt.d.ts",
   "license": "ISC",
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
   "publishConfig": {
     "access": "public"
   },
@@ -24,8 +22,8 @@
     "@rollup/plugin-eslint": "^8.0.1",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@types/jest": "^26.0.21",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
     "autoprefixer": "^10.2.4",
     "cash-true": "^0.0.2",
     "commitizen": "^4.2.3",
@@ -60,7 +58,7 @@
     "rollup-plugin-esbuild": "^3.0.2",
     "standard-version": "^9.1.1",
     "tailwindcss": "^2.0.3",
-    "typescript": "^4.2.3"
+    "typescript": "^4.3.2"
   },
   "scripts": {
     "postcss": "postcss src/bolt-css.css -d dist/css",

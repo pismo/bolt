@@ -1,0 +1,75 @@
+---
+name: Day
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Day } from '../../dist/js/bolt';
+
+# Day
+
+<br />
+
+## Propriedades
+
+```typescript
+export interface DayProps {
+  container: HTMLElement; // container onde será adicionado o elemento day
+  text: string; // texto principal
+  extraText?: string; // texto secundário
+  active?: boolean; // se o elemento está ativo no início - default = false
+  classes?: string[]; // classes css aplicadas ao elemento div
+}
+
+export interface IDayConstructor {
+  new (props: DayProps): IDay;
+}
+
+export interface IDay {
+  active: boolean; // se o elemento está ativo
+  readonly destroy: () => void; // destroi todos os elementos
+
+  onClick?: () => void; // evento disparado ao clicar no elemento
+}
+```
+
+<br />
+<br />
+
+<Playground>
+  {() => {
+    const [days, setDays] = useState();
+    //
+    const containerDays = useRef();
+    //
+    useEffect(() => {
+      if (containerDays.current && !days) {
+        const d = new Day({
+          container: containerDays.current,
+          text: '01',
+          classes: ['tw-w-24'],
+          extraText: 'id: 12345',
+        });
+        const d1 = new Day({ container: containerDays.current, text: '02', classes: ['tw-w-24'] });
+        const d2 = new Day({ container: containerDays.current, text: '03', classes: ['tw-w-24'], active: true });
+        //
+        setDays([d, d1, d2]);
+      }
+      //
+      return () => {
+        if (days) {
+          days.forEach((d) => {
+            d.destroy();
+          });
+        }
+      };
+    }, [containerDays.current, days]);
+    //
+    return (
+      <div className="tw-flex tw-w-full">
+        <div ref={containerDays}></div>
+      </div>
+    );
+  }}
+</Playground>
