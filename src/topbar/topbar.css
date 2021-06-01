@@ -28,3 +28,12 @@
   border-radius: 50%;
   aspect-ratio: 1/1;
 }
+
+.tw-topbar-content {
+  @apply tw-flex;
+  align-items: center;
+}
+
+.tw-topbar-icon {
+  margin-right: 10px;
+}

@@ -7,9 +7,7 @@
   "module": "dist/js/bolt.mjs.js",
   "typings": "dist/js/bolt.d.ts",
   "license": "ISC",
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
   "publishConfig": {
     "access": "public"
   },
