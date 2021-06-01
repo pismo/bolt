@@ -7,3 +7,4 @@ export * from './menu-button/MenuButton';
 export * from './snackbar/Snackbar';
 export * from './menu/Menu';
 export * from './topbar/Topbar';
+export * from './day/Day';

@@ -1,0 +1,45 @@
+.tw-day-container {
+  @apply tw-flex
+  tw-w-full
+  tw-flex-wrap;
+}
+
+.tw-day {
+  @apply tw-flex
+  tw-border-b
+  tw-border-gray-25
+  tw-p-2
+  tw-relative
+  tw-body3
+  tw-text-gray-50
+  tw-cursor-pointer;
+  min-width: 3.125rem;
+  height: 3.125rem;
+  min-height: 3.125rem;
+}
+
+.tw-day:after {
+  content: '';
+  width: 1px;
+  height: 50%;
+  left: 0;
+  bottom: 0;
+  @apply tw-bg-gray-25
+  tw-absolute;
+}
+
+.tw-day .tw-day-extratext {
+  @apply tw-body5
+  tw-self-end
+  tw-ml-auto
+  tw-text-right;
+}
+
+.tw-day.tw-day-active {
+  @apply tw-font-bold
+  tw-text-black;
+}
+
+.tw-day.tw-day-active .tw-day-extratext {
+  @apply tw-text-gray-50;
+}
