@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.11.0](https://github.com/pismo/bolt/compare/v3.10.0...v3.11.0) (2021-06-01)
+
+
+### Features
+
+* **day:** day element added ([4d97e39](https://github.com/pismo/bolt/commit/4d97e3900b5fc036ac011fbca1e205eba42a7f48))
+* **divider:** divider added ([fb17718](https://github.com/pismo/bolt/commit/fb177187e8f561be3ca70b72cdb4ca456f651399))
+
+
+### Bug Fixes
+
+* **day:** extraText active color ([4df8ce9](https://github.com/pismo/bolt/commit/4df8ce9dab3ae2aeff7ba60b00dcef0bf8193fce))
+
 ## [3.10.0](https://github.com/pismo/bolt/compare/v3.9.0...v3.10.0) (2021-05-27)
 
 
