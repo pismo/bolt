@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.11.1](https://github.com/pismo/bolt/compare/v3.11.0...v3.11.1) (2021-06-02)
+
+
+### Features
+
+* adding icons to the top bar description ([9e240ff](https://github.com/pismo/bolt/commit/9e240ffd394c2a9c640b7208422b2a80ea1bbc1a))
+
+
+### Bug Fixes
+
+* remove file unnecessary ([6ca291e](https://github.com/pismo/bolt/commit/6ca291ecd936af5e7b724a66503f53fb05b44dd4))
+* **icons:** money icon ([d713cfe](https://github.com/pismo/bolt/commit/d713cfe7110e4bafd3b4eb020d5613eb8622e695))
+
 ## [3.11.0](https://github.com/pismo/bolt/compare/v3.10.0...v3.11.0) (2021-06-01)
 
 
