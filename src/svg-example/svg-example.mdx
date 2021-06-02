@@ -1,0 +1,26 @@
+---
+name: SVG example
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+import Icon from '../assets/icons/visa.inline.svg';
+import iconurl from '../assets/icons/skull.svg';
+
+# SVG example
+
+<Playground>
+  {() => {
+    return (
+      <div className="tw-flex tw-gap-4">
+        <div>
+          <Icon width="60px" height="60px" />
+        </div>
+        <div>
+          <img className="tw-w-16 tw-h-16" src={iconurl} />
+        </div>
+      </div>
+    );
+  }}
+</Playground>
