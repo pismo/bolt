@@ -25,6 +25,7 @@ export interface ITopbarUserMenu {
 export interface TopbarProps {
   container: HTMLElement; // referência que será o container da topbar
   title: string; // título da topbar
+  currency?: string; // exibe um indicador de moeda - opcional
   langMenu?: ITopbarLangMenu[]; // referente ao menu de idiomas - opcional
   userMenu?: ITopbarUserMenu; // referente ao menu do usuario - opcional
   backButton?: boolean; // botão voltar
@@ -47,6 +48,7 @@ export interface ITopbar {
   {() => {
     const [topbar, setTopbar] = useState(null);
     const topbarRef = useRef();
+    //
     useEffect(() => {
       if (topbarRef.current && !topbar) {
         setTopbar(
@@ -55,6 +57,7 @@ export interface ITopbar {
             backButton: true,
             title: 'Bank BCA Indonesia',
             icon: IconBCA,
+            currency: 'USD',
             langMenu: [
               { id: 'en', label: 'Inglês', short: 'en', selected: true },
               { id: 'pt', label: 'Português', short: 'pt' },
