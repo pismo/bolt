@@ -121,7 +121,7 @@ class Input implements IInput {
     mutations.forEach((mut) => {
       const key = (mut.attributeName as string).replace('data-', '');
       const options = this.#container.dataset;
-      this.#updateOptions(key, (options as unknown) as IInputDataset);
+      this.#updateOptions(key, options as unknown as IInputDataset);
     });
   };
 
