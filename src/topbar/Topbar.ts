@@ -14,6 +14,7 @@ export interface TopbarProps {
   container: HTMLElement;
   title: string;
   icon?: string;
+  currency?: string;
   langMenu?: ITopbarLangMenu[];
   userMenu?: ITopbarUserMenu;
   backButton?: boolean;
@@ -60,7 +61,7 @@ class Topbar implements ITopbar {
 
   onBack?: () => void;
 
-  constructor({ container, backButton, title, icon = '', langMenu, userMenu }: TopbarProps) {
+  constructor({ container, backButton, title, icon = '', currency, langMenu, userMenu }: TopbarProps) {
     this.#container = container;
     this.#container.classList.add('tw-topbar');
 
@@ -96,6 +97,24 @@ class Topbar implements ITopbar {
 
     this.#menuContainer = document.createElement('div');
     this.#menuContainer.classList.add('tw-topbar-menucontainer');
+
+    if (currency) {
+      const currencyEl = document.createElement('div');
+      const currencyText = document.createElement('span');
+      const currencyIcon = document.createElement('span');
+
+      currencyEl.classList.add('tw-flex', 'tw-items-center', 'tw-p-2');
+
+      currencyText.innerText = currency;
+
+      currencyText.classList.add('tw-body3', 'tw-text-gray', 'tw-font-bold');
+      currencyIcon.classList.add('tw-i-money', 'tw-text-2xl', 'tw-text-gray', 'tw-ml-2');
+
+      currencyEl.appendChild(currencyText);
+      currencyEl.appendChild(currencyIcon);
+
+      this.#menuContainer.appendChild(currencyEl);
+    }
 
     if (langMenu) {
       this.#langButton = document.createElement('button');
