@@ -13,6 +13,7 @@ export interface ITopbarUserMenu {
 export interface TopbarProps {
   container: HTMLElement;
   title: string;
+  icon?: string;
   langMenu?: ITopbarLangMenu[];
   userMenu?: ITopbarUserMenu;
   backButton?: boolean;
@@ -32,6 +33,8 @@ export interface ITopbar {
 
 class Topbar implements ITopbar {
   #container: HTMLElement;
+
+  #contentTitle: HTMLElement;
 
   #title: HTMLElement;
 
@@ -57,7 +60,7 @@ class Topbar implements ITopbar {
 
   onBack?: () => void;
 
-  constructor({ container, backButton, title, langMenu, userMenu }: TopbarProps) {
+  constructor({ container, backButton, title, icon = '', langMenu, userMenu }: TopbarProps) {
     this.#container = container;
     this.#container.classList.add('tw-topbar');
 
@@ -77,6 +80,19 @@ class Topbar implements ITopbar {
     this.#title = document.createElement('h3');
     this.#title.classList.add('tw-topbar-title');
     this.#title.innerText = title;
+
+    const iconTitle = document.createElement('img');
+    iconTitle.classList.add('tw-topbar-icon');
+    iconTitle.src = icon;
+    iconTitle.alt = title;
+
+    this.#contentTitle = document.createElement('div');
+    this.#contentTitle.classList.add('tw-topbar-content');
+
+    if (icon && icon !== '') {
+      this.#contentTitle.appendChild(iconTitle);
+    }
+    this.#contentTitle.appendChild(this.#title);
 
     this.#menuContainer = document.createElement('div');
     this.#menuContainer.classList.add('tw-topbar-menucontainer');
@@ -143,7 +159,7 @@ class Topbar implements ITopbar {
       this.#menuContainer.appendChild(this.#avatarButton);
     }
 
-    this.#container.appendChild(this.#title);
+    this.#container.appendChild(this.#contentTitle);
     this.#container.appendChild(this.#menuContainer);
   }
 
