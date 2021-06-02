@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.12.0](https://github.com/pismo/bolt/compare/v3.11.1...v3.12.0) (2021-06-02)
+
+
+### Features
+
+* **bolt:** engine added ([a5e04b4](https://github.com/pismo/bolt/commit/a5e04b4a2685afe9356dc87d556e836ef2b0d7e1))
+* **docz:** svg plugin added to docz ([d67115f](https://github.com/pismo/bolt/commit/d67115fb8ee57e59a825f57320080165a9b4fa1d))
+* **topbar:** add currency indicator ([16fadd6](https://github.com/pismo/bolt/commit/16fadd698b0764bb794202a271a379ef8d3abe2e))
+
 ### [3.11.1](https://github.com/pismo/bolt/compare/v3.11.0...v3.11.1) (2021-06-02)
 
 
