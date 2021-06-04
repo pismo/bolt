@@ -7,14 +7,9 @@
   "module": "dist/js/bolt.mjs.js",
   "typings": "dist/js/bolt.d.ts",
   "license": "ISC",
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
   "publishConfig": {
     "access": "public"
-  },
-  "engines": {
-    "node": ">=14.17.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
