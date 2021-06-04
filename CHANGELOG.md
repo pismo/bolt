@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.1](https://github.com/pismo/bolt/compare/v3.12.0...v3.12.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **bolt:** engine removed ([e9f9260](https://github.com/pismo/bolt/commit/e9f9260c43551763f1f2fa774bc965495c1981a5))
+
 ## [3.12.0](https://github.com/pismo/bolt/compare/v3.11.1...v3.12.0) (2021-06-02)
 
 
