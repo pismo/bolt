@@ -61,3 +61,42 @@ import '../../dist/css/bolt-css.css';
     );
   }}
 </Playground>
+
+<br />
+<br />
+
+## Scondary
+
+<br />
+
+<Playground>
+  {() => {
+    const [lang, setLang] = useState('');
+    //
+    const handleSelect = (language) => () => {
+      setLang(language);
+    };
+    return (
+      <div className="tw-flex tw-flex-col">
+        <div
+          className={`tw-listitem tw-listitem-secondary ${lang === 'en' ? 'tw-listitem-selected' : ''}`}
+          onClick={handleSelect('en')}
+        >
+          English
+        </div>
+        <div
+          className={`tw-listitem tw-listitem-secondary ${lang === 'pt' ? 'tw-listitem-selected' : ''}`}
+          onClick={handleSelect('pt')}
+        >
+          Protuguese
+        </div>
+        <div
+          className={`tw-listitem tw-listitem-secondary ${lang === 'es' ? 'tw-listitem-selected' : ''}`}
+          onClick={handleSelect('es')}
+        >
+          Spanish
+        </div>
+      </div>
+    );
+  }}
+</Playground>

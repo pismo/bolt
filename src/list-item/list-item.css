@@ -25,6 +25,17 @@
   @apply tw-flex-col;
 }
 
+.tw-listitem-first {
+  @apply tw-font-bold
+  tw-text-black;
+}
+
+.tw-listitem.tw-listitem-secondary {
+  @apply tw-text-black
+  hover:tw-text-black
+  hover:tw-font-normal;
+}
+
 .tw-listitem.tw-listitem-selected {
   @apply tw-bg-gray-10
   tw-font-bold
@@ -39,9 +50,14 @@
   content: var(--tw-icon-code-check);
 }
 
-.tw-listitem-first {
-  @apply tw-font-bold
-  tw-text-black;
+.tw-listitem.tw-listitem-secondary.tw-listitem-selected {
+  @apply tw-bg-gray-90
+  tw-font-normal
+  tw-text-white;
+}
+
+.tw-listitem.tw-listitem-secondary.tw-listitem-selected::after {
+  all: unset;
 }
 
 .tw-listitem-second {
