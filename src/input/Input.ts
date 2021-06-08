@@ -45,6 +45,10 @@ class Input implements IInput {
 
   #label: HTMLElement;
 
+  #help: HTMLElement;
+
+  #helpText: HTMLElement;
+
   #helperText: HTMLElement;
 
   #startIcon: HTMLElement;
@@ -75,8 +79,20 @@ class Input implements IInput {
     this.#container = ref;
     this.#container.classList.add('tw-input-container');
 
+    const containerLabel = document.createElement('div');
+    containerLabel.classList.add('tw-flex');
+
     this.#label = document.createElement('label');
     this.#label.classList.add('tw-input-label');
+
+    this.#help = document.createElement('div');
+    this.#help.classList.add('tw-i-dialog-help');
+    this.#help.classList.add('tw-help');
+
+    this.#helpText = document.createElement('span');
+
+    const arrow = document.createElement('div');
+    arrow.classList.add('tw-help-arrow');
 
     this.#containerInput = document.createElement('div');
     this.#containerInput.classList.add('tw-input-containerInput');
@@ -104,7 +120,15 @@ class Input implements IInput {
       this.#updateOptions(key, options);
     });
 
-    this.#container.appendChild(this.#label);
+    this.#help.appendChild(this.#helpText);
+    this.#help.appendChild(arrow);
+
+    containerLabel.appendChild(this.#label);
+    containerLabel.appendChild(this.#help);
+
+    this.#container.appendChild(containerLabel);
+    // this.#container.appendChild(this.#label);
+    // this.#container.appendChild(this.#help);
     this.#containerInput.appendChild(this.#input);
     this.#container.appendChild(this.#containerInput);
     this.#container.appendChild(this.#helperText);
@@ -129,6 +153,8 @@ class Input implements IInput {
     switch (key) {
       case 'label':
         this.#label.innerText = options.label ?? '';
+        this.#helpText.innerText =
+          'Mussum Ipsum, cacilds vidis litro abertis. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Suco de cevadiss deixa as pessoas mais interessantis. Manduma pindureta quium dia nois paga. A ordem dos tratores não altera o pão duris.';
         break;
       case 'helpertext':
         this.#helperText.innerText = options.helpertext ?? '';
