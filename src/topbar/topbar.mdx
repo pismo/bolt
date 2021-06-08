@@ -6,7 +6,6 @@ import { useState, useRef, useEffect } from 'react';
 import { Playground, Props } from 'docz';
 import '../../dist/css/bolt-css.css';
 import { Topbar } from '../../dist/js/bolt';
-import IconBCA from '../assets/icons/bankBca.svg';
 
 # Topbar
 
@@ -48,6 +47,7 @@ export interface ITopbar {
   {() => {
     const [topbar, setTopbar] = useState(null);
     const topbarRef = useRef();
+    //import IconBCA from '../assets/icons/bankBca.svg';
     //
     useEffect(() => {
       if (topbarRef.current && !topbar) {
@@ -55,8 +55,8 @@ export interface ITopbar {
           new Topbar({
             container: topbarRef.current,
             backButton: true,
-            title: 'Bank BCA Indonesia',
-            icon: IconBCA,
+            title: 'Pismo',
+            icon: 'https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/808603/regular_58b823c9e9a8c4ca7656239b5fbd51a6.png',
             currency: 'USD',
             langMenu: [
               { id: 'en', label: 'Inglês', short: 'en', selected: true },
