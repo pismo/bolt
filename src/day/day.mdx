@@ -52,7 +52,13 @@ export interface IDay {
           extraText: 'id: 12345',
         });
         const d1 = new Day({ container: containerDays.current, text: '02', classes: ['tw-w-24'] });
-        const d2 = new Day({ container: containerDays.current, text: '03', classes: ['tw-w-24'], active: true });
+        const d2 = new Day({
+          container: containerDays.current,
+          text: '03',
+          classes: ['tw-w-24'],
+          active: true,
+          extraText: 'ID: 4321',
+        });
         //
         setDays([d, d1, d2]);
       }

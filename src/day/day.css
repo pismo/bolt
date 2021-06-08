@@ -6,6 +6,7 @@
 
 .tw-day {
   @apply tw-flex
+  tw-flex-col
   tw-border-b
   tw-border-gray-25
   tw-p-2
@@ -14,7 +15,7 @@
   tw-text-gray-50
   tw-cursor-pointer;
   min-width: 3.125rem;
-  height: 3.125rem;
+  height: 3.75rem;
   min-height: 3.125rem;
 }
 
@@ -29,10 +30,7 @@
 }
 
 .tw-day .tw-day-extratext {
-  @apply tw-body5
-  tw-self-end
-  tw-ml-auto
-  tw-text-right;
+  @apply tw-body4;
 }
 
 .tw-day.tw-day-active {
@@ -41,5 +39,5 @@
 }
 
 .tw-day.tw-day-active .tw-day-extratext {
-  @apply tw-text-gray-50;
+  @apply tw-font-normal;
 }
