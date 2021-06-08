@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.13.0](https://github.com/pismo/bolt/compare/v3.12.1...v3.13.0) (2021-06-08)
+
+
+### Features
+
+* **list-item:** secondary colors ([2bdee26](https://github.com/pismo/bolt/commit/2bdee2627bc292610ac005b4fe654a07f1d2ff96))
+
+
+### Bug Fixes
+
+* **day:** layout adjustment ([19fb2e9](https://github.com/pismo/bolt/commit/19fb2e9034da80ed0f8a7278fe1a273c7f7ba28f))
+
 ### [3.12.1](https://github.com/pismo/bolt/compare/v3.12.0...v3.12.1) (2021-06-04)
 
 
