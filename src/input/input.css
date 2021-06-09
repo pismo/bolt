@@ -113,16 +113,16 @@
   padding-right: 4.5rem;
 }
 
-.tw-help {
-  @apply tw-ml-3
+.tw-tooltip {
+  @apply tw-flex
+  tw-items-center
   tw-cursor-pointer
   tw-block
-  tw-relative;
+  tw-absolute;
 }
 
-div.tw-help span {
-  @apply tw-absolute
-  tw-body3
+div.tw-tooltip span {
+  @apply tw-body3
   tw-invisible
   tw-bg-black
   tw-text-white
@@ -131,34 +131,29 @@ div.tw-help span {
   tw-flex
   tw-flex-wrap
   tw-items-center
-  tw-w-80
   tw-max-h-56
   tw-overflow-y-auto
   tw-scrollbar-light
   tw-rounded;
+  min-width: 15rem;
 }
 
-.tw-help-arrow {
+.tw-tooltip-arrow {
   @apply tw-invisible;
   content: '';
-  position: absolute;
-  left: 30px;
-  top: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid #000;
 }
 
-div:hover.tw-help span {
-  visibility: visible;
-  opacity: 0.9;
-  top: -96px;
-  left: 40px;
+div:hover.tw-tooltip span {
+  @apply tw-visible
+  tw-opacity-90;
   z-index: 999;
 }
 
-div:hover.tw-help .tw-help-arrow {
-  visibility: visible;
-  opacity: 0.9;
+div:hover.tw-tooltip .tw-tooltip-arrow {
+  @apply tw-visible
+  tw-opacity-90;
   z-index: 998;
 }

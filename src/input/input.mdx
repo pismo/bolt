@@ -39,6 +39,37 @@ seu comportamento.
 <br />
 <br />
 
+## Tooltip
+
+<br />
+
+<Playground>
+  {() => {
+    const [input, setInput] = useState();
+    const inputRef = useRef();
+    useEffect(() => {
+      if (inputRef.current && !input) {
+        setInput(new Input(inputRef.current));
+      }
+      return () => {
+        if (input) input.destroy();
+      };
+    }, [inputRef.current, input]);
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div
+          ref={inputRef}
+          data-label="MDR"
+          data-tooltip="Sigla em inglês para Merchant Discount Rate. Conhecida como Taxa de Desconto do Lojista..."
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
 ## Disabled
 
 <br />
@@ -482,6 +513,7 @@ O modo readonly remove a interatividade do usuário e adiciona uma formatação 
 export interface IInputDataset {
   name?: string;
   label?: string;
+  tooltip?: string;
   type?: string;
   helpertext?: string;
   starticon?: string;
