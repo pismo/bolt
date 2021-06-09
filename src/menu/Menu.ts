@@ -1,5 +1,5 @@
 import { popperGenerator, defaultModifiers, Options, Instance } from '@popperjs/core/lib/popper-lite';
-import arrow from '@popperjs/core/lib/modifiers/arrow';
+import popperArrow from '@popperjs/core/lib/modifiers/arrow';
 import offset from '@popperjs/core/lib/modifiers/offset';
 import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow';
 
@@ -13,8 +13,10 @@ export interface IMenuContent {
 export interface MenuProps {
   ref: HTMLElement;
   content: IMenuContent[];
-  classes: string[];
+  classes?: string[];
   popperOptions?: Partial<Options>;
+  arrow?: boolean;
+  color?: 'primary' | 'secondary';
 }
 
 export interface IMenuConstructor {
@@ -23,20 +25,21 @@ export interface IMenuConstructor {
 
 export interface IMenu {
   open: boolean;
+  selected: number | string;
   readonly destroy: () => void;
 
   onClose?: () => void;
   onSelected?: (id: string | number) => void;
 }
 
-const createPopper = popperGenerator({ defaultModifiers: [...defaultModifiers, arrow, offset, preventOverflow] });
+const createPopper = popperGenerator({ defaultModifiers: [...defaultModifiers, popperArrow, offset, preventOverflow] });
 
 class Menu implements IMenu {
   #container: HTMLElement;
 
   #ref: HTMLElement;
 
-  #arrow: HTMLElement;
+  #arrow?: HTMLElement;
 
   #popper: Instance;
 
@@ -44,24 +47,28 @@ class Menu implements IMenu {
 
   #isOpen = false;
 
+  #selected: number | string = 0;
+
   onSelected?: (id: string | number) => void;
 
   onClose?: () => void;
 
-  constructor({ ref, content, classes = [], popperOptions }: MenuProps) {
+  constructor({ ref, content, popperOptions, classes = [], arrow = true, color = 'primary' }: MenuProps) {
     this.#ref = ref;
 
     this.#container = document.createElement('div');
     this.#container.classList.add('tw-menu', 'tw-menu-closed', ...classes);
 
-    this.#arrow = document.createElement('div');
-    this.#arrow.classList.add('tw-menu-arrow');
-    this.#arrow.dataset.popperArrow = '';
-    this.#container.appendChild(this.#arrow);
+    if (arrow) {
+      this.#arrow = document.createElement('div');
+      this.#arrow.classList.add('tw-menu-arrow');
+      this.#arrow.dataset.popperArrow = '';
+      this.#container.appendChild(this.#arrow);
+    }
 
     content.forEach((bt) => {
       const item = document.createElement('div');
-      item.classList.add('tw-listitem');
+      item.classList.add('tw-listitem', color === 'secondary' ? 'tw-listitem-secondary' : '');
       if (bt.selected) item.classList.add('tw-listitem-selected');
       if (typeof bt.label === 'string') {
         item.innerText = bt.label;
@@ -125,6 +132,14 @@ class Menu implements IMenu {
     this.#isOpen = Boolean(value);
   }
 
+  get selected(): number | string {
+    return this.#selected;
+  }
+
+  set selected(id: number | string) {
+    this.#handleSelected({ target: { id } }, false);
+  }
+
   #handleAnimation = (): void => {
     if (!this.#isOpen) {
       this.#container.classList.add('tw-menu-closed');
@@ -135,7 +150,7 @@ class Menu implements IMenu {
     }
   };
 
-  #handleSelected = (e: MouseEvent): void => {
+  #handleSelected = (e: MouseEvent | { target: { id: number | string } }, dispatch = true): void => {
     const target = e.target as HTMLElement;
     Object.entries(this.#listItems).forEach(([key, item]) => {
       const el = item;
@@ -143,7 +158,9 @@ class Menu implements IMenu {
       if (key === target.id) el.classList.add('tw-listitem-selected');
     });
 
-    if (this.onSelected) this.onSelected(target.id);
+    this.#selected = target.id;
+
+    if (this.onSelected && dispatch) this.onSelected(target.id);
     if (this.onClose) this.onClose();
   };
 

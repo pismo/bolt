@@ -29,6 +29,8 @@ export interface MenuProps {
   content: IMenuContent[]; // conjunto de botões
   classes: string[]; // classes que serão passadas para o container do menu
   popperOptions?: Partial<Options>; // propriedades passadas para o construtor do popper
+  arrow?: boolean; // indica se a ponta marcadora está visível - default = true
+  color?: 'primary' | 'secondary'; // indica o estilo de cor do list-item - default = 'primary'
 }
 
 // construtor
@@ -38,6 +40,7 @@ export interface IMenuConstructor {
 
 export interface IMenu {
   open: boolean; // indica se o menu está aberto ou fechado, se passar algum valor, o menu abre/true ou fecha/false - default = false
+  selected: number | string; // seleciona ou retorna um item pelo id de forma manual
   readonly destroy: () => void; // método público, remove todos os elementos da página
 
   onClose?: () => void; // disparado quando o menu tem intensão de fechar
