@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.14.0](https://github.com/pismo/bolt/compare/v3.13.0...v3.14.0) (2021-06-10)
+
+
+### Features
+
+* **menu:** features to select implementation ([4c011d1](https://github.com/pismo/bolt/commit/4c011d1a08a638b934947a09e4a400d989bf7f3c))
+* **select:** component added ([d456fe2](https://github.com/pismo/bolt/commit/d456fe29beeb9adf029f052ee129f7e90db161a6))
+
+
+### Bug Fixes
+
+* **list-item:** documentation title ([9873a9b](https://github.com/pismo/bolt/commit/9873a9bb1ee6e99fcbbae4f8a7de32197d283203))
+
 ## [3.13.0](https://github.com/pismo/bolt/compare/v3.12.1...v3.13.0) (2021-06-08)
 
 
