@@ -1,0 +1,84 @@
+---
+name: Select
+---
+
+import { useRef, useState, useEffect } from 'react';
+import { Playground } from 'docz';
+import { Select } from '../../dist/js/bolt';
+import '../../dist/css/bolt-css.css';
+
+# Select
+
+## Propriedades
+
+```typescript
+// Option extende as propriedades IMenuContent
+export interface ISelectOption extends IMenuContent {
+  id: number; // id de referência da posição do elemento no array
+}
+
+// opções válidas do dataset
+export interface ISelectDataset
+  extends Pick<IInputDataset, 'name' | 'label' | 'helpertext' | 'error' | 'disabled' | 'value'> {
+  options: string | ISelectOption[];
+}
+
+export interface ISelectRef extends HTMLElement {
+  dataset: Partial<Record<keyof ISelectDataset, string>>;
+}
+
+export interface ISelectProps {
+  ref: ISelectRef; // elemento html com os dataset possíveis
+  menuClasses?: string[]; // classes que serão adicionadas ao objeto Menu
+}
+
+// construtor
+export interface ISelectConstructor {
+  new (props: ISelectProps): ISelect;
+}
+
+export interface ISelect {
+  readonly destroy: () => void; // método para desmontar o componente
+
+  onSelect?: (selected: ISelectOption) => void; // evento disparado ao selecionar um item do menu, adiciona como argumento o objeto do tipo ISelectOption selecionado
+}
+```
+
+<Playground>
+  {() => {
+    const [select, setSelect] = useState(null);
+    const [selected, setSelected] = useState(0);
+    //
+    const selRef = useRef();
+    //
+    useEffect(() => {
+      if (selRef.current && !select) {
+        setSelect(new Select({ ref: selRef.current }));
+      }
+      //
+      return () => {
+        if (select) {
+          select.destroy();
+          setSelect(null);
+        }
+      };
+    }, [selRef.current, select]);
+    //
+    return (
+      <div className="tw-flex tw-gap-4 tw-flex-wrap">
+        <div
+          className="tw-w-full"
+          ref={selRef}
+          data-label="Estado"
+          data-options={JSON.stringify([
+            { label: 'selecione', id: 0, disabled: true },
+            { label: 'paraná', id: 1 },
+            { label: 'santa catarina', id: 2 },
+            { label: 'são paulo', id: 3 },
+          ])}
+          data-value={selected}
+        ></div>
+      </div>
+    );
+  }}
+</Playground>

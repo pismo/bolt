@@ -8,3 +8,4 @@ export * from './snackbar/Snackbar';
 export * from './menu/Menu';
 export * from './topbar/Topbar';
 export * from './day/Day';
+export * from './select/Select';

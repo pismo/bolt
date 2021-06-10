@@ -20,7 +20,8 @@
 
 .tw-menu {
   @apply tw-bg-white
-  tw-shadows-4;
+  tw-shadows-4
+  tw-overflow-hidden;
   animation-duration: 0.3s;
   animation-name: tw-menu-fade-in;
   z-index: 10000;
