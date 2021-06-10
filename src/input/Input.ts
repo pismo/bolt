@@ -1,6 +1,7 @@
 export interface IInputDataset {
   name?: string;
   label?: string;
+  tooltip?: string;
   type?: string;
   helpertext?: string;
   starticon?: string;
@@ -45,6 +46,10 @@ class Input implements IInput {
 
   #label: HTMLElement;
 
+  #containerTooltip: HTMLElement;
+
+  #tooltip: HTMLElement;
+
   #helperText: HTMLElement;
 
   #startIcon: HTMLElement;
@@ -78,6 +83,17 @@ class Input implements IInput {
     this.#label = document.createElement('label');
     this.#label.classList.add('tw-input-label');
 
+    this.#containerTooltip = document.createElement('div');
+    this.#containerTooltip.classList.add('tw-i-dialog-help'); // Alterar ícone
+    this.#containerTooltip.classList.add('tw-tooltip');
+
+    const tooltipArrow = document.createElement('div');
+    tooltipArrow.classList.add('tw-tooltip-arrow');
+    this.#containerTooltip.appendChild(tooltipArrow);
+
+    this.#tooltip = document.createElement('span');
+    this.#containerTooltip.appendChild(this.#tooltip);
+
     this.#containerInput = document.createElement('div');
     this.#containerInput.classList.add('tw-input-containerInput');
 
@@ -104,7 +120,6 @@ class Input implements IInput {
       this.#updateOptions(key, options);
     });
 
-    this.#container.appendChild(this.#label);
     this.#containerInput.appendChild(this.#input);
     this.#container.appendChild(this.#containerInput);
     this.#container.appendChild(this.#helperText);
@@ -129,7 +144,35 @@ class Input implements IInput {
     switch (key) {
       case 'label':
         this.#label.innerText = options.label ?? '';
+        this.#container.appendChild(this.#label);
         break;
+
+      case 'tooltip': {
+        if (this.#label.innerHTML === '') break;
+
+        const container = document.createElement('div');
+        container.classList.add('tw-flex');
+        container.classList.add('tw-items-center');
+        container.classList.add('tw-relative');
+        container.appendChild(this.#label);
+
+        const fakeLabel = this.#label.cloneNode(true) as HTMLElement;
+        fakeLabel.style.visibility = 'hidden';
+        fakeLabel.style.position = 'absolute';
+        document.body.appendChild(fakeLabel);
+
+        const fakeLabelWidth = fakeLabel.offsetWidth;
+
+        this.#containerTooltip.style.left = `${fakeLabelWidth + 10}px`;
+        container.appendChild(this.#containerTooltip);
+
+        this.#tooltip.innerText = options.tooltip ?? '';
+
+        fakeLabel.remove();
+        this.#container.appendChild(container);
+        break;
+      }
+
       case 'helpertext':
         this.#helperText.innerText = options.helpertext ?? '';
         break;

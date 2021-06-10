@@ -112,3 +112,48 @@
 .tw-input-endIcon-double-padding {
   padding-right: 4.5rem;
 }
+
+.tw-tooltip {
+  @apply tw-flex
+  tw-items-center
+  tw-cursor-pointer
+  tw-block
+  tw-absolute;
+}
+
+div.tw-tooltip span {
+  @apply tw-body3
+  tw-invisible
+  tw-bg-black
+  tw-text-white
+  tw-py-2.5
+  tw-px-5
+  tw-flex
+  tw-flex-wrap
+  tw-items-center
+  tw-max-h-56
+  tw-overflow-y-auto
+  tw-scrollbar-light
+  tw-rounded;
+  min-width: 15rem;
+}
+
+.tw-tooltip-arrow {
+  @apply tw-invisible;
+  content: '';
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #000;
+}
+
+div:hover.tw-tooltip span {
+  @apply tw-visible
+  tw-opacity-90;
+  z-index: 999;
+}
+
+div:hover.tw-tooltip .tw-tooltip-arrow {
+  @apply tw-visible
+  tw-opacity-90;
+  z-index: 998;
+}
