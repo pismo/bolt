@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.1](https://github.com/pismo/bolt/compare/v3.14.0...v3.14.1) (2021-06-10)
+
+
+### Bug Fixes
+
+* fix(topbar): Fixing topbar icon url and shape ([d1d4287](https://github.com/pismo/bolt/commit/d1d4287824d9aebc40293a6ac0b2cbe78384c9cf))
+
 ## [3.14.0](https://github.com/pismo/bolt/compare/v3.13.0...v3.14.0) (2021-06-10)
 
 
