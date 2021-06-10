@@ -82,10 +82,9 @@ class Topbar implements ITopbar {
     this.#title.classList.add('tw-topbar-title');
     this.#title.innerText = title;
 
-    const iconTitle = document.createElement('img');
+    const iconTitle = document.createElement('span');
     iconTitle.classList.add('tw-topbar-icon');
-    iconTitle.src = icon;
-    iconTitle.alt = title;
+    iconTitle.style.backgroundImage = `url(${icon})`;
 
     this.#contentTitle = document.createElement('div');
     this.#contentTitle.classList.add('tw-topbar-content');
@@ -93,6 +92,7 @@ class Topbar implements ITopbar {
     if (icon && icon !== '') {
       this.#contentTitle.appendChild(iconTitle);
     }
+
     this.#contentTitle.appendChild(this.#title);
 
     this.#menuContainer = document.createElement('div');
