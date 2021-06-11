@@ -113,17 +113,35 @@
   padding-right: 4.5rem;
 }
 
-.tw-tooltip {
-  @apply tw-flex
-  tw-items-center
+.tw-i-dialog-help {
+  @apply tw-ml-2.5
   tw-cursor-pointer
-  tw-block
-  tw-absolute;
+  tw-pr-1;
+  font-size: 1.25rem;
 }
 
-div.tw-tooltip span {
-  @apply tw-body3
-  tw-invisible
+.tw-i-dialog-help:hover + .tw-tooltip {
+  @apply tw-visible
+  tw-opacity-90;
+  z-index: 999;
+}
+
+.tw-tooltip {
+  @apply tw-flex
+  tw-items-center  
+  tw-block
+  tw-absolute
+  tw-invisible;
+}
+
+.tw-tooltip.tw-tooltip-clicked {
+  @apply tw-visible
+  tw-opacity-90;
+  z-index: 999;
+}
+
+.tw-tooltip-text {
+  @apply tw-body3  
   tw-bg-black
   tw-text-white
   tw-py-2.5
@@ -135,25 +153,13 @@ div.tw-tooltip span {
   tw-overflow-y-auto
   tw-scrollbar-light
   tw-rounded;
+  font-family: Lato !important;
   min-width: 15rem;
 }
 
 .tw-tooltip-arrow {
-  @apply tw-invisible;
   content: '';
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid #000;
-}
-
-div:hover.tw-tooltip span {
-  @apply tw-visible
-  tw-opacity-90;
-  z-index: 999;
-}
-
-div:hover.tw-tooltip .tw-tooltip-arrow {
-  @apply tw-visible
-  tw-opacity-90;
-  z-index: 998;
 }

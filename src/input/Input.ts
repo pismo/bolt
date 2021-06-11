@@ -84,7 +84,6 @@ class Input implements IInput {
     this.#label.classList.add('tw-input-label');
 
     this.#containerTooltip = document.createElement('div');
-    this.#containerTooltip.classList.add('tw-i-dialog-help'); // Alterar ícone
     this.#containerTooltip.classList.add('tw-tooltip');
 
     const tooltipArrow = document.createElement('div');
@@ -92,6 +91,7 @@ class Input implements IInput {
     this.#containerTooltip.appendChild(tooltipArrow);
 
     this.#tooltip = document.createElement('span');
+    this.#tooltip.classList.add('tw-tooltip-text');
     this.#containerTooltip.appendChild(this.#tooltip);
 
     this.#containerInput = document.createElement('div');
@@ -151,10 +151,23 @@ class Input implements IInput {
         if (this.#label.innerHTML === '') break;
 
         const container = document.createElement('div');
-        container.classList.add('tw-flex');
-        container.classList.add('tw-items-center');
-        container.classList.add('tw-relative');
+        container.classList.add('tw-flex', 'tw-items-center', 'tw-relative');
         container.appendChild(this.#label);
+
+        const icon = document.createElement('span');
+        icon.classList.add('tw-i-dialog-help');
+
+        const iconClick = () => {
+          if (!this.#containerTooltip.classList.contains('tw-tooltip-clicked')) {
+            this.#containerTooltip.classList.add('tw-tooltip-clicked');
+          } else {
+            this.#containerTooltip.classList.remove('tw-tooltip-clicked');
+          }
+        };
+
+        icon.addEventListener('click', iconClick);
+
+        container.appendChild(icon);
 
         const fakeLabel = this.#label.cloneNode(true) as HTMLElement;
         fakeLabel.style.visibility = 'hidden';
@@ -163,7 +176,7 @@ class Input implements IInput {
 
         const fakeLabelWidth = fakeLabel.offsetWidth;
 
-        this.#containerTooltip.style.left = `${fakeLabelWidth + 10}px`;
+        this.#containerTooltip.style.left = `${fakeLabelWidth + 35}px`;
         container.appendChild(this.#containerTooltip);
 
         this.#tooltip.innerText = options.tooltip ?? '';
