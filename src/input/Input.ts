@@ -60,6 +60,8 @@ class Input implements IInput {
 
   #clearIcon: HTMLElement;
 
+  #tooltipIcon?: HTMLSpanElement;
+
   #observer: MutationObserver;
 
   #validTypes: string[] = ['number', 'password', 'text'];
@@ -84,7 +86,6 @@ class Input implements IInput {
     this.#label.classList.add('tw-input-label');
 
     this.#containerTooltip = document.createElement('div');
-    this.#containerTooltip.classList.add('tw-i-dialog-help'); // Alterar ícone
     this.#containerTooltip.classList.add('tw-tooltip');
 
     const tooltipArrow = document.createElement('div');
@@ -92,6 +93,7 @@ class Input implements IInput {
     this.#containerTooltip.appendChild(tooltipArrow);
 
     this.#tooltip = document.createElement('span');
+    this.#tooltip.classList.add('tw-tooltip-text');
     this.#containerTooltip.appendChild(this.#tooltip);
 
     this.#containerInput = document.createElement('div');
@@ -151,10 +153,15 @@ class Input implements IInput {
         if (this.#label.innerHTML === '') break;
 
         const container = document.createElement('div');
-        container.classList.add('tw-flex');
-        container.classList.add('tw-items-center');
-        container.classList.add('tw-relative');
+        container.classList.add('tw-flex', 'tw-items-center', 'tw-relative');
         container.appendChild(this.#label);
+
+        this.#tooltipIcon = document.createElement('span');
+        this.#tooltipIcon.classList.add('tw-i-dialog-help');
+
+        this.#tooltipIcon.addEventListener('click', this.#iconClick);
+
+        container.appendChild(this.#tooltipIcon);
 
         const fakeLabel = this.#label.cloneNode(true) as HTMLElement;
         fakeLabel.style.visibility = 'hidden';
@@ -163,7 +170,7 @@ class Input implements IInput {
 
         const fakeLabelWidth = fakeLabel.offsetWidth;
 
-        this.#containerTooltip.style.left = `${fakeLabelWidth + 10}px`;
+        this.#containerTooltip.style.left = `${fakeLabelWidth + 35}px`;
         container.appendChild(this.#containerTooltip);
 
         this.#tooltip.innerText = options.tooltip ?? '';
@@ -318,6 +325,14 @@ class Input implements IInput {
     if (this.onEndIconClick) this.onEndIconClick(e);
   };
 
+  #iconClick = (): void => {
+    if (!this.#containerTooltip.classList.contains('tw-tooltip-clicked')) {
+      this.#containerTooltip.classList.add('tw-tooltip-clicked');
+    } else {
+      this.#containerTooltip.classList.remove('tw-tooltip-clicked');
+    }
+  };
+
   readonly focus = (): void => {
     this.#input.focus();
   };
@@ -331,6 +346,7 @@ class Input implements IInput {
     this.#input.removeEventListener('input', this.#handleChange);
     this.#input.removeEventListener('focus', this.#handleFocus);
     this.#input.removeEventListener('blur', this.#handleBlur);
+    if (this.#tooltipIcon) this.#tooltipIcon.removeEventListener('click', this.#iconClick);
     this.#clearIcon.removeEventListener('click', this.#handleClear);
     this.#startIcon.removeEventListener('click', this.#statIconHandleClick);
     this.#endIcon.removeEventListener('click', this.#endIconHandleClick);
