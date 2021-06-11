@@ -60,6 +60,8 @@ class Input implements IInput {
 
   #clearIcon: HTMLElement;
 
+  #tooltipIcon?: HTMLSpanElement;
+
   #observer: MutationObserver;
 
   #validTypes: string[] = ['number', 'password', 'text'];
@@ -154,20 +156,12 @@ class Input implements IInput {
         container.classList.add('tw-flex', 'tw-items-center', 'tw-relative');
         container.appendChild(this.#label);
 
-        const icon = document.createElement('span');
-        icon.classList.add('tw-i-dialog-help');
+        this.#tooltipIcon = document.createElement('span');
+        this.#tooltipIcon.classList.add('tw-i-dialog-help');
 
-        const iconClick = () => {
-          if (!this.#containerTooltip.classList.contains('tw-tooltip-clicked')) {
-            this.#containerTooltip.classList.add('tw-tooltip-clicked');
-          } else {
-            this.#containerTooltip.classList.remove('tw-tooltip-clicked');
-          }
-        };
+        this.#tooltipIcon.addEventListener('click', this.#iconClick);
 
-        icon.addEventListener('click', iconClick);
-
-        container.appendChild(icon);
+        container.appendChild(this.#tooltipIcon);
 
         const fakeLabel = this.#label.cloneNode(true) as HTMLElement;
         fakeLabel.style.visibility = 'hidden';
@@ -331,6 +325,14 @@ class Input implements IInput {
     if (this.onEndIconClick) this.onEndIconClick(e);
   };
 
+  #iconClick = (): void => {
+    if (!this.#containerTooltip.classList.contains('tw-tooltip-clicked')) {
+      this.#containerTooltip.classList.add('tw-tooltip-clicked');
+    } else {
+      this.#containerTooltip.classList.remove('tw-tooltip-clicked');
+    }
+  };
+
   readonly focus = (): void => {
     this.#input.focus();
   };
@@ -344,6 +346,7 @@ class Input implements IInput {
     this.#input.removeEventListener('input', this.#handleChange);
     this.#input.removeEventListener('focus', this.#handleFocus);
     this.#input.removeEventListener('blur', this.#handleBlur);
+    if (this.#tooltipIcon) this.#tooltipIcon.removeEventListener('click', this.#iconClick);
     this.#clearIcon.removeEventListener('click', this.#handleClear);
     this.#startIcon.removeEventListener('click', this.#statIconHandleClick);
     this.#endIcon.removeEventListener('click', this.#endIconHandleClick);
