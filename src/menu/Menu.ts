@@ -68,7 +68,12 @@ class Menu implements IMenu {
 
     content.forEach((bt) => {
       const item = document.createElement('div');
-      item.classList.add('tw-listitem', color === 'secondary' ? 'tw-listitem-secondary' : '');
+      item.classList.add('tw-listitem');
+
+      if (color === 'secondary') {
+        item.classList.add('tw-listitem-secondary');
+      }
+
       if (bt.selected) item.classList.add('tw-listitem-selected');
       if (typeof bt.label === 'string') {
         item.innerText = bt.label;
