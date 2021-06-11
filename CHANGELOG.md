@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.15.1](https://github.com/pismo/bolt/compare/v3.15.0...v3.15.1) (2021-06-11)
+
+
+### Bug Fixes
+
+* **input:** manage tooltipicon event ([e36ad50](https://github.com/pismo/bolt/commit/e36ad50fe7e583ab9fa9874d85c443e60e960d9b))
+* fix: adjustments requested via PR ([09d8b3d](https://github.com/pismo/bolt/commit/09d8b3d024d8c66dd1c48d45e91aba273a83719d))
+* fix: correcting how to add class ([910550a](https://github.com/pismo/bolt/commit/910550a46801705da69f6bf794522768b7599b37))
+
 ## [3.15.0](https://github.com/pismo/bolt/compare/v3.14.1...v3.15.0) (2021-06-10)
 
 
