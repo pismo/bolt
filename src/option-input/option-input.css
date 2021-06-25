@@ -1,0 +1,171 @@
+.tw-option-input {
+  @apply tw-flex
+  tw-items-center
+  tw-relative
+  tw-cursor-pointer;
+}
+
+.tw-option-input input {
+  @apply tw-select-none
+  tw-pointer-events-none
+  tw-absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.tw-option-input label {
+  @apply tw-flex
+  tw-items-center
+  tw-w-full
+  tw-h-full
+  tw-p-3
+  tw-gap-3
+  tw-body3
+  tw-cursor-pointer;
+  transition: all 0.3s;
+}
+
+.tw-option-input:focus,
+.tw-option-input label:focus {
+  @apply tw-ring-2
+  tw-ring-accent-dark
+  tw-outline-none;
+}
+
+.tw-option-input label:hover {
+  @apply tw-bg-gray-10;
+}
+
+.tw-option-input .tw-option-input-option {
+  @apply tw-border-gray-90
+  tw-border-2
+  tw-flex
+  tw-items-center
+  tw-justify-center
+  tw-relative
+  tw-text-gray-90;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.tw-option-input label:active {
+  @apply tw-bg-gray
+  tw-text-white;
+}
+
+.tw-option-input label:active .tw-option-input-option,
+.tw-option-input .tw-option-input-checked .tw-option-input-option {
+  @apply tw-border-white
+  tw-text-white;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-option::after {
+  --input-radio-size: 70%;
+  @apply tw-absolute
+  tw-opacity-0;
+  width: var(--input-radio-size);
+  height: var(--input-radio-size);
+  content: '';
+  background-color: currentcolor;
+  transition: opacity 0.3s;
+}
+
+.tw-option-input .tw-option-input-radio {
+  @apply tw-rounded-full;
+}
+
+.tw-option-input .tw-option-input-radio::after {
+  @apply tw-rounded-full;
+}
+
+.tw-option-input .tw-option-input-checkbox::after {
+  --transform-hack-size: -25%;
+  @apply tw-icon-style;
+  content: var(--tw-icon-code-check);
+  background-color: transparent;
+  font-size: 90%;
+  font-weight: 900;
+  transform: translate(var(--transform-hack-size), var(--transform-hack-size));
+}
+
+.tw-option-input .tw-option-input-checked .tw-option-input-option::after,
+.tw-option-input label:active .tw-option-input-option::after {
+  @apply tw-opacity-100;
+  transition: opacity 0.3s;
+}
+
+.tw-option-input .tw-option-input-checked,
+.tw-option-input .tw-option-input-checked:hover {
+  @apply tw-bg-gray-90
+    tw-text-white;
+}
+
+.tw-option-input .tw-option-input-color-primary:hover,
+.tw-option-input .tw-option-input-color-primary:active,
+.tw-option-input .tw-option-input-color-primary.tw-option-input-checked {
+  @apply tw-text-white
+  tw-bg-accent-dark;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color-secondary:hover,
+.tw-option-input .tw-option-input-color-secondary:active,
+.tw-option-input .tw-option-input-color-secondary.tw-option-input-checked {
+  @apply tw-text-white
+  tw-bg-orange;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color-error:hover,
+.tw-option-input .tw-option-input-color-error:active,
+.tw-option-input .tw-option-input-color-error.tw-option-input-checked {
+  @apply tw-text-white
+  tw-bg-alert-dark;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color-primary:hover .tw-option-input-option,
+.tw-option-input .tw-option-input-color-primary:active .tw-option-input-option,
+.tw-option-input .tw-option-input-color-primary.tw-option-input-checked .tw-option-input-option,
+.tw-option-input .tw-option-input-color-secondary:hover .tw-option-input-option,
+.tw-option-input .tw-option-input-color-secondary:active .tw-option-input-option,
+.tw-option-input .tw-option-input-color-secondary.tw-option-input-checked .tw-option-input-option,
+.tw-option-input .tw-option-input-color-error:hover .tw-option-input-option,
+.tw-option-input .tw-option-input-color-error:active .tw-option-input-option,
+.tw-option-input .tw-option-input-color-error.tw-option-input-checked .tw-option-input-option {
+  @apply tw-text-white
+  tw-border-white;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color,
+.tw-option-input .tw-option-input-color:hover,
+.tw-option-input .tw-option-input-color:active,
+.tw-option-input .tw-option-input-color.tw-option-input-checked {
+  @apply tw-text-black
+  tw-bg-transparent;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color.tw-option-input-color-primary .tw-option-input-option,
+.tw-option-input .tw-option-input-color.tw-option-input-color-primary:active .tw-option-input-option {
+  @apply tw-text-accent-dark
+  tw-border-accent-dark;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color.tw-option-input-color-secondary .tw-option-input-option,
+.tw-option-input .tw-option-input-color.tw-option-input-color-secondary:active .tw-option-input-option {
+  @apply tw-text-orange
+  tw-border-orange;
+  transition: all 0.3s;
+}
+
+.tw-option-input .tw-option-input-color.tw-option-input-color-error .tw-option-input-option,
+.tw-option-input .tw-option-input-color.tw-option-input-color-error:active .tw-option-input-option {
+  @apply tw-text-alert-dark
+  tw-border-alert-dark;
+  transition: all 0.3s;
+}
