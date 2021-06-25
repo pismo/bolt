@@ -10,6 +10,42 @@ import '../../dist/css/bolt-css.css';
 
 # Option Input
 
+## Propriedades
+
+```typescript
+export interface IOptionInputDataset {
+  type: 'radio' | 'checkbox'; // tipo do option-input
+  checked: boolean; // se está selecionado
+  label?: string; // texto botão
+  value?: any; // valor a ser recuperado no evento onChange
+  color?: 'primary' | 'secondary' | 'error'; // estilo de cor
+  clean?: boolean; // se a cor será aplicada apenas no elemento
+}
+
+export interface IOptionInputRef extends HTMLElement {
+  dataset: Partial<Record<keyof IOptionInputDataset, string>>;
+}
+
+export interface IOptionInputProps {
+  ref: IOptionInputRef;
+}
+
+export interface IOptionInputConstructor {
+  new (props: IOptionInputProps): IOptionInput;
+}
+
+export interface IOptionInputChange {
+  value: any;
+  checked: boolean;
+}
+
+export interface IOptionInput {
+  readonly destroy: () => void; // método para desmontar o elemento
+
+  onChange?: (ev: IOptionInputChange) => void; // evento disparado sempre que há alteração no estado do elemento
+}
+```
+
 ## Radio Button
 
 <br />

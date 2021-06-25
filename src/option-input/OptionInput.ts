@@ -5,7 +5,7 @@ export interface IOptionInputDataset {
   checked: boolean;
   label?: string;
   value?: any;
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'error';
   clean?: boolean;
 }
 
