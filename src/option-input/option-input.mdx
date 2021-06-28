@@ -1,0 +1,324 @@
+---
+name: Option Input
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import { OptionInput } from '../../dist/js/bolt';
+
+import '../../dist/css/bolt-css.css';
+
+# Option Input
+
+## Propriedades
+
+```typescript
+export interface IOptionInputDataset {
+  type: 'radio' | 'checkbox'; // tipo do option-input
+  checked: boolean; // se está selecionado
+  label?: string; // texto botão
+  value?: any; // valor a ser recuperado no evento onChange
+  color?: 'primary' | 'secondary' | 'error'; // estilo de cor
+  clean?: boolean; // se a cor será aplicada apenas no elemento
+}
+
+export interface IOptionInputRef extends HTMLElement {
+  dataset: Partial<Record<keyof IOptionInputDataset, string>>;
+}
+
+export interface IOptionInputProps {
+  ref: IOptionInputRef;
+}
+
+export interface IOptionInputConstructor {
+  new (props: IOptionInputProps): IOptionInput;
+}
+
+export interface IOptionInputChange {
+  value: any;
+  checked: boolean;
+}
+
+export interface IOptionInput {
+  readonly destroy: () => void; // método para desmontar o elemento
+
+  onChange?: (ev: IOptionInputChange) => void; // evento disparado sempre que há alteração no estado do elemento
+}
+```
+
+## Radio Button
+
+<br />
+
+<Playground>
+  {() => {
+    const [radios, setRadio] = useState(null);
+    const [checked, setChecked] = useState('');
+    const radioRef = useRef();
+    const radioRef1 = useRef();
+    const radioRef2 = useRef();
+    //
+    useEffect(() => {
+      if (radioRef.current && radioRef1.current && radioRef2.current && !radios) {
+        setRadio([
+          new OptionInput({ ref: radioRef.current }),
+          new OptionInput({ ref: radioRef1.current }),
+          new OptionInput({ ref: radioRef2.current }),
+        ]);
+      }
+      //
+      if (radios) {
+        radios.forEach((radio) => {
+          radio.onChange = selectRadio;
+        });
+      }
+      //
+      return () => {
+        if (radios) {
+          radios.forEach((radio) => {
+            radio.destroy();
+          });
+        }
+      };
+    }, [radioRef.current, radios, radioRef1.current, radioRef2.current]);
+    //
+    const selectRadio = ({ value }) => {
+      console.log(value);
+      setChecked(value);
+    };
+    return (
+      <div className="tw-flex">
+        <div ref={radioRef2} data-type="radio" data-label="vue" data-value="vue" data-checked={checked === 'vue'}></div>
+        <div
+          ref={radioRef}
+          data-type="radio"
+          data-label="react"
+          data-value="react"
+          data-checked={checked === 'react'}
+        ></div>
+        <div
+          ref={radioRef1}
+          data-type="radio"
+          data-label="svelt"
+          data-value="svelt"
+          data-checked={checked === 'svelt'}
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Checkbox
+
+<br />
+
+<Playground>
+  {() => {
+    const [checkboxes, setCheckboxes] = useState(null);
+    const [checked, setChecked] = useState({});
+    const refs = Array(10)
+      .fill(null)
+      .map(() => useRef());
+    //
+    useEffect(() => {
+      if (!checkboxes) {
+        let test = true;
+        //
+        refs.some((ref) => {
+          if (!ref.current) {
+            test = false;
+            return true;
+          }
+        });
+        //
+        if (test) {
+          setCheckboxes(refs.map((ref) => new OptionInput({ ref: ref.current })));
+        }
+      } else {
+        checkboxes.forEach((check) => {
+          check.onChange = onChangeHandler;
+        });
+      }
+      //
+      return () => {
+        if (checkboxes) {
+          checkboxes.forEach((check) => {
+            check.destroy();
+          });
+        }
+      };
+    }, [...refs, checkboxes]);
+    //
+    const onChangeHandler = ({ value, checked }) => {
+      setChecked((old) => ({ ...old, [value]: checked }));
+    };
+    return (
+      <div className="tw-flex">
+        {refs.map((ref, index) => (
+          <div
+            key={index}
+            ref={ref}
+            data-type="checkbox"
+            data-label={index < 9 ? `0${index + 1}` : index + 1}
+            data-value={index}
+            data-checked={checked[index]}
+          ></div>
+        ))}
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Colors
+
+<br />
+
+<Playground>
+  {() => {
+    const [radios, setRadio] = useState(null);
+    const [checked, setChecked] = useState('');
+    const radioRef = useRef();
+    const radioRef1 = useRef();
+    const radioRef2 = useRef();
+    //
+    useEffect(() => {
+      if (radioRef.current && radioRef1.current && radioRef2.current && !radios) {
+        setRadio([
+          new OptionInput({ ref: radioRef.current }),
+          new OptionInput({ ref: radioRef1.current }),
+          new OptionInput({ ref: radioRef2.current }),
+        ]);
+      }
+      //
+      if (radios) {
+        radios.forEach((radio) => {
+          radio.onChange = selectRadio;
+        });
+      }
+      //
+      return () => {
+        if (radios) {
+          radios.forEach((radio) => {
+            radio.destroy();
+          });
+        }
+      };
+    }, [radioRef.current, radios, radioRef1.current, radioRef2.current]);
+    //
+    const selectRadio = ({ value }) => {
+      console.log(value);
+      setChecked(value);
+    };
+    return (
+      <div className="tw-flex">
+        <div
+          ref={radioRef2}
+          data-type="radio"
+          data-label="vue"
+          data-value="vue"
+          data-checked={checked === 'vue'}
+          data-color="primary"
+        ></div>
+        <div
+          ref={radioRef}
+          data-type="radio"
+          data-label="react"
+          data-value="react"
+          data-checked={checked === 'react'}
+          data-color="secondary"
+        ></div>
+        <div
+          ref={radioRef1}
+          data-type="radio"
+          data-label="svelt"
+          data-value="svelt"
+          data-checked={checked === 'svelt'}
+          data-color="error"
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
+
+<br />
+<br />
+
+## Colors Clean
+
+<br />
+
+<Playground>
+  {() => {
+    const [radios, setRadio] = useState(null);
+    const [checked, setChecked] = useState('');
+    const radioRef = useRef();
+    const radioRef1 = useRef();
+    const radioRef2 = useRef();
+    //
+    useEffect(() => {
+      if (radioRef.current && radioRef1.current && radioRef2.current && !radios) {
+        setRadio([
+          new OptionInput({ ref: radioRef.current }),
+          new OptionInput({ ref: radioRef1.current }),
+          new OptionInput({ ref: radioRef2.current }),
+        ]);
+      }
+      //
+      if (radios) {
+        radios.forEach((radio) => {
+          radio.onChange = selectRadio;
+        });
+      }
+      //
+      return () => {
+        if (radios) {
+          radios.forEach((radio) => {
+            radio.destroy();
+          });
+        }
+      };
+    }, [radioRef.current, radios, radioRef1.current, radioRef2.current]);
+    //
+    const selectRadio = ({ value }) => {
+      console.log(value);
+      setChecked(value);
+    };
+    return (
+      <div className="tw-flex">
+        <div
+          ref={radioRef2}
+          data-type="radio"
+          data-label="vue"
+          data-value="vue"
+          data-checked={checked === 'vue'}
+          data-color="primary"
+          data-clean={true}
+        ></div>
+        <div
+          ref={radioRef}
+          data-type="radio"
+          data-label="react"
+          data-value="react"
+          data-checked={checked === 'react'}
+          data-color="secondary"
+          data-clean={true}
+        ></div>
+        <div
+          ref={radioRef1}
+          data-type="radio"
+          data-label="svelt"
+          data-value="svelt"
+          data-checked={checked === 'svelt'}
+          data-color="error"
+          data-clean={true}
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
