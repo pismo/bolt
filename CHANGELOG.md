@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.17.0](https://github.com/pismo/bolt/compare/v3.16.0...v3.17.0) (2021-06-28)
+
+
+### Features
+
+* **option-input:** option-input added ([d8484c4](https://github.com/pismo/bolt/commit/d8484c4417e305f98411008f46dc38a1b9b20a0b))
+
 ## [3.16.0](https://github.com/pismo/bolt/compare/v3.15.1...v3.16.0) (2021-06-17)
 
 
