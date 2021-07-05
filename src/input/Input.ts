@@ -256,7 +256,7 @@ class Input implements IInput {
         if (this.#validTypes.includes(String(options.type))) this.#input.setAttribute('type', options.type as string);
         break;
       case 'readonly':
-        if (options.readonly) {
+        if (String(options.readonly) === 'true') {
           this.#container.classList.add('tw-input-readonly');
         } else {
           this.#container.classList.remove('tw-input-readonly');
