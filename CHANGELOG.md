@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.17.1](https://github.com/pismo/bolt/compare/v3.17.0...v3.17.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* **input:** correct way to manipulate string-boolean for data-readonly ([9b74dd7](https://github.com/pismo/bolt/commit/9b74dd700b70278aec45b4bd9d51a9016947e16b))
+
 ## [3.17.0](https://github.com/pismo/bolt/compare/v3.16.0...v3.17.0) (2021-06-28)
 
 
