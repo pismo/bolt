@@ -1,0 +1,73 @@
+---
+name: Station
+---
+
+import { useState, useRef, useEffect } from 'react';
+import { Playground, Props } from 'docz';
+import '../../dist/css/bolt-css.css';
+import { Station } from '../../dist/js/bolt';
+
+# Station
+
+## Propriedades
+
+```typescript
+export interface IStop {
+  label: string; // texto de identificação da 'estação'
+  done?: boolean; // se o item foi concluído
+}
+
+export interface IStationDataset {
+  stops: IStop[]; // Array de objetos do tipo IStop no formatado como JSON
+}
+
+export interface IStationRef extends HTMLElement {
+  dataset: Partial<Record<keyof IStationDataset, string>>;
+}
+
+export interface IStationProps {
+  ref: IStationRef; // elemento html com os dataset possíveis
+}
+
+// construtor
+export interface IStationConstructor {
+  new (props: IStationProps): IStation;
+}
+
+export interface IStation {
+  readonly destroy: () => void; // método para desmontar o componente
+}
+```
+
+<Playground>
+  {() => {
+    const [station, setStation] = useState(null);
+    //
+    const refStation = useRef(null);
+    //
+    useEffect(() => {
+      if (refStation.current && !station) {
+        setStation(new Station({ ref: refStation.current }));
+      }
+      //
+      return () => {
+        if (station) station.destroy();
+      };
+    }, [refStation.current, station]);
+    //
+    //
+    return (
+      <div className="tw-flex">
+        <div
+          ref={refStation}
+          data-stops={JSON.stringify([
+            { label: 'Envio dos dados', done: true },
+            { label: 'Configuração Contábil' },
+            { label: 'Configuração PCI' },
+            { label: 'Programa Pronto' },
+          ])}
+        ></div>
+      </div>
+    );
+  }}
+</Playground>
