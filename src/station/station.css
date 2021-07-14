@@ -1,0 +1,83 @@
+.station {
+  @apply tw-flex
+  tw-w-full
+  tw-relative;
+}
+
+.station .station-stop-container {
+  @apply tw-flex
+  tw-w-full
+  tw-justify-between
+  tw-relative;
+  color: var(--tw-colors-gray-50);
+}
+
+.station .station-stop {
+  --station-stop-ball-size: 30px;
+  @apply tw-flex
+  tw-flex-col
+  tw-items-center
+  tw-relative;
+  max-width: min-content;
+  z-index: 10;
+}
+
+.station .station-line {
+  background-color: currentcolor;
+  position: absolute;
+  height: 8px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.station .station-stop .station-stop-ball {
+  @apply tw-flex
+  tw-justify-center
+  tw-items-center
+  tw-relative
+  tw-rounded-full
+  tw-bg-white;
+  border: 5px solid currentcolor;
+  width: var(--station-stop-ball-size);
+  height: var(--station-stop-ball-size);
+}
+
+.station .station-stop .station-stop-label {
+  @apply tw-body3
+  tw-text-center
+  tw-absolute
+  tw-text-gray-75;
+  max-width: 7.5rem;
+  min-width: 6rem;
+  top: var(--station-stop-ball-size);
+}
+
+.station .station-stop:first-child {
+  @apply tw-items-start;
+}
+
+.station .station-stop:first-child .station-stop-label {
+  @apply tw-text-left;
+}
+
+.station .station-stop-last {
+  @apply tw-items-end;
+}
+
+.station .station-stop-last .station-stop-label {
+  @apply tw-text-right;
+}
+
+.station .station-stop-done,
+.station .station-stop-done .station-stop-label {
+  color: var(--tw-colors-green-dark);
+}
+
+.station .station-stop.station-stop-done .station-stop-ball::after {
+  --station-stop-ball-inner-size: 80%;
+  content: '';
+  width: var(--station-stop-ball-inner-size);
+  height: var(--station-stop-ball-inner-size);
+  background-color: currentcolor;
+  @apply tw-rounded-full;
+}
