@@ -258,8 +258,10 @@ class Input implements IInput {
       case 'readonly':
         if (String(options.readonly) === 'true') {
           this.#container.classList.add('tw-input-readonly');
+          this.#input.setAttribute('readonly', 'readonly');
         } else {
           this.#container.classList.remove('tw-input-readonly');
+          this.#input.removeAttribute('readonly');
         }
         break;
       default:
