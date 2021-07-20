@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.18.1](https://github.com/pismo/bolt/compare/v3.18.0...v3.18.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **input:** added readonly attr when is readonly ([f0743a2](https://github.com/pismo/bolt/commit/f0743a2893d5376031fe3bd7123dceaa719a54f4))
+
 ## [3.18.0](https://github.com/pismo/bolt/compare/v3.17.1...v3.18.0) (2021-07-14)
 
 
