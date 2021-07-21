@@ -113,14 +113,14 @@
   padding-right: 4.5rem;
 }
 
-.tw-i-dialog-help {
+.tw-input-container .tw-i-dialog-help {
   @apply tw-ml-2.5
   tw-cursor-pointer
   tw-pr-1;
   font-size: 1.25rem;
 }
 
-.tw-i-dialog-help:hover + .tw-tooltip {
+.tw-input-container .tw-i-dialog-help:hover + .tw-tooltip {
   @apply tw-visible
   tw-opacity-90;
   z-index: 999;
@@ -128,7 +128,7 @@
 
 .tw-tooltip {
   @apply tw-flex
-  tw-items-center  
+  tw-items-center
   tw-block
   tw-absolute
   tw-invisible;
@@ -141,7 +141,7 @@
 }
 
 .tw-tooltip-text {
-  @apply tw-body3  
+  @apply tw-body3
   tw-bg-black
   tw-text-white
   tw-py-2.5
