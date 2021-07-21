@@ -1,13 +1,15 @@
 {
   "name": "@pismo/bolt",
-  "version": "3.18.1",
+  "version": "3.19.0",
   "homepage": "https://bolt.pismolabs.io/",
   "style": "dist/css/bolt-css.css",
   "main": "dist/js/bolt.js",
   "module": "dist/js/bolt.mjs.js",
   "typings": "dist/js/bolt.d.ts",
   "license": "ISC",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "publishConfig": {
     "access": "public"
   },

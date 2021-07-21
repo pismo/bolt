@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.19.0](https://github.com/pismo/bolt/compare/v3.18.1...v3.19.0) (2021-07-21)
+
+
+### Features
+
+* **icons:** new icons added ([514e2d6](https://github.com/pismo/bolt/commit/514e2d611e86c42c90499ccf37324543f80b3a8a))
+
+
+### Bug Fixes
+
+* **iinput:** icon closure ([005bc7e](https://github.com/pismo/bolt/commit/005bc7e1e089f55b903ac9c2ed955b1f93a5d323))
+
 ### [3.18.1](https://github.com/pismo/bolt/compare/v3.18.0...v3.18.1) (2021-07-20)
 
 
